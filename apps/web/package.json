@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.2",
+    "@guesung/tailwind-config": "workspace:*",
     "@guesung/eslint-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
     "@types/eslint": "^8.44.7",
