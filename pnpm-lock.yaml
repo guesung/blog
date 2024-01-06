@@ -8,10 +8,10 @@ importers:
 
   .:
     devDependencies:
-      '@repo/eslint-config':
+      '@guesung/eslint-config':
         specifier: workspace:*
         version: link:packages/configs/eslint
-      '@repo/typescript-config':
+      '@guesung/typescript-config':
         specifier: workspace:*
         version: link:packages/configs/typescript
       prettier:
@@ -23,7 +23,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@repo/ui':
+      '@guesung/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -39,10 +39,10 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.0.2
         version: 14.0.2
-      '@repo/eslint-config':
+      '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../../packages/configs/eslint
-      '@repo/typescript-config':
+      '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../../packages/configs/typescript
       '@types/eslint':
@@ -66,10 +66,10 @@ importers:
 
   apps/web:
     dependencies:
-      '@repo/ui':
+      '@guesung/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@repo/utils':
+      '@guesung/utils':
         specifier: workspace:*
         version: link:../../packages/utils
       next:
@@ -85,10 +85,10 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.0.2
         version: 14.0.2
-      '@repo/eslint-config':
+      '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../../packages/configs/eslint
-      '@repo/typescript-config':
+      '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../../packages/configs/typescript
       '@types/eslint':
@@ -138,10 +138,10 @@ importers:
 
   packages/ui:
     devDependencies:
-      '@repo/eslint-config':
+      '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../configs/eslint
-      '@repo/typescript-config':
+      '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
       '@turbo/gen':
@@ -171,10 +171,10 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@repo/eslint-config':
+      '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../configs/eslint
-      '@repo/typescript-config':
+      '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
       '@turbo/gen':

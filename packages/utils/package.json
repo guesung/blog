@@ -1,5 +1,5 @@
 {
-  "name": "@repo/utils",
+  "name": "@guesung/utils",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -9,8 +9,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@guesung/eslint-config": "workspace:*",
+    "@guesung/typescript-config": "workspace:*",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/eslint": "^8.44.7",
