@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:packages/configs/eslint-config
+        version: link:packages/configs/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:packages/typescript-config
+        version: link:packages/configs/typescript
       prettier:
         specifier: ^3.1.0
         version: 3.1.0
@@ -41,10 +41,10 @@ importers:
         version: 14.0.2
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/configs/eslint-config
+        version: link:../../packages/configs/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../packages/configs/typescript
       '@types/eslint':
         specifier: ^8.44.7
         version: 8.44.7
@@ -87,10 +87,10 @@ importers:
         version: 14.0.2
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/configs/eslint-config
+        version: link:../../packages/configs/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../packages/configs/typescript
       '@types/eslint':
         specifier: ^8.44.7
         version: 8.44.7
@@ -110,7 +110,7 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
-  packages/configs/eslint-config:
+  packages/configs/eslint:
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.11.0
@@ -134,16 +134,16 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
-  packages/typescript-config: {}
+  packages/configs/typescript: {}
 
   packages/ui:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../configs/eslint-config
+        version: link:../configs/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../configs/typescript
       '@turbo/gen':
         specifier: ^1.10.12
         version: 1.10.12(@types/node@20.5.2)(typescript@5.2.2)
@@ -173,10 +173,10 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../configs/eslint-config
+        version: link:../configs/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../configs/typescript
       '@turbo/gen':
         specifier: ^1.10.12
         version: 1.10.12(@types/node@20.5.2)(typescript@5.2.2)
