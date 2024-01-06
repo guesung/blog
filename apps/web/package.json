@@ -13,8 +13,8 @@
     "@guesung/utils": "workspace:*"
   },
   "devDependencies": {
-    "@guesung/tailwind-config": "workspace:*",
     "@guesung/eslint-config": "workspace:*",
+    "@guesung/tailwind-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*"
   }
 }
