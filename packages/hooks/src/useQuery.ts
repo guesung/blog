@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useError } from ".";
+import { useEffect, useState } from 'react';
+import { useError } from '.';
 
 interface useQueryProps<T> {
   initialData: T;
@@ -10,7 +10,7 @@ interface useQueryProps<T> {
 export default function useQuery<T>({
   initialData,
   fetchFn,
-  trigger
+  trigger,
 }: useQueryProps<T>) {
   const setError = useError();
   const [data, setData] = useState<T>(initialData);

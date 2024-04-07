@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function useError() {
   const [error, setError] = useState<Error | unknown>();
@@ -7,7 +7,7 @@ export default function useError() {
     if (!error) return;
 
     if (error instanceof Error) throw error;
-    else throw new Error("알 수 없는 에러가 발생했습니다.");
+    else throw new Error('알 수 없는 에러가 발생했습니다.');
   }, [error]);
 
   return setError;
