@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useError } from '.';
 
-interface useQueryProps<T> {
-  initialData: T;
-  fetchFn: () => Promise<T>;
+interface useDataGetProps<T> {
+  fetchFn: () => Promise<T[]>;
+  initialData?: T[];
   trigger?: unknown;
 }
 
-export default function useQuery<T>({
-  initialData,
+export default function useDataGet<T>({
   fetchFn,
+  initialData = [],
   trigger,
-}: useQueryProps<T>) {
+}: useDataGetProps<T>) {
   const setError = useError();
-  const [data, setData] = useState<T>(initialData);
+  const [data, setData] = useState<T[]>(initialData);
 
   useEffect(() => {
     fetchFn()
