@@ -1,6 +1,4 @@
-import type { Options } from 'prettier';
-
-const options: Options = {
+module.exports = {
   arrowParens: 'avoid',
   bracketSameLine: false,
   bracketSpacing: true,
@@ -14,5 +12,3 @@ const options: Options = {
   trailingComma: 'es5',
   useTabs: false,
 };
-
-module.exports = options;
