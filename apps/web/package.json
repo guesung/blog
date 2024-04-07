@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*"
+    "@guesung/utils": "workspace:*",
+    "@guesung/hooks": "workspace:*"
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
