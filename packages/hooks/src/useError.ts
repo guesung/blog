@@ -10,5 +10,5 @@ export default function useError() {
     else throw new Error('알 수 없는 에러가 발생했습니다.');
   }, [error]);
 
-  return setError;
+  return { error, setError };
 }
