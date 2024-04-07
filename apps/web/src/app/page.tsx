@@ -1,11 +1,9 @@
-import { useHello } from "@guesung/hooks";
-import { SquareBox } from "@guesung/ui";
+import ClientComponent from "../components/ClientComponent";
 
 export default function Page() {
-  useHello();
   return (
     <main>
-      <SquareBox />
+      <ClientComponent />
     </main>
   );
 }
