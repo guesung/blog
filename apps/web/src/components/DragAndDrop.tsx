@@ -1,4 +1,4 @@
-import SquareBox from "@guesung/ui/SquareBox";
+import SquareBox from '@guesung/ui/SquareBox';
 
 export default function DragAndDrop() {
   return (

@@ -1,1 +1,1 @@
-export {default as SquareBox} from './SquareBox';
+export { default as SquareBox } from './SquareBox';
