@@ -1,12 +1,9 @@
-import DragAndDrop from "../components/DragAndDrop";
-import { isServer } from "@guesung/utils/isServer";
+import { SquareBox } from "@guesung/ui";
 
 export default function Page() {
-  if (!isServer) console.log(MouseEvent);
-
   return (
     <main>
-      <DragAndDrop />
+      <SquareBox />
     </main>
   );
 }
