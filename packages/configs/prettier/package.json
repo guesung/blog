@@ -1,0 +1,10 @@
+{
+    "name": "@guesung/prettier-config",
+    "version": "0.0.0",
+    "private": true,
+    "main": "prettier.json",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    }
+}

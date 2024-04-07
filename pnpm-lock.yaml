@@ -21,6 +21,9 @@ importers:
       '@guesung/eslint-config':
         specifier: workspace:*
         version: link:packages/configs/eslint
+      '@guesung/prettier-config':
+        specifier: workspace:*
+        version: link:packages/configs/prettier
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:packages/configs/typescript
@@ -45,6 +48,9 @@ importers:
       eslint:
         specifier: ^8.53.0
         version: 8.56.0
+      eslint-config-prettier:
+        specifier: ^9.0.0
+        version: 9.0.0(eslint@8.56.0)
       postcss:
         specifier: ^8.4.33
         version: 8.4.33
@@ -150,9 +156,13 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  packages/configs/prettier: {}
+
   packages/configs/tailwind: {}
 
   packages/configs/typescript: {}
+
+  packages/constants: {}
 
   packages/hooks:
     devDependencies:
@@ -4204,6 +4214,7 @@ packages:
   /prettier@3.1.0:
     resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /prop-types@15.8.1:
