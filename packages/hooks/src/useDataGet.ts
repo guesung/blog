@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { useError } from '.';
 
 interface useDataGetProps<T> {
-  fetchFn: () => Promise<T[]>;
+  fn: () => Promise<T[]>;
   initialData?: T[];
   trigger?: unknown;
 }
 
 export default function useDataGet<T>({
-  fetchFn,
+  fn,
   initialData = [],
   trigger,
 }: useDataGetProps<T>) {
@@ -16,13 +16,14 @@ export default function useDataGet<T>({
   const [data, setData] = useState<T[]>(initialData);
 
   useEffect(() => {
-    fetchFn()
-      .then(response => {
+    (async function dataGet() {
+      try {
+        const response = await fn();
         setData(response);
-      })
-      .catch(error => {
+      } catch (error) {
         setError(error);
-      });
+      }
+    })();
   }, [trigger, setError]);
 
   return { data };
