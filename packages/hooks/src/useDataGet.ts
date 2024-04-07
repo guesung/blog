@@ -17,7 +17,7 @@ export default function useDataGet<T>({
   onSuccess,
   onError,
 }: useDataGetProps<T>) {
-  const { error, setError } = useError();
+  const { setError } = useError();
   const [data, setData] = useState<T[]>(initialData);
   const [status, setStatus] = useState<StatusType>('idle');
 
