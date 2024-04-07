@@ -7,7 +7,7 @@
     "dev:web": "turbo dev --filter web",
     "dev:docs": "turbo dev --filter docs",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write **",
     "make-graph": "turbo run build lint --graph"
   },
   "devDependencies": {
