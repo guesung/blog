@@ -1,3 +1,11 @@
+import { Footer, Header, PostSection } from './components';
+
 export default function Page() {
-  return <main className="bg-">aaaa</main>;
+  return (
+    <main>
+      <Header />
+      <PostSection />
+      <Footer />
+    </main>
+  );
 }
