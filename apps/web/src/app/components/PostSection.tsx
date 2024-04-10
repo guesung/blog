@@ -1,5 +1,6 @@
 'use server';
 
+import { Spacing } from '@guesung/ui';
 import PostList from './PostList';
 
 export default async function PostSection() {
@@ -17,6 +18,9 @@ export default async function PostSection() {
           <span>Next.js</span>
         </p>
       </div>
+
+      <Spacing size={50} />
+
       <div>
         <PostList />
       </div>
