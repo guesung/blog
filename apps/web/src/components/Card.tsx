@@ -1,24 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-// import { Tag } from '.';
+import { Tag } from '.';
+import { VariantEnum } from '@guesung/constants';
 
 interface CardProps {
   id: string;
   title: string;
-  description: string;
   date: string;
-  tags: string[];
+  tagList: string[];
   image: string;
 }
 
-export default function Card({
-  id,
-  title,
-  description,
-  date,
-  tags,
-  image,
-}: CardProps) {
+export default function Card({ id, title, date, tagList, image }: CardProps) {
   return (
     <article>
       <Link href={`posts/${id}`}>
@@ -30,8 +23,15 @@ export default function Card({
             objectFit="cover"
             fill
           />
+          <span className="absolute bottom-12 right-12">{date}</span>
         </div>
-        {/* <Tag>ddd</Tag> */}
+        <div className="flex justify-start py-5 gap-5">
+          {tagList.map(tag => (
+            <Tag key={tag} variant={VariantEnum.outline}>
+              {tag}
+            </Tag>
+          ))}
+        </div>
       </Link>
     </article>
   );
