@@ -2,16 +2,16 @@ import { clsx } from 'clsx';
 import { extendTailwindMerge } from 'tailwind-merge';
 
 import type { ClassValue } from 'clsx';
-import { fontSize } from '@/style';
 
 const customTwMerge = extendTailwindMerge({
-  
-  classGroups: {
-    'font-size': [
-      {
-        text: Object.keys(fontSize),
-      },
-    ],
+  extend: {
+    classGroups: {
+      'font-size': [
+        {
+          text: Object.keys(fontSize),
+        },
+      ],
+    },
   },
 });
 

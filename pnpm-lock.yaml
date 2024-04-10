@@ -240,6 +240,10 @@ importers:
         version: 5.2.2
 
   packages/utils:
+    dependencies:
+      '@guesung/styles':
+        specifier: workspace:*
+        version: link:../styles
     devDependencies:
       '@guesung/eslint-config':
         specifier: workspace:*
