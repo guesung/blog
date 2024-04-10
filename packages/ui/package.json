@@ -12,6 +12,7 @@
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
+    "@guesung/constants": "workspace:*",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/eslint": "^8.44.7",

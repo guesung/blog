@@ -211,6 +211,9 @@ importers:
 
   packages/ui:
     devDependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:../constants
       '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../configs/eslint
