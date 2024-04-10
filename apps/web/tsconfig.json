@@ -12,7 +12,9 @@
     "next.config.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/components/Tag.tsx",
+    "../../packages/ui/src/components/Card.tsx"
   ],
   "exclude": ["node_modules"],
   "paths": {

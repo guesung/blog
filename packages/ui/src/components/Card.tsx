@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Tag } from '.';
+import { Tag } from '../../../../apps/web/src/components';
 import { VariantEnum } from '@guesung/constants';
 
 interface CardProps {
