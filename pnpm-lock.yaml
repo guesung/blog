@@ -220,6 +220,9 @@ importers:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@turbo/gen':
         specifier: ^1.10.12
         version: 1.10.12(@types/node@20.5.2)(typescript@5.2.2)
