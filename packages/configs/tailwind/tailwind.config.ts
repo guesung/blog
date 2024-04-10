@@ -1,4 +1,4 @@
-import { pxToRemTailwind, colors, fontSize, theme } from './src/style';
+import { colors, fontSize, pxToRemTailwind, theme } from '@guesung/styles';
 
 const config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],

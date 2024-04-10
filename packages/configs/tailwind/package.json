@@ -9,5 +9,8 @@
   "files": [
     "postcss.config.js",
     "tailwindcss.config.js"
-  ]
+  ],
+  "dependencies": {
+    "@guesung/styles": "workspace:*"
+  }
 }

@@ -167,7 +167,11 @@ importers:
 
   packages/configs/prettier: {}
 
-  packages/configs/tailwind: {}
+  packages/configs/tailwind:
+    dependencies:
+      '@guesung/styles':
+        specifier: workspace:*
+        version: link:../../styles
 
   packages/configs/typescript: {}
 
@@ -202,6 +206,8 @@ importers:
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
+
+  packages/styles: {}
 
   packages/ui:
     devDependencies:
