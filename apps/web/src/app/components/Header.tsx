@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="text-title2 flex justify-between py-5">
+    <header className="text-title2 flex justify-between py-5 w-screen">
       <div className="">
         <span>Guesung.</span>
       </div>
