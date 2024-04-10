@@ -8,6 +8,9 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0"
   },
+  "dependencies": {
+    "@guesung/styles": "workspace:*"
+  },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
