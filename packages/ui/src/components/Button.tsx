@@ -1,6 +1,6 @@
 import { cn } from '@guesung/utils';
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   selected?: boolean;

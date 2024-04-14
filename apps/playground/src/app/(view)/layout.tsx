@@ -1,12 +1,13 @@
-import { Header } from '../../components';
+'use server';
 
+import { Header } from '../../components';
 interface ViewLayoutProps {
   children: React.ReactNode;
 }
 
-export default function ViewLayout({ children }: ViewLayoutProps) {
+export default async function ViewLayout({ children }: ViewLayoutProps) {
   return (
-    <div className="">
+    <div className="p-16">
       <Header />
       {children}
     </div>
