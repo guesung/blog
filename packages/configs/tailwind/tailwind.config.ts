@@ -1,7 +1,7 @@
 import { colors, fontSize, pxToRemTailwind, theme } from '@guesung/styles';
 
 const config = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       ...pxToRemTailwind,
