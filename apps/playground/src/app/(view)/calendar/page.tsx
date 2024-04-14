@@ -1,3 +1,11 @@
-export default function Page() {
-  return <div></div>;
+'use server';
+
+import { Calendar } from '@guesung/ui';
+
+export default async function Page() {
+  return (
+    <div>
+      <Calendar />
+    </div>
+  );
 }
