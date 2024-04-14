@@ -1,6 +1,6 @@
 'use client';
 
-import { Card } from '../../components';
+import { Card } from '@guesung/ui';
 
 export default function PostList() {
   // TODO : Client Data Fetching
