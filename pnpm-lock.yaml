@@ -217,6 +217,9 @@ importers:
       '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../configs/eslint
+      '@guesung/tailwind-config':
+        specifier: workspace:*
+        version: link:../configs/tailwind
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
