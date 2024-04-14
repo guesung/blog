@@ -116,6 +116,31 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  apps/playground:
+    dependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@guesung/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@guesung/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+    devDependencies:
+      '@guesung/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/configs/eslint
+      '@guesung/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/configs/tailwind
+      '@guesung/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/configs/typescript
+
   apps/web:
     dependencies:
       '@guesung/constants':
