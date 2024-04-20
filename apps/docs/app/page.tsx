@@ -1,3 +1,3 @@
 export default function Page(): JSX.Element {
-  return <main></main>;
+  return <h1>Docs</h1>;
 }
