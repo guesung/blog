@@ -1,3 +1,23 @@
 {
-  "extends": "@guesung/typescript-config/base.json"
+  "extends": "@guesung/typescript-config/base.json",
+  "references": [
+    {
+      "path": "./apps/blog"
+    },
+    {
+      "path": "./apps/docs"
+    },
+    {
+      "path": "./apps/playground"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/hooks"
+    },
+    {
+      "path": "./packages/utils"
+    }
+  ]
 }
