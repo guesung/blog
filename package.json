@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "turbo dev --concurrency 15",
     "dev:blog": "turbo dev --filter blog",
     "dev:docs": "turbo dev --filter docs",
     "dev:playground": "turbo dev --filter playground",
