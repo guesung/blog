@@ -9,7 +9,8 @@
     "dev:playground": "turbo dev --filter playground",
     "lint": "turbo lint",
     "format": "prettier --write **",
-    "make-graph": "turbo run build lint --graph"
+    "make-graph": "turbo run build lint --graph",
+    "script": "ts-node scripts/example.ts"
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
