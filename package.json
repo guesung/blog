@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "dev:web": "turbo dev --filter web",
+    "dev:blog": "turbo dev --filter blog",
     "dev:docs": "turbo dev --filter docs",
     "dev:playground": "turbo dev --filter playground",
     "lint": "turbo lint",
