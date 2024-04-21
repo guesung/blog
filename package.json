@@ -9,13 +9,9 @@
     "build": "turbo build",
     "start": "turbo start --concurrency 15",
     "dev": "turbo dev --concurrency 15",
-    "dev:blog": "turbo dev --filter blog",
-    "dev:docs": "turbo dev --filter docs",
-    "dev:playground": "turbo dev --filter playground",
     "lint": "turbo lint",
     "format": "prettier --write **",
-    "make-graph": "turbo run build lint --graph",
-    "script": "ts-node scripts/example.ts"
+    "make-graph": "turbo run build lint --graph"
   },
   "dependencies": {
     "clsx": "^2.1.0",
