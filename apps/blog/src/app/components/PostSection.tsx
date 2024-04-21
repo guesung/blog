@@ -2,9 +2,10 @@
 
 import { Spacing } from '@guesung/ui';
 import PostList from './PostList';
+import { getAllposts } from '@utils';
 
 export default async function PostSection() {
-  // Server Data Fetching
+  const allPosts = getAllposts();
 
   return (
     <section className="max-w-1000 flex flex-col items-center text-center">
@@ -22,7 +23,7 @@ export default async function PostSection() {
       <Spacing size={50} />
 
       <div>
-        <PostList />
+        <PostList postList={allPosts} />
       </div>
     </section>
   );
