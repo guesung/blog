@@ -1,4 +1,4 @@
-import { Footer, Header } from '../components';
+import { Footer, Header } from '@components';
 import { PostSection } from './components';
 
 export default function Page() {
