@@ -6,7 +6,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint --max-warnings 0"
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
