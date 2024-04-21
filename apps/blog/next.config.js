@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const createMDX = require('@next/mdx');
+
+const nextConfig = {
   transpilePackages: ['@guesung/ui'],
   images: {
     remotePatterns: [
@@ -9,4 +11,9 @@ module.exports = {
       },
     ],
   },
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
+
+const withMDX = createMDX({});
+
+module.exports = withMDX(nextConfig);
