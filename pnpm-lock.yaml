@@ -33,12 +33,6 @@ importers:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:packages/configs/typescript
-      '@next/eslint-plugin-next':
-        specifier: ^14.0.2
-        version: 14.0.2
-      '@types/eslint':
-        specifier: ^8.44.7
-        version: 8.44.7
       '@types/node':
         specifier: ^20.10.6
         version: 20.10.6
@@ -51,12 +45,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.33)
-      eslint:
-        specifier: ^8.53.0
-        version: 8.56.0
-      eslint-config-prettier:
-        specifier: ^9.0.0
-        version: 9.0.0(eslint@8.56.0)
       postcss:
         specifier: ^8.4.33
         version: 8.4.33
@@ -168,6 +156,12 @@ importers:
 
   packages/configs/eslint:
     devDependencies:
+      '@next/eslint-plugin-next':
+        specifier: ^14.0.2
+        version: 14.0.2
+      '@types/eslint':
+        specifier: ^8.44.7
+        version: 8.44.7
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.11.0
         version: 6.11.0(@typescript-eslint/parser@6.11.0)(eslint@8.56.0)(typescript@5.2.2)
@@ -177,6 +171,9 @@ importers:
       '@vercel/style-guide':
         specifier: ^5.1.0
         version: 5.1.0(@next/eslint-plugin-next@14.0.2)(eslint@8.56.0)(prettier@3.1.0)(typescript@5.2.2)
+      eslint:
+        specifier: ^8.53.0
+        version: 8.56.0
       eslint-config-prettier:
         specifier: ^9.0.0
         version: 9.0.0(eslint@8.56.0)
@@ -907,7 +904,7 @@ packages:
       minimatch: 9.0.3
       node-plop: 0.26.3
       proxy-agent: 6.3.0
-      semver: 7.5.4
+      semver: 7.5.0
       ts-node: 10.9.1(@types/node@20.10.6)(typescript@5.2.2)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.0
