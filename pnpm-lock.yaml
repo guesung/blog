@@ -8,6 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:packages/constants
+      '@guesung/hooks':
+        specifier: workspace:*
+        version: link:packages/hooks
+      '@guesung/ui':
+        specifier: workspace:*
+        version: link:packages/ui
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:packages/utils
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
@@ -30,6 +42,12 @@ importers:
       '@guesung/prettier-config':
         specifier: workspace:*
         version: link:packages/configs/prettier
+      '@guesung/styles':
+        specifier: workspace:*
+        version: link:packages/styles
+      '@guesung/tailwind-config':
+        specifier: workspace:*
+        version: link:packages/configs/tailwind
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:packages/configs/typescript
@@ -58,68 +76,11 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
-  apps/blog:
-    dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../../packages/constants
-      '@guesung/hooks':
-        specifier: workspace:*
-        version: link:../../packages/hooks
-      '@guesung/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/eslint
-      '@guesung/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/tailwind
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/typescript
+  apps/blog: {}
 
-  apps/docs:
-    dependencies:
-      '@guesung/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/eslint
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/typescript
+  apps/docs: {}
 
-  apps/my-moments:
-    dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../../packages/constants
-      '@guesung/hooks':
-        specifier: workspace:*
-        version: link:../../packages/hooks
-      '@guesung/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/eslint
-      '@guesung/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/tailwind
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/configs/typescript
+  apps/my-moments: {}
 
   packages/configs/eslint:
     devDependencies:
@@ -154,58 +115,19 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
 
-  packages/configs/tailwind:
-    dependencies:
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../../styles
+  packages/configs/tailwind: {}
 
   packages/configs/typescript: {}
 
   packages/constants: {}
 
-  packages/hooks:
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../configs/eslint
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../configs/typescript
+  packages/hooks: {}
 
   packages/styles: {}
 
-  packages/ui:
-    dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../constants
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../utils
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../configs/eslint
-      '@guesung/tailwind-config':
-        specifier: workspace:*
-        version: link:../configs/tailwind
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../configs/typescript
+  packages/ui: {}
 
-  packages/utils:
-    dependencies:
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../styles
-    devDependencies:
-      '@guesung/eslint-config':
-        specifier: workspace:*
-        version: link:../configs/eslint
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../configs/typescript
+  packages/utils: {}
 
 packages:
 

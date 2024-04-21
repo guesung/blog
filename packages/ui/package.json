@@ -8,14 +8,5 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
-  },
-  "dependencies": {
-    "@guesung/constants": "workspace:*",
-    "@guesung/utils": "workspace:*"
-  },
-  "devDependencies": {
-    "@guesung/eslint-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*",
-    "@guesung/tailwind-config": "workspace:*"
   }
 }

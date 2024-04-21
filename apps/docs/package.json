@@ -5,14 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3010",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3010",
     "lint": "eslint . --max-warnings 0"
-  },
-  "dependencies": {
-    "@guesung/ui": "workspace:*"
-  },
-  "devDependencies": {
-    "@guesung/eslint-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*"
   }
 }

@@ -4,19 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3000",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build ",
+    "start": "next start --port 3000",
     "lint": "eslint . --max-warnings 0"
-  },
-  "dependencies": {
-    "@guesung/hooks": "workspace:*",
-    "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*",
-    "@guesung/constants": "workspace:*"
-  },
-  "devDependencies": {
-    "@guesung/eslint-config": "workspace:*",
-    "@guesung/tailwind-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*"
   }
 }

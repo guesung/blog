@@ -22,12 +22,18 @@
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwind-merge": "^2.2.2"
+    "tailwind-merge": "^2.2.2",
+    "@guesung/hooks": "workspace:*",
+    "@guesung/ui": "workspace:*",
+    "@guesung/utils": "workspace:*",
+    "@guesung/constants": "workspace:*"
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
     "@guesung/prettier-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
+    "@guesung/tailwind-config": "workspace:*",
+    "@guesung/styles": "workspace:*",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",

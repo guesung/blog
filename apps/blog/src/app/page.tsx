@@ -1,5 +1,6 @@
 import { Footer, Header } from '@components';
 import { PostSection } from './components';
+import { Card } from '@guesung/ui';
 
 export default function Page() {
   return (
@@ -7,6 +8,7 @@ export default function Page() {
       <Header />
       <PostSection />
       <Footer />
+      <Card>aaa</Card>
     </main>
   );
 }

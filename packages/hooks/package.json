@@ -7,9 +7,5 @@
   },
   "scripts": {
     "lint": "eslint --max-warnings 0"
-  },
-  "devDependencies": {
-    "@guesung/eslint-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*"
   }
 }

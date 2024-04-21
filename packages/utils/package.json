@@ -7,12 +7,5 @@
   },
   "scripts": {
     "lint": "eslint ."
-  },
-  "dependencies": {
-    "@guesung/styles": "workspace:*"
-  },
-  "devDependencies": {
-    "@guesung/eslint-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*"
   }
 }
