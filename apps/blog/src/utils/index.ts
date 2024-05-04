@@ -1,1 +1,1 @@
-export * from './getPost';
+export * from './post';
