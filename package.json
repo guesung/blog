@@ -14,29 +14,30 @@
     "make-graph": "turbo run build lint --graph"
   },
   "dependencies": {
-    "clsx": "^2.1.0",
-    "next": "^14.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-merge": "^2.2.2",
+    "@guesung/constants": "workspace:*",
     "@guesung/hooks": "workspace:*",
     "@guesung/ui": "workspace:*",
     "@guesung/utils": "workspace:*",
-    "@guesung/constants": "workspace:*"
+    "clsx": "^2.1.0",
+    "next": "^14.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
     "@guesung/prettier-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*",
-    "@guesung/tailwind-config": "workspace:*",
     "@guesung/styles": "workspace:*",
+    "@guesung/tailwind-config": "workspace:*",
+    "@guesung/typescript-config": "workspace:*",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "turbo": "latest",
-    "@types/node": "^20.10.6",
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.18",
     "typescript": "^5.2.2"
   }
 }
