@@ -3,5 +3,5 @@ interface PostTitleProps {
   date: string;
 }
 export default function PostTitle({ title, date }: PostTitleProps) {
-  return <div>{title}</div>;
+  return <div className="text-center text-title1 my-50">{title}</div>;
 }

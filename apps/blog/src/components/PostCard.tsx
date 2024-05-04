@@ -1,43 +1,19 @@
-import { VariantEnum } from '@guesung/constants';
-import { Card, Tag } from '@guesung/ui';
-import Image from 'next/image';
+import Link from 'next/link';
 
 interface PostCardProps {
   id: string;
   title: string;
   date: string;
-  tagList: string[];
-  image: string;
+  url: string;
 }
 
-export default function PostCard({
-  id,
-  title,
-  date,
-  tagList,
-  image,
-}: PostCardProps) {
+export default function PostCard({ id, title, date, url }: PostCardProps) {
+  console.log(title, date, id);
   return (
-    <Card href={`/posts/${id}`}>
-      <Card.Header>
-        <Image
-          src={image}
-          alt={title}
-          className="rounded-24"
-          objectFit="cover"
-          fill
-        />
+    <Link href={url}>
+      <div className="h-300 w-400 relative rounded-16 bg-slate-500 my-10">
         <span className="absolute bottom-12 right-12">{date}</span>
-      </Card.Header>
-      <Card.Content>
-        <div className="flex justify-start py-5 gap-5">
-          {tagList.map(tag => (
-            <Tag key={tag} variant={VariantEnum.outline}>
-              {tag}
-            </Tag>
-          ))}
-        </div>
-      </Card.Content>
-    </Card>
+      </div>
+    </Link>
   );
 }
