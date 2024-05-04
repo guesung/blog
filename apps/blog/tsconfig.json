@@ -1,12 +1,19 @@
 {
   "extends": "@guesung/typescript-config/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@*": ["src/*"],
-      "@posts*": ["_posts/*"]
+      "@posts*": ["_posts/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   }
 }

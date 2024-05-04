@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const createMDX = require('@next/mdx');
+const { withContentlayer } = require('next-contentlayer');
 
 const nextConfig = {
   transpilePackages: ['@guesung/ui'],
@@ -11,9 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-const withMDX = createMDX({});
-
-module.exports = withMDX(nextConfig);
+module.exports = withContentlayer(nextConfig);

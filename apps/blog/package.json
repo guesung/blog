@@ -9,11 +9,10 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.2",
-    "@types/mdx": "^2.0.13",
-    "gray-matter": "^4.0.3"
+    "contentlayer": "^0.3.4",
+    "date-fns": "^3.6.0",
+    "gray-matter": "^4.0.3",
+    "next-contentlayer": "^0.3.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13"
