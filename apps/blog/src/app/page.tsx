@@ -4,9 +4,9 @@ import { getAllPosts } from '@utils';
 export default function Page() {
   const postList = getAllPosts();
   return (
-    <div className="mx-auto max-w-1000">
-      <div className="text-title1 text-center my-20">ALL POSTS.</div>
-      <div className="grid grid-cols-2 justify-items-center">
+    <div className="max-w-1000 mx-auto">
+      <div className="text-title1 my-20 text-center">ALL POSTS.</div>
+      <div className="grid h-20 w-1 grid-cols-2 justify-items-center">
         {postList.map(post => (
           <PostCard
             id={post._id}

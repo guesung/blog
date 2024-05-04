@@ -23,7 +23,7 @@ export default function Button({
         'rounded-8',
         {
           'bg-black text-white': selected,
-          'bg-white text-black border border-black': !selected,
+          'border border-black bg-white text-black': !selected,
         },
         sizeClassName[size]
       )}

@@ -86,7 +86,7 @@ interface DayProps {
 function Day({ children, className }: DayProps) {
   return (
     <div
-      className={cn('border text-center justify-center h-100 w-100', className)}
+      className={cn('h-100 w-100 justify-center border text-center', className)}
     >
       {children}
     </div>

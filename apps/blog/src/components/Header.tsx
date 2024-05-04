@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="text-title2 flex justify-between py-5 w-screen max-w-1000 mx-auto h-80 items-center">
+    <header className="text-title2 max-w-1000 mx-auto flex h-80 w-screen items-center justify-between py-5">
       <div className="">
         <Link href="/">Guesung.</Link>
       </div>

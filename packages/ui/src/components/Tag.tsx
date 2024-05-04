@@ -16,7 +16,7 @@ export default function Tag({
   children,
 }: PropsWithChildren<TagProps>) {
   return (
-    <div className={cn('py-8 px-4', tagVariantClassname[variant])}>
+    <div className={cn('px-4 py-8', tagVariantClassname[variant])}>
       {children}
     </div>
   );
