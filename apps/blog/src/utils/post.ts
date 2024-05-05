@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated';
+import { allPosts } from '@contents';
 import { compareDesc } from 'date-fns';
 import { notFound } from 'next/navigation';
 
