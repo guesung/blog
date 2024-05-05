@@ -1,0 +1,241 @@
+---
+title: Turbo Repo로 프로젝트 확장성 있게 관리하기
+date: 2024-05-05
+---
+
+# 1. 모노 레포(Monolithic Repository)
+: 많은 프로젝트를 단일 저장소에서 관리하는 방식
+
+### 모노레포의 장점
+1. 쉬운 프로젝트 생성
+모노레포에서 새로운 프로젝트 생성 시, 기존 DevOps를 이용하면 된다.
+
+2. 쉬운 의존성 관리
+
+3. 단일화된 관리 포인트
+개발 환경 및 DevOps에 대한 업데이트를 한 번에 반영할 수 있다.
+e.g. .env파일 관리, PR 템플릿, Prettier, ESLint 등
+
+4. 일관된 개발자 경험 제공
+
+5. 프로젝트에 걸친 원자적 커밋
+
+6. 서로 의존하는 저장소들의 리팩토링 비용 감소
+
+
+
+### 모노레포의 단점
+
+### 모노레포가 적절한 상황
+1. 유사한 제품의 집합
+2. 여러 프로젝트의 변화를 한 눈에 파악해야 할 때
+3. 호스트 애플리케이션을 플러그인 등으로 확장할 때
+4. 공통 기능을 재사용하는 관련된 프로젝트의 집합
+5. 유사한 DevOps로 구성된 프로젝트의 집합
+
+
+### 모노레포를 사용하는 회사 리스트
+- Google, Facebook, Microsoft, Uber, Airbnb, Twitter
+
+### 모노레포 특징
+1. 모노레포 구축을 도와주는 도구 점유율
+![](https://velog.velcdn.com/images/guesung/post/b9cfc431-e503-4aa8-847b-dbb4eaed7a34/image.png)
+   - Lerna 25%, Yarn Workspaces 25%, npm workspaces 18%, pnpm 13%, Nx 13%, Turborepo 3%
+
+
+
+
+
+# 2. Turbo Repo
+: JS와 TS 코드 베이스의 모노레폴르 위한 고성능 빌드 시스템
+- [공식문서](https://github.com/vercel/turbo)
+
+
+### Turbo Repo 특징
+1. Vercel이 인수하여 관리
+2. AWS, Miro, Paypal, Discord, Line+ 등 여러 프로젝트에서 프로덕션 단계로 사용
+3. Incremental builds : 이미 빌드된 내용은 캐시하고 다시 빌드하지 않는다.
+4. Content aware hasing : 타밍스탬프가 아닌 콘테츠를 인식하여, 병경된 파일만 빌드
+5. Cloud caching : 빌드 파일을 클라우드에 올려 팀원들과 CI/CD에서 공유
+6. Parallel execution : 모든 코어를 사용하여 병렬 처리하여 작업을 진행
+7. Task Pipelines : Task간의 관계를 정의한 다음 빌드를 언제 어떻게 실행할 지 최적화
+8. Zero runtime overhead : 런타임 코드와 소스 맵을 다루지 않는다.
+
+
+# 3. 모노레포 본격적으로 사용하기
+매 번 프로젝트를 시작할 때마다 컴포넌트를 새로 만들고, 훅, 유틸함수를 만들어 사용하고, typescript, eslint, prettier를 매 번 설정해주는 것이 불편하게 느껴졌습니다. 이러한 불편함을 해소하고자 회사에서 디자인 시스템을 사용하고, 훅, 유틸을 만들어 공유하여 사용할 수 있도록 하는 거구나 몸소 느꼈습니다.
+블로그도 만들고 싶고, [rauno](https://rauno.me/)나 [춘식이 관찰일기](https://www.choonsikdiary.com/)처럼 재미있는 사이트도 만들어보고 싶은데, 최소한의 설정으로 새로운 서비스를 빠르게 만들 수 있는 방법으로 모노레포가 떠올라, 이번 기회에 써봐야겠다고 생각했습니다.
+이번 글에서는 제가 모노레포를 적용한 경험과, 적용하며 겪은 트러블 슈팅에 대해 소개하도록 하겠습니다.
+
+## 3.1. Turbo Repo?
+위 내용에서 눈치 채셨겠지만, 저는 Turbo Repo를 사용했습니다. 기존 CI 과정에서 빌드한 것들을 캐싱하여, 빠른 빌드를 제공한다는 점이 가장 매력적이었습니다. 추가로 [Turbo Repo](https://turbo.build/)사이트가 상당히 예쁘다는 점, 활발한 개발과 업데이트가 진행되고 있다는 점, Next.js를 개발한 회사인 Vercel에서 관리하고 있다는 점도 한 몫을 했습니다. Vercel이 관리하고 있기에, Next.js와 큰 시너지도 기대해볼 수 있을 것이라 생각했습니다.
+
+패키지 관리자는 pnpm을 사용했습니다. 효율적으로 node_modules폴더의 패키지를 중복으로 설치하지 않아 효율적이라는 점, 그리고 병렬로 명령어를 처리하기에 빠르다는 점, 그리고 turbo repo에서 사용을 권장한다는 이유로 선택했습니다.
+
+## 3.2. Turbo Repo로 프로젝트 세팅하기
+- [공식 문서](https://turbo.build/repo/docs/getting-started/create-new)
+1. `pnpm dlx create-turbo`
+   - 명령어를 입력하면, 패키지 매니저를 선택할 수 있습니다. bun, npm, pnpm, yarn 모두 사용할 수 있지만, Turbo Repo는 [pnpm](https://pnpm.io/ko/installation)을 권장하고 있습니다.
+2. `pnpm install`
+
+### 1) eslint 설정
+- [공식 문서](https://turbo.build/repo/docs/handbook/linting/eslint)
+
+eslint는 eslint-config 패키지에서 next.js, react.js 등 각 프로젝트 특성에 맞는 eslint 파일을 만들고, 각 패키지에서는 해당 js파일들을 import하여 적용하였습니다.
+eslint-config패키지의 next.js는 다음과 같습니다.
+```js
+// packages/eslint-config/next.js
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    require.resolve("@vercel/style-guide/eslint/next"),
+    "eslint-config-turbo",
+  ],
+  // ..
+};
+```
+이 파일을 각 패키지에서 가져다가 사용하면 됩니다.
+```js
+// apps/blog/.eslintrc.js
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  root: true,
+  extends: ['@guesung/eslint-config/next.js'],
+  parser: '@typescript-eslint/parser'
+};
+```
+- `root : true` : 현재 eslintrc파일이 위치한 곳이 eslint를 실행할 최상단이라는 것을 명시해줍니다.
+- `extends: ..` : 위에서 만든 eslint-config의 next.js를 가져와 확장합니다. 이를 사용하기 위해서는, 사용할 프로젝트에서 해당 패키지를 의존성에 추가해주어야 합니다.
+
+
+### 2) prettier 설정
+prettier 또한 패키지 별로 크게 다를 것이 없다고 판단하여 eslint와 동일하게 루트에서 하나의 파일로 관리했습니다.
+```
+"@guesung/prettier-config"
+```
+prettier-config의 본체는 아래 경로에 있습니다.
+```js
+// packages/configs/prettier/index.js
+module.exports = {
+  arrowParens: 'avoid',
+  bracketSameLine: false,
+  bracketSpacing: true,
+  // ..
+};
+```
+
+### 3) typescript 설정
+
+
+### 4) 절대 경로 설정
+```json
+// tsconfig.json
+{
+  // ..
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["src/*"]
+    }
+  }
+}
+```
+
+
+
+## 3.3 새로운 프로젝트 추가하기
+### 1) pnpm-workspace.yaml
+workspace는 pnpm-workspace.yaml에서 관리합니다.
+```yaml
+packages:
+  - "apps/*"
+  - "packages/**"
+```
+packages하위에서 depth가 1까지만 패키지를 만들 것이라면 `packages/*`도 괜찮지만, 저는 packages하위에 depth를 더 만들 것이라 `packages/**`로 수정하였습니다.
+
+### 2) 프로젝트 추가
+만들고 싶은 프로젝트가 서비스라면 apps, 혹은 apps를 위한 프로젝트라면 packages를 추가합니다. 저는 만들고 싶은 프로젝트가
+
+
+
+### 3) 패키지 설치
+- [공식 문서](https://turbo.build/repo/docs/handbook/package-installation)
+1. workspace에 패키지 설치 : `pnpm add <package> --filter <workspace>`
+예를 들어, web 애플리케이션에만 react-hook-form을 설치하고 싶다면, `pnpm add react-hook-form --filter web`을 입력하면 된다.
+2. 전역으로 설치 : `pnpm add -w <package>`
+
+### 4) 다른 패키지 가져다가 사용하기
+1. 사용할 패키지의 package.json파일의 name을 확인한다.
+    ```tsx
+    // packages/configs/tailwind/package.json
+    {
+    	"name":"@guesung/tailwind.config",
+    	// ..
+    }
+    ```
+    이 패키지는 위에서 설정한 `pnpm-workspace.yaml`에 해당해야 합니다.
+    
+2. 사용하고 싶은 패키지의 package.json에 패키지를 추가합니다.
+    
+    ```tsx
+    // apps/web/package.json
+    {
+    	"dependencies":{
+    		"@guesung/ui":"workspace:*"
+    	}
+    }
+    ```
+    
+3. 패키지를 이제 가져다가 사용하면 됩니다.
+    
+    ```tsx
+    // apss/web/tailwind.config.ts
+    module.exports = require("@guesung/tailwind-config/tailwind.config");
+    ```
+
+## 3.4. 폴더 구조
+
+
+## 3.5. 스크립트 실행
+`turbo 스크립트`를 실행하면, 해당 스크립트를 가진 패키지의 스크립트들을 순차적으로 실행한다. 예를 들어, `turbo lint`를 입력하면, `lint` 스크립트를 가진 패키지들의 `lint`를 실행합니다.
+
+한 프로젝트에서만 스크립트를 실행하기 위해서는 filter를 사용하면 됩니다.
+`turbo 스크립트 --filter 패키지명`
+
+
+
+
+## Turbo Repo를 사용하며 겪은 트러블 슈팅
+### 1. run failed: error preparing engine: Invalid persistent task configuration:
+`turbo dev`를 입력했을 때 발생한 에러입니다. 
+![](https://velog.velcdn.com/images/guesung/post/520edcdf-a6e9-4e72-a00f-75211f07f8b3/image.png)
+`turbo dev`는 각 패키지의 `dev` 스크립트를 가진 명령어들을 실행해주는 명령어입니다.
+concurrency의 기본값은 10개이며, 10개를 초과했기에 발생한 에러입니다. 에러 메시지 그대로 
+`turbo dev` 뒤에 `--concurrency = 13`을 입력해주면 해결이 됩니다. concurrency는 실행할 작업의 동시성으로 처리할 최대 개수를 의미합니다.
+- [--concurrency 공식문서](https://turbo.build/repo/docs/reference/command-line-reference/run#--concurrency)
+
+### 2. Could not load the Typescript version at this path
+![](https://velog.velcdn.com/images/guesung/post/fb815ccf-7d53-44f5-9360-fb94ac2314e4/image.png)
+다양한 시도를 해보며 알게 된 사실입니다.
+1. 루트에 typescript가 설치되어 있어야 한다.
+	typescript-config 패키지는 결국 하나의 모듈이기에, 해당 패키지를 설치하더라도, typescript가 루트에 설치된 효과를 보이지 않습니다.
+2. 루트 > tsconfig.json에서 Command + shift + p를 눌러 Typescript 버전을 설정하면 된다.
+
+### 3. You are linting ".", but all of the files matching the glob pattern "." are ignored.
+![](https://velog.velcdn.com/images/guesung/post/fa9f69b1-777c-4ad2-867f-648c40e1f487/image.png)
+.eslintrc.js파일에서 `root:true`를 활성화하지 않아, `root:true`를 가진 eslintrc파일을 찾아가다가 발생한 에러입니다. 각 패키지의 .eslintrc파일에 `root:true`를 추가하면 해결이 됩니다.
+
+
+
+## Reference
+- https://d2.naver.com/helloworld/0923884
+- https://medium.com/@hong009319/turborepo-%EB%B0%8F-pnpm%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-monorepo-%EA%B5%AC%EC%B6%95-a2f1c3de6f4d
+- https://engineering.linecorp.com/ko/blog/monorepo-with-turborepo
+- https://turbo.build/repo/docs
+- https://dev-scratch.tistory.com/161
