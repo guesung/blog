@@ -1,6 +1,7 @@
 import { MDX } from 'contentlayer/core';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
+
 interface PostContentProps {
   body: MDX;
 }
@@ -9,7 +10,7 @@ export default function PostContent({ body }: PostContentProps) {
 
   return (
     <div className="prose">
-      <MDXContent />;
+      <MDXContent />
     </div>
   );
 }
