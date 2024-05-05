@@ -10,7 +10,7 @@ export default function page({ params: { slug } }: pageProps) {
   const { title, date, body } = getPost({ slug });
 
   return (
-    <div className="max-w-1000 mx-auto">
+    <div className="max-w-760 mx-auto">
       <PostTitle title={title} date={date} />
       <PostContent body={body} />
     </div>
