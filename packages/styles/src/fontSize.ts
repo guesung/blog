@@ -3,7 +3,6 @@ export const fontSize = {
     '3.75rem',
     {
       fontWeight: 'bold',
-      lineHeight: '1.875rem',
       letterSpacing: '-0.00625rem',
     },
   ],
@@ -11,7 +10,6 @@ export const fontSize = {
     '1.875rem',
     {
       fontWeight: 'bold',
-      lineHeight: '1.875rem',
       letterSpacing: '-0.00625rem',
     },
   ],
@@ -19,7 +17,6 @@ export const fontSize = {
     '1.25rem',
     {
       fontWeight: 'regular',
-      lineHeight: '1.875rem',
       letterSpacing: '-0.00625rem',
     },
   ],
@@ -27,7 +24,6 @@ export const fontSize = {
     '0.75rem',
     {
       fontWeight: 'regular',
-      lineHeight: '1.875rem',
       letterSpacing: '-0.00625rem',
     },
   ],
