@@ -30,7 +30,7 @@ export default function RootLayout({
     <html
       className={cn(
         pretendard.variable,
-        'leading-5 dark:bg-black dark:text-white',
+        'text-body3 leading-5 dark:bg-black dark:text-white',
         {
           dark: theme === 'dark',
         }

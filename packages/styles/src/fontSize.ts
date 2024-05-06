@@ -41,6 +41,12 @@ export const fontSize = {
       fontWeight: 'regular',
     },
   ],
+  body3: [
+    '1rem',
+    {
+      fontWeight: 'regular',
+    },
+  ],
   caption: [
     '0.75rem',
     {
