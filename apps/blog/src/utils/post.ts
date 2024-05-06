@@ -10,7 +10,7 @@ interface GetPost {
 }
 
 export const getPost = ({ slug }: GetPost) => {
-  const post = allPosts.find(post => post._raw.flattenedPath === slug);
+  const post = allPosts.find(post => post.slug === slug);
   if (!post) return notFound();
   return post;
 };
