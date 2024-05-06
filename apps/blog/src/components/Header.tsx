@@ -9,7 +9,7 @@ export default function Header() {
   const theme = cookieStore.get('theme')?.value;
 
   return (
-    <header className="text-subtitle2 fixed top-0 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-xl dark:bg-black">
+    <header className="text-subtitle2 fixed top-0 z-10 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-xl dark:bg-black">
       <div>
         <Link href="/">Guesung.</Link>
       </div>
