@@ -9,7 +9,7 @@ export default function PostContent({ body }: PostContentProps) {
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <div className="prose">
+    <div className="prose max-w-full">
       <MDXContent />
     </div>
   );
