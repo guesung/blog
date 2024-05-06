@@ -1,30 +1,50 @@
 export const fontSize = {
   title1: [
-    '3.75rem',
+    '4rem',
     {
       fontWeight: 'bold',
-      letterSpacing: '-0.00625rem',
     },
   ],
   title2: [
-    '1.875rem',
+    '3.5rem',
     {
       fontWeight: 'bold',
-      letterSpacing: '-0.00625rem',
+    },
+  ],
+  title3: [
+    '3rem',
+    {
+      fontWeight: 'bold',
+    },
+  ],
+  subtitle1: [
+    '2.5rem',
+    {
+      fontWeight: 'bold',
+    },
+  ],
+  subtitle2: [
+    '2rem',
+    {
+      fontWeight: 'bold',
     },
   ],
   body1: [
+    '1.5rem',
+    {
+      fontWeight: 'regular',
+    },
+  ],
+  body2: [
     '1.25rem',
     {
       fontWeight: 'regular',
-      letterSpacing: '-0.00625rem',
     },
   ],
   caption: [
     '0.75rem',
     {
       fontWeight: 'regular',
-      letterSpacing: '-0.00625rem',
     },
   ],
 };
