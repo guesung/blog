@@ -127,7 +127,13 @@ table {
   border-spacing: 0;
 }
 
-
+*,
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: theme('borderColor.DEFAULT', currentColor);
+}
 
 .prose code {
   counter-reset: line;
@@ -173,4 +179,8 @@ table {
 
 .dark .prose *{
   @apply text-white
+}
+
+.prose h1 {
+  @apply border-b-1 border-slate-200 border-solid pb-8
 }
