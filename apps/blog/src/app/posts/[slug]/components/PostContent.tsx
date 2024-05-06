@@ -1,6 +1,7 @@
 import { MDX } from 'contentlayer/core';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
+import Callout from '@components/Callout';
 
 interface PostContentProps {
   body: MDX;
@@ -10,7 +11,7 @@ export default function PostContent({ body }: PostContentProps) {
 
   return (
     <div className="prose max-w-full">
-      <MDXContent />
+      <MDXContent components={{ Callout }} />
     </div>
   );
 }
