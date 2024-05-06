@@ -14,16 +14,16 @@ export default function Footer() {
   return (
     <footer className="flex flex-col gap-10 py-40">
       <div className="flex justify-center gap-10">
-        <Link href={GITHUB_URL}>
+        <Link href={GITHUB_URL} target="_blank">
           <GithubIcon width={25} height={25} />
         </Link>
-        <Link href={LINKEDIN_URL}>
+        <Link href={LINKEDIN_URL} target="_blank">
           <LinkedInIcon width={25} height={25} />
         </Link>
-        <Link href={INSTAGRAM_URL}>
+        <Link href={INSTAGRAM_URL} target="_blank">
           <InstagramIcon width={25} height={25} />
         </Link>
-        <Link href={EMAIL_URL}>
+        <Link href={EMAIL_URL} target="_blank">
           <EmailIcon width={25} height={25} />
         </Link>
       </div>
