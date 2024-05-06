@@ -1,6 +1,8 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
-import rehypePrettyCode from 'rehype-pretty-code';
+import rehypePrettyCode, {
+  type Options as PrettyCodeOptions,
+} from 'rehype-pretty-code';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -22,7 +24,7 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-const rehypeOptions = {
+const rehypeOptions: PrettyCodeOptions = {
   theme: 'one-dark-pro',
   defaultLang: {
     block: 'typescript',
@@ -34,6 +36,6 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [[rehypePrettyCode as any, rehypeOptions]],
+    rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
   },
 });
