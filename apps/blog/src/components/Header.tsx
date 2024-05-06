@@ -14,8 +14,8 @@ export default function Header() {
         <Link href="/">Guesung.</Link>
       </div>
       <div className="flex gap-10">
-        <span>Note</span>
-        <span>About</span>
+        {/* <span>Note</span>
+        <span>About</span> */}
 
         <ToggleTheme>
           {theme === 'dark' ? (

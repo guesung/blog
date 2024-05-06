@@ -3,7 +3,7 @@ import Link from 'next/link';
 interface PostCardProps {
   title: string;
   date: string;
-  url: string;
+  slug: string;
 }
 
 export default function PostCard({ title, date, slug }: PostCardProps) {

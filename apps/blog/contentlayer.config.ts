@@ -1,4 +1,8 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import {
+  ComputedFields,
+  defineDocumentType,
+  makeSource,
+} from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode, {
   type Options as PrettyCodeOptions,
