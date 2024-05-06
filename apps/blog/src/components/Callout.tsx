@@ -33,7 +33,7 @@ export default function Callout({
     >
       <div className="flex items-center gap-8">
         {icons[type]}
-        {title}
+        <span className="text-body2 font-bold">{title}</span>
       </div>
       <div>{children}</div>
     </div>
