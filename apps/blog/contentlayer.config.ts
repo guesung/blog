@@ -7,13 +7,8 @@ import remarkGfm from 'remark-gfm';
 import rehypePrettyCode, {
   type Options as PrettyCodeOptions,
 } from 'rehype-pretty-code';
-
-const computedFields: ComputedFields = {
-  slug: {
-    type: 'string',
-    resolve: doc => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
-  },
-};
+import path from 'path';
+import { FieldDef } from 'contentlayer/core';
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -27,7 +22,12 @@ const Post = defineDocumentType(() => ({
     isPublished: { type: 'boolean', required: true },
     imgUrl: { type: 'string', required: false },
   },
-  computedFields,
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: doc => doc._raw.flattenedPath.replace(/^[^\/]*\/?/, ''),
+    },
+  },
 }));
 
 const Translation = defineDocumentType(() => ({
@@ -42,7 +42,13 @@ const Translation = defineDocumentType(() => ({
     isPublished: { type: 'boolean', required: true },
     imgUrl: { type: 'string', required: false },
   },
-  computedFields,
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: doc =>
+        path.dirname(doc._raw.flattenedPath.replace(/^[^\/]*\/?/, '')),
+    },
+  },
 }));
 
 const rehypeOptions: PrettyCodeOptions = {
