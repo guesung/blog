@@ -1,4 +1,4 @@
-import { getPost } from '@utils';
+import { getContent } from '@utils';
 import { PostContent, PostTitle } from './components';
 
 interface pageProps {
@@ -7,7 +7,7 @@ interface pageProps {
   };
 }
 export default function page({ params: { slug } }: pageProps) {
-  const { title, date, body } = getPost({ slug });
+  const { title, date, body } = getContent({ slug });
 
   return (
     <div className="max-w-760 mx-auto">

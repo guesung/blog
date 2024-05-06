@@ -1,8 +1,8 @@
 import { PostCard } from '@components';
-import { getAllPosts } from '@utils';
+import { getAllContents } from '@utils';
 
 export default function Page() {
-  const postList = getAllPosts();
+  const postList = getAllContents();
   return (
     <div className="max-w-1000 mx-auto">
       <div className="text-title1 my-20 text-center">ALL POSTS.</div>
