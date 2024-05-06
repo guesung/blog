@@ -162,3 +162,15 @@ table {
 .prose a {
   @apply no-underline text-blue-500 hover:underline
 }
+
+.prose :not(pre) > code::before,::after {
+  @apply hidden
+}
+
+.prose :not(pre) > code{
+  @apply bg-slate-200 rounded-16 px-2 py-1
+}
+
+.dark .prose *{
+  @apply text-white
+}
