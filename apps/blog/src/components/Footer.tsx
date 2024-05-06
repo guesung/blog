@@ -1,14 +1,8 @@
-import GithubIcon from '@svgs/github.svg';
+import { EMAIL_URL, GITHUB_URL, LINKEDIN_URL } from '@guesung/constants';
 import EmailIcon from '@svgs/email.svg';
-import InstagramIcon from '@svgs/instagram.svg';
+import GithubIcon from '@svgs/github.svg';
 import LinkedInIcon from '@svgs/linkedIn.svg';
 import Link from 'next/link';
-import {
-  EMAIL_URL,
-  GITHUB_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-} from '@guesung/constants';
 
 export default function Footer() {
   return (
@@ -19,9 +13,6 @@ export default function Footer() {
         </Link>
         <Link href={LINKEDIN_URL} target="_blank">
           <LinkedInIcon width={25} height={25} />
-        </Link>
-        <Link href={INSTAGRAM_URL} target="_blank">
-          <InstagramIcon width={25} height={25} />
         </Link>
         <Link href={EMAIL_URL} target="_blank">
           <EmailIcon width={25} height={25} />
