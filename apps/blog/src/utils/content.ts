@@ -10,3 +10,9 @@ export const getContent = (contents: DocumentTypes[], slug: string) => {
   if (!content) return notFound();
   return content;
 };
+
+export const getTranslation = (contents: DocumentTypes[], slug: string) => {
+  const content = contents.find(content => content.slug.split('/')[0] === slug);
+  if (!content) return notFound();
+  return content;
+};
