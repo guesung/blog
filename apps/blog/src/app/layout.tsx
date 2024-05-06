@@ -28,9 +28,13 @@ export default function RootLayout({
 
   return (
     <html
-      className={cn(pretendard.variable, 'dark:bg-black dark:text-white', {
-        dark: theme === 'dark',
-      })}
+      className={cn(
+        pretendard.variable,
+        'leading-5 dark:bg-black dark:text-white',
+        {
+          dark: theme === 'dark',
+        }
+      )}
     >
       <body className={pretendard.className}>
         <Header />
