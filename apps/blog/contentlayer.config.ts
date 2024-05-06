@@ -32,7 +32,7 @@ const rehypeOptions: PrettyCodeOptions = {
 };
 
 export default makeSource({
-  contentDirPath: 'posts',
+  contentDirPath: 'contents',
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
