@@ -1,6 +1,8 @@
 import { Footer, Header } from '@components';
 import './globals.css';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { cn } from '@guesung/utils';
 
 import localFont from 'next/font/local';
 
@@ -21,8 +23,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
+  const cookieStore = cookies();
+  const theme = cookieStore.get('theme')?.value;
+
   return (
-    <html className={`${pretendard.variable}`}>
+    <html
+      className={cn(pretendard.variable, 'dark:bg-black dark:text-white', {
+        dark: theme === 'dark',
+      })}
+    >
       <body className={pretendard.className}>
         <Header />
         <Header.Margin />
