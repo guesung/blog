@@ -1,27 +1,27 @@
 import {
-  ComputedFields,
+  FieldDefs,
   defineDocumentType,
   makeSource,
 } from 'contentlayer/source-files';
-import remarkGfm from 'remark-gfm';
 import rehypePrettyCode, {
   type Options as PrettyCodeOptions,
 } from 'rehype-pretty-code';
-import path from 'path';
-import { FieldDef } from 'contentlayer/core';
+import remarkGfm from 'remark-gfm';
+
+const commonFields: FieldDefs = {
+  title: { type: 'string', required: true },
+  description: { type: 'string', required: false },
+  date: { type: 'date', required: true },
+  tags: { type: 'list', of: { type: 'string' }, required: false },
+  isPublished: { type: 'boolean', required: true },
+  imgUrl: { type: 'string', required: false },
+};
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.mdx`,
   contentType: 'mdx',
-  fields: {
-    title: { type: 'string', required: true },
-    description: { type: 'string', required: false },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, required: false },
-    isPublished: { type: 'boolean', required: true },
-    imgUrl: { type: 'string', required: false },
-  },
+  fields: { ...commonFields },
   computedFields: {
     slug: {
       type: 'string',
@@ -32,21 +32,19 @@ const Post = defineDocumentType(() => ({
 
 const Translation = defineDocumentType(() => ({
   name: 'Translation',
-  filePathPattern: `translation/**/*.mdx`,
+  filePathPattern: `translations/**/*.mdx`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    description: { type: 'string', required: false },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, required: false },
-    isPublished: { type: 'boolean', required: true },
-    imgUrl: { type: 'string', required: false },
+    ...commonFields,
   },
   computedFields: {
+    skill: {
+      type: 'string',
+      resolve: doc => doc._raw.flattenedPath.split('/')[1],
+    },
     slug: {
       type: 'string',
-      resolve: doc =>
-        path.dirname(doc._raw.flattenedPath.replace(/^[^\/]*\/?/, '')),
+      resolve: doc => doc._raw.flattenedPath.split('/')[2],
     },
   },
 }));
