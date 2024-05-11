@@ -10,18 +10,21 @@ import remarkGfm from 'remark-gfm';
 
 const commonFields: FieldDefs = {
   title: { type: 'string', required: true },
-  description: { type: 'string', required: false },
   date: { type: 'date', required: true },
-  tags: { type: 'list', of: { type: 'string' }, required: false },
+
   isPublished: { type: 'boolean', required: true },
-  imgUrl: { type: 'string', required: false },
 };
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.mdx`,
   contentType: 'mdx',
-  fields: { ...commonFields },
+  fields: {
+    ...commonFields,
+    imgUrl: { type: 'string', required: false },
+    tags: { type: 'list', of: { type: 'string' }, required: false },
+    description: { type: 'string', required: false },
+  },
   computedFields: {
     slug: {
       type: 'string',
@@ -36,6 +39,7 @@ const Translation = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     ...commonFields,
+    url: { type: 'string', required: true },
   },
   computedFields: {
     skill: {
