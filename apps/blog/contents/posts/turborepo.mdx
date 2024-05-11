@@ -14,27 +14,17 @@ isPublished: true
 
 <Callout type='plus' title='모노레포의 장점'>
 1. 쉬운 프로젝트 생성
-모노레포에서 새로운 프로젝트 생성 시, 기존 DevOps를 이용하면 된다.
-
+    - 모노레포에서 새로운 프로젝트 생성 시, 기존 DevOps를 이용하면 된다.
 2. 쉬운 의존성 관리
-
 3. 단일화된 관리 포인트
-개발 환경 및 DevOps에 대한 업데이트를 한 번에 반영할 수 있다.
-e.g. .env파일 관리, PR 템플릿, Prettier, ESLint 등
-
+    - 개발 환경 및 DevOps에 대한 업데이트를 한 번에 반영할 수 있다.
+    - e.g. `.env`파일 관리, PR 템플릿, Prettier, ESLint, 버전 등
 4. 일관된 개발자 경험 제공
-
 5. 프로젝트에 걸친 원자적 커밋
-
 6. 서로 의존하는 저장소들의 리팩토링 비용 감소
+7. 재사용되는 컴포넌트를 쉽게 공유하고, 재사용
 
 </Callout>
-
-
-<Callout type='minus' title='모노레포의 단점'>
-단점
-</Callout>
-
 
 <Callout type='info' title='모노레포의 특징'>
 
@@ -54,22 +44,19 @@ e.g. .env파일 관리, PR 템플릿, Prettier, ESLint 등
 ### 모노레포를 사용하는 회사 리스트
 - Google, Facebook, Microsoft, Uber, Airbnb, Twitter
 
-
-
-
 # 2. Turbo Repo
 : JS와 TS 코드 베이스의 모노레폴르 위한 고성능 빌드 시스템
 - [공식문서](https://github.com/vercel/turbo)
 
 
-### Turbo Repo 특징
+### Turbo Repo의 특징
 1. Vercel이 인수하여 관리
 2. AWS, Miro, Paypal, Discord, Line+ 등 여러 프로젝트에서 프로덕션 단계로 사용
-3. Incremental builds : 이미 빌드된 내용은 캐시하고 다시 빌드하지 않는다.
-4. Content aware hasing : 타밍스탬프가 아닌 콘테츠를 인식하여, 병경된 파일만 빌드
-5. Cloud caching : 빌드 파일을 클라우드에 올려 팀원들과 CI/CD에서 공유
-6. Parallel execution : 모든 코어를 사용하여 병렬 처리하여 작업을 진행
-7. Task Pipelines : Task간의 관계를 정의한 다음 빌드를 언제 어떻게 실행할 지 최적화
+3. **Incremental builds** : 이미 빌드된 내용은 캐시하고 다시 빌드하지 않는다.
+4. **Content aware hasing** : 타밍스탬프가 아닌 콘테츠를 인식하여, 병경된 파일만 빌드
+5. **Cloud caching** : 빌드 파일을 클라우드에 올려 팀원들과 CI/CD에서 공유
+6. **Parallel execution** : 모든 코어를 사용하여 병렬 처리하여 작업을 진행
+7. **Task Pipelines** : Task간의 관계를 정의한 다음 빌드를 언제 어떻게 실행할 지 최적화
 8. Zero runtime overhead : 런타임 코드와 소스 맵을 다루지 않는다.
 
 
@@ -79,14 +66,14 @@ e.g. .env파일 관리, PR 템플릿, Prettier, ESLint 등
 이번 글에서는 제가 모노레포를 적용한 경험과, 적용하며 겪은 트러블 슈팅에 대해 소개하도록 하겠습니다.
 
 ## 3.1. Turbo Repo?
-위 내용에서 눈치 채셨겠지만, 저는 Turbo Repo를 사용했습니다. 기존 CI 과정에서 빌드한 것들을 캐싱하여, 빠른 빌드를 제공한다는 점이 가장 매력적이었습니다. 추가로 [Turbo Repo](https://turbo.build/)사이트가 상당히 예쁘다는 점, 활발한 개발과 업데이트가 진행되고 있다는 점, Next.js를 개발한 회사인 Vercel에서 관리하고 있다는 점도 한 몫을 했습니다. Vercel이 관리하고 있기에, Next.js와 큰 시너지도 기대해볼 수 있을 것이라 생각했습니다.
+저는 모노레포 관리 도구로 Turbo Repo를 사용했습니다. Turbo Repo는 기존 CI 과정에서 빌드한 것들을 캐싱하여, 빠른 빌드를 제공한다는 점이 가장 매력적이었습니다. 추가로 [Turbo Repo](https://turbo.build/)사이트가 상당히 예쁘다는 점, 활발한 개발과 업데이트가 진행되고 있다는 점, Next.js를 개발한 회사인 Vercel에서 관리하고 있다는 점도 한 몫을 했습니다. Vercel이 관리하고 있기에, Next.js와 큰 시너지도 기대해볼 수 있을 것이라 생각했습니다.
 
-패키지 관리자는 pnpm을 사용했습니다. 효율적으로 node_modules폴더의 패키지를 중복으로 설치하지 않아 효율적이라는 점, 그리고 병렬로 명령어를 처리하기에 빠르다는 점, 그리고 turbo repo에서 사용을 권장한다는 이유로 선택했습니다.
+패키지 관리자는 pnpm을 사용했습니다. 효율적으로 **node_modules폴더의 패키지를 중복으로 설치하지 않아 효율적**이라는 점, 그리고 **병렬로 명령어를 처리**하기에 빠르다는 점, 그리고 **turbo repo공식문서에서 사용을 권장**한다는 이유로 선택했습니다.
 
 ## 3.2. Turbo Repo로 프로젝트 세팅하기
 - [공식 문서](https://turbo.build/repo/docs/getting-started/create-new)
 1. `pnpm dlx create-turbo`
-   - 명령어를 입력하면, 패키지 매니저를 선택할 수 있습니다. bun, npm, pnpm, yarn 모두 사용할 수 있지만, Turbo Repo는 [pnpm](https://pnpm.io/ko/installation)을 권장하고 있습니다.
+   - 명령어를 입력하면, 패키지 매니저를 선택할 수 있습니다. bun, npm, pnpm, yarn 모두 사용할 수 있지만, Turbo Repo 공식문서에서는 [pnpm](https://pnpm.io/ko/installation) 사용을 권장하고 있습니다.
 2. `pnpm install`
 
 ### 1) eslint 설정
@@ -94,7 +81,7 @@ e.g. .env파일 관리, PR 템플릿, Prettier, ESLint 등
 
 eslint는 eslint-config 패키지에서 next.js, react.js 등 각 프로젝트 특성에 맞는 eslint 파일을 만들고, 각 패키지에서는 해당 js파일들을 import하여 적용하였습니다.
 eslint-config패키지의 next.js는 다음과 같습니다.
-```js title="eslint 설정"
+```js
 // packages/eslint-config/next.js
 const { resolve } = require("node:path");
 
@@ -142,22 +129,35 @@ module.exports = {
 ```
 
 ### 3) typescript 설정
-
-
-### 4) 절대 경로 설정
+타입스크립트는 루트에만 패키지를 설치하고, 각 패키지에서는 tsconfig.json에서 각 패키지에 맞는 typescript 설정을 해주었습니다.
 ```json
 // tsconfig.json
 {
-  // ..
+  "extends": "@guesung/typescript-config/base.json"
+}
+```
+```json
+// apps/blog/tsconfig.json
+{
+  "extends": "@guesung/typescript-config/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"]
+      "@*": ["src/*"],
+      "@svgs*": ["public/image/svgs/*"],
+      "@contents": ["./.contentlayer/generated"]
     }
   }
 }
 ```
-
 
 
 ## 3.3 새로운 프로젝트 추가하기
@@ -210,10 +210,7 @@ packages하위에서 depth가 1까지만 패키지를 만들 것이라면 `packa
     module.exports = require("@guesung/tailwind-config/tailwind.config");
     ```
 
-## 3.4. 폴더 구조
-
-
-## 3.5. 스크립트 실행
+## 3.4. 스크립트 실행
 `turbo 스크립트`를 실행하면, 해당 스크립트를 가진 패키지의 스크립트들을 순차적으로 실행한다. 예를 들어, `turbo lint`를 입력하면, `lint` 스크립트를 가진 패키지들의 `lint`를 실행합니다.
 
 한 프로젝트에서만 스크립트를 실행하기 위해서는 filter를 사용하면 됩니다.
@@ -236,11 +233,16 @@ concurrency의 기본값은 10개이며, 10개를 초과했기에 발생한 에�
 다양한 시도를 해보며 알게 된 사실입니다.
 1. 루트에 typescript가 설치되어 있어야 한다.
 	typescript-config 패키지는 결국 하나의 모듈이기에, 해당 패키지를 설치하더라도, typescript가 루트에 설치된 효과를 보이지 않습니다.
-2. 루트 > tsconfig.json에서 Command + shift + p를 눌러 Typescript 버전을 설정하면 된다.
+2. 루트 > tsconfig.json에서 **Command + shift + p를 눌러 Typescript 버전을 설정**하면 된다.
 
 ### 3. You are linting ".", but all of the files matching the glob pattern "." are ignored.
 ![](https://velog.velcdn.com/images/guesung/post/fa9f69b1-777c-4ad2-867f-648c40e1f487/image.png)
 .eslintrc.js파일에서 `root:true`를 활성화하지 않아, `root:true`를 가진 eslintrc파일을 찾아가다가 발생한 에러입니다. 각 패키지의 .eslintrc파일에 `root:true`를 추가하면 해결이 됩니다.
+
+### 4. couldn’t find package @elice/mui-elements required by ~ on the ‘npm’ registry
+> 회사에서 모노레포 적용 중 발생한 에러입니다.
+
+npm에 없기 때문에 발생한 에러이다. `@elice/mui-elements`는 elice gitlab 레포에 존재한다. `.npmrc`파일을 추가하면 해결이 된다.
 
 
 
@@ -250,4 +252,5 @@ concurrency의 기본값은 10개이며, 10개를 초과했기에 발생한 에�
 - https://engineering.linecorp.com/ko/blog/monorepo-with-turborepo
 - https://turbo.build/repo/docs
 - https://dev-scratch.tistory.com/161
+
 
