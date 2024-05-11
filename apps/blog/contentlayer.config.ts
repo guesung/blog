@@ -11,44 +11,24 @@ import remarkGfm from 'remark-gfm';
 const commonFields: FieldDefs = {
   title: { type: 'string', required: true },
   date: { type: 'date', required: true },
-
+  series: { type: 'string', required: true },
   isPublished: { type: 'boolean', required: true },
+  lastModified: { type: 'date', required: false },
+  tags: { type: 'list', of: { type: 'string' }, required: false },
+  summary: { type: 'string', required: false },
 };
 
-const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `posts/**/*.mdx`,
+const Content = defineDocumentType(() => ({
+  name: 'Content',
+  filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
     ...commonFields,
-    imgUrl: { type: 'string', required: false },
-    tags: { type: 'list', of: { type: 'string' }, required: false },
-    description: { type: 'string', required: false },
   },
   computedFields: {
     slug: {
       type: 'string',
-      resolve: doc => doc._raw.flattenedPath.replace(/^[^\/]*\/?/, ''),
-    },
-  },
-}));
-
-const Translation = defineDocumentType(() => ({
-  name: 'Translation',
-  filePathPattern: `translations/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    ...commonFields,
-    url: { type: 'string', required: true },
-  },
-  computedFields: {
-    skill: {
-      type: 'string',
-      resolve: doc => doc._raw.flattenedPath.split('/')[1],
-    },
-    slug: {
-      type: 'string',
-      resolve: doc => doc._raw.flattenedPath.split('/')[2],
+      resolve: content => content._raw.flattenedPath.replace(/^[^\/]*\/?/, ''),
     },
   },
 }));
@@ -62,7 +42,7 @@ const rehypeOptions: PrettyCodeOptions = {
 
 export default makeSource({
   contentDirPath: 'contents',
-  documentTypes: [Post, Translation],
+  documentTypes: [Content],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypePrettyCode as any, rehypeOptions]],

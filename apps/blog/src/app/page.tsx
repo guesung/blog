@@ -1,31 +1,31 @@
 import { Card, CardList } from '@components';
-import { Post, Translation, allPosts, allTranslations } from '@contents';
+import { Content } from '@contents';
+import { getContents } from '@utils';
 
 export default function Page() {
   return (
     <div className="max-w-1000 mx-auto text-center">
       <div className="text-title1 my-20">ALL POSTS.</div>
-      <CardList<Post>
-        items={allPosts}
-        render={post => (
+      <CardList<Content>
+        items={getContents({ series: 'post' })}
+        render={content => (
           <Card
-            key={post._id}
-            href={`posts/${post.slug}`}
-            title={post.title}
-            date={post.date}
+            key={content._id}
+            href={`posts/${content.slug}`}
+            title={content.title}
+            date={content.date}
           />
         )}
       />
-
-      <div className="text-title1 my-20 ">ALL Translations.</div>
-      <CardList<Translation>
-        items={allTranslations}
-        render={translation => (
+      <div className="text-title1 my-20">ALL TRANSLATIONS.</div>
+      <CardList<Content>
+        items={getContents({ series: '번역' })}
+        render={content => (
           <Card
-            key={translation.slug}
-            href={`translations/${translation.skill}/${translation.slug}`}
-            title={translation.slug}
-            date={translation.date}
+            key={content._id}
+            href={`translations/${content.slug}`}
+            title={content.title}
+            date={content.date}
           />
         )}
       />

@@ -1,6 +1,5 @@
-import { allTranslations } from '@contents';
+import { getContent } from '@utils';
 import { PostContent, PostTitle } from './components';
-import { notFound } from 'next/navigation';
 
 interface pageProps {
   params: {
@@ -9,10 +8,7 @@ interface pageProps {
   };
 }
 export default function page({ params: { skill, slug } }: pageProps) {
-  const translation = allTranslations.find(
-    translation => translation.skill === skill && translation.slug === slug
-  );
-  if (!translation) return notFound();
+  const translation = getContent({ series: '번역', slug: `${skill}/${slug}` });
 
   return (
     <div className="max-w-1200 mx-auto px-20">

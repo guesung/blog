@@ -1,18 +1,27 @@
-import { DocumentTypes } from '@contents';
+import { Content, DocumentTypes, allContents } from '@contents';
 import { compareDesc } from 'date-fns';
-import { notFound } from 'next/navigation';
 
 export const sortContentByDate = (contents: DocumentTypes[]) =>
   contents.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
-export const getContent = (contents: DocumentTypes[], slug: string) => {
-  const content = contents.find(content => content.slug === slug);
-  if (!content) return notFound();
-  return content;
-};
+interface GetContentProps {
+  series: string;
+}
 
-export const getTranslation = (contents: DocumentTypes[], slug: string) => {
-  const content = contents.find(content => content.slug.split('/')[0] === slug);
-  if (!content) return notFound();
+export const getContents = ({ series }: GetContentProps): Content[] =>
+  sortContentByDate(allContents.filter(content => content.series === series));
+
+interface GetContentBySlugProps extends GetContentProps {
+  slug: string;
+}
+
+export const getContent = ({
+  series,
+  slug,
+}: GetContentBySlugProps): Content => {
+  const content = getContents({ series }).find(
+    content => content.slug === slug
+  );
+  if (!content) throw new Error(`Content not found for slug: ${slug}`);
   return content;
 };
