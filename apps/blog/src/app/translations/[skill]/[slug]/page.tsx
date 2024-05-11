@@ -15,7 +15,7 @@ export default function page({ params: { skill, slug } }: pageProps) {
   if (!translation) return notFound();
 
   return (
-    <div className="max-w-760 mx-auto">
+    <div className="max-w-1200 mx-auto px-20">
       <PostTitle title={slug} date={translation.date} />
       <PostContent body={translation.body} />
     </div>
