@@ -28,7 +28,7 @@ const Content = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: content => content._raw.flattenedPath.replace(/^[^\/]*\/?/, ''),
+      resolve: content => content._raw.flattenedPath.replace(/^.+?(\/)/, ''),
     },
   },
 }));

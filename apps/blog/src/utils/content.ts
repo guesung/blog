@@ -12,7 +12,7 @@ export const getContents = ({ series }: GetContentProps): Content[] =>
   sortContentByDate(allContents.filter(content => content.series === series));
 
 interface GetContentBySlugProps extends GetContentProps {
-  slug: string;
+  slug?: string;
 }
 
 export const getContent = ({

@@ -9,13 +9,16 @@ export default function Header() {
   const theme = cookieStore.get('theme')?.value;
 
   return (
-    <header className="text-subtitle2 fixed top-0 z-10 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-xl dark:bg-black">
+    <header className="text-body2 fixed top-0 z-10 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-sm dark:bg-black">
       <div>
         <Link href="/">Guesung.</Link>
       </div>
-      <div className="flex gap-10">
-        {/* <span>Note</span>
-        <span>About</span> */}
+      <div className="flex items-center gap-12">
+        <Link href="https://note.guesung.site/develop" target="_blank">
+          Note
+        </Link>
+        <Link href="/about">About</Link>
+        <span>PlayGround</span>
 
         <ToggleTheme>
           {theme === 'dark' ? (
