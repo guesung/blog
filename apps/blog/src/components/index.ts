@@ -6,3 +6,4 @@ export { default as ToggleTheme } from './ToggleTheme';
 export { default as CardList } from './CardList';
 export { default as Translation } from './Translation';
 export { default as Post } from './Post';
+export { default as NavLink } from './NavLink';
