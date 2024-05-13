@@ -1,0 +1,146 @@
+---
+title: CSS Border
+date: 2024-05-13
+lastModified: 2024-05-13
+series: 번역
+tags: 
+  - css
+  - border
+isPublished: true
+summary: ffef
+---
+# [border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+
+
+
+<Translation>
+  <Translation.English>
+      The border shorthand CSS property sets an element's border. It sets the values of border-width, border-style, and border-color.
+  </Translation.English>
+  <Translation.Korean>
+      border는 요소의 테두리를 설정합니다. border-width, border-style, border-color의 값을 설정합니다.
+      - `border: '4mm ridge rgba(211, 220, 50, .6);'`
+      <div style={{ border: '4mm ridge rgba(211, 220, 50, .6);' }}>sss</div>
+      - `border: thick double #32a1ce;`
+      <div style={{ border: 'thick double #32a1ce' }}>sss</div>
+  </Translation.Korean>
+</Translation>
+
+<Translation>
+  <Translation.English>
+      ### Constituent properties
+      This property is a shorthand for the following CSS properties.
+      - border-color
+      - border-style
+      - border-width
+      The border property may be specified using one, two, or three of the values listed below. The order of the values does not matter.
+      <Callout type='info' title='Note'>The border will be invisible if its style is not defined. This is because the style defaults to none.</Callout>
+  </Translation.English>
+  <Translation.Korean>
+      ### 구성 속성
+      아래 속성은 border의 축약형입니다.
+      - border-color
+      - border-style
+      - border-width
+      border 속성은 아래 값 중 하나, 두 개 또는 세 개를 사용하여 지정할 수 있습니다. 값의 순서는 중요하지 않습니다.
+      <Callout type='info' title='참고'>스타일이 정의되지 않은 경우 테두리가 보이지 않습니다. 이는 스타일이 기본적으로 없음으로 설정되기 때문입니다.</Callout>
+  </Translation.Korean>
+</Translation>
+
+<Translation>
+  <Translation.English>
+      ### Values
+      - line-width : Sets the thickness of the border. Defaults to medium if absent. See border-width.
+      - line-style : Sets the style of the border. Defaults to none if absent. See border-style.
+      - color : Sets the color of the border. Defaults to currentcolor if absent. See border-color.
+  </Translation.English>
+  <Translation.Korean>
+      ### 값
+      - line-width : 테두리의 두께를 결정합니다. 지정되지 않은 경우 기본값은 medium입니다. border-width를 참조하세요.
+      - line-style : 테두리의 스타일을 결정합니다. 지정되지 않은 경우 기본값은 none입니다. border-style을 참조하세요.
+      - color : 테두리의 색상을 결정합니다. 지정되지 않은 경우 기본값은 currentcolor입니다. border-color를 참조하세요.
+  </Translation.Korean>
+</Translation>
+
+<Translation>
+  <Translation.English>
+      ### Description
+      As with all shorthand properties, any omitted sub-values will be set to their initial value. Importantly, border cannot be used to specify a custom value for border-image, but instead sets it to its initial value, i.e., none.
+
+      The border shorthand is especially useful when you want all four borders to be the same. To make them different from each other, however, you can use the longhand border-width, border-style, and border-color properties, which accept different values for each side. Alternatively, you can target one border at a time with the physical (e.g., border-top ) and logical (e.g., border-block-start) border properties.
+
+
+  </Translation.English>
+  <Translation.Korean>
+      ### 설명
+      모든 축약 속성이 그러하듯이, 빠진 값은 그들의 초기값으로 설정이 됩니다. 중요한 것은, 테두리는 border-image에 대한 사용자 정의 값을 지정하는 데 사용할 수 없지만, 대신 초기값인 none으로 설정됩니다.
+      테두리 축약형은 특히 모든 네 경계에 동잉ㄹ한 값을 부여할 때 특히 유용합니다. 하지만 값을 각각 다르게 하기 위해서 당신은, 각각 다른 값을 받아들이는 border-width, border-style, border-color 속성을 사용할 수 있습니다. 또는 물리적(예: border-top) 및 논리적(예: border-block-start) 테두리 속성을 사용하여 한 번에 한 테두리를 대상으로 할 수 있습니다.
+  </Translation.Korean>
+</Translation>
+
+<Translation>
+  <Translation.English>
+      ### Border VS Outlines
+      Borders and outlines are very similar. However, outlines differ from borders in the following ways:
+      Outlines never take up space, as they are drawn outside of an element's content.
+      According to the spec, outlines don't have to be rectangular, although they usually are.
+
+  </Translation.English>
+  <Translation.Korean>
+      ### Border VS Outlines
+      테두리와 아웃라인은 매우 유사합니다. 그러나 아웃라인은 다음과 같은 방법으로 테두리와 다릅니다.
+      아웃라인은 요소의 콘텐츠 외부에 그려지기 때문에 공간을 차지하지 않습니다.
+      명세에 따르면 아웃라인은 사각형이 아니어도 되지만, 일반적으로 사각형입니다.
+  </Translation.Korean>
+</Translation>
+
+# [border-collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse)
+<Translation>
+  <Translation.English>
+      The border-collapse CSS property sets whether cells inside a `<table>` have shared or separate borders.
+      When cells are collapsed, the border-style value of inset behaves like ridge, and outset behaves like groove.
+      When cells are separated, the distance between cells is defined by the border-spacing property.
+  </Translation.English>
+  <Translation.Korean>
+      border-collaps CSS 속성은 `<table>` 내부의 셀이 공유 또는 별도의 테두리를 가지는지를 설정합니다.
+      셀이 축소(`collapsed`)되면 inset의 border-style 값은 ridge처럼 작동하고, outset은 groove처럼 작동합니다.
+      셀이 분리(`separated`)되면 셀 사이의 거리는 border-spacing 속성에 의해 정의됩니다.
+  </Translation.Korean>
+</Translation>
+
+# [border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)
+<Translation>
+  <Translation.English>
+      The border-image CSS property draws an image around a given element. It replaces the element's regular border.
+      ### Constituent properties
+      - border-image-outset : The distance of the border image from the element's outside edge. Up to four values may be specified. 
+      - border-image-repeat : Defines how the edge regions of the source image are adjusted to fit the dimensions of the border image. 
+      - border-image-slice : The dimensions for slicing the source image into regions.
+      - border-image-source : The source image.
+      - border-image-width : The width of the border image. Up to four values may be specified.
+  </Translation.English>
+  <Translation.Korean>
+      border-image CSS 속성은 주어진 요소 주위에 이미지를 그립니다. 요소의 일반적인 테두리를 대체합니다.
+      ### 구성 속성
+      - border-image-outset : 요소의 외부 가장자리에서 테두리 이미지의 거리입니다. 최대 네 개의 값을 지정할 수 있습니다.
+      - border-image-repeat : 소스 이미지의 가장자리 영역이 테두리 이미지의 크기에 맞게 조정되는 방법을 정의합니다.
+      - border-image-slice : 소스 이미지를 영역으로 자르는 데 사용되는 차원입니다.
+      - border-image-source : 소스 이미지입니다.
+      - border-image-width : 테두리 이미지의 너비입니다. 최대 네 개의 값을 지정할 수 있습니다.
+  </Translation.Korean>
+</Translation>
+
+### 예시
+<Translation>
+  <Translation.English>
+      {/* ```css */}
+
+  </Translation.English>
+  <Translation.Korean>
+      <div style={{
+        width: '100px',
+        height: '100px',
+        borderImage: 'repeating-linear-gradient(30deg, #4d9f0c, #9198e5, #4d9f0c 20px) 60',
+      }} />
+  </Translation.Korean>
+</Translation>
