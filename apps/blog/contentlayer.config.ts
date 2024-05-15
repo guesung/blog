@@ -20,7 +20,7 @@ const commonFields: FieldDefs = {
   },
   isCover: { type: 'boolean', required: false },
   lastModified: { type: 'date', required: false },
-  summary: { type: 'string', required: false },
+  description: { type: 'string', required: false },
   tags: { type: 'list', of: { type: 'string' }, required: false },
 };
 
@@ -35,6 +35,10 @@ const Content = defineDocumentType(() => ({
     slug: {
       type: 'string',
       resolve: content => content._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    },
+    coverSrc: {
+      type: 'string',
+      resolve: content => `/contents/${content._raw.flattenedPath}/cover.png`,
     },
   },
 }));
