@@ -5,11 +5,15 @@ export const sortContentByDate = (contents: DocumentTypes[]) =>
   contents.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
 interface GetContentProps {
-  series: string;
+  series?: Content['series'];
 }
 
 export const getContents = ({ series }: GetContentProps): Content[] =>
-  sortContentByDate(allContents.filter(content => content.series === series));
+  series
+    ? sortContentByDate(
+        allContents.filter(content => content.series === series)
+      )
+    : sortContentByDate(allContents);
 
 interface GetContentBySlugProps extends GetContentProps {
   slug?: string;
