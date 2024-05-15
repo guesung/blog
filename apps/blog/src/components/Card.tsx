@@ -1,16 +1,37 @@
+import Image from 'next/image';
 import Link, { LinkProps } from 'next/link';
 
-interface CardProps extends LinkProps {
+interface SeriesCardProps extends LinkProps {
   title: string;
-  date: string;
+  coverSrc?: string;
+  lastModified?: string;
+  description?: string;
 }
-
-export default function Card({ title, date, ...props }: CardProps) {
+export default function Card({
+  title,
+  coverSrc,
+  lastModified,
+  description,
+  ...props
+}: SeriesCardProps) {
   return (
-    <Link {...props}>
-      <div className="h-300 w-400 rounded-16 relative my-10 bg-slate-100">
-        <div className="text-subtitle2 p-20 leading-[1.2]">{title}</div>
-        <span className="absolute bottom-12 right-12">{date}</span>
+    <Link className="rounded-16 w-full shadow-sm" {...props}>
+      {!coverSrc ? (
+        <Image
+          src={coverSrc ?? '/contents/etc/cover.png'}
+          width={200}
+          height={200}
+          alt="cover"
+        />
+      ) : (
+        <div />
+      )}
+      <div className="flex flex-col text-start">
+        <div className="text-body2">{title}</div>
+        <div className="flex">
+          <div>{description}</div>
+          <div>{lastModified}</div>
+        </div>
       </div>
     </Link>
   );

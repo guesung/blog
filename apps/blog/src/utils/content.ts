@@ -15,6 +15,11 @@ export const getContents = ({ series }: GetContentProps = {}): Content[] =>
       )
     : sortContentByDate(allContents);
 
+export const getSeries = () =>
+  Array.from(new Set(allContents.map(content => content.series))).filter(
+    series => series
+  );
+
 interface GetContentBySlugProps extends GetContentProps {
   slug?: string;
 }

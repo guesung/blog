@@ -18,7 +18,7 @@ const commonFields: FieldDefs = {
     default: 'posts',
     required: true,
   },
-  thumbnail: { type: 'string', required: false },
+  isCover: { type: 'boolean', required: false },
   lastModified: { type: 'date', required: false },
   summary: { type: 'string', required: false },
   tags: { type: 'list', of: { type: 'string' }, required: false },
@@ -47,7 +47,7 @@ const rehypeOptions: PrettyCodeOptions = {
 };
 
 export default makeSource({
-  contentDirPath: 'contents',
+  contentDirPath: 'public/contents',
   documentTypes: [Content],
   mdx: {
     remarkPlugins: [remarkGfm],

@@ -3,6 +3,25 @@ import SunIcon from '@svgs/sun.svg';
 import { cookies } from 'next/headers';
 import { NavLink, ToggleTheme } from '.';
 
+const LINK_LIST = [
+  {
+    href: 'https://note.guesung.site/develop',
+    children: 'Note',
+  },
+  {
+    href: '/series',
+    children: 'Series',
+  },
+  {
+    href: '/about',
+    children: 'About',
+  },
+  {
+    href: '/',
+    children: 'PlayGround',
+  },
+];
+
 export default function Header() {
   const cookieStore = cookies();
   const theme = cookieStore.get('theme')?.value;
@@ -13,12 +32,11 @@ export default function Header() {
         <NavLink href="/">Guesung.</NavLink>
       </div>
       <div className="flex items-center">
-        <NavLink href="https://note.guesung.site/develop" target="_blank">
-          Note
-        </NavLink>
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/">PlayGround</NavLink>
-
+        {LINK_LIST.map(({ href, children }) => (
+          <NavLink key={href} href={href}>
+            {children}
+          </NavLink>
+        ))}
         <ToggleTheme>
           {theme === 'dark' ? (
             <MoonIcon fill="white" width={30} height={30} />
