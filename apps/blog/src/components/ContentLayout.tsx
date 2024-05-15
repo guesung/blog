@@ -5,7 +5,7 @@ interface ContentLayoutProps {}
 export default function ContentLayout({
   children,
 }: PropsWithChildren<ContentLayoutProps>) {
-  return <div className="max-w-800 mx-auto">{children}</div>;
+  return <div className="max-w-800 mx-auto px-16">{children}</div>;
 }
 
 interface TitleProps {}

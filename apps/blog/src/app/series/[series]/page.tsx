@@ -10,7 +10,6 @@ interface pageProps {
 }
 export default function page({ params: { series } }: pageProps) {
   const contents = getContents({ series });
-  console.log(contents);
 
   return (
     <ContentLayout>
@@ -19,11 +18,7 @@ export default function page({ params: { series } }: pageProps) {
         {matchingKorean[series]}입니다
       </ContentLayout.Description>
       {contents.map(content => (
-        <ContentListItem
-          {...content}
-          coverSrc={content.coverSrc}
-          href={`${series}/${content.slug}`}
-        />
+        <ContentListItem {...content} href={`${series}/${content.slug}`} />
       ))}
     </ContentLayout>
   );

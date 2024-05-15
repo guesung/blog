@@ -1,23 +1,20 @@
 import Image from 'next/image';
 import Link, { LinkProps } from 'next/link';
+import { PropsWithChildren } from 'react';
 
 interface SeriesCardProps extends LinkProps {
   title: string;
-  coverSrc?: string;
-  lastModified?: string;
-  description?: string;
+  coverSrc: string;
 }
-
 
 export default function Card({
   title,
   coverSrc,
-  lastModified,
-  description,
+  children,
   ...props
-}: SeriesCardProps) {
+}: PropsWithChildren<SeriesCardProps>) {
   return (
-    <Link className="rounded-16 w-full shadow-sm" {...props}>
+    <Link className="rounded-16 w-full shadow-md" {...props}>
       <div className="h-200 relative">
         <Image
           src={coverSrc ?? '/contents/etc/cover.png'}
@@ -26,12 +23,9 @@ export default function Card({
           objectFit="cover"
         />
       </div>
-      <div className="flex flex-col px-8 py-16 text-start">
+      <div className="flex flex-col gap-8 px-8 py-16 text-start">
         <div className="text-body2">{title}</div>
-        <div className="flex">
-          <div>{description}</div>
-          <div>{lastModified}</div>
-        </div>
+        {children}
       </div>
     </Link>
   );

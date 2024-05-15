@@ -1,6 +1,6 @@
-import { Card, CardList, ContentLayout } from '@components';
+import { Card, CardList, ContentCard, ContentLayout } from '@components';
 import { matchingKorean } from '@constants';
-import { getSeries } from '@utils';
+import { getSeries, getSeriesCount, getSeriesLastModified } from '@utils';
 
 export default function page() {
   const allSeries = getSeries();
@@ -15,10 +15,12 @@ export default function page() {
       <CardList
         items={allSeriesExceptEtc}
         render={series => (
-          <Card
+          <ContentCard
             title={matchingKorean[series]}
             coverSrc={`/contents/${series}/cover.png`}
             href={`/series/${series}`}
+            postCount={getSeriesCount({ series })}
+            lastModified={getSeriesLastModified({ series })}
           />
         )}
       />
