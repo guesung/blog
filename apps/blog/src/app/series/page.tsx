@@ -1,4 +1,4 @@
-import { Card, CardList, ContentCard, ContentLayout } from '@components';
+import { CardList, ContentCard, ContentLayout } from '@components';
 import { matchingKorean } from '@constants';
 import { getSeries, getSeriesCount, getSeriesLastModified } from '@utils';
 
