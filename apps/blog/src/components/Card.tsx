@@ -7,6 +7,8 @@ interface SeriesCardProps extends LinkProps {
   lastModified?: string;
   description?: string;
 }
+
+
 export default function Card({
   title,
   coverSrc,
@@ -16,17 +18,15 @@ export default function Card({
 }: SeriesCardProps) {
   return (
     <Link className="rounded-16 w-full shadow-sm" {...props}>
-      {!coverSrc ? (
+      <div className="h-200 relative">
         <Image
           src={coverSrc ?? '/contents/etc/cover.png'}
-          width={200}
-          height={200}
+          fill
           alt="cover"
+          objectFit="cover"
         />
-      ) : (
-        <div />
-      )}
-      <div className="flex flex-col text-start">
+      </div>
+      <div className="flex flex-col px-8 py-16 text-start">
         <div className="text-body2">{title}</div>
         <div className="flex">
           <div>{description}</div>

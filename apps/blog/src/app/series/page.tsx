@@ -1,4 +1,5 @@
-import { Card, CardList } from '@components';
+import { Card } from '@components';
+import { matchingKorean } from '@constants';
 import { getSeries } from '@utils';
 
 export default function page() {
@@ -10,11 +11,11 @@ export default function page() {
       <div className="text-body2 my-20">
         시리즈로 작성된 포스트들을 모았습니다.
       </div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-x-16 gap-y-32">
         {allSeries.map(series => (
           <Card
-            title={series}
-            coverSrc={`contents/`}
+            title={matchingKorean[series]}
+            coverSrc={`/contents/${series}/cover.png`}
             href={`/series/${series}`}
           />
         ))}
