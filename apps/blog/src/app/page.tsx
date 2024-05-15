@@ -5,7 +5,8 @@ import { getContents } from '@utils';
 export default function Page() {
   return (
     <ContentLayout>
-      <div className="text-title3 my-20">ALL POSTS.</div>
+      <ContentLayout.Title>ALL POSTS.</ContentLayout.Title>
+
       <CardList<Content>
         items={getContents({ series: 'posts' })}
         render={content => (

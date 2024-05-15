@@ -1,4 +1,5 @@
-import { Card, CardList } from '@components';
+import { ContentLayout, ContentListItem } from '@components';
+import { matchingKorean } from '@constants';
 import { Content } from '@contents';
 import { getContents } from '@utils';
 
@@ -9,17 +10,21 @@ interface pageProps {
 }
 export default function page({ params: { series } }: pageProps) {
   const contents = getContents({ series });
+  console.log(contents);
 
   return (
-    <CardList<Content>
-      items={getContents({ series })}
-      render={content => (
-        <Card
-          key={content._id}
-          href={`${content.series}/${content.slug}`}
+    <ContentLayout>
+      <ContentLayout.Title>{matchingKorean[series]}</ContentLayout.Title>
+      <ContentLayout.Description>
+        {matchingKorean[series]}입니다
+      </ContentLayout.Description>
+      {contents.map(content => (
+        <ContentListItem
           {...content}
+          coverSrc={content.coverSrc}
+          href={`${series}/${content.slug}`}
         />
-      )}
-    />
+      ))}
+    </ContentLayout>
   );
 }

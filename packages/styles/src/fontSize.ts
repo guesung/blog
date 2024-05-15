@@ -29,6 +29,12 @@ export const fontSize = {
       fontWeight: 'bold',
     },
   ],
+  subtitle3: [
+    '1.75rem',
+    {
+      fontWeight: 'bold',
+    },
+  ],
   body1: [
     '1.5rem',
     {

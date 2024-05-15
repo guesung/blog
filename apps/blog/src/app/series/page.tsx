@@ -8,17 +8,17 @@ export default function page() {
 
   return (
     <ContentLayout>
-      <div className="text-title3 my-20">Series.</div>
-      <div className="text-body2 my-20">
+      <ContentLayout.Title>Series.</ContentLayout.Title>
+      <ContentLayout.Description>
         시리즈로 작성된 포스트들을 모았습니다.
-      </div>
+      </ContentLayout.Description>
       <CardList
         items={allSeriesExceptEtc}
-        render={items => (
+        render={series => (
           <Card
-            title={matchingKorean[items]}
-            coverSrc={`/contents/${items}/cover.png`}
-            href={`/series/${items}`}
+            title={matchingKorean[series]}
+            coverSrc={`/contents/${series}/cover.png`}
+            href={series}
           />
         )}
       />
