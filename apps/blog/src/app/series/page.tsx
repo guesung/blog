@@ -18,7 +18,7 @@ export default function page() {
           <Card
             title={matchingKorean[series]}
             coverSrc={`/contents/${series}/cover.png`}
-            href={series}
+            href={`/series/${series}`}
           />
         )}
       />
