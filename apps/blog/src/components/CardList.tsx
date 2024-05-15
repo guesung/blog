@@ -5,7 +5,7 @@ interface CardListProps<T> {
 
 export default function CardList<T>({ items, render }: CardListProps<T>) {
   return (
-    <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2">
+    <div className="grid grid-cols-2 gap-x-16 gap-y-32">
       {items.map(render)}
     </div>
   );

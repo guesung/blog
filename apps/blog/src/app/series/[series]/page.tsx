@@ -1,6 +1,6 @@
 import { Card, CardList } from '@components';
 import { Content } from '@contents';
-import { getContent, getContents } from '@utils';
+import { getContents } from '@utils';
 
 interface pageProps {
   params: {

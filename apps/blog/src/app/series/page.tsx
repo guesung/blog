@@ -1,25 +1,27 @@
-import { Card } from '@components';
+import { Card, CardList, ContentLayout } from '@components';
 import { matchingKorean } from '@constants';
 import { getSeries } from '@utils';
 
 export default function page() {
   const allSeries = getSeries();
+  const allSeriesExceptEtc = allSeries.filter(series => series !== 'etc');
 
   return (
-    <div className="max-w-800 mx-auto text-center">
+    <ContentLayout>
       <div className="text-title3 my-20">Series.</div>
       <div className="text-body2 my-20">
         시리즈로 작성된 포스트들을 모았습니다.
       </div>
-      <div className="grid grid-cols-2 gap-x-16 gap-y-32">
-        {allSeries.map(series => (
+      <CardList
+        items={allSeriesExceptEtc}
+        render={items => (
           <Card
-            title={matchingKorean[series]}
-            coverSrc={`/contents/${series}/cover.png`}
-            href={`/series/${series}`}
+            title={matchingKorean[items]}
+            coverSrc={`/contents/${items}/cover.png`}
+            href={`/series/${items}`}
           />
-        ))}
-      </div>
-    </div>
+        )}
+      />
+    </ContentLayout>
   );
 }
