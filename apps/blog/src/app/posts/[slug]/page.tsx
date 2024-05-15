@@ -8,7 +8,7 @@ interface pageProps {
 }
 export default function page({ params: { slug } }: pageProps) {
   const content = getContent({
-    series: 'post',
+    series: 'posts',
     slug,
   });
 

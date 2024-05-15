@@ -9,7 +9,10 @@ interface pageProps {
 }
 
 export default function page({ params: { skill, slug } }: pageProps) {
-  const translation = getContent({ series: '번역', slug: `${skill}/${slug}` });
+  const translation = getContent({
+    series: 'translations',
+    slug: `${skill}/${slug}`,
+  });
 
   return <Post {...translation} className="max-w-1200" />;
 }
