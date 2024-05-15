@@ -11,16 +11,17 @@ import remarkGfm from 'remark-gfm';
 const commonFields: FieldDefs = {
   title: { type: 'string', required: true },
   date: { type: 'date', required: true },
+  isPublished: { type: 'boolean', required: true },
   series: {
     type: 'enum',
-    options: ['posts', 'translations'],
+    options: ['posts', 'translations', 'etc'],
     default: 'posts',
     required: true,
   },
-  isPublished: { type: 'boolean', required: true },
+  thumbnail: { type: 'string', required: false },
   lastModified: { type: 'date', required: false },
-  tags: { type: 'list', of: { type: 'string' }, required: false },
   summary: { type: 'string', required: false },
+  tags: { type: 'list', of: { type: 'string' }, required: false },
 };
 
 const Content = defineDocumentType(() => ({
