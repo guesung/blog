@@ -8,7 +8,7 @@ interface GetContentProps {
   series?: Content['series'];
 }
 
-export const getContents = ({ series }: GetContentProps): Content[] =>
+export const getContents = ({ series }: GetContentProps = {}): Content[] =>
   series
     ? sortContentByDate(
         allContents.filter(content => content.series === series)
