@@ -1,4 +1,4 @@
-import { Post } from '@components';
+import { ContentPost } from '@components';
 import { getContent } from '@utils';
 
 export default function page() {
@@ -7,5 +7,5 @@ export default function page() {
     slug: 'about',
   });
 
-  return <Post {...content} className="max-w-780" />;
+  return <ContentPost {...content} className="max-w-780" />;
 }

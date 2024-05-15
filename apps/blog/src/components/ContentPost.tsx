@@ -9,7 +9,7 @@ interface PostProps extends Content {
   className?: string;
 }
 
-export default function Post({ title, body, className }: PostProps) {
+export default function ContentPost({ title, body, className }: PostProps) {
   if (!body) return notFound();
 
   const MDXContent = useMDXComponent(body.code);

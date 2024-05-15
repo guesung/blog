@@ -1,4 +1,4 @@
-import { Post } from '@components';
+import { ContentPost } from '@components';
 import { getContent } from '@utils';
 
 interface pageProps {
@@ -12,5 +12,5 @@ export default function page({ params: { slug } }: pageProps) {
     slug,
   });
 
-  return <Post {...content} className="max-w-760" />;
+  return <ContentPost {...content} className="max-w-760" />;
 }

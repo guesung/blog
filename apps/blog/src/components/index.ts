@@ -5,7 +5,7 @@ export { default as Callout } from './Callout';
 export { default as ToggleTheme } from './ToggleTheme';
 export { default as CardList } from './CardList';
 export { default as Translation } from './Translation';
-export { default as Post } from './Post';
+export { default as ContentPost } from './ContentPost';
 export { default as NavLink } from './NavLink';
 export { default as ContentLayout } from './ContentLayout';
 export { default as ListItem } from './ListItem';

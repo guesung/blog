@@ -1,4 +1,4 @@
-import { Post } from '@components';
+import { ContentPost } from '@components';
 import { Content } from '@contents';
 import { getContent } from '@utils';
 
@@ -14,5 +14,5 @@ export default function page({ params: { series, slug } }: pageProps) {
     slug: typeof slug === 'string' ? slug : slug.join('/'),
   });
 
-  return <Post {...content} className="max-w-760" />;
+  return <ContentPost {...content} className="max-w-760" />;
 }
