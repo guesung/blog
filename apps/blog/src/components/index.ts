@@ -11,3 +11,4 @@ export { default as ContentListItem } from './ContentListItem';
 export { default as SeriesCard } from './SeriesCard';
 export { default as ContentCard } from './ContentCard';
 export { default as HeaderWrapper } from './HeaderWrapper';
+export { default as PostStatusBar } from './PostStatusBar';
