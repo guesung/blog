@@ -1,8 +1,8 @@
-import { VariantEnum } from '@guesung/constants';
+import { ClassnNameType, VariantEnum } from '@guesung/constants';
 import { cn } from '@guesung/utils';
 import { PropsWithChildren } from 'react';
 
-interface TagProps {
+interface TagProps extends React.HTMLProps<HTMLDivElement>, ClassnNameType {
   variant?: VariantEnum;
 }
 
@@ -13,10 +13,13 @@ const tagVariantClassname: Record<VariantEnum, string> = {
 
 export default function Tag({
   variant = VariantEnum.outline,
+  className,
   children,
 }: PropsWithChildren<TagProps>) {
   return (
-    <div className={cn('px-4 py-8', tagVariantClassname[variant])}>
+    <div
+      className={cn('w-fit px-8 py-4', tagVariantClassname[variant], className)}
+    >
       {children}
     </div>
   );
