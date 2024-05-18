@@ -1,9 +1,7 @@
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
-export { default as Card } from './Card';
 export { default as Callout } from './Callout';
 export { default as ToggleTheme } from './ToggleTheme';
-export { default as CardList } from './CardList';
 export { default as Translation } from './Translation';
 export { default as ContentPost } from './ContentPost';
 export { default as NavLink } from './NavLink';
@@ -11,3 +9,4 @@ export { default as ContentLayout } from './ContentLayout';
 export { default as ListItem } from './ListItem';
 export { default as ContentListItem } from './ContentListItem';
 export { default as SeriesCard } from './SeriesCard';
+export { default as ContentCard } from './ContentCard';

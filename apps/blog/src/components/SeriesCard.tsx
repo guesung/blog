@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react';
-import Card from './Card';
+
 import { date } from '@guesung/utils';
+import { Card } from '@guesung/ui';
 
 interface SeriesCardProps extends ComponentProps<typeof Card> {
   postCount: number;

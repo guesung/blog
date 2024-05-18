@@ -1,5 +1,6 @@
-import { CardList, SeriesCard, ContentLayout } from '@components';
+import { SeriesCard, ContentLayout } from '@components';
 import { matchingKorean } from '@constants';
+import { CardList } from '@guesung/ui';
 import { getSeries, getSeriesCount, getSeriesLastModified } from '@utils';
 
 export default function page() {

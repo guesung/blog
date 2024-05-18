@@ -1,33 +1,32 @@
-import Link from 'next/link';
+import Image from 'next/image';
+import Link, { LinkProps } from 'next/link';
+import { PropsWithChildren } from 'react';
 
-export interface CardProps {
-  href?: string;
-  children: React.ReactNode;
+interface SeriesCardProps extends LinkProps {
+  title: string;
+  coverSrc: string;
 }
 
-export default function Card({ href, children }: CardProps) {
+export default function Card({
+  title,
+  coverSrc,
+  children,
+  ...props
+}: PropsWithChildren<SeriesCardProps>) {
   return (
-    <article>
-      <Link href={href ?? ''}>{children}</Link>
-    </article>
+    <Link className="rounded-16 w-full shadow-md" {...props}>
+      <div className="h-200 relative">
+        <Image
+          src={coverSrc ?? '/contents/etc/cover.png'}
+          fill
+          alt="cover image"
+          className="rounded-t-16 object-cover"
+        />
+      </div>
+      <div className="flex flex-col gap-8 px-8 py-16 text-start">
+        <div className="text-body2">{title}</div>
+        {children}
+      </div>
+    </Link>
   );
 }
-
-interface CardHeaderProps {
-  children: React.ReactNode;
-}
-
-function CardHeader({ children }: CardHeaderProps) {
-  return <div className="h-300 w-400 relative">{children}</div>;
-}
-
-interface CardContentProps {
-  children: React.ReactNode;
-}
-
-function CardContent({ children }: CardContentProps) {
-  return <div>{children}</div>;
-}
-
-Card.Header = CardHeader;
-Card.Content = CardContent;
