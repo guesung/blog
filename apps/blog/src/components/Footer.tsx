@@ -18,7 +18,9 @@ export default function Footer() {
           <EmailIcon width={25} height={25} />
         </Link>
       </div>
-      <p className="text-center">© 2024. guesung all rights reserved.</p>
+      <p className="text-caption text-center">
+        © 2024. guesung all rights reserved.
+      </p>
     </footer>
   );
 }
