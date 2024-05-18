@@ -3,10 +3,11 @@ import SunIcon from '@svgs/sun.svg';
 import { cookies } from 'next/headers';
 import { NavLink, ToggleTheme } from '.';
 
-const LINK_LIST = [
+const NAV_LINK_PROPS_LIST = [
   {
     href: 'https://note.guesung.site/develop',
     children: 'Note',
+    target: '_blank',
   },
   {
     href: '/series',
@@ -32,10 +33,8 @@ export default function Header() {
         <NavLink href="/">Guesung.</NavLink>
       </div>
       <div className="flex items-center">
-        {LINK_LIST.map(({ href, children }) => (
-          <NavLink key={href} href={href}>
-            {children}
-          </NavLink>
+        {NAV_LINK_PROPS_LIST.map(props => (
+          <NavLink {...props} />
         ))}
         <ToggleTheme>
           {theme === 'dark' ? (
