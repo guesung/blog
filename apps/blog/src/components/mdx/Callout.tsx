@@ -16,7 +16,7 @@ const icons = {
 };
 
 export default function Callout({
-  type,
+  type = 'info',
   title,
   children,
 }: PropsWithChildren<CalloutProps>) {

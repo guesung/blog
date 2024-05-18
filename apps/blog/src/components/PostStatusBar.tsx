@@ -15,7 +15,7 @@ export default function PostStatusBar() {
 
   return (
     <div
-      className="fixed inset-x-0 top-0 z-10 h-5 bg-yellow-100"
+      className="fixed inset-x-0 top-0 z-10 h-6 bg-blue-200"
       style={{
         width: `${scrollPercentage}%`,
       }}

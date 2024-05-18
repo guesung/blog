@@ -1,8 +1,8 @@
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
-export { default as Callout } from './Callout';
+export { default as Callout } from './mdx/Callout';
 export { default as ToggleTheme } from './ToggleTheme';
-export { default as Translation } from './Translation';
+export { default as Translation } from './mdx/Translation';
 export { default as ContentPost } from './ContentPost';
 export { default as NavLink } from './NavLink';
 export { default as ContentLayout } from './ContentLayout';
