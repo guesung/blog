@@ -24,9 +24,12 @@ export default function Callout({
     <div
       className={cn(
         {
-          'border-yellow-500 bg-yellow-100 text-yellow-900': type === 'info',
-          'border-blue-500 bg-blue-100 text-blue-900': type === 'plus',
-          'border-pink-500 bg-pink-100 text-pink-900': type === 'minus',
+          'border-yellow-500 bg-yellow-100 text-yellow-900 dark:bg-yellow-950':
+            type === 'info',
+          'border-blue-500 bg-blue-100 text-blue-900 dark:bg-blue-950':
+            type === 'plus',
+          'border-pink-500 bg-pink-100 text-pink-900 dark:bg-pink-950':
+            type === 'minus',
         },
         'rounded-16 my-16 px-16 py-12'
       )}

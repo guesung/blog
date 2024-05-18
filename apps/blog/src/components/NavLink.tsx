@@ -16,7 +16,10 @@ export default function NavLink({
   return (
     <Link
       {...props}
-      className={cn('hover:bg-gray rounded-8 px-16 py-8', className)}
+      className={cn(
+        'hover:bg-gray rounded-8 px-16 py-8 dark:hover:bg-slate-800',
+        className
+      )}
     >
       {children}
     </Link>

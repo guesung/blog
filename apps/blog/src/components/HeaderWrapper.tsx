@@ -20,7 +20,7 @@ export default function HeaderWrapper({
   return (
     <header
       className={cn(
-        'className="text-body2 dark:bg-black" fixed top-0 z-10 mx-auto flex w-screen transform items-center justify-between bg-white px-20 py-16 shadow-sm transition-transform duration-300 ease-in-out',
+        'className="text-body2 fixed top-0 z-10 mx-auto flex w-screen transform items-center justify-between bg-white px-20 py-16 shadow-sm transition-transform duration-300 ease-in-out dark:bg-black',
         { '-translate-y-full': !isChildrenShow }
       )}
     >

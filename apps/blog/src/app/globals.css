@@ -135,52 +135,62 @@ table {
   border-color: theme('borderColor.DEFAULT', currentColor);
 }
 
-.prose code {
-  counter-reset: line;
+.prose {
+  code {
+    counter-reset: line;
+  }
+
+  & > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+    
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
+
+  code[data-line-numbers-max-digits='2'] > span[data-line]::before {
+    width: 1rem;
+  }
+
+  code[data-line-numbers-max-digits='3'] > span[data-line]::before {
+    width: 1.5rem;
+  }
+
+  pre, img {
+    @apply rounded-16
+  }
+
+  code > span[data-line]::before {
+    @apply hidden;
+  }
+
+  a {
+    @apply no-underline text-blue-500 hover:underline
+  }
+
+  :not(pre) > code::before,::after {
+    @apply hidden
+  }
+
+  :not(pre) > code{
+    @apply bg-slate-200 rounded-16 px-8 py-4
+  }
+
+  h1 {
+    @apply border-b-1 border-slate-200 border-solid pb-8
+  }
+
 }
 
-.prose code > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
+.dark .prose{
+  * {
+    @apply text-white
+  }
 
-.prose code[data-line-numbers-max-digits='2'] > span[data-line]::before {
-  width: 1rem;
-}
-.prose code[data-line-numbers-max-digits='3'] > span[data-line]::before {
-  width: 1.5rem;
-}
-
-.prose pre, .prose img {
-  @apply rounded-16
-}
-
-.prose code > span[data-line]::before {
-  @apply hidden;
-}
-
-.prose a {
-  @apply no-underline text-blue-500 hover:underline
-}
-
-.prose :not(pre) > code::before,::after {
-  @apply hidden
-}
-
-.prose :not(pre) > code{
-  @apply bg-slate-200 rounded-16 px-2 py-1
-}
-
-.dark .prose *{
-  @apply text-white
-}
-
-.prose h1 {
-  @apply border-b-1 border-slate-200 border-solid pb-8
+  :not(pre) > code {
+    @apply bg-slate-800
+  }
 }
