@@ -20,7 +20,7 @@ export default function Tag({
 }: PropsWithChildren<TagProps>) {
   return (
     <Link
-      className={cn('w-fit px-8 py-4', tagVariantClassname[variant], className)}
+      className={cn('w-fit p-8', tagVariantClassname[variant], className)}
       {...props}
     >
       {children}

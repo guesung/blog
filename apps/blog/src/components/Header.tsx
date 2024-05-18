@@ -18,7 +18,7 @@ const NAV_LINK_PROPS_LIST = [
     children: 'About',
   },
   {
-    href: '/',
+    href: '/playground',
     children: 'PlayGround',
   },
 ];

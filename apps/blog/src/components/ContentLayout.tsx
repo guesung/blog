@@ -10,7 +10,11 @@ export default function ContentLayout({
   className,
 }: PropsWithChildren<ContentLayoutProps>) {
   return (
-    <div className={cn('max-w-800 mx-auto px-16', className)}>{children}</div>
+    <div
+      className={cn('max-w-800 mx-auto flex flex-col gap-10 px-16', className)}
+    >
+      {children}
+    </div>
   );
 }
 

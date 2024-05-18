@@ -31,7 +31,7 @@ export default function RootLayout({
     <html className={cn(pretendard.variable)}>
       <body className={pretendard.className}>
         <ThemeProvider
-          className="text-body3 leading-5 dark:bg-black dark:text-white"
+          className="text-body3 dark:bg-black dark:text-white"
           initialTheme={theme}
         >
           <Header />
