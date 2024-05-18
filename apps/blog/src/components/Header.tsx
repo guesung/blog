@@ -30,7 +30,9 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <div>
-        <NavLink href="/">Guesung.</NavLink>
+        <NavLink href="/" className="text-subtitle3">
+          Guesung.
+        </NavLink>
       </div>
       <div className="flex items-center">
         {NAV_LINK_PROPS_LIST.map(props => (

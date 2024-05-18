@@ -1,9 +1,9 @@
-import { ClassnNameType, VariantEnum } from '@guesung/constants';
+import { ClassNameType, VariantEnum } from '@guesung/constants';
 import { cn } from '@guesung/utils';
 import Link, { LinkProps } from 'next/link';
 import { PropsWithChildren } from 'react';
 
-interface TagProps extends ClassnNameType, LinkProps {
+interface TagProps extends ClassNameType, LinkProps {
   variant?: VariantEnum;
 }
 

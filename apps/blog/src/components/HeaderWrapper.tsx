@@ -25,7 +25,7 @@ export default function HeaderWrapper({
   return (
     <header
       className={cn(
-        'className="text-body2 dark:bg-black" fixed top-0 z-10 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-sm',
+        'className="text-body2 dark:bg-black" fixed top-0 z-10 mx-auto flex w-screen transform items-center justify-between bg-white px-20 py-16 shadow-sm transition-transform duration-300 ease-in-out',
         { '-translate-y-full': !isChildrenShow }
       )}
     >

@@ -1,3 +1,3 @@
-export type ClassnNameType = {
+export type ClassNameType = {
   className?: string;
 };
