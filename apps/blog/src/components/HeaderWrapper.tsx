@@ -1,8 +1,8 @@
 'use client';
 
-import { PropsWithChildren, useEffect, useState } from 'react';
 import { cn } from '@guesung/utils';
 import { useScroll } from '@hooks';
+import { PropsWithChildren, useState } from 'react';
 
 interface HeaderWrapperProps {}
 
@@ -16,16 +16,6 @@ export default function HeaderWrapper({
       setIsChildrenShow(prevScrollY > currentScrollY);
     },
   });
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.prevScrollY;
-  //     setIsChildrenShow(prevScrollY > currentScrollY);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, [prevScrollY]);
 
   return (
     <header
