@@ -1,5 +1,5 @@
 import { Content } from '@contents';
-import { Card } from '@guesung/ui';
+import { Card, Tag } from '@guesung/ui';
 
 interface ContentCardProps {
   content: Content;
@@ -13,8 +13,7 @@ export default function ContentCard({ content }: ContentCardProps) {
       {...content}
     >
       {content.description}
-
-      {content.tags?.map(tag => <div key={tag}>{tag}</div>)}
+      {content.tags?.map(tag => <Tag key={tag}>{tag}</Tag>)}
     </Card>
   );
 }
