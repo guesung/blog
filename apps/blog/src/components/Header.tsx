@@ -1,7 +1,7 @@
 import MoonIcon from '@svgs/moon.svg';
 import SunIcon from '@svgs/sun.svg';
 import { cookies } from 'next/headers';
-import { NavLink, ToggleTheme } from '.';
+import { NavLink, HeaderWrapper, ToggleTheme } from '.';
 
 const NAV_LINK_PROPS_LIST = [
   {
@@ -28,7 +28,7 @@ export default function Header() {
   const theme = cookieStore.get('theme')?.value;
 
   return (
-    <header className="text-body2 fixed top-0 z-10 mx-auto flex w-screen items-center justify-between bg-white px-20 py-16 shadow-sm dark:bg-black">
+    <HeaderWrapper>
       <div>
         <NavLink href="/">Guesung.</NavLink>
       </div>
@@ -44,7 +44,7 @@ export default function Header() {
           )}
         </ToggleTheme>
       </div>
-    </header>
+    </HeaderWrapper>
   );
 }
 
