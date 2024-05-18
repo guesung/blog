@@ -84,6 +84,9 @@ importers:
 
   apps/blog:
     dependencies:
+      '@guesung/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       contentlayer:
         specifier: ^0.3.4
         version: 0.3.4(esbuild@0.20.2)

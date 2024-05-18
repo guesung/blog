@@ -1,11 +1,17 @@
 import { PropsWithChildren } from 'react';
+import { cn } from '@guesung/utils';
 
-interface ContentLayoutProps {}
+interface ContentLayoutProps {
+  className?: string;
+}
 
 export default function ContentLayout({
   children,
+  className,
 }: PropsWithChildren<ContentLayoutProps>) {
-  return <div className="max-w-800 mx-auto px-16">{children}</div>;
+  return (
+    <div className={cn('max-w-800 mx-auto px-16', className)}>{children}</div>
+  );
 }
 
 interface TitleProps {}

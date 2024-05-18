@@ -2,16 +2,16 @@ import { ComponentProps } from 'react';
 import Card from './Card';
 import { date } from '@guesung/utils';
 
-interface ContentCardProps extends ComponentProps<typeof Card> {
+interface SeriesCardProps extends ComponentProps<typeof Card> {
   postCount: number;
   lastModified?: string;
 }
 
-export default function ContentCard({
+export default function SeriesCard({
   postCount,
   lastModified,
   ...props
-}: ContentCardProps) {
+}: SeriesCardProps) {
   const formattedLastModified = lastModified
     ? `${date(lastModified).year}년 ${date(lastModified).month}월 ${
         date(lastModified).date

@@ -10,4 +10,4 @@ export { default as NavLink } from './NavLink';
 export { default as ContentLayout } from './ContentLayout';
 export { default as ListItem } from './ListItem';
 export { default as ContentListItem } from './ContentListItem';
-export { default as ContentCard } from './ContentCard';
+export { default as SeriesCard } from './SeriesCard';
