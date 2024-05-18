@@ -1,10 +1,11 @@
-import { Footer, Header } from '@components';
+import { Footer, Header, ThemeProvider } from '@components';
 import './globals.css';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { cn } from '@guesung/utils';
 
 import localFont from 'next/font/local';
+import { Theme } from '@components/provider/ThemeProvider';
 
 const pretendard = localFont({
   src: '../../public/font/PretendardVariable.woff2',
@@ -24,23 +25,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   const cookieStore = cookies();
-  const theme = cookieStore.get('theme')?.value;
+  const theme = cookieStore.get('theme')?.value as Theme;
 
   return (
-    <html
-      className={cn(
-        pretendard.variable,
-        'text-body3 leading-5 dark:bg-black dark:text-white',
-        {
-          dark: theme === 'dark',
-        }
-      )}
-    >
+    <html className={cn(pretendard.variable)}>
       <body className={pretendard.className}>
-        <Header />
-        <Header.Margin />
-        {children}
-        <Footer />
+        <ThemeProvider
+          className="text-body3 leading-5 dark:bg-black dark:text-white"
+          initialTheme={theme}
+        >
+          <Header />
+          <Header.Margin />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
