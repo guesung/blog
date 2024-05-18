@@ -157,7 +157,7 @@ table {
   width: 1.5rem;
 }
 
-.prose pre, img {
+.prose pre, .prose img {
   @apply rounded-16
 }
 

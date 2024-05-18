@@ -19,8 +19,8 @@ export default function Card({
         <Image
           src={coverSrc ?? '/contents/etc/cover.png'}
           fill
-          alt="cover"
-          objectFit="cover"
+          alt="cover image"
+          className="rounded-t-16 object-cover"
         />
       </div>
       <div className="flex flex-col gap-8 px-8 py-16 text-start">
