@@ -62,3 +62,12 @@ export const getSeriesLastModified = ({series}:GetSeriesLastModifiedProps) =>{
   const contents = getContents({series});
   return contents[contents.length - 1]?.lastModified ?? '';
 }
+
+//
+
+export const getAllTag = () =>Array.from(new Set(allContents.flatMap(content => content.tags)));
+
+//
+
+export const getContentsByTag = (tag: string) =>
+  getContents().filter(content => content.tags?.includes(tag));
