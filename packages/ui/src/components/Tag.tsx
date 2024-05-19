@@ -8,8 +8,8 @@ interface TagProps extends ClassNameType, LinkProps {
 }
 
 const tagVariantClassname: Record<VariantEnum, string> = {
-  [VariantEnum.outline]: 'border-solid border-2 border-black rounded-12',
-  [VariantEnum.filled]: 'bg-black text-white',
+  [VariantEnum.outline]: 'border-black rounded-12',
+  [VariantEnum.filled]: 'bg-black text-white border-white',
 };
 
 export default function Tag({
@@ -20,7 +20,11 @@ export default function Tag({
 }: PropsWithChildren<TagProps>) {
   return (
     <Link
-      className={cn('w-fit p-8', tagVariantClassname[variant], className)}
+      className={cn(
+        'w-fit border-2 border-solid p-8',
+        tagVariantClassname[variant],
+        className
+      )}
       {...props}
     >
       {children}

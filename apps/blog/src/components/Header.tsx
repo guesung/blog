@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <>
       <div>
-        <NavLink href="/" className="text-subtitle3">
+        <NavLink href="/" className="text-body2 font-bold">
           Guesung.
         </NavLink>
       </div>

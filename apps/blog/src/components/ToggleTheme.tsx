@@ -18,10 +18,9 @@ export default function ToggleTheme({
       setCookie('theme', 'dark');
       setTheme('dark');
     }
-    window.location.reload();
   };
   return (
-    <div className="dark" onClick={handleTheme}>
+    <div className="dark cursor-pointer" onClick={handleTheme}>
       {children}
     </div>
   );

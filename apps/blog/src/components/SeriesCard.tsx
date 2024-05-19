@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { date } from '@guesung/utils';
+import { formatDate } from '@guesung/utils';
 import { Card } from '@guesung/ui';
 
 interface SeriesCardProps extends ComponentProps<typeof Card> {
@@ -14,9 +14,7 @@ export default function SeriesCard({
   ...props
 }: SeriesCardProps) {
   const formattedLastModified = lastModified
-    ? `${date(lastModified).year}년 ${date(lastModified).month}월 ${
-        date(lastModified).date
-      }일`
+    ? formatDate(lastModified)
     : '없음';
 
   return (
