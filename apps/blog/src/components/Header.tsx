@@ -14,12 +14,16 @@ const NAV_LINK_PROPS_LIST = [
     children: 'Series',
   },
   {
+    href: '/playground',
+    children: 'PlayGround',
+  },
+  {
     href: '/about',
     children: 'About',
   },
   {
-    href: '/playground',
-    children: 'PlayGround',
+    href: '/plan',
+    children: 'Plan',
   },
 ];
 
