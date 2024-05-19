@@ -28,7 +28,7 @@ export default function Header() {
   const theme = cookieStore.get('theme')?.value;
 
   return (
-    <HeaderWrapper>
+    <>
       <div>
         <NavLink href="/" className="text-subtitle3">
           Guesung.
@@ -46,8 +46,9 @@ export default function Header() {
           )}
         </ToggleTheme>
       </div>
-    </HeaderWrapper>
+    </>
   );
+
 }
 
 function HeaderMargin() {

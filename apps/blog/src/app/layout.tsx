@@ -1,4 +1,4 @@
-import { Footer, Header, ThemeProvider } from '@components';
+import { Footer, Header, HeaderWrapper, ThemeProvider } from '@components';
 import './globals.css';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
@@ -34,7 +34,9 @@ export default function RootLayout({
           className="text-body3 dark:bg-black dark:text-white"
           initialTheme={theme}
         >
-          <Header />
+          <HeaderWrapper>
+            <Header />
+          </HeaderWrapper>
           <Header.Margin />
           {children}
           <Footer />
