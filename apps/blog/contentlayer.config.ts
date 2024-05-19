@@ -14,7 +14,7 @@ const commonFields: FieldDefs = {
   isPublished: { type: 'boolean', required: true },
   series: {
     type: 'enum',
-    options: ['posts', 'translations', 'etc', 'digging'],
+    options: ['posts', 'translations', 'etc', 'deep-dive'],
     default: 'posts',
     required: true,
   },
