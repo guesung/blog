@@ -1,7 +1,7 @@
 import MoonIcon from '@svgs/moon.svg';
 import SunIcon from '@svgs/sun.svg';
 import { cookies } from 'next/headers';
-import { NavLink, HeaderWrapper, ToggleTheme } from '.';
+import { NavLink, ToggleTheme } from '.';
 
 const NAV_LINK_PROPS_LIST = [
   {

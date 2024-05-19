@@ -1,20 +1,31 @@
-import Image from 'next/image';
-import Link, { LinkProps } from 'next/link';
-import { PropsWithChildren } from 'react';
+'use client';
 
-interface SeriesCardProps extends LinkProps {
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { HTMLAttributes, PropsWithChildren } from 'react';
+
+interface SeriesCardProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   coverSrc: string;
+  href: string;
 }
 
 export default function Card({
   title,
   coverSrc,
   children,
+  href,
   ...props
 }: PropsWithChildren<SeriesCardProps>) {
+  const router = useRouter();
+  const handleClick = () => router.push(href);
+
   return (
-    <Link className="rounded-16 w-full shadow-md" {...props}>
+    <div
+      className="rounded-16 w-full cursor-pointer shadow-md"
+      onClick={handleClick}
+      {...props}
+    >
       <div className="h-200 relative">
         <Image
           src={coverSrc ?? '/contents/etc/cover.png'}
@@ -27,6 +38,6 @@ export default function Card({
         <div className="text-body2">{title}</div>
         {children}
       </div>
-    </Link>
+    </div>
   );
 }
