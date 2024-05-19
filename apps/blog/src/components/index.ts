@@ -13,3 +13,4 @@ export { default as ContentCard } from './ContentCard';
 export { default as HeaderWrapper } from './HeaderWrapper';
 export { default as PostStatusBar } from './PostStatusBar';
 export { default as ThemeProvider } from './provider/ThemeProvider';
+export { default as Description } from './mdx/Description';

@@ -1,6 +1,6 @@
 import { Content } from '@contents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { Callout, PostStatusBar, Translation } from '@components';
+import { Callout, PostStatusBar, Translation, Description } from '@components';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { cn } from '@guesung/utils';
@@ -18,7 +18,7 @@ export default function ContentPost({ title, body, className }: PostProps) {
       <PostStatusBar />
       <div className="text-title3 my-50 text-center">{title}</div>
       <div className="prose max-w-full">
-        <MDXContent components={{ Callout, Image, Translation }} />
+        <MDXContent components={{ Callout, Image, Translation, Description }} />
       </div>
     </div>
   );
