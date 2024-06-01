@@ -6,28 +6,29 @@ description: 나만의 업무 프로세스를 소개합니다.
 series: posts
 tags:
   - process
-isPublished: true
-isCover: true
+isPublished: false
 ---
 저는 자기계발, 생활, 업무 등 다양한 환경에서 수많은 프로세스를 가지고 있으며, 최적의 프로세스를 정립하기 위해 다양한 경험을 추구하고 있습니다. 오늘은 그 중 업무 프로세스를 소개하고자 합니다.
+
+### 프로젝트를 시작할 때
 
 1. 첫 번째 유형을 완전하게 한 번 만들어보고, 템플릿을 만들어라.
     - 매 번 첫 번째 완성된 유형을 복사 - 붙여넣기 하여 중복된 내용 제거하고, 새로운 내용 삽입하고. 이러면 두 번 수행해야한다. 첫 번째 유형에서, 반복되는 부분을 제외하고 내용이 바뀌는 부분은 제거하여 템플릿으로 만들어두자.
     - 파일이라면, 가장 바깥 폴더로 `_template`을 만들어 보관하고, 컴포넌트라면 해당 프로젝트에 대한 노션 페이지에 작성해두자.
         - 예시 : Chat.tsx
-              ```tsx
-              import Chat from '@components/common';
-              import useChat from '@hooks';
-              ```
+          ```tsx {1}
+          import Chat from '@components/common';
+          import useChat from '@hooks';
+          ```
               
-              ```tsx
-              const { chats, isCompleted } = useChats({prompt})
-              ```
-              ```tsx
-              <Chat 
-                isCompleted = {isCompleted}
-              />
-              ```
+          ```tsx 
+          const { chats, isCompleted } = useChats({prompt})
+          ```
+          ```tsx
+          <Chat 
+            isCompleted = {isCompleted}
+          />
+          ```
 2. 하나의 프로젝트를 시작하면, 노션 페이지를 만들어라. 
     - 목차도 어느정도 체계적으로 작성하면 좋을 듯 하다. `일정`, `Links`, `Memos`, `작업 현황`(table DB → 일정 관리), `느낀 점 / 배운 점`
     - 예시

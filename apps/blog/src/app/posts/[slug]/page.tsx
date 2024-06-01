@@ -12,5 +12,5 @@ export default function page({ params: { slug } }: pageProps) {
     slug,
   });
 
-  return <ContentPost {...content} className="max-w-760" />;
+  return <ContentPost {...content} className="max-w-1000" />;
 }

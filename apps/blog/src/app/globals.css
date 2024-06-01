@@ -2,153 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-*,
-::before,
-::after {
-  border-width: 0;
-  border-style: solid;
-  border-color: theme('borderColor.DEFAULT', currentColor);
-}
-
-.prose {
-  code {
-    counter-reset: line;
+.prose{
+  pre {
+    @apply py-10 px-0
   }
-
-  & > [data-line]::before {
-    counter-increment: line;
-    content: counter(line);
-    
-    display: inline-block;
-    width: 1rem;
-    margin-right: 2rem;
-    text-align: right;
-    color: gray;
+  pre code > span {
+    @apply px-10
+  }
+  pre code > span.data-highlighted-line {
+    @apply bg-slate-200
+  }
+  img {
+    @apply rounded-8 my-0
+  }
+  .data-highlighted-line {
+    @apply bg-slate-200
   }
 
   code[data-line-numbers-max-digits='2'] > span[data-line]::before {
@@ -157,10 +25,6 @@ table {
 
   code[data-line-numbers-max-digits='3'] > span[data-line]::before {
     width: 1.5rem;
-  }
-
-  pre, img {
-    @apply rounded-16
   }
 
   code > span[data-line]::before {
@@ -178,13 +42,25 @@ table {
   :not(pre) > code{
     @apply bg-slate-200 rounded-16 px-8 py-4
   }
-
   h1 {
     @apply border-b-1 border-slate-200 border-solid pb-8
   }
+  code {
+    counter-reset: line;
+  }
 
+  code > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+    
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
 }
-
+  
 .dark .prose{
   * {
     @apply text-white
@@ -194,3 +70,10 @@ table {
     @apply bg-slate-800
   }
 }
+
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: theme('borderColor.DEFAULT', currentColor);
+} 

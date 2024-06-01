@@ -25,12 +25,19 @@ export default function ContentPost({ title, body, date, className, _raw }: Post
             Callout,
             Translation,
             Description,
-            Image: ({ width, height, src, ...props }: ImageProps) => (
+            Image: ({
+              width,
+              height,
+              src,
+              className,
+              ...props
+            }: ImageProps) => (
               <Image
                 {...props}
                 width={width ?? 600}
                 height={height ?? 600}
                 src={`/contents/${_raw.sourceFileDir}/${src}`}
+                className={className}
               />
             ),
           }}

@@ -14,5 +14,5 @@ export default function page({ params: { series, slug } }: pageProps) {
     slug: typeof slug === 'string' ? slug : slug.join('/'),
   });
 
-  return <ContentPost {...content} className="max-w-760" />;
+  return <ContentPost {...content} className="max-w-1000" />;
 }
