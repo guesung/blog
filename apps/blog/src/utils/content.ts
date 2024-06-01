@@ -8,6 +8,8 @@ export const sortContentByDate = (contents: DocumentTypes[]) =>
 
 //
 
+const allContentsPublished = allContents.filter(content => content.isPublished);
+
 interface GetContentProps {
   series?: Content['series'];
 }
@@ -15,16 +17,16 @@ interface GetContentProps {
 export const getContents = ({ series }: GetContentProps = {}): Content[] =>
   series
     ? sortContentByDate(
-        allContents.filter(content => content.series === series)
+        allContentsPublished.filter(content => content.series === series)
       )
-    : sortContentByDate(allContents);
+    : sortContentByDate(allContentsPublished);
 
 //
 
 export const getSeries = () =>
-  Array.from(new Set(allContents.map(content => content.series))).filter(
-    series => series
-  );
+  Array.from(
+    new Set(allContentsPublished.map(content => content.series))
+  ).filter(series => series);
 
 //
 
@@ -65,7 +67,8 @@ export const getSeriesLastModified = ({series}:GetSeriesLastModifiedProps) =>{
 
 //
 
-export const getAllTag = () =>Array.from(new Set(allContents.flatMap(content => content.tags)));
+export const getAllTag = () =>
+  Array.from(new Set(allContentsPublished.flatMap(content => content.tags)));
 
 //
 
