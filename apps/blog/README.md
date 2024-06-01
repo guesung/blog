@@ -1,28 +1,6 @@
-## Getting Started
-
-First, run the development server:
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 블로그 글 작성 원칙
+1. 단순한 개념 설명같은 누구나 작성할 수 있는 글은 지양한다.
+2. 작성을 지향하고자하는 글의 유형은 다음과 같다.
+     1. 특정 기술의 동작 원리를 설명하는 글 [ref](https://www.timegambit.com/series/digging)
+     2. 특정 기술을 깊이 있게 탐구하는 글 [ref](https://www.timegambit.com/blog/js/generate-array-speed-analysis)
+     3. 프로젝트를 개발하며 기술스택을 비교하는 글 [ref](https://www.timegambit.com/series/blog-log), [ref 2](https://www.timegambit.com/series/solve)
