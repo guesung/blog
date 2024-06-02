@@ -9,10 +9,10 @@ const NAV_LINK_PROPS_LIST = [
     children: 'Note',
     target: '_blank',
   },
-  {
-    href: '/series',
-    children: 'Series',
-  },
+  // {
+  //   href: '/series',
+  //   children: 'Series',
+  // },
   {
     href: '/playground',
     children: 'PlayGround',

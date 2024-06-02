@@ -21,7 +21,7 @@ export default function ContentLayout({
 interface TitleProps {}
 
 function Title({ children }: PropsWithChildren<TitleProps>) {
-  return <div className="text-title3 my-20 text-center">{children}</div>;
+  return <div className="text-subtitle1 my-20 text-center">{children}</div>;
 }
 
 interface DescriptionProps {}
