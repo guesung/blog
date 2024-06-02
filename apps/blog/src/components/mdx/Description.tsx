@@ -12,7 +12,9 @@ export default function Description({
 }: PropsWithChildren<DescriptionProps>) {
   return (
     <ToolTip content={content}>
-      <span className="bg-yellow-50 px-8 py-4">{children}</span>
+      <span className="rounded-8 cursor-pointer bg-yellow-50 px-8 py-4 dark:bg-slate-700">
+        {children}
+      </span>
     </ToolTip>
   );
 }

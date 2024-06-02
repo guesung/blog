@@ -17,7 +17,7 @@ export default function ToolTip({
       className="relative"
     >
       {isShowToolTip && (
-        <span className="rounded-16 text-caption absolute -top-32 left-8 w-max bg-slate-50 px-8 py-4 text-black">
+        <span className="rounded-16 text-caption absolute -top-32 left-8 w-max bg-slate-50 px-8 py-4 text-black dark:bg-slate-700">
           {content}
         </span>
       )}
