@@ -18,7 +18,7 @@ export default function Page() {
         ))}
       </div> */}
       <ContentLayout.Title>ALL POSTS.</ContentLayout.Title>
-      <CardList<Content>
+      <CardList
         items={postsContents}
         render={content => <ContentCard content={content} />}
       />
