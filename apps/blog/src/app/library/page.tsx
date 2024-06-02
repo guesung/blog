@@ -1,6 +1,4 @@
 import { ContentLayout, ListItem } from '@components';
-import { CardList } from '@guesung/ui';
-import { getSeries } from '@utils';
 import { ComponentProps } from 'react';
 
 interface Library extends ComponentProps<typeof ListItem> {
@@ -9,15 +7,21 @@ interface Library extends ComponentProps<typeof ListItem> {
 
 const libraryList: Library[] = [
   {
-    title: '[개발 회고록] 나의 2022년 개발 성장기',
-    href: 'https://peter-coding.tistory.com/272',
-    date: '2023-01-01',
+    title: '2023년을 돌아보며',
+    href: 'https://www.notion.so/guesung/2023-7e44ffe7fe99443dbcff3c461e4106e7?pvs=4',
+    date: '2023-12-30',
     target: '_blank',
   },
   {
     title: 'Gloddy 초기 스타트업 중간 회고',
     href: 'https://note.guesung.site/daa59990-1318-412d-9ce2-7a4fe1d50bb9',
     date: '2023-11-01',
+    target: '_blank',
+  },
+  {
+    title: '[개발 회고록] 나의 2022년 개발 성장기',
+    href: 'https://peter-coding.tistory.com/272',
+    date: '2023-01-01',
     target: '_blank',
   },
 ];

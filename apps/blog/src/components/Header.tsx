@@ -9,10 +9,10 @@ const NAV_LINK_PROPS_LIST = [
     children: 'Note',
     target: '_blank',
   },
-  {
-    href: '/series',
-    children: 'Series',
-  },
+  // {
+  //   href: '/series',
+  //   children: 'Series',
+  // },
   {
     href: '/library',
     children: 'Library',
@@ -21,10 +21,10 @@ const NAV_LINK_PROPS_LIST = [
     href: '/playground',
     children: 'PlayGround',
   },
-  {
-    href: '/about',
-    children: 'About',
-  },
+  // {
+  //   href: '/about',
+  //   children: 'About',
+  // },
   {
     href: '/plan',
     children: 'Plan',
