@@ -77,3 +77,7 @@
   border-style: solid;
   border-color: theme('borderColor.DEFAULT', currentColor);
 } 
+
+svg{
+  fill:'white'
+}

@@ -16,7 +16,7 @@ export default function ListItem({
 }: PropsWithChildren<ListItemProps>) {
   return (
     <Link
-      className="rounded-16 h-180 hover:bg-gray flex gap-16 p-16"
+      className="rounded-16 h-180 hover:bg-gray flex gap-16 p-16 dark:hover:bg-slate-600"
       {...props}
     >
       <div className="w-270 relative">
