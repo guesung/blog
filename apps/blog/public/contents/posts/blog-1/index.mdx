@@ -1,0 +1,72 @@
+---
+title: Next.js로 블로그 만들기
+date: 2024-06-02
+lastModified: 2024-06-02
+series: posts
+tags: 
+  - next.js
+  - blog
+  - mdx
+isPublished: 
+description: Next.js로 블로그 만들기
+---
+
+내가 지금까지 사용해왔던 블로그들이다.
+
+1. Tistory : https://peter-coding.tistory.com/
+2. Notion + Next.js : 지금은 배포 X
+3. Velog :https://velog.io/@gueit214/posts
+
+블로그를 사용하며 느낀 불편한 점이 있었다.
+
+1. 제약이 많다. Tistory 블로그는 직접 HTML을 수정하여 커스텀할 수 있지만, HTML을 사용해서 커스텀해야 하기에 불편하고, 한계가 있다.
+2. 각 포스팅을 수정하려면 글 하나하나 들어가서 '수정' 버튼을 누르고, 수정을 해야 한다. 하지만 직접 블로그를 만들면 로컬에서 일괄 수정이 가능하다.
+3. Notion + Next.js는 노션에 종속성이 생긴다. 노션에서 수정 후, Notion + Next.js에서 다시 배포를 해야 한다.
+
+정리하면, 제약이 없고 확장성이 무궁무진한 블로그를 만들어보고자 이번 프로젝트를 시작하게 되었다.
+
+# 기술 스택
+
+## 1. Next.js
+
+만들고자 하는 서비스는 블로그이기에 1. 사용자에게 빠르게 보여주어야 하고 2. 검색 엔진에 노출이 잘 되어야 한다는 점이 중요하다. 사용자에게 빠르게 보여주기 위해서는 서버에서 미리 페이지를 생성하는 SSG 기능이 필요했다. 그리고 서버에서 미리 페이지를 생성하기에 SEO에도 유리하다. 이러한 기술로는 React기반의 Next.js와 Gatsby가 있다.
+
+{/* 지금까지 사용해왔던 기술은 Next.js이지만 Gatsby는 SSG에 최적화되어 있고, 블로그를 만들기 위한 다양한 [Gatsby Plugin](https://www.gatsbyjs.com/plugins)을 제공한 다는 점에서 매력적으로 다가왔다.  */}
+
+### 1.1. Gatsby
+1. 사이트를 만들기 위한 다양한 [Gatsby Plugin](https://www.gatsbyjs.com/plugins)을 제공한다.
+
+    플러그인을 설치 후, gatsby-config에서 확장해주면 바로 사용이 가능하다.
+
+    ```js
+    import { dirname } from "path"
+    import { fileURLToPath } from "url"
+
+    const __dirname = dirname(fileURLToPath(import.meta.url))
+
+    const config = {
+      plugins: [
+        `gatsby-plugin-mdx`,
+        {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `pages`,
+            path: `${__dirname}/src/pages`,
+          },
+        },
+      ],
+    }
+
+    export default config
+    ```
+
+2. SSG에 최적화되어 있다.
+
+3. MD base의 JAMStack을 구성하는 게 쉽다.
+
+
+
+
+### 1.2. Next.js
+
+1. [122k](https://github.com/vercel/next.js)(2024.06.02 기준)개의 star를 받았다. 그에 반해 [gatsby](https://github.com/gatsbyjs/gatsby)는 55.1k개의 star를 받았다.
