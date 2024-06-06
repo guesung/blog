@@ -21,8 +21,6 @@ export const getContents = ({ series }: GetContentProps = {}): Content[] =>
       )
     : sortContentByDate(allContentsPublished);
 
-//
-
 export const getSeries = () =>
   Array.from(
     new Set(allContentsPublished.map(content => content.series))
@@ -47,23 +45,25 @@ export const getContent = ({
 
 //
 
-interface GetSeriesCountProps  {
+interface GetSeriesCountProps {
   series: Content['series'];
 }
 
-export const getSeriesCount = ({series}: GetSeriesCountProps) =>
-  getContents({series}).length;
+export const getSeriesCount = ({ series }: GetSeriesCountProps) =>
+  getContents({ series }).length;
 
 //
 
-interface GetSeriesLastModifiedProps{
+interface GetSeriesLastModifiedProps {
   series: Content['series'];
 }
 
-export const getSeriesLastModified = ({series}:GetSeriesLastModifiedProps) =>{
-  const contents = getContents({series});
+export const getSeriesLastModified = ({
+  series,
+}: GetSeriesLastModifiedProps) => {
+  const contents = getContents({ series });
   return contents[contents.length - 1]?.lastModified ?? '';
-}
+};
 
 //
 

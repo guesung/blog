@@ -8,9 +8,14 @@ import { ClassNameType } from '@guesung/constants';
 
 interface PostProps extends Content, ClassNameType {}
 
-export default function ContentPost({ title, body, date, className, _raw }: PostProps) {
+export default function ContentPost({
+  title,
+  body,
+  date,
+  className,
+  _raw,
+}: PostProps) {
   if (!body) return notFound();
-  console.log(_raw);
 
   const MDXContent = useMDXComponent(body.code);
 
