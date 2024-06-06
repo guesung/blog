@@ -3,7 +3,7 @@ import ListItem from './ListItem';
 import { Content } from '@contents';
 
 interface ContentListItemProps
-  extends ComponentProps<typeof ListItem>,
+  extends Omit<ComponentProps<typeof ListItem>, 'coverSrc' | 'type'>,
     Content {}
 export default function ContentListItem({
   tags,
