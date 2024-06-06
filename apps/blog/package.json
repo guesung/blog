@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@guesung/ui": "workspace:*",
+    "@next/third-parties": "^14.2.3",
     "contentlayer": "^0.3.4",
     "date-fns": "^3.6.0",
-    "google": "link:@next/third-parties/google",
     "next-contentlayer": "^0.3.4",
     "rehype": "^13.0.1",
     "rehype-pretty-code": "^0.13.1",
