@@ -93,6 +93,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      google:
+        specifier: link:@next/third-parties/google
+        version: link:@next/third-parties/google
       next-contentlayer:
         specifier: ^0.3.4
         version: 0.3.4(contentlayer@0.3.4)(esbuild@0.20.2)(next@13.5.6)(react-dom@18.3.1)(react@18.3.1)
@@ -1571,10 +1574,6 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
-      '@effect-ts/core':
-        optional: true
-      '@effect-ts/otel':
-        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:

@@ -6,6 +6,7 @@ import { cn } from '@guesung/utils';
 
 import localFont from 'next/font/local';
 import { Theme } from '@components/provider/ThemeProvider';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const pretendard = localFont({
   src: '../../public/font/PretendardVariable.woff2',
@@ -48,6 +49,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-JB6N95P3H1" />
     </html>
   );
 }
