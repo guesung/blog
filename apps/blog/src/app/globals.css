@@ -32,7 +32,7 @@
   }
 
   a {
-    @apply no-underline text-blue-500 hover:underline
+    @apply no-underline !text-blue-500 hover:underline
   }
 
   :not(pre) > code::before,::after {
