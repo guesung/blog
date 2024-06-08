@@ -21,10 +21,10 @@ const NAV_LINK_PROPS_LIST = [
     href: '/playground',
     children: 'PlayGround',
   },
-  // {
-  //   href: '/about',
-  //   children: 'About',
-  // },
+  {
+    href: '/about',
+    children: 'About',
+  },
   {
     href: '/plan',
     children: 'Plan',
