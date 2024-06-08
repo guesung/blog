@@ -42,7 +42,7 @@ export default function ContentPost({
                 width={width ?? 600}
                 height={height ?? 600}
                 src={`/contents/${_raw.sourceFileDir}/${src}`}
-                className={className}
+                className={cn('mx-auto', className)}
               />
             ),
           }}

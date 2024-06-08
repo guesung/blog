@@ -13,7 +13,7 @@
     @apply bg-slate-200
   }
   img {
-    @apply rounded-8 my-0
+    @apply rounded-16 my-0
   }
   .data-highlighted-line {
     @apply bg-slate-200
@@ -68,6 +68,9 @@
 
   :not(pre) > code {
     @apply bg-slate-800
+  }
+  strong{
+    @apply text-teal-400
   }
 }
 
