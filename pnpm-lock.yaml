@@ -84,9 +84,18 @@ importers:
 
   apps/blog:
     dependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@guesung/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
       '@guesung/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@next/third-parties':
         specifier: ^14.2.3
         version: 14.2.3(next@13.5.6)(react@18.3.1)
