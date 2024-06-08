@@ -18,7 +18,6 @@ const commonFields: FieldDefs = {
     default: 'posts',
     required: true,
   },
-  isCover: { type: 'boolean', required: false },
   lastModified: { type: 'date', required: false },
   description: { type: 'string', required: false },
   tags: { type: 'list', of: { type: 'string' }, required: false },
