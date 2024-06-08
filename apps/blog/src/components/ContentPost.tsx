@@ -1,6 +1,12 @@
 import { Content } from '@contents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { Callout, PostStatusBar, Translation, Description } from '@components';
+import {
+  Callout,
+  PostStatusBar,
+  Translation,
+  Description,
+  CodeBlock,
+} from '@components';
 import Image, { ImageProps } from 'next/image';
 import { notFound } from 'next/navigation';
 import { cn, formatDate } from '@guesung/utils';
@@ -45,6 +51,7 @@ export default function ContentPost({
                 className={cn('mx-auto', className)}
               />
             ),
+            pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
           }}
         />
       </div>

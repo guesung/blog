@@ -14,3 +14,4 @@ export { default as HeaderWrapper } from './HeaderWrapper';
 export { default as PostStatusBar } from './PostStatusBar';
 export { default as ThemeProvider } from './provider/ThemeProvider';
 export { default as Description } from './mdx/Description';
+export { default as CodeBlock } from './CodeBlock';

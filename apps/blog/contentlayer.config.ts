@@ -44,6 +44,7 @@ const Content = defineDocumentType(() => ({
 
 const rehypeOptions: PrettyCodeOptions = {
   theme: 'one-dark-pro',
+  keepBackground: true,
   defaultLang: {
     block: 'typescript',
   },
