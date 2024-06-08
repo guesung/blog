@@ -45,10 +45,7 @@
   h1 {
     @apply border-b-1 border-slate-200 border-solid pb-8
   }
-  code {
-    counter-reset: line;
-  }
-
+  
   code > [data-line]::before {
     counter-increment: line;
     content: counter(line);
@@ -58,6 +55,26 @@
     margin-right: 2rem;
     text-align: right;
     color: gray;
+  }
+  
+  [data-rehype-pretty-code-figure] {
+    & {
+      @apply border-1 border-slate-200 rounded-16
+    }
+    code {
+      counter-reset: line;
+    }
+    [data-rehype-pretty-code-title] {
+      @apply text-body3 indent-8 py-8
+    }
+    pre {
+      &{
+        @apply border-b-1 border-slate-200 rounded-16
+      }
+      [data-highlighted-line]{
+        @apply bg-slate-900
+      }
+    }
   }
 }
   
