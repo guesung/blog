@@ -52,6 +52,11 @@ export default function ContentPost({
               />
             ),
             pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
+            a: ({ children, ...props }) => (
+              <a {...props} target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
+            ),
           }}
         />
       </div>
