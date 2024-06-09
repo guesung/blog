@@ -24,9 +24,7 @@ export default function Toggle({
       <span onClick={handleToggle} className="cursor-pointer">
         {title} {isToggle ? <span>▼</span> : <span>▶</span>}
       </span>
-      <div className={cn('whitespace-pre', className)}>
-        {isToggle && children}
-      </div>
+      <div className={cn(className)}>{isToggle && children}</div>
     </>
   );
 }

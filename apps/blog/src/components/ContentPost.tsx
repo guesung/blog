@@ -6,6 +6,7 @@ import {
   Translation,
   Description,
   CodeBlock,
+  Toggle,
 } from '@components';
 import Image, { ImageProps } from 'next/image';
 import { notFound } from 'next/navigation';
@@ -36,6 +37,7 @@ export default function ContentPost({
             Callout,
             Translation,
             Description,
+            Toggle,
             Image: ({
               width,
               height,
