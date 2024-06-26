@@ -1,0 +1,248 @@
+---
+title: 멀티 레포를 모노 레포로 마이그레이션하기
+date: 2024-06-26
+lastModified: 2024-06-26
+series: posts
+tags: 
+  - turborepo
+  - monorepo
+isPublished: true
+description: TurboRepo를 회사에서 적용한 경험을 공유합니다.
+---
+{/* 글의 목표 : 모노레포로 마이그레이션하려는 이들이, 이 글만 보고도 마이그레이션을 쉽게 할 수 있도록 */}
+
+엘리스에서 인턴 생활 중, 모노레포를 건의하고, 이를 실제로 적용한 경험을 이야기하고자 합니다.
+
+# 모노레포로 마이그레이션하기까지
+
+회사 프로젝트는 저 혼자만 하는 것이 아니기에, 모노레포로 마이그레이션하기 위해서는 팀원들과의 소통이 필요했습니다. 그래서 저는 팀원들에게 현재 레포 구조의 문제점을 설명하고, 모노레포로 마이그레이션했을 때 어떤 이점이 있는지 설명했습니다.
+
+당시 공유했던 글입니다 : [건의 - 모노 레포 적용](https://guesung.notion.site/a875e277f9bf46d2aaa5f1b6aa72ec3f?pvs=25),
+
+위 글과 함께 모노레포 적용을 제안했습니다. 그리고, 팀원들과 팀장님의 동의를 받은 저는 곧장 사수님과 어떤 모노레포 관리 도구를 사용할 지 조사를 시작했습니다.
+
+당시 공유했던 글입니다 : [모노레포 관리 도구 결정에 대한 리서치](https://guesung.notion.site/30384975780f4b05a13ce560c543ab93?pvs=4)
+
+결국, 터보레포를 사용하기로 결졍했습니다.
+
+# 본격적인 마이그레이션
+
+## 1. Typescript, ESlint, Prettier 설정
+
+### 1. Typescript
+
+Typescript는 루트에서 tsconfig.json을 관리하고, 각 패키지에서 이를 확장하여 사용했습니다.
+
+그리고 또한, 각 패키지에서 사용하고 있던 typescript 버전이 달라, 이는 각 패키지에서 설치하여 관리했습니다.
+
+1. 루트
+    ```json
+    // tsconfig.json
+    {
+      "compilerOptions": {
+        "target": "es2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "jsxImportSource": "@emotion/react",
+        "incremental": true,
+        "paths": {
+          "src/*": ["./src/*"]
+        },
+        "baseUrl": "."
+      },
+      "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+      "exclude": ["node_modules"]
+    }
+    ```
+2. 각 패키지
+    ```json
+    {
+      "extends": "../../tsconfig.json",
+      "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+      "exclude": ["node_modules"],
+      "compilerOptions": {
+        "paths": {
+          "src/*": ["./src/*"]
+        },
+        "baseUrl": "."
+      }
+    }
+    ```
+
+### 2. ESLint
+
+ESLint는 가장 가까운 `.Eslintrc.*`설정 파일을 찾아서 사용합니다. 각 패키지 별로 설정된 eslint설정이 달랐기에, 루트에서 관리하고, 각 패키지 별로 이를 확장하여 사용했습니다.
+
+1. 루트
+   ```js
+      // .eslintrc.js
+      module.exports = {
+        extends: ['@elice/eslint-config'], // @elice/eslint-config를 가져온다.
+        ignorePatterns: ['apps/**', 'packages/**'], // apps, packages 폴더는 무시한다.
+        root: true,  // 현재 eslintrc파일이 위치한 곳이 eslint를 실행할 최상단이라는 것을 명시해줍니다.
+        parserOptions: {
+          project: true, // tsconfig.json을 참조한다.
+        },
+      };
+    ```
+2. 각 패키지
+    ```js
+    module.exports = {
+      extends: ['@elice/eslint-config/next.js'], // @elice/eslint-config-next를 가져온다.
+      root: true, // 현재 eslintrc파일이 위치한 곳이 eslint를 실행할 최상단이라는 것을 명시해줍니다.
+    };
+    ```
+
+### 3. Prettier
+
+prettier는 가장 가까운 .prettierrc파일을 찾아서 사용합니다. 만약 패키지마다 prettier 설정을 다르게 하고 싶다면, 각 패키지에 .prettierrc파일을 추가하면 됩니다. 하지만, 모두 공통적으로 적용하고 싶다면, 루트에만 .prettierrc파일을 두면 됩니다. 하지만, 프로젝트 전체에서 동일한 코드 스타일을 유지하는 것이 중요하기 때문에 루트 .prettierrc파일을 사용하는 것을 추천합니다.
+    
+```js
+// .prettierrc
+"@elice/prettier-config"
+```
+
+
+## 2. CI/CD 설정
+
+gitlab ci는 .gitlab-ci.yml파일을 참조하여 실행합니다. 이 파일은 루트에 위치해야하고, 기존에 각 레포 별로 있던 CI와 CD 설정을 하나로 통합하여 관리해야했습니다.
+
+### 1. CI 설정
+
+CI는 lint검사와 build를 수행합니다. lint와 build 과정를 모듈화하고, 이를 .gitlab-ci.yml에서 가져와 사용하도록 했습니다.
+
+```yml 
+// gitlab/actions/lint.yml
+.lint:
+  stage: lint
+  rules:
+    - if: $CI_COMMIT_TAG  
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - "apps/$APP_NAME/**/*"
+  before_script:
+    - yarn config set cache-folder .yarn
+    - yarn install --silent --frozen-lockfile
+  script:
+    - yarn lint --filter $APP_NAME
+```
+
+```yml
+// gitlab/actions/build.yml
+.build:
+  stage: build
+  rules:
+    - if: $CI_COMMIT_TAG  
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - "apps/$APP_NAME/**/*"
+  before_script:
+    - yarn config set cache-folder .yarn
+    - yarn install --silent --frozen-lockfile
+  script:
+    - yarn build --filter $APP_NAME
+```
+changes 옵션을 활용해서, 변경이 발생한 패키지만 lint 및 build검사를 수행하도록 했습니다.
+
+```yml
+.gitlab-ci.yml
+include:
+  - /gitlab/actions/lint.yml
+  - /gitlab/actions/build.yml
+# ..
+lint-coderland-tutor:
+  variables: 
+    APP_NAME: coderland-tutor # APP_NAME을 coderland-tutor로 설정합니다.
+  extends: 
+    - .lint
+build-coderland-tutor:
+  variables: 
+    APP_NAME: coderland-tutor
+  extends:
+    - .build
+# ..
+```
+
+### 2. CD 설정
+
+Vercel CLI를 이용하여 배포를 하고 있었습니다. tag를 추가하면, 배포를 실행하도록 하였습니다.
+
+```yml
+// gitlab/actions/vercel.yml
+.vercel-install:
+  before_script:
+    - yarn global add vercel
+
+.vercel-staging:
+  stage: release
+  extends: .vercel-install
+  script:
+    - app_shorthand_name=$(echo $CI_COMMIT_BRANCH | cut -d "/" -f 2)
+    - vercel_project_name="elice-$app_shorthand_name-landing"
+    - staging_host="$vercel_project_name-staging.vercel.app"
+    
+    - yarn generate-vercel-json $app_shorthand_name
+    - deployment_url=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_ID=$vercel_project_name vercel deploy -y -t $VERCEL_TOKEN -S $VERCEL_SCOPE)
+    - vercel alias set $deployment_url $staging_host -t $VERCEL_TOKEN -S $VERCEL_SCOPE 
+
+.vercel-production:
+  stage: release
+  extends: .vercel-install
+  script:
+    - vercel_project_name="elice-$APP_SHORTHAND_NAME-landing"
+    - yarn generate-vercel-json $APP_SHORTHAND_NAME
+    - deployment_url=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_ID=$vercel_project_name vercel deploy -t $VERCEL_TOKEN -S $VERCEL_SCOPE)
+    - vercel alias set $deployment_url $PRODUCTION_HOST -t $VERCEL_TOKEN -S $VERCEL_SCOPE 
+```
+
+```yml
+// gitlab-ci.yml
+include:
+  - /gitlab/actions/vercel.yml
+# ..
+lease-coderland-tutor-production:
+  # TODO: add stage
+  needs: []
+  extends: 
+    - .vercel-production
+  variables:
+    PRODUCTION_HOST: tutor.coderland.io
+    APP_SHORTHAND_NAME: coderland-tutor
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^coderland-tutor@\d+\.\d+\.\d+$/ # e.g. coderland-tutor@1.240401.0
+# ..
+```
+
+# 각종 트러블슈팅
+
+### 1. couldn’t find package @elice/mui-elements required by ~ on the ‘npm’ registry
+
+<Image src='1.png' />
+
+`@elice/mui-elements`는 npm이 아니라, elice gitlab 레포에 존재합니다. 고로 `.npmrc`파일을 추가해줘야 합니다. `npmrc`에는 해당 레포의 위치, 그리고 토큰값을 가지고 있습니다.
+
+### 2. @elice/prettier-config@1.220803.0 The engine “node” is incompatible with this module. Expected version “~16.14”. Got “20.5.1”
+
+기존에, 각 패키지 별로 사용하고 있던 prettier config의 버전이 달라, 각 버전 별로 요구하는 Node 버전이 달라 발생한 에러입니다. 한 패키지에서는 `~16.14`의 Node버전을 요구하지만, 그 외의 프로젝트에서는 `20.5.1`의 Node버전을 요구합니다. 이는 prettier와 prettier-config를 루트에서 관리하면서 해결했습니다.
+
+### 3. Parsing error: ESLint was configured to run on \<tsconfigRootDir>/apps/elice-project-landing/babel.config.js using parserOptions.project: /../elice-landing-mono/apps/elice project-landing/tsconfig.json However, that TSConfig does not include this file.
+
+<Image src='2.png' />
+
+> ESLint는 현재 파일(/../babel.config)을 구성 안에 넣었는데, tsconfig에서는 해당 파일을 포함하지 않고 있다.
+
+- 원인 : tsconfig에서 현재 파일(babel.config.js)를 포함하지 않기에 발생한 에러이다.
+- 해결 : tsconfig.json > include 배열에 `**/*.js`를 추가하여 모든 파일을 적용하도록 한다.
+- 결론 : 위에 에러의 원인은, eslint에서 현재 `parserOptions:{project:true}`를 사용하고 있다. 이 옵션은, eslint가 가장 가까운 tsconfig.json파일을 찾아간다는 말을 의미한다. 즉, 해당 tsconfig.json에서 eslint를 적용할 모든 파일들을 추가해야한다. eslint를 적용하지 않으려면, .eslintignore파일에 추가해야 한다.
