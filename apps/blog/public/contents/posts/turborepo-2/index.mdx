@@ -15,15 +15,30 @@ description: TurboRepo를 회사에서 적용한 경험을 공유합니다.
 
 # 모노레포로 마이그레이션하기까지
 
-회사 프로젝트는 저 혼자만 하는 것이 아니기에, 모노레포로 마이그레이션하기 위해서는 팀원들과의 소통이 필요했습니다. 그래서 저는 팀원들에게 현재 레포 구조의 문제점을 설명하고, 모노레포로 마이그레이션했을 때 어떤 이점이 있는지 설명했습니다.
+회사 프로젝트는 저 혼자만 하는 것이 아니기에, 모노레포로 마이그레이션하기 위해서는 팀원들과의 소통과 동의가 필요했습니다. 그래서 저는 팀원들에게 현재 레포 구조의 문제점을 설명하고, 모노레포로 마이그레이션했을 때 어떤 이점이 있는지 설명했습니다.
 
-당시 공유했던 글입니다 : [건의 - 모노 레포 적용](https://guesung.notion.site/a875e277f9bf46d2aaa5f1b6aa72ec3f?pvs=25),
+당시 공유했던 글입니다. [건의 - 모노 레포 적용](https://guesung.notion.site/a875e277f9bf46d2aaa5f1b6aa72ec3f?pvs=25)
 
-위 글과 함께 모노레포 적용을 제안했습니다. 그리고, 팀원들과 팀장님의 동의를 받은 저는 곧장 사수님과 어떤 모노레포 관리 도구를 사용할 지 조사를 시작했습니다.
+위 글과 함께 모노레포 적용을 제안했습니다. 그리고 팀원들에게 모노레포 적용을 했을 때 걱정되는 것들에 대해서 이야기를 듣고, 이에 대한 해결 방안을 제시했습니다.
 
-당시 공유했던 글입니다 : [모노레포 관리 도구 결정에 대한 리서치](https://guesung.notion.site/30384975780f4b05a13ce560c543ab93?pvs=4)
+## 우려사항
 
-결국, 터보레포를 사용하기로 결졍했습니다.
+1. 새로운 스프린트를 언제 시작할 지 모르기에 빨리 끝내야 한다.
+2. 각 프로젝트 별로 각각 배포를 할 수 있어야 한다.
+3. 각 프로젝트 별로 각각의 CI/CD를 설정할 수 있어야 한다.
+4. 각 프로젝트 별로 사용 중인 패키지의 버전이 다르다.
+
+## 대처 방안
+1. 모노레포에서 완전한 마이그레이션 이후 배포를 진행하기 전까지는 기존 레포에서 배포를 할 수 있도록 한다. 그리고, 한 개의 레포씩 점진적으로 마이그레이션한다.
+2. tag를 추가하여 각 프로젝트 별로 배포를 할 수 있도록 한다.
+3. CI는 각 프로젝트 별로 변경사항이 생긴 프로젝트만 실행하도록 하고, CD는 tag를 추가하여 배포를 할 수 있도록 한다 : [gitlab-ci changes](https://docs.gitlab.com/ee/ci/yaml/#ruleschanges) 옵션
+4. 공통으로 관리할 패키지는 루트의 `package.json`에서 관리하고, 각 프로젝트 별로 사용 중인 패키지의 버전은 각 프로젝트의 `package.json`에서 관리한다.
+
+우려 사항에 대한 대처 방안을 조사하고 팀원들과 팀장님에게 이야기한 후, 곧장 사수님과 어떤 모노레포 관리 도구를 사용할 지 조사를 시작했습니다.
+
+당시 공유했던 글입니다. [모노레포 관리 도구 결정에 대한 리서치](https://guesung.notion.site/30384975780f4b05a13ce560c543ab93?pvs=4)
+
+결국, 최종적으로 터보레포를 사용하기로 결졍했습니다.
 
 # 본격적인 마이그레이션
 
@@ -31,11 +46,11 @@ description: TurboRepo를 회사에서 적용한 경험을 공유합니다.
 
 ### 1. Typescript
 
-Typescript는 루트에서 tsconfig.json을 관리하고, 각 패키지에서 이를 확장하여 사용했습니다.
+Typescript는 루트의 `tsconfig.json` 파일에 공통으로 적용할 옵션들을 추가하고, 각 패키지에서 이를 확장하여 사용했습니다.
 
 그리고 또한, 각 패키지에서 사용하고 있던 typescript 버전이 달라, 이는 각 패키지에서 설치하여 관리했습니다.
 
-1. 루트
+1. 루트 : 공통된 Typescript 설정을 관리합니다.
     ```json
     // tsconfig.json
     {
@@ -64,7 +79,7 @@ Typescript는 루트에서 tsconfig.json을 관리하고, 각 패키지에서 �
       "exclude": ["node_modules"]
     }
     ```
-2. 각 패키지
+2. 각 패키지 : 루트의 `tsconfig.json`을 확장하고, 각 패키지에 알맞게 설정을 추가합니다.
     ```json
     {
       "extends": "../../tsconfig.json",
@@ -105,7 +120,9 @@ ESLint는 가장 가까운 `.Eslintrc.*`설정 파일을 찾아서 사용합니�
 
 ### 3. Prettier
 
-prettier는 가장 가까운 .prettierrc파일을 찾아서 사용합니다. 만약 패키지마다 prettier 설정을 다르게 하고 싶다면, 각 패키지에 .prettierrc파일을 추가하면 됩니다. 하지만, 모두 공통적으로 적용하고 싶다면, 루트에만 .prettierrc파일을 두면 됩니다. 하지만, 프로젝트 전체에서 동일한 코드 스타일을 유지하는 것이 중요하기 때문에 루트 .prettierrc파일을 사용하는 것을 추천합니다.
+prettier는 가장 가까운 .prettierrc파일을 찾아서 사용합니다. 
+
+만약 패키지마다 prettier 설정을 다르게 하고 싶다면, 각 패키지에 .prettierrc파일을 추가하면 됩니다. 하지만, 모두 공통적으로 적용하고 싶다면, 루트에만 .prettierrc파일을 두면 됩니다. 하지만, 프로젝트 전체에서 동일한 코드 스타일을 유지하는 것이 중요하기 때문에 루트 .prettierrc파일 하나만을 사용하는 것을 추천합니다.
     
 ```js
 // .prettierrc
@@ -115,7 +132,7 @@ prettier는 가장 가까운 .prettierrc파일을 찾아서 사용합니다. 만
 
 ## 2. CI/CD 설정
 
-gitlab ci는 .gitlab-ci.yml파일을 참조하여 실행합니다. 이 파일은 루트에 위치해야하고, 기존에 각 레포 별로 있던 CI와 CD 설정을 하나로 통합하여 관리해야했습니다.
+gitlab ci는 .gitlab-ci.yml파일을 참조하여 실행합니다. 이 파일은 루트에 위치해야 하고, 기존에 각 레포 별로 상이하던 CI와 CD 설정을 하나의 파일로 통일하여 관리해야했습니다.
 
 ### 1. CI 설정
 
@@ -126,14 +143,14 @@ CI는 lint검사와 build를 수행합니다. lint와 build 과정를 모듈화�
 .lint:
   stage: lint
   rules:
-    - if: $CI_COMMIT_TAG  
+    - if: $CI_COMMIT_TAG   # tag가 있을 때는 실행하지 않습니다. (tag는 배포를 위한 것이므로 lint를 실행하지 않습니다.)
       when: never
-    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "push" # push 이벤트가 발생했을 때만 실행
       changes:
-        - "apps/$APP_NAME/**/*"
+        - "apps/$APP_NAME/**/*" # 해당 패키지의 파일이 변경되었을 때만 실행
   before_script:
-    - yarn config set cache-folder .yarn
-    - yarn install --silent --frozen-lockfile
+    - yarn config set cache-folder .yarn # yarn cache를 .yarn폴더에 저장합니다.
+    - yarn install --silent --frozen-lockfile # yarn install을 수행합니다.
   script:
     - yarn lint --filter $APP_NAME
 ```
@@ -143,7 +160,7 @@ CI는 lint검사와 build를 수행합니다. lint와 build 과정를 모듈화�
 .build:
   stage: build
   rules:
-    - if: $CI_COMMIT_TAG  
+    - if: $CI_COMMIT_TAG   
       when: never
     - if: $CI_PIPELINE_SOURCE == "push"
       changes:
@@ -167,10 +184,6 @@ lint-coderland-tutor:
     APP_NAME: coderland-tutor # APP_NAME을 coderland-tutor로 설정합니다.
   extends: 
     - .lint
-build-coderland-tutor:
-  variables: 
-    APP_NAME: coderland-tutor
-  extends:
     - .build
 # ..
 ```
@@ -183,19 +196,19 @@ Vercel CLI를 이용하여 배포를 하고 있었습니다. tag를 추가하면
 // gitlab/actions/vercel.yml
 .vercel-install:
   before_script:
-    - yarn global add vercel
+    - yarn global add vercel # vercel을 전역으로 설치합니다.
 
 .vercel-staging:
   stage: release
   extends: .vercel-install
   script:
-    - app_shorthand_name=$(echo $CI_COMMIT_BRANCH | cut -d "/" -f 2)
-    - vercel_project_name="elice-$app_shorthand_name-landing"
-    - staging_host="$vercel_project_name-staging.vercel.app"
+    - app_shorthand_name=$(echo $CI_COMMIT_BRANCH | cut -d "/" -f 2) # 브랜치 이름에서 앱의 이름을 추출합니다.
+    - vercel_project_name="elice-$app_shorthand_name-landing" # vercel 프로젝트 이름을 설정합니다.
+    - staging_host="$vercel_project_name-staging.vercel.app" # 스테이징 호스트를 설정합니다.
     
-    - yarn generate-vercel-json $app_shorthand_name
-    - deployment_url=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_ID=$vercel_project_name vercel deploy -y -t $VERCEL_TOKEN -S $VERCEL_SCOPE)
-    - vercel alias set $deployment_url $staging_host -t $VERCEL_TOKEN -S $VERCEL_SCOPE 
+    - yarn generate-vercel-json $app_shorthand_name # 스크립트를 실행하여 vercel.json을 생성합니다.
+    - deployment_url=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_ID=$vercel_project_name vercel deploy -y -t $VERCEL_TOKEN -S $VERCEL_SCOPE) # vercel에 배포를 합니다.
+    - vercel alias set $deployment_url $staging_host -t $VERCEL_TOKEN -S $VERCEL_SCOPE  # vercel에 alias를 설정합니다.
 
 .vercel-production:
   stage: release
