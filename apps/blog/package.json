@@ -9,18 +9,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@guesung/constants": "workspace:*",
+    "@guesung/hooks": "workspace:*",
     "@guesung/ui": "workspace:*",
+    "@guesung/utils": "workspace:*",
     "@next/third-parties": "^14.2.3",
     "contentlayer": "^0.3.4",
     "date-fns": "^3.6.0",
+    "framer-motion": "^11.2.12",
     "next-contentlayer": "^0.3.4",
     "rehype": "^13.0.1",
     "rehype-pretty-code": "^0.13.1",
     "remark-gfm": "^3.0.1",
-    "shiki": "^1.4.0",
-    "@guesung/constants": "workspace:*",
-    "@guesung/hooks": "workspace:*",
-    "@guesung/utils": "workspace:*"
+    "shiki": "^1.4.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13"
