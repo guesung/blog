@@ -9,8 +9,7 @@ interface pageProps {
   };
 }
 export default function page({ params: { slug } }: pageProps) {
-  const contents = getContentsByTag(encodeURIComponent(slug));
-  console.log(encodeURIComponent(slug));
+  const contents = getContentsByTag(slug);
 
   return (
     <ContentLayout>
