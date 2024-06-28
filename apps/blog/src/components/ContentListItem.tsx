@@ -13,7 +13,7 @@ export default function ContentListItem({
   ...props
 }: ContentListItemProps) {
   return (
-    <ListItem {...props}>
+    <ListItem {...props} className="flex-col">
       <div className="text-body2 flex gap-8 text-blue-500">
         {tags &&
           tags.map(tag => (
