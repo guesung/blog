@@ -6,11 +6,12 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "@guesung/constants": "workspace:*",
-    "@guesung/hooks": "workspace:*",
-    "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
+  },
+  "dependencies": {
+    "@guesung/constants": "workspace:*",
+    "@guesung/hooks": "workspace:*",
+    "@guesung/utils": "workspace:*"
   }
 }

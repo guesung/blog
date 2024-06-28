@@ -132,6 +132,21 @@ importers:
 
   apps/my-moments: {}
 
+  apps/study-log:
+    dependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@guesung/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@guesung/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+
   packages/configs/eslint:
     devDependencies:
       '@next/eslint-plugin-next':
@@ -175,7 +190,17 @@ importers:
 
   packages/styles: {}
 
-  packages/ui: {}
+  packages/ui:
+    dependencies:
+      '@guesung/constants':
+        specifier: workspace:*
+        version: link:../constants
+      '@guesung/hooks':
+        specifier: workspace:*
+        version: link:../hooks
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/utils: {}
 
