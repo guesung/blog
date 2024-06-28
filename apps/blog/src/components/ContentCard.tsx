@@ -15,11 +15,7 @@ export default function ContentCard({ content }: ContentCardProps) {
       <p className="text-slate-500">{content.description}</p>
       <div className="flex gap-4">
         {content.tags?.map(tag => (
-          <Tag
-            className="hover:bg-slate-600 hover:text-white"
-            href={`/tags/${tag}`}
-            key={tag}
-          >
+          <Tag href={`/tags/${tag}`} key={tag}>
             {tag}
           </Tag>
         ))}
