@@ -1,7 +1,9 @@
 import { cn } from '@guesung/utils';
+import { PropsWithChildren } from 'react';
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+export interface ButtonProps
+  extends React.HTMLAttributes<HTMLButtonElement>,
+    PropsWithChildren {
   size?: 'small' | 'medium' | 'large';
   selected?: boolean;
 }
@@ -20,7 +22,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'rounded-8',
+        'rounded-8 w-fit',
         {
           'bg-black text-white': selected,
           'border border-black bg-white text-black': !selected,

@@ -4,3 +4,4 @@ export * from './Date';
 export * from './URL';
 export * from './type';
 export * from './FramerMotionVariants';
+export * from './type';
