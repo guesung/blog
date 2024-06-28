@@ -4,6 +4,6 @@ export const VISIBILITY = {
 };
 
 export const MOVE = {
-  hidden: { x: -50, opacity: 0 },
+  hidden: { x: -10, opacity: 0 },
   visible: { x: 0, opacity: 1 },
 };
