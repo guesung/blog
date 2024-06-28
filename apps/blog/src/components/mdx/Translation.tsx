@@ -5,11 +5,11 @@ export default function Translation({ children }: PropsWithChildren) {
 }
 
 function English({ children }: PropsWithChildren) {
-  return <div className="shrink grow basis-0">{children}</div>;
+  return <div className="shrink grow basis-0 overflow-auto">{children}</div>;
 }
 
 function Korean({ children }: PropsWithChildren) {
-  return <div className="shrink grow basis-0">{children}</div>;
+  return <div className="shrink grow basis-0 overflow-auto">{children}</div>;
 }
 
 Translation.English = English;

@@ -8,7 +8,7 @@ interface TagProps extends ClassNameType, LinkProps {
 }
 
 const tagVariantClassname: Record<VariantEnum, string> = {
-  [VariantEnum.outline]: 'border-black rounded-12',
+  [VariantEnum.outline]: 'border-black rounded-20',
   [VariantEnum.filled]: 'bg-black text-white border-white',
 };
 
@@ -21,7 +21,7 @@ export default function Tag({
   return (
     <Link
       className={cn(
-        'w-fit border-2 border-solid p-8',
+        'text-caption border-1 w-fit border-solid px-8 py-4',
         tagVariantClassname[variant],
         className
       )}

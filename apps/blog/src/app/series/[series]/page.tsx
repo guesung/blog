@@ -15,7 +15,7 @@ export default function page({ params: { series } }: pageProps) {
     <ContentLayout>
       <ContentLayout.Title>{matchingKorean[series]}</ContentLayout.Title>
       <ContentLayout.Description>
-        {matchingKorean[series]}입니다
+        {matchingKorean[series]} 시리즈입니다
       </ContentLayout.Description>
       {contents.map(content => (
         <ContentListItem {...content} href={`${series}/${content.slug}`} />
