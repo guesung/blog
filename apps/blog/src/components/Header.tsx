@@ -5,7 +5,7 @@ import { NavLink, ToggleTheme } from '.';
 
 const NAV_LINK_PROPS_LIST = [
   {
-    href: 'https://note.guesung.site/develop',
+    href: 'https://guesung.notion.site',
     children: 'Note',
     target: '_blank',
   },
