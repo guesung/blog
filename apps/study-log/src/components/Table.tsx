@@ -51,7 +51,9 @@ function TableHeader<T extends string>({
     <thead>
       <tr>
         {columnList.map(column => (
-          <th className="px-30">{headerList[column]}</th>
+          <th className="px-30" key={column}>
+            {headerList[column]}
+          </th>
         ))}
       </tr>
     </thead>
@@ -76,10 +78,12 @@ function TableBody<T extends string>({
   if (!columnList) return null;
   return (
     <tbody>
-      {dataList.map(dataRow => (
-        <tr>
+      {dataList.map((dataRow, index) => (
+        <tr key={index}>
           {columnList.map(column => (
-            <td {...props}>{dataRow[column]}</td>
+            <td {...props} key={column}>
+              {dataRow[column]}
+            </td>
           ))}
         </tr>
       ))}
