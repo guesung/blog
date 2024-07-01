@@ -12,6 +12,8 @@
     "@guesung/constants": "workspace:*",
     "@guesung/hooks": "workspace:*",
     "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*"
+    "@guesung/utils": "workspace:*",
+    "google-auth-library": "^9.11.0",
+    "google-spreadsheet": "^4.1.2"
   }
 }
