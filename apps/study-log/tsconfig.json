@@ -1,6 +1,10 @@
 {
   "extends": "@guesung/typescript-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["src/*"]
+    },
     "plugins": [
       {
         "name": "next"
@@ -16,8 +20,5 @@
     "../../packages/ui/src/components/Tag.tsx",
     "../../packages/ui/src/components/Card.tsx"
   ],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@/*": ["src/*"]
-  }
+  "exclude": ["node_modules"]
 }
