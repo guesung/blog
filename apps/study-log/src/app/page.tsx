@@ -1,3 +1,9 @@
+import { Table } from '../components';
+
 export default function Home() {
-  return <h1>Study Log</h1>;
+  return (
+    <div className="flex justify-center">
+      <Table />
+    </div>
+  );
 }
