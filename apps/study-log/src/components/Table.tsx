@@ -78,10 +78,15 @@ function TableBody<T extends string>({
   if (!columnList) return null;
   return (
     <tbody>
-      {dataList.map((dataRow, index) => (
-        <tr key={index}>
+      {dataList.map((dataRow, rowIndex) => (
+        <tr key={rowIndex} data-row-index={rowIndex}>
           {columnList.map(column => (
-            <td {...props} key={column}>
+            <td
+              key={column}
+              data-row-index={rowIndex}
+              data-column={column}
+              {...props}
+            >
               {dataRow[column]}
             </td>
           ))}
