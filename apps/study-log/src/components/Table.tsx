@@ -1,109 +1,91 @@
-import { InputHTMLAttributes, PropsWithChildren } from 'react';
+import {
+  Children,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+  cloneElement,
+  isValidElement,
+} from 'react';
 
-interface TableProps {}
-
-const headList = [
-  '시간',
-  '할 것',
-  '목표를 이루기 위해 신경써야 할 것,',
-  '느낀 점',
-  '완료 여부',
-];
-
-const DUMMY_DATA = [
-  {
-    id: 1,
-    time: '21:00',
-    todo: '스터디 로그 작성',
-    goal: '초집중하자.',
-    feeling: '너무 수고했다.',
-    isCompleted: false,
-  },
-  {
-    id: 1,
-    time: '21:00',
-    todo: '스터디 로그 작성',
-    goal: '초집중하자.',
-    feeling: '너무 수고했다.',
-    isCompleted: false,
-  },
-  {
-    id: 1,
-    time: '21:00',
-    todo: '스터디 로그 작성',
-    goal: '초집중하자.',
-    feeling: '너무 수고했다.',
-    isCompleted: false,
-  },
-];
-
-export default function Table() {
+interface TableProps<T extends string> {
+  columnList: T[];
+  children: ReactElement<typeof TableHeader | typeof TableBody>[];
+}
+const isTableValidChild = (child: ReactNode): child is ReactElement => {
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            {headList.map(head => (
-              <th className="px-30 border-1">{head}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {DUMMY_DATA.map(data => (
-            <tr className="border-1 ">
-              <td className="border-r-1">
-                <EditableBox>{data.time}</EditableBox>
-              </td>
-              <td className="border-r-1">
-                <EditableBox>{data.todo}</EditableBox>
-              </td>
-              <td className="border-r-1">
-                <EditableBox>{data.goal}</EditableBox>
-              </td>
-              <td className="border-r-1">
-                <EditableBox>{data.feeling}</EditableBox>
-              </td>
-              <td className="border-r-1">
-                {data.isCompleted ? '완료' : '미완료'}
-              </td>
-            </tr>
+    isValidElement(child) &&
+    (child.type === TableHeader || child.type === TableBody)
+  );
+};
+export default function Table<T extends string>({
+  columnList,
+  children,
+}: TableProps<T>) {
+  const isValidChildren = Children.toArray(children).every(isTableValidChild);
+  if (!isValidChildren) {
+    throw new Error('Table component must have Table.Header and Table.Body');
+  }
+
+  const childrenWithProps = Children.map(children, child =>
+    cloneElement(child as ReactElement, { columnList })
+  );
+
+  return <table>{childrenWithProps}</table>;
+}
+
+//
+//
+//
+
+interface TableHeaderProps<T extends string>
+  extends Partial<Pick<TableProps<T>, 'columnList'>> {
+  headerList: { [key in T]: string | boolean };
+}
+
+function TableHeader<T extends string>({
+  columnList,
+  headerList,
+}: TableHeaderProps<T>) {
+  if (!columnList) return null;
+  return (
+    <thead>
+      <tr>
+        {columnList.map(column => (
+          <th className="px-30">{headerList[column]}</th>
+        ))}
+      </tr>
+    </thead>
+  );
+}
+
+//
+//
+//
+
+interface TableBodyProps<T extends string>
+  extends HTMLAttributes<HTMLTableCellElement>,
+    Partial<Pick<TableProps<T>, 'columnList'>> {
+  dataList: { [key in T]: string | boolean }[];
+}
+
+function TableBody<T extends string>({
+  dataList,
+  columnList,
+  ...props
+}: TableBodyProps<T>) {
+  if (!columnList) return null;
+  return (
+    <tbody>
+      {dataList.map(dataRow => (
+        <tr>
+          {columnList.map(column => (
+            <td {...props}>{dataRow[column]}</td>
           ))}
-          <tr>
-            <td>
-              <EditableBox />
-            </td>
-            <td>
-              <EditableBox />
-            </td>
-            <td>
-              <EditableBox />
-            </td>
-            <td>
-              <EditableBox />
-            </td>
-            <td>
-              <EditableBox />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="flex justify-center">+</div>
-    </div>
+        </tr>
+      ))}
+    </tbody>
   );
 }
 
-//
-//
-//
-
-interface SheetInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    PropsWithChildren {}
-
-function EditableBox({ children, ...props }: SheetInputProps) {
-  return (
-    <div contentEditable className="w-full" {...props}>
-      {children}
-    </div>
-  );
-}
+Table.Header = TableHeader;
+Table.Body = TableBody;
