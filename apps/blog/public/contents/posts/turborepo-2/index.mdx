@@ -255,7 +255,7 @@ lease-coderland-tutor-production:
 
 ### 1. couldn’t find package @elice/mui-elements required by ~ on the ‘npm’ registry
 
-<Image src='1.png' />
+<Image src='1' />
 
 `@elice/mui-elements`는 npm이 아니라, elice gitlab 레포에 존재합니다. 고로 `.npmrc`파일을 추가해줘야 합니다. `npmrc`에는 해당 레포의 위치, 그리고 토큰값을 가지고 있습니다.
 
@@ -265,7 +265,7 @@ lease-coderland-tutor-production:
 
 ### 3. Parsing error: ESLint was configured to run on \<tsconfigRootDir>/apps/elice-project-landing/babel.config.js using parserOptions.project: /../elice-landing-mono/apps/elice project-landing/tsconfig.json However, that TSConfig does not include this file.
 
-<Image src='2.png' />
+<Image src='2' />
 
 > ESLint는 현재 파일(/../babel.config)을 구성 안에 넣었는데, tsconfig에서는 해당 파일을 포함하지 않고 있다.
 

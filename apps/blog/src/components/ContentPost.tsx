@@ -15,6 +15,10 @@ import { ClassNameType } from '@guesung/constants';
 
 interface PostProps extends Content, ClassNameType {}
 
+interface CustomImageProps extends ImageProps {
+  extension?: string;
+}
+
 export default function ContentPost({
   title,
   body,
@@ -43,13 +47,14 @@ export default function ContentPost({
               height,
               src,
               className,
+              extension = 'png',
               ...props
-            }: ImageProps) => (
+            }: CustomImageProps) => (
               <Image
                 {...props}
                 width={width ?? 600}
                 height={height ?? 600}
-                src={`/contents/${_raw.sourceFileDir}/${src}`}
+                src={`/contents/${_raw.sourceFileDir}/${src}.${extension}`}
                 className={cn('mx-auto', className)}
               />
             ),
