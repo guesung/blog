@@ -17,7 +17,7 @@ export default function page() {
         items={allSeriesExceptEtc}
         render={series => (
           <SeriesCard
-            title={matchingKorean[series]}
+            title={matchingKorean[series] ?? series}
             coverSrc={`/contents/${series}/cover.png`}
             href={`/series/${series}`}
             postCount={getSeriesCount({ series })}

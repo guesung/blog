@@ -10,7 +10,7 @@ export default function ContentCard({ content }: ContentCardProps) {
     <Move>
       <Card
         key={content._id}
-        href={`/${content.series}/${content.slug}`}
+        href={`/series/${content.series}/${content.slug}`}
         {...content}
       >
         <p className="text-slate-500">{content.description}</p>

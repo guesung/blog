@@ -40,7 +40,7 @@
   }
 
   :not(pre) > code{
-    @apply bg-slate-200 rounded-16 px-8 py-4
+    @apply bg-slate-200 rounded-16 px-8 py-4 break-words
   }
   h1 {
     @apply border-b-1 border-slate-200 border-solid pb-8

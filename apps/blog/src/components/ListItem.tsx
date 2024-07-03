@@ -31,7 +31,7 @@ export default function ListItem({
           />
         </div>
       )}
-      <div className="flex grow flex-col gap-8">
+      <div className="flex flex-1 flex-col gap-8">
         <div className="text-body1 font-bold">{title}</div>
         <div className="flex flex-col gap-6">{children}</div>
       </div>
