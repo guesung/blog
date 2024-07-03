@@ -1,5 +1,7 @@
+'use client';
+
 import { cn } from '@guesung/utils';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import PlusIcon from '@svgs/plus.svg';
 import MinusIcon from '@svgs/minus.svg';
 import BulbIcon from '@svgs/bulb.svg';
@@ -20,11 +22,15 @@ export default function Callout({
   title,
   children,
 }: PropsWithChildren<CalloutProps>) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => setIsOpen(!isOpen);
+
   return (
     <div
       className={cn(
         {
-          'border-yellow-500 bg-yellow-100 text-yellow-900 dark:bg-yellow-950':
+          'border-yellow-500 bg-yellow-50 text-yellow-900 dark:bg-yellow-800':
             type === 'info',
           'border-blue-500 bg-blue-100 text-blue-900 dark:bg-blue-950':
             type === 'plus',
@@ -34,11 +40,14 @@ export default function Callout({
         'rounded-16 my-16 px-16 py-12'
       )}
     >
-      <div className="flex items-center gap-8">
+      <div
+        className="flex cursor-pointer items-center gap-8"
+        onClick={toggleOpen}
+      >
         {icons[type]}
         <span className="text-body2 font-bold">{title}</span>
       </div>
-      <div>{children}</div>
+      {isOpen && <div>{children}</div>}
     </div>
   );
 }
