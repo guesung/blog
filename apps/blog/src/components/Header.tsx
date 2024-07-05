@@ -6,28 +6,28 @@ import { NavLink, ToggleTheme } from '.';
 const NAV_LINK_PROPS_LIST = [
   {
     href: 'https://guesung.notion.site',
-    children: 'Note',
+    children: '노트',
     target: '_blank',
   },
   {
     href: '/series',
-    children: 'Series',
+    children: '시리즈',
   },
   {
     href: '/library',
-    children: 'Library',
+    children: '서재',
   },
   {
     href: '/playground',
-    children: 'PlayGround',
+    children: '놀이터',
   },
   {
     href: '/about',
-    children: 'About',
+    children: '소개',
   },
   {
     href: '/plan',
-    children: 'Plan',
+    children: '계획',
   },
 ];
 
