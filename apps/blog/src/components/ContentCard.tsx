@@ -12,9 +12,12 @@ export default function ContentCard({ content }: ContentCardProps) {
       <Card
         key={content._id}
         href={`/series/${content.series}/${content.slug}`}
-        {...content}
+        title={content.title}
+        coverSrc={content.coverSrc}
       >
-        <p className="text-slate-500">{content.description}</p>
+        {content.description && (
+          <p className="text-slate-500">{content.description}</p>
+        )}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             {content.tags?.map(tag => (

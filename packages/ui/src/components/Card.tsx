@@ -22,7 +22,7 @@ export default function Card({
 
   return (
     <div
-      className="rounded-16 w-full cursor-pointer shadow-md"
+      className="rounded-16 flex h-full w-full cursor-pointer flex-col shadow-md"
       onClick={handleClick}
       {...props}
     >
@@ -36,8 +36,8 @@ export default function Card({
           />
         </div>
       )}
-      <div className="flex flex-col gap-8 px-8 py-16 text-start">
-        <div className="text-body2">{title}</div>
+      <div className="flex flex-1 flex-col gap-8 px-8 py-16 text-start">
+        <div className="text-body2 flex-1">{title}</div>
         {children}
       </div>
     </div>
