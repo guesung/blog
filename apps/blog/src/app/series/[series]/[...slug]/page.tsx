@@ -4,7 +4,7 @@ import { getContent } from '@utils';
 
 interface pageProps {
   params: {
-    series: Content['series'];
+    series: Content['series'][];
     slug: string | string[];
   };
 }
