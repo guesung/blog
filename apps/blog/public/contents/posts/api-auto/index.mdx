@@ -6,6 +6,113 @@ series: posts
 tags: 
   - 생산성
   - 자동화
-isPublished: 
+isPublished: true
 description: 
 ---
+
+## 1. 문제 정의
+
+### 문제점
+
+<Image src='2024-07-10-14-51-16' width='300' />
+
+위의 값으로 변경하여 하나씩 내용을 입력하고 api를 호출하여 생성을 해야 한다. 목록이 80개 정도 된다.
+
+저번에 추가할 때는 하나하나 복사 - 붙여넣기를 하여 전부 수행했지만, 이제는 여유가 조금 생겼으니 이를 자동화해보자.
+
+# 해결 과정
+
+## 방법 강구하기
+
+### 1. replay XHR
+
+<Image src='2024-07-10-14-51-56' width='300' />
+
+네트워크 > Replay XHR을 누르면 동일한 api를 한 번 더 호출한다.
+
+하지만, 이 기능은 ‘동일한’ api를 호출한다는 단점이 있다. payload를 수정하지 못한다
+
+### 2. fetch코드를 복사한다.
+
+<Image src='2024-07-10-14-52-36' width='300' />
+
+
+
+나는 Node.js에 익숙하니, Node.js로 복사해보자. 
+
+```jsx
+fetch("https://dev-v5-api.dev.elicer.io/..", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ko,en-US;q=0.9,en;q=0.8,ko-KR;q=0.7",
+    "authorization": "Bearer ey ..",
+    "cache-control": "no-cache",
+    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyiICoFRd2pH921xI",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "Referer": "https://academy.qa-web-5.elicer.io/",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "body": "..",
+  "method": "POST"
+});
+```
+
+위 fetch함수를 console에서 입력하면 실행이 되며 항목이 추가된다.
+
+<Image src='2024-07-10-14-52-52' width='300' />
+
+
+됐다. 이 방법으로 자동화를 해보자.
+
+## 해결하기
+
+### 1. 배열화하기
+
+<Image src='2024-07-10-14-53-00' width='300' />
+
+<Image src='2024-07-10-14-53-07' width='300' />
+
+
+배열화같은 단순 작업은 gpt에게 시켰다.
+
+### 2. fetch함수에 담아 실행하기
+
+```jsx
+const taskList = [A,B,C ..];
+function makeLecture(task){
+	fetch(url,{ // 위에서 복사한 fetch 함수 입력
+		"headers":{
+			// ..
+		},"body":{
+			// ..
+			name=${task} // ..
+		}
+	}) 
+}
+```
+
+템플릿 리터럴을 이용하여 전달받은 인자를 body에 넣어준다.
+
+```jsx
+(async() => {
+    for(const task of taskList){
+        await makeLecture(task)
+    }
+})()
+```
+
+배열을 순회하며 비동기 함수를 실행하는 방법에는 여러가지가 있지만 : [배열로 비동기 실행하기](https://www.notion.so/0b3a92936e1d464796d79415611a303f?pvs=21) 
+
+이 중 for..of문을 사용하였다. 그리고, 즉시실행함수로 실행까지 한다.
+
+### 결과
+
+<Image src='2024-07-10-14-53-14'width='300' />
+
+👍
