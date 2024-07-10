@@ -20,8 +20,8 @@ export default function page() {
             title={matchingKorean[series] ?? series}
             coverSrc={`/contents/${series}/cover.png`}
             href={`/series/${series}`}
-            postCount={getSeriesCount({ series })}
-            lastModified={getSeriesLastModified({ series })}
+            postCount={getSeriesCount({ series: [series] })}
+            lastModified={getSeriesLastModified({ series: [series] })}
           />
         )}
       />
