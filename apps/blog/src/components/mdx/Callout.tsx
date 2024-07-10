@@ -56,16 +56,15 @@ export default function Callout({
           'border-pink-500 bg-pink-100 text-pink-900 dark:bg-pink-950':
             type === 'minus',
         },
-        'rounded-16 my-16 cursor-pointer px-16 py-12'
+        'rounded-16 my-16 px-16 py-12'
       )}
-      onClick={handleCalloutClick}
       ref={ref}
     >
       <div
-        className="flex  items-center justify-between gap-8"
-        onClick={toggleOpen}
+        className="flex items-center justify-between gap-8 cursor-pointer"
+        onClick={handleCalloutClick}
       >
-        <div className="flex items-center">
+        <div className="flex items-center" >
           {icons[type]}
           <span className="text-body2 font-bold">{title}</span>
         </div>

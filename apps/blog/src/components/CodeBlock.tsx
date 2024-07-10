@@ -11,15 +11,17 @@ export default function CodeBlock({ children }: PropsWithChildren) {
   };
 
   return (
-    <pre data-theme="one-dark-pro" className="relative" ref={ref}>
-      {children}
-      <div className="absolute bottom-20 right-20">
-        <CopyIcon
-          className="h-20 w-20 cursor-pointer"
-          onClick={handleCopyClick}
-        />
-      </div>
-    </pre>
+    <div className="relative">
+      <pre data-theme="one-dark-pro" className="relative" ref={ref}>
+        {children}
+        <div className="absolute bottom-20 right-20">
+          <CopyIcon
+            className="h-20 w-20 cursor-pointer"
+            onClick={handleCopyClick}
+          />
+        </div>
+      </pre>
+    </div>
   );
 }
 
