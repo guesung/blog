@@ -11,13 +11,13 @@ export const sortContentByDate = (contents: DocumentTypes[]) =>
 const allContentsPublished = allContents.filter(content => content.isPublished);
 
 interface GetContentProps {
-  series?: Content['series'];
+  series?: Content['series'][];
 }
 
 export const getContents = ({ series }: GetContentProps = {}): Content[] =>
   series
     ? sortContentByDate(
-        allContentsPublished.filter(content => content.series === series)
+        allContentsPublished.filter(content => series.includes(content.series))
       )
     : sortContentByDate(allContentsPublished);
 
@@ -45,18 +45,14 @@ export const getContent = ({
 
 //
 
-interface GetSeriesCountProps {
-  series: Content['series'];
-}
+interface GetSeriesCountProps extends GetContentProps {}
 
 export const getSeriesCount = ({ series }: GetSeriesCountProps) =>
   getContents({ series }).length;
 
 //
 
-interface GetSeriesLastModifiedProps {
-  series: Content['series'];
-}
+interface GetSeriesLastModifiedProps extends GetContentProps {}
 
 export const getSeriesLastModified = ({
   series,

@@ -6,7 +6,9 @@ const notIncluded = ['etc'];
 
 export default function Page() {
   const allTags = getAllTag();
-  const postsContents = getContents();
+  const postsContents = getContents({
+    series: ['posts', 'deep-dive', 'trouble-shooting', 'worried'],
+  });
 
   return (
     <ContentLayout className="flex flex-col gap-20">

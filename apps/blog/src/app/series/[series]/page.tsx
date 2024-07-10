@@ -9,7 +9,7 @@ interface pageProps {
   };
 }
 export default function page({ params: { series } }: pageProps) {
-  const contents = getContents({ series });
+  const contents = getContents({ series: [series] });
 
   return (
     <ContentLayout>
