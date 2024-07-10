@@ -3,7 +3,7 @@ import { getContent } from '@utils';
 
 export default function page() {
   const content = getContent({
-    series: 'etc',
+    series: ['etc'],
     slug: 'plan-detail',
   });
 
