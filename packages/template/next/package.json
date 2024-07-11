@@ -8,10 +8,5 @@
     "start": "next start --port 3030",
     "lint": "eslint . --max-warnings 0"
   },
-  "dependencies": {
-    "@guesung/constants": "workspace:*",
-    "@guesung/hooks": "workspace:*",
-    "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*"
-  }
+  "dependencies": {}
 }

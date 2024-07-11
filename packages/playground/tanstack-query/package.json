@@ -9,9 +9,6 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@guesung/constants": "workspace:*",
-    "@guesung/hooks": "workspace:*",
-    "@guesung/ui": "workspace:*",
-    "@guesung/utils": "workspace:*"
+    "@tanstack/react-query": "^5.51.1"
   }
 }

@@ -87,18 +87,6 @@ importers:
 
   apps/blog:
     dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../../packages/constants
-      '@guesung/hooks':
-        specifier: workspace:*
-        version: link:../../packages/hooks
-      '@guesung/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@next/third-parties':
         specifier: ^14.2.3
         version: 14.2.3(next@13.5.6)(react@18.3.1)
@@ -134,18 +122,6 @@ importers:
 
   apps/study-log:
     dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../../packages/constants
-      '@guesung/hooks':
-        specifier: workspace:*
-        version: link:../../packages/hooks
-      '@guesung/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       google-auth-library:
         specifier: ^9.11.0
         version: 9.11.0
@@ -194,21 +170,17 @@ importers:
 
   packages/hooks: {}
 
+  packages/playground/tanstack-query:
+    dependencies:
+      '@tanstack/react-query':
+        specifier: ^5.51.1
+        version: 5.51.1(react@18.3.1)
+
   packages/styles: {}
 
   packages/template/next: {}
 
-  packages/ui:
-    dependencies:
-      '@guesung/constants':
-        specifier: workspace:*
-        version: link:../constants
-      '@guesung/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@guesung/utils':
-        specifier: workspace:*
-        version: link:../utils
+  packages/ui: {}
 
   packages/utils: {}
 
@@ -2759,6 +2731,19 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.1
     dev: true
+
+  /@tanstack/query-core@5.51.1:
+    resolution: {integrity: sha512-fJBMQMpo8/KSsWW5ratJR5+IFr7YNJ3K2kfP9l5XObYHsgfVy1w3FJUWU4FT2fj7+JMaEg33zOcNDBo0LMwHnw==}
+    dev: false
+
+  /@tanstack/react-query@5.51.1(react@18.3.1):
+    resolution: {integrity: sha512-s47HKFnQ4HOJAHoIiXcpna/roMMPZJPy6fJ6p4ZNVn8+/onlLBEDd1+xc8OnDuwgvecqkZD7Z2mnSRbcWefrKw==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.51.1
+      react: 18.3.1
+    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
