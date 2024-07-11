@@ -1,0 +1,50 @@
+---
+title: Cookies can only be modified in a Server Action or Route Handler.
+date: 2024-07-03
+lastModified: 2024-07-03
+series: trouble-shooting
+tags: 
+  - cookie
+  - server-action
+  - middleware
+isPublished: false
+description: 
+---
+
+{/* https://www.notion.so/guesung/Cookies-can-only-be-modified-in-a-Server-Action-or-Route-Handler-31c84d094819412da68296485153c421?pvs=4 */}
+
+# 문제
+
+## 에러 메시지
+
+<Image src='1' />
+
+> Cookies can only be modified in a Server Action or Route Handler.
+
+즉, 쿠키는 반드시 Server Action 혹은 Route Handler에서만 수정할 수 있다는 말이다.
+
+## 문제 상황
+
+axios.interceptor.response에서 토큰이 만료되었음을 체크하고 서버에 토큰을 재발급받은 후, 토큰을 쿠키에 저장하려는 과정에서 발생한 문제이다. 
+
+
+# 해결 과정
+
+쿠키를 설정하기 위해서는 에러 메시지처럼 Route Handler를 이용하거나, 혹은 middleware.ts를 이용하면 된다.
+
+<Callout title='Route Handler'>
+  Route Handler는
+</Callout>
+<Callout title='Middleware'>
+  Middleware는 서버로의 요청이 끝나기 전에 실행하는 함수이다. 서버로부터 응답이 고지 전에 rewriting, redirecting, 요청 수정 등을 수행할 수 있다.
+</Callout>
+
+사용자의 토큰이 
+
+사용자가 토큰을 가지고 있는 지, 그리고 토큰이 유효한 지 체크한 후 페이지를 redirect하는 과정 또한 필요했
+
+
+
+# 원인 분석
+1. 쿠키는 브라우저에 저장이 되어있는가?
+2. 쿠키가 브라우저에 저장이 되면, 서버에서는 어떻게 접근하는 걸까?
