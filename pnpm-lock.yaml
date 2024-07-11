@@ -196,6 +196,8 @@ importers:
 
   packages/styles: {}
 
+  packages/template/next: {}
+
   packages/ui:
     dependencies:
       '@guesung/constants':
