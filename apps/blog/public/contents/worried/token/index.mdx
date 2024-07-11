@@ -78,9 +78,9 @@ description: 토큰을 어디에 저장해야 할까?
 # 고민
 ## 토큰을 어디에 저장해야 할까?
 
-웹만 고려했을 경우, 이전 프로젝트에서는 보안을 고려하여 Refresh Token의 경우 쿠키에 저장하여 XSS공격으로부터 보호하였고, Access Token의 경우 localStorage에서 관리하여 CSRF 공격으로부터 보호하였다.
+토큰은 어디에 저장해야 안전할까, 그리고 좋은 방법일까?
 
-그런데 이번 프로젝트는 모바일 앱에서 웹뷰를 띄우는 형태로 진행이 된다. 이 경우에도 Refresh Token과 Access Token을 모두 사용하여 토큰을 관리하여야 할까? 그에 앞서서, 다른 프로젝트는 어떻게 했을까?
+이번 프로젝트는 모바일 앱에서 웹뷰를 띄우는 형태이다. 이 경우에도 Refresh Token과 Access Token을 모두 사용하여 토큰을 관리하여야 할까? 그에 앞서서, 다른 프로젝트는 어떻게 했을까?
 
 ## 토큰 관리 리서치
 
@@ -91,6 +91,8 @@ description: 토큰을 어디에 저장해야 할까?
 <Image src='2024-07-03-16-10-17' />
 
 cookie에 토큰값을 저장하고 있다. 작성일 기준 7월 3일이니, 토큰의 만료 기간은 1달임을 확인할 수 있다.
+
+또한, cookie를 제거 후 새로고침을 하면 로그인이 풀리는 것을 확인할 수 있다. 이는 쿠키에 토큰을 저장하고 있기 때문이다.
 
 ### 2. 무신사 : 쿠키에 토큰 하나만 저장한다.
 
@@ -110,19 +112,19 @@ cookie에 토큰값을 저장하고 있다. 작성일 기준 7월 3일이니, �
 
 그렇다면, 다른 사이드 프로젝트에서는 어떻게 토큰을 관리하고 있을까?
 
-### 3. 디프만 - 아맞다 : 로컬 스토리지
+### 3. 디프만 - 아맞다 : 로컬 스토리지에 Access Token과 Refresh Token을 저장한다.
 
 [디프만의 아맞다](https://github.com/depromeet/ahmatda-web/blob/main/src/store/localStorage/userToken.ts)에서는 토큰을 localStorage에 저장하였다. Access Token과 Refresh Token을 따로 구분하지 않았다.
 
 대신에, 사용자를 구분하는 userToken과 firebase 알림 토큰인 fcmToken을 또 사용하였다.
 
-### 4. wordbe(티스토리 블로그) : asyncStorage
+### 4. wordbe(티스토리 블로그) : asyncStorage에 토큰 하나만 저장한다.
 
 [링크](https://wordbe.tistory.com/entry/React-Native-Auth-%EC%9E%90%EB%8F%99%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%9E%90%EB%8F%99%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83)에서는 React Native로 구현하였는데, `asyncStorage`를 사용하여 디바이스의 하드드라이브에 토큰을 저장하였다.
 
 이 방법을 사용한다면, 로그인 > 웹에서 앱으로 토큰 전달 > `asyncStorage`에 저장 > 앱에서 웹으로 필요할 때마다 토큰 저장. 이 방식으로 구현 가능하지 않을까?
 
-### 5. 디프만 - 영감탱 : 로컬 스토리지
+### 5. 디프만 - 영감탱 : 로컬 스토리지에 Access Token과 Refresh Token을 저장한다.
 
 [디프만 - 영감탱](https://github.com/depromeet/ygtang-client/blob/develop/src/components/common/UserProvider/UserProvider.tsx)에서는 Refresh Token과 Access Token을 모두 관리하였다.
 1. Refresh Token : local storage에 저장 & react native로 전송 ⇒ 다시 접속했을 때 활용
@@ -141,11 +143,6 @@ cookie에 토큰값을 저장하고 있다. 작성일 기준 7월 3일이니, �
 
 위와같은 Next.js의 SSR, SSG같은 장점을 활용하지 못한다는 치명적인 단점이 존재한다. 서버에서 먼저 데이터를 fetching한다는 것은 서버에서 토큰에 접근할 수 있어야 한다는 것을 의미한다. 서버에 데이터를 저장하고, 접근할 수 있는 방법으로는 쿠키가 있다. 
 
-이전 프로젝트를 성능 개선할 때 위와 비슷한 고민을 하였고, CSR -> SSR로 마이그레이션 하는 과정에서 동일한 이유로 저장 위치를 기존 로컬 스토리지에서 쿠키로 변경한 적이 있어다.
-
-https://github.com/guesung/atties-ver2.0/issues/11
-
-## 쿠키와, 로컬 스토리지 뭐가 다를까?
 
 <Callout title="쿠키에 대해 알아보자.">
   ## 쿠키
@@ -197,6 +194,7 @@ https://github.com/guesung/atties-ver2.0/issues/11
 
 1. 서버에서 브라우저에 저장된 값에 접근하기 위해서는 cookie를 사용해야 한다.
 2. cookie에 저장된 값은 XSS공격으로부터 안전하다.
+3. 리서치 결과, 다른 사이트에서도 쿠키에 토큰을 저장하는 경우가 많았다.
 
 # 구현
 
