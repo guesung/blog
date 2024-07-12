@@ -170,6 +170,8 @@ importers:
 
   packages/hooks: {}
 
+  packages/playground/i18n: {}
+
   packages/playground/tanstack-query:
     dependencies:
       '@tanstack/react-query':
