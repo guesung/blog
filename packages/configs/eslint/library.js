@@ -20,7 +20,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['.*.js', 'node_modules/', 'dist/'],
+  ignorePatterns: ['node_modules/', 'dist/'],
   overrides: [
     {
       files: ['*.js?(x)', '*.ts?(x)'],
