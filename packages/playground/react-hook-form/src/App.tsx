@@ -1,9 +1,9 @@
-import { UnControlledForm } from './components';
+import { ReactHookForm } from './components';
 
 function App() {
   return (
     <main>
-      <UnControlledForm />
+      <ReactHookForm />
     </main>
   );
 }
