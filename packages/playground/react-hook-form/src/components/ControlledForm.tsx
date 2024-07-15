@@ -14,8 +14,13 @@ export default function ControlledForm() {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(name, phone);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <p>이름</p>
         <input type="text" name="name" value={name} onChange={handleInput} />

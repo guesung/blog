@@ -1,9 +1,9 @@
-import { ControlledForm } from './components';
+import { UnControlledForm } from './components';
 
 function App() {
   return (
     <main>
-      <ControlledForm />
+      <UnControlledForm />
     </main>
   );
 }
