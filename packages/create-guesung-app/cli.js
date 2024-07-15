@@ -19,13 +19,13 @@ const cli = meow(
     디렉토리를 지정하지 않으면 현재 디렉토리에 생성됩니다.
 
   Options
-    --template  Template to use. (next-ts, vite-ts, node-ts, node-js)
+    --template  Template to use. (next, react, node-ts, node-js)
 
     템플릿을 선택하지 않으면 선택할 수 있는 목록이 나타납니다.
 
   Examples
     $ create-guesung-app my-app
-    $ create-guesung-app my-app --template next-ts
+    $ create-guesung-app my-app --template next
   `,
   {
     importMeta: import.meta,
@@ -41,8 +41,8 @@ const cli = meow(
 const readProjectTemplate = async () => {
   const projectChoices = [
     { type: 'separator', separator: '---- 프로젝트 목록 ----' },
-    { description: 'Next.js + TypeScript', value: 'next-ts' },
-    { description: 'React + TypeScript + Vite', value: 'vite-ts' },
+    { description: 'Next.js + TypeScript', value: 'next' },
+    { description: 'React + TypeScript + Vite', value: 'react' },
     // { description: 'Node.js + TypeScript', value: 'node-ts' },
     // { description: 'Node.js  + JavaScript', value: 'node-js' },
   ];
@@ -79,8 +79,8 @@ const readConfirmLint = async () => {
 
 const printDevCommand = (projectTemplate, pkgManager) => {
   switch (projectTemplate) {
-    case 'next-ts':
-    case 'vite-ts':
+    case 'next':
+    case 'react':
       return pkgManager === 'npm' ? 'npm run dev' : `${pkgManager} run dev`;
     default:
       return '';
@@ -179,7 +179,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
             projectDirectoryPath
           );
 
-          if (projectTemplate === 'vite-ts') {
+          if (projectTemplate === 'react') {
             await fs.rename(`${projectDirectoryPath}/.eslintrc.js`, `${projectDirectoryPath}/.eslintrc.cjs`);
           }
         },

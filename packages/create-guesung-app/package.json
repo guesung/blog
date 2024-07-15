@@ -1,6 +1,6 @@
 {
   "name": "create-guesung-app",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "",
   "engines": {
     "node": ">=16"
