@@ -1,10 +1,11 @@
+import { ControlledForm } from './components';
+
 function App() {
   return (
     <main>
-      <h1>Hello, world!</h1>
-      <p>%DESCRIPTION%</p>
+      <ControlledForm />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
