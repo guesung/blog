@@ -12,7 +12,7 @@ export default function CodeBlock({ children }: PropsWithChildren) {
 
   return (
     <div className="relative">
-      <pre data-theme="one-dark-pro" className="relative" ref={ref}>
+      <pre data-theme="one-dark-pro" className="relative m-0" ref={ref}>
         {children}
         <div className="absolute bottom-20 right-20">
           <CopyIcon
