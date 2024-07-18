@@ -9,5 +9,8 @@
   "files": [
     "postcss.config.js",
     "tailwindcss.config.js"
-  ]
+  ],
+  "peerDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
 }
