@@ -1,3 +1,6 @@
 packages:
   - 'apps/*'
-  - 'packages/**'
+  - 'packages/configs/*'
+  - 'packages/playground/*'
+  - 'packages/temlate/*'
+  - 'packages/*'

@@ -231,8 +231,6 @@ importers:
 
   packages/styles: {}
 
-  packages/template/next: {}
-
   packages/ui: {}
 
   packages/utils: {}
