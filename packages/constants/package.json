@@ -4,5 +4,9 @@
   "private": true,
   "exports": {
     ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@guesung/typescript-config": "workspace:*",
+    "typescript": "^5.2.2"
   }
 }

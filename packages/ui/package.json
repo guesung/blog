@@ -2,16 +2,24 @@
   "name": "@guesung/ui",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./styles.css": "./dist/index.css"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "framer-motion": "^11.2.12",
-    "react": "^18.2.0",
     "@guesung/utils": "workspace:*"
   },
   "devDependencies": {
@@ -20,6 +28,13 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "@guesung/tailwind-config": "workspace:*",
-    "@guesung/typescript-config": "workspace:*"
+    "@guesung/typescript-config": "workspace:*",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "@guesung/styles": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "next": "^14.0.3"
   }
 }

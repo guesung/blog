@@ -7,5 +7,14 @@
   },
   "scripts": {
     "lint": "eslint ."
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "@guesung/styles": "workspace:*",
+    "tailwind-merge": "^2.2.2"
+  },
+  "devDependencies": {
+    "@guesung/typescript-config": "workspace:*",
+    "typescript": "^5.2.2"
   }
 }

@@ -2,15 +2,13 @@
   "name": "@guesung/tailwind-config",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "exports":{
+    "./tailwind.config": "./tailwind.config.ts",
+    "./postcss.config": "./postcss.config.js"
   },
-  "files": [
-    "postcss.config.js",
-    "tailwindcss.config.js"
-  ],
-  "peerDependencies": {
+  "devDependencies": {
+    "@guesung/styles": "workspace:*",
+    "@guesung/typescript-config": "workspace:*",
     "tailwindcss": "^3.4.1"
   }
 }

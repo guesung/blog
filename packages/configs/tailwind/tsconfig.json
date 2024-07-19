@@ -1,5 +1,5 @@
 {
-  "extends": "@guesung/typescript-config/nextjs.json",
+  "extends": "@guesung/typescript-config/base.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }
