@@ -28,6 +28,7 @@
     "rehype": "^13.0.1",
     "rehype-pretty-code": "^0.13.1",
     "remark-gfm": "^3.0.1",
+    "sharp": "^0.33.4",
     "shiki": "^1.4.0",
     "tailwind-merge": "^2.2.2"
   },
