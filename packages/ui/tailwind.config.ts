@@ -1,4 +1,4 @@
-const config = require('@guesung/tailwind-config/tailwind.config');
+import config from '@guesung/tailwind-config/tailwind.config';
 
 module.exports = {
   ...config,
