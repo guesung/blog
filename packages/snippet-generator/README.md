@@ -4,10 +4,31 @@ VSCode Snippet Wizard is an extension that allows you to easily create and save 
 
 This extension simplifies the process of selecting code, choosing where to save the snippet, and quickly adding it to your snippet library.
 
+### Generating Snippet
+
+![generate_snippet](images/generate_snippet.gif)
+
+### Using Snippet
+
+![use_snippet](images/use_snippet.gif)
+
+
 ## Unique Features of Snippet Wizard
-1. **Workspace snippet configuration** is possible. You can share snippets with team members for consistent development.
-2. **Automatically detects specific languages**, allowing you to create snippets for that language.
-3. **Immediately open and review the generated snippet file**.
+1. **Workspace Snippet Sharing for Teamwork**
+
+   With workspace snippet settings, you can easily share code snippets with team members and maintain a consistent coding style as if by magic.
+   Maximize collaboration efficiency by having all project members use the same snippets.
+   ![image](./images/workspace_1.png)
+
+2. **Automatic Language Detection**
+
+   It automatically detects specific languages and creates perfect snippets for that language.Create and use snippets worry-free in any language, be it Java, Python, JavaScript, or others.
+   ![language_1](./images/language_1.png)
+
+1. **Instant Snippet Review and Editing**
+
+   You can immediately open the generated snippet file to review and modify if necessary
+   ![review_1](./images/review_1.png)
 
 ## Key Features
 

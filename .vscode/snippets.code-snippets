@@ -1,0 +1,40 @@
+{
+  "init": {
+    "prefix": "init",
+    "body": [
+      "interface PageProps {",
+      "  ",
+      "}",
+      "",
+      "//",
+      "//",
+      "//",
+      "",
+      "export default function page({}:PageProps) {",
+      "",
+      "  return <div></div>;",
+      "}"
+    ],
+    "description": "Generated snippet: init"
+  },
+  "f": {
+    "prefix": "f",
+    "body": [
+      "interface PageProps {",
+      "  ",
+      "}",
+      "",
+      "//",
+      "//",
+      "//",
+      "",
+      "export default function page({}:PageProps) {",
+      "",
+      "  return <div></div>;",
+      "}",
+      "",
+      ""
+    ],
+    "description": "Generated snippet: f"
+  }
+}

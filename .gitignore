@@ -44,3 +44,4 @@ googleSheet.json
 
 # vscode extension
 .vscode-test
+*.vsix

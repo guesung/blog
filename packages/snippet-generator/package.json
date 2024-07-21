@@ -1,8 +1,8 @@
 {
   "name": "snippet-wizard",
-  "displayName": "snippet-wizard",
+  "displayName": "Snippet Wizard",
   "description": "Generate VSCode snippets from selected code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "guesung",
   "engines": {
     "vscode": "^1.91.0"
