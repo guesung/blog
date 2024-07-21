@@ -1,8 +1,13 @@
-# VSCode Snippet Generator
+# VSCode Snippet Wizard
 
-VSCode Snippet Generator는 VSCode에서 직접 코드 스니펫을 쉽게 생성하고 저장할 수 있게 해주는 확장 프로그램으로, 생산성을 획기적으로 향상시켜주는 도구입니다. 
+VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성하고 저장할 수 있게 해주는 확장 프로그램으로, 생산성을 획기적으로 향상시켜주는 도구입니다. 
 
 이 확장 프로그램은 코드를 선택하고, 스니펫을 저장할 위치를 선택한 다음, 빠르게 스니펫 라이브러리에 추가하는 과정을 간소화합니다.
+
+## Snippet Wizard만의 차별점
+1. **workspace의 snippet 설정**이 가능합니다. 팀원들과 snippet을 공유하여 공통된 개발을 할 수 있습니다.
+2. **특정 언어를 자동으로 감지**하여, 해당 언어에 대한 스니펫을 생성할 수 있습니다.
+3. **생성된 snippet 파일을 즉시 열어서 확인**해볼 수 있습니다.
 
 ## 주요 기능
 
@@ -20,7 +25,7 @@ VSCode Snippet Generator는 VSCode에서 직접 코드 스니펫을 쉽게 생�
 
 1. Visual Studio Code 실행
 2. 확장 프로그램으로 이동
-3. "Snippet Generator" 검색
+3. "Snippet Wizard" 검색
 4. 설치 클릭
 
 ## 사용 방법
@@ -63,8 +68,4 @@ MIT © Guesung Park [MIT 라이선스](LICENSE)파일을 참고하세요.
 
 ### 1.0.0
 
-VSCode Snippet Generator의 초기 릴리스.
-
----
-
-VSCode Snippet Generator로 스니펫 만들기를 즐기세요!
+VSCode Snippet Wizard의 초기 릴리스.

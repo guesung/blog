@@ -1,6 +1,6 @@
 {
-  "name": "snippet-generator",
-  "displayName": "snippet-generator",
+  "name": "snippet-wizard",
+  "displayName": "snippet-wizard",
   "description": "Generate VSCode snippets from selected code",
   "version": "0.0.1",
   "publisher": "guesung",
@@ -11,14 +11,23 @@
     "Other"
   ],
   "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:snippetWizard.generateSnippet"
+  ],
   "contributes": {
     "commands": [
       {
-        "command": "snippetGenerator.generateSnippet",
-        "title": "Generate Snippet (Custom)"
+        "command": "snippetWizard.generateSnippet",
+        "title": "Generate Snippet"
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guesung/guesung-library",
+    "directory": "packages/snippet-wizard"
+  },
+  "icon":"logo.png",
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
