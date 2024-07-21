@@ -1,26 +1,129 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as os from 'os';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+    let disposable = vscode.commands.registerCommand('snippetGenerator.generateSnippet', async () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showWarningMessage('No active text editor.');
+            return;
+        }
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "snippet-generator" is now active!');
+        const selection = editor.selection;
+        const text = editor.document.getText(selection);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('snippet-generator.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from snippet-generator!');
-	});
+        if (!text) {
+            vscode.window.showWarningMessage('No text selected. Please select some code first.');
+            return;
+        }
 
-	context.subscriptions.push(disposable);
+        const languageId = editor.document.languageId;
+        const snippetName = await vscode.window.showInputBox({
+            prompt: "Enter a name for your snippet"
+        });
+
+        if (!snippetName) {
+            vscode.window.showWarningMessage('Snippet name is required.');
+            return;
+        }
+
+        const snippetPrefix = await vscode.window.showInputBox({
+            prompt: "Enter a prefix for your snippet"
+        });
+
+        if (!snippetPrefix) {
+            vscode.window.showWarningMessage('Snippet prefix is required.');
+            return;
+        }
+
+        const snippetObject = {
+            [snippetName]: {
+                prefix: snippetPrefix,
+                body: text.split('\n'),
+                description: `Generated snippet: ${snippetName}`
+            }
+        };
+
+        const snippetsPath = getSnippetsPath(languageId);
+
+        const snippetsDir = path.dirname(snippetsPath);
+        if (!fs.existsSync(snippetsDir)) {
+            fs.mkdirSync(snippetsDir, { recursive: true });
+        }
+
+        let existingSnippets = await readSnippetsFile(snippetsPath);
+        const updatedSnippets = { ...existingSnippets, ...snippetObject };
+
+        try {
+            fs.writeFileSync(snippetsPath, JSON.stringify(updatedSnippets, null, 2));
+
+            const message = `Snippet '${snippetName}' added successfully!`;
+            vscode.window.showInformationMessage(message, 'Open Snippet File').then(selection => {
+                if (selection === 'Open Snippet File') {
+                    vscode.workspace.openTextDocument(snippetsPath).then(doc => {
+                        vscode.window.showTextDocument(doc);
+                    });
+                }
+            });
+        } catch (error) {
+            vscode.window.showErrorMessage(`Error saving snippet: ${error.message}`);
+        }
+    });
+
+    context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
+async function readSnippetsFile(filePath: string): Promise<object> {
+    if (!fs.existsSync(filePath)) {
+        return {};
+    }
+
+    try {
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        return JSON.parse(fileContent);
+    } catch (error:Error) {
+        const message = `Error reading snippets file: ${error.message}. Do you want to reset the file?`;
+        const reset = await vscode.window.showWarningMessage(message, 'Reset File', 'Cancel');
+        
+        if (reset === 'Reset File') {
+            try {
+                fs.writeFileSync(filePath, '{}');
+                vscode.window.showInformationMessage('Snippets file has been reset.');
+                return {};
+            } catch (writeError) {
+                vscode.window.showErrorMessage(`Failed to reset snippets file: ${writeError.message}`);
+                return {};
+            }
+        } else {
+            throw new Error('Unable to read or reset snippets file. Operation cancelled.');
+        }
+    }
+}
+
+function getSnippetsPath(languageId: string): string {
+    const homeDir = os.homedir();
+    let snippetsDir: string;
+
+    switch (process.platform) {
+        case 'darwin':
+            snippetsDir = path.join(homeDir, 'Library', 'Application Support', 'Code', 'User', 'snippets');
+            break;
+        case 'win32':
+            snippetsDir = path.join(homeDir, 'AppData', 'Roaming', 'Code', 'User', 'snippets');
+            break;
+        default: // linux and others
+            snippetsDir = path.join(homeDir, '.config', 'Code', 'User', 'snippets');
+            break;
+    }
+
+    return path.join(snippetsDir, `${languageId}.json`);
+}
+
 export function deactivate() {}
+
+// A system error occurred (ENOENT: no such file or directory, open '/Users/home/Library/Application Support/Code/User/globalStorage/undefined_publisher.snippet-generator/html.json')
+// ~/Library/Application Support/Code/User/snippets/html.json
+
+// A system error occurred (ENOENT: no such file or directory, open '/Users/home/Library/Application Support/Code/User/globalStorage/guesung.snippet-generator/html.json')

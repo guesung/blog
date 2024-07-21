@@ -41,3 +41,6 @@ yarn-error.log*
 .contentlayer
 
 googleSheet.json
+
+# vscode extension
+.vscode-test
