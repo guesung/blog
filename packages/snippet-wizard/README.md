@@ -1,6 +1,7 @@
 # VSCode Snippet Wizard
 
-- [Korean README](README-ko.md)
+- [Korean README](/packages//snippet-wizard/README-ko.md)
+- [Market Place](https://marketplace.visualstudio.com/items?itemName=guesung.snippet-wizard)
 
 VSCode Snippet Wizard is an extension that allows you to easily create and save code snippets directly in VSCode, dramatically improving your productivity.
 
