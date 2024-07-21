@@ -1,71 +1,62 @@
-# snippet-generator README
+# VSCode Snippet Generator
 
-This is the README for your extension "snippet-generator". After writing up a brief description, we recommend including the following sections.
+VSCode Snippet Generator is a Visual Studio Code extension that allows you to easily create and save code snippets directly from your editor. This extension simplifies the process of creating snippets by allowing you to select code, choose where to save the snippet, and quickly add it to your snippet library.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Generate snippets from selected code
+- Choose where to save your snippets:
+  - Global Snippets
+  - Workspace Snippets
+  - Language Specific Snippets
+- Automatically detect the language of the current file
+- Simple interface for naming and adding prefixes to your snippets
+- Option to open and edit the snippet file directly after creation
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open Visual Studio Code
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on macOS)
+3. Search for "VSCode Snippet Generator"
+4. Click Install
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
+
+1. Select the code you want to turn into a snippet in your editor
+2. Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS)
+3. Type "Generate Snippet" and select the command
+4. Choose where you want to save the snippet:
+   - Global Snippets: Available in all your projects
+   - Workspace Snippets: Only available in the current workspace
+   - Language Specific Snippets: Only available for the current file's language
+5. Enter a name for your snippet
+6. Enter a prefix for your snippet (this is what you'll type to use the snippet)
+7. The snippet will be saved, and you'll see a confirmation message
+
+You can then use your new snippet by typing its prefix and selecting it from the IntelliSense suggestions.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension requires Visual Studio Code version 1.60.0 or higher.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Currently, there are no known issues. If you encounter any problems, please report them on the GitHub issues page.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release of VSCode Snippet Generator.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Enjoy creating snippets with VSCode Snippet Generator!
