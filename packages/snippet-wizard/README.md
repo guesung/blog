@@ -8,11 +8,11 @@ This extension simplifies the process of selecting code, choosing where to save 
 
 ### Generating Snippet
 
-![generate_snippet](images/generate_snippet.gif)
+![generate_snippet](https://github.com/user-attachments/assets/7afcbc58-b622-4c61-85b2-d83777a24d9c)
 
 ### Using Snippet
 
-![use_snippet](images/use_snippet.gif)
+![use_snippet](https://github.com/user-attachments/assets/6f4ffdf0-37a7-407d-8281-2800ab479705)
 
 
 ## Unique Features of Snippet Wizard
@@ -20,17 +20,17 @@ This extension simplifies the process of selecting code, choosing where to save 
 
    With workspace snippet settings, you can easily share code snippets with team members and maintain a consistent coding style as if by magic.
    Maximize collaboration efficiency by having all project members use the same snippets.
-   ![image](./images/workspace_1.png)
+   <img width="615" alt="workspace_1" src="https://github.com/user-attachments/assets/d2be4f7c-448c-4c42-97e2-cb680d37a67e">
 
 2. **Automatic Language Detection**
 
    It automatically detects specific languages and creates perfect snippets for that language.Create and use snippets worry-free in any language, be it Java, Python, JavaScript, or others.
-   ![language_1](./images/language_1.png)
+   <img width="615" alt="language_1" src="https://github.com/user-attachments/assets/5b8b49e9-9331-42b6-bac0-d8a89f4c49b5">
 
 1. **Instant Snippet Review and Editing**
 
    You can immediately open the generated snippet file to review and modify if necessary
-   ![review_1](./images/review_1.png)
+   <img width="468" alt="review_1" src="https://github.com/user-attachments/assets/b78a4fab-8e5f-4369-81e5-ba747a943ce3">
 
 ## Key Features
 

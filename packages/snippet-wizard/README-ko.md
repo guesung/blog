@@ -6,11 +6,11 @@ VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성�
 
 ### Snippet 생성
 
-![generate_snippet](images/generate_snippet.gif)
+![generate_snippet](https://github.com/user-attachments/assets/7afcbc58-b622-4c61-85b2-d83777a24d9c)
 
 ### Snippet 사용
 
-![use_snippet](images/use_snippet.gif)
+![use_snippet](https://github.com/user-attachments/assets/6f4ffdf0-37a7-407d-8281-2800ab479705)
 
 ## Snippet Wizard만의 차별점
 1. **팀워크를 위한 workspace 스니펫 공유**
@@ -18,7 +18,7 @@ VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성�
       workspace의 스니펫 설정으로 팀원들과 코드 조각을 손쉽게 공유하고, 일관된 코딩 스타일을 마법처럼 유지할 수 있습니다. 
       
       프로젝트의 모든 멤버가 동일한 스니펫을 사용하여 협업의 효율을 극대화하세요.
-      ![image](./images/workspace_1.png)
+      <img width="615" alt="workspace_1" src="https://github.com/user-attachments/assets/d2be4f7c-448c-4c42-97e2-cb680d37a67e">
 
 
 1. **언어 자동 감지**
@@ -26,12 +26,12 @@ VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성�
       특정 언어를 자동으로 감지하여, 해당 언어에 맞는 완벽한 스니펫을 생성합니다. 
       
       Java, Python, JavaScript 등 어떤 언어든 걱정 없이 스니펫을 만들어 사용하세요.
-      ![language_1](./images/language_1.png)
+      <img width="615" alt="language_1" src="https://github.com/user-attachments/assets/5b8b49e9-9331-42b6-bac0-d8a89f4c49b5">
       
 2. **즉각적인 스니펫 확인과 편집**
       
       생성된 스니펫 파일을 즉시 열어 확인하고 필요하다면 바로 수정할 수 있습니다.
-      ![review_1](./images/review_1.png)
+      <img width="468" alt="review_1" src="https://github.com/user-attachments/assets/b78a4fab-8e5f-4369-81e5-ba747a943ce3">
 
 ## 주요 기능
 1. 선택한 코드로부터 스니펫 생성
