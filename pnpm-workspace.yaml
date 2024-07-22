@@ -4,3 +4,5 @@ packages:
   - 'packages/playground/*'
   - 'packages/template/*'
   - 'packages/*'
+  - 'support/package-generator'
+  - 'support/scripts'
