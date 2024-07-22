@@ -12,7 +12,7 @@ https://github.com/user-attachments/assets/87948d02-f366-48c4-94df-e4760225d6d6
 
 ### Snippet 사용
 
-![use_snippet](https://github.com/user-attachments/assets/6f4ffdf0-37a7-407d-8281-2800ab479705)
+https://github.com/user-attachments/assets/9317267d-000a-4971-9fd0-11d588ec4b59
 
 ## Snippet Wizard만의 차별점
 1. **팀워크를 위한 workspace 스니펫 공유**
