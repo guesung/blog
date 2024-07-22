@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.3.0",
     "@guesung/constants": "workspace:*",
     "@guesung/hooks": "workspace:*",
     "@guesung/ui": "workspace:*",

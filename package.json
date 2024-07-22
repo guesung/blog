@@ -9,6 +9,7 @@
     "build": "turbo build --filter blog",
     "start": "turbo start --concurrency 15",
     "dev": "turbo dev",
+    "dev:blog": "turbo dev --filter blog",
     "lint": "turbo lint",
     "format": "prettier --write **",
     "make-graph": "turbo run build lint --graph"

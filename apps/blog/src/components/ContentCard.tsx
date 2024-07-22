@@ -10,7 +10,6 @@ export default function ContentCard({ content }: ContentCardProps) {
   return (
     <Move>
       <Card
-        key={content._id}
         href={`/series/${content.series}/${content.slug}`}
         title={content.title}
         coverSrc={content.coverSrc}
