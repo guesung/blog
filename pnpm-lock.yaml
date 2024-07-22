@@ -120,9 +120,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.6
-      typescript:
-        specifier: ^5.2.2
-        version: 5.5.3
 
   apps/docs:
     dependencies:
@@ -187,9 +184,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.6
-      typescript:
-        specifier: ^5.2.2
-        version: 5.5.3
 
   apps/my-moments: {}
 
@@ -251,16 +245,17 @@ importers:
         specifier: ^3.4.1
         version: 3.4.6
 
-  packages/configs/typescript: {}
+  packages/configs/typescript:
+    dependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.5.3
 
   packages/constants:
     devDependencies:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
-      typescript:
-        specifier: ^5.2.2
-        version: 5.5.3
 
   packages/hooks:
     dependencies:
@@ -271,9 +266,6 @@ importers:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
-      typescript:
-        specifier: ^5.2.2
-        version: 5.5.3
 
   packages/playground:
     dependencies:
@@ -335,9 +327,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.6
-      typescript:
-        specifier: ^5
-        version: 5.5.3
 
   packages/snippet-wizard:
     devDependencies:
@@ -368,9 +357,6 @@ importers:
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
-      typescript:
-        specifier: ^5.4.5
-        version: 5.5.3
 
   packages/styles:
     devDependencies:
@@ -436,9 +422,6 @@ importers:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
-      typescript:
-        specifier: ^5.2.2
-        version: 5.5.3
 
   support/package-generator:
     dependencies:
