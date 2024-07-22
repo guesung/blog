@@ -1,8 +1,8 @@
 packages:
   - 'apps/*'
   - 'packages/configs/*'
-  - 'packages/playground/*'
-  - 'packages/template/*'
+  - 'packages/playground'
   - 'packages/*'
   - 'support/package-generator'
   - 'support/scripts'
+  - 'support/package-template/next'
