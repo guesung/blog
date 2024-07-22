@@ -28,8 +28,6 @@
     "@types/react-dom": "^18.2.18",
     "@guesung/tailwind-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.33",
     "@guesung/styles": "workspace:*"
   },
   "peerDependencies": {
