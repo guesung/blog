@@ -1,8 +1,14 @@
+import { Circle } from "@guesung/ui";
+
 export default function Home() {
   return (
     <main>
-      <h1>Hello, world!</h1>
-      <p>playground 프로젝트입니다.</p>
+      <div className='flex h-80 flex:1 1'>
+      <div className='bg-black rounded-full aspect-square' />
+      <div className='bg-black rounded-full aspect-square' />
+      <div className='bg-black rounded-full aspect-square' />
+
+      </div>
     </main>
   );
 }
