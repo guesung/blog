@@ -1,4 +1,7 @@
 {
-  "extends":"@guesung/typescript-config/base.json",
-  "include":[".", ".eslintrc.js"]
+  "extends": "@guesung/typescript-config/base.json",
+  "include": [".", ".eslintrc.js"],
+  "compilerOptions": {
+    "composite": true
+  }
 }

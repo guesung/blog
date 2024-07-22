@@ -1,0 +1,48 @@
+{
+  "extends": "@guesung/typescript-config/base.json",
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "apps/blog"
+    },
+    {
+      "path": "apps/docs"
+    },
+    {
+      "path": "apps/my-moments"
+    },
+    {
+      "path": "apps/study-log"
+    },
+    {
+      "path": "packages/configs"
+    },
+    {
+      "path": "packages/constants"
+    },
+    {
+      "path": "packages/hooks"
+    },
+    {
+      "path": "packages/playground"
+    },
+    {
+      "path": "packages/playground"
+    },
+    {
+      "path": "packages/snippet-wizard"
+    },
+    {
+      "path": "packages/styles"
+    },
+    {
+      "path": "packages/ui"
+    },
+    {
+      "path": "packages/utils"
+    },
+    {
+      "path": "support/package-generator"
+    }
+  ]
+}

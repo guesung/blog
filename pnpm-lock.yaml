@@ -11,6 +11,9 @@ importers:
       '@guesung/prettier-config':
         specifier: workspace:*
         version: link:packages/configs/prettier
+      '@guesung/typescript-config':
+        specifier: workspace:*
+        version: link:packages/configs/typescript
       turbo:
         specifier: ^2.0.7
         version: 2.0.9
@@ -330,6 +333,9 @@ importers:
 
   packages/snippet-wizard:
     devDependencies:
+      '@guesung/typescript-config':
+        specifier: workspace:*
+        version: link:../configs/typescript
       '@types/mocha':
         specifier: ^10.0.7
         version: 10.0.7

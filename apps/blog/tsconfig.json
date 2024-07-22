@@ -10,6 +10,7 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
+    "composite": true,
     "paths": {
       "@*": ["src/*"],
       "@svgs*": ["public/image/svgs/*"],
