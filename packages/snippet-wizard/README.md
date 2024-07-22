@@ -75,7 +75,7 @@ This extension requires Visual Studio Code version 1.60.0 or higher.
 You can register issues on our GitHub page, or if immediate confirmation is difficult, please use the Google Form, email, or KakaoTalk open chat room below. We will check and respond promptly through any of these channels.
 
 - [Google Form](https://forms.gle/yDXxiw1oP7J4gVDp8)
-- [Email](gueit214@naver.com)
+- Email : <gueit214@naver.com>
 - [KakaoTalk Open Chat Room](https://open.kakao.com/o/g1bBg9Dg)
 
 ## Contributing

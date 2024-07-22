@@ -77,7 +77,7 @@ VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성�
 이슈에 등록해주시거나, 즉시 확인이 어려울 수 있으니 아래 구글폼, 이메일, 혹은 카카오톡 오픈채팅방에 입력해주세요. 어떤 수단이든 상시 확인하고 답변드리겠습니다.
 
 - [구글폼](https://forms.gle/yDXxiw1oP7J4gVDp8)
-- [이메일](gueit214@naver.com)
+- 이일일 : <gueit214@naver.com>
 - [카카오톡 오픈채팅방](https://open.kakao.com/o/g1bBg9Dg)
 
 
