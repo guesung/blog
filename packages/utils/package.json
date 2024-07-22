@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
-    "@guesung/styles": "workspace:*",
-    "tailwind-merge": "^2.2.2"
+    "@guesung/styles": "workspace:*"
   },
   "devDependencies": {
     "@guesung/typescript-config": "workspace:*"

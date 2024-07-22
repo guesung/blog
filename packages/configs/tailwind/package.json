@@ -2,13 +2,15 @@
   "name": "@guesung/tailwind-config",
   "version": "0.0.0",
   "private": true,
-  "exports":{
+  "exports": {
     "./tailwind.config": "./tailwind.config.ts",
     "./postcss.config": "./postcss.config.js"
   },
   "devDependencies": {
     "@guesung/styles": "workspace:*",
-    "@guesung/typescript-config": "workspace:*",
-    "tailwindcss": "^3.4.1"
+    "@guesung/typescript-config": "workspace:*"
+  },
+  "peerDependencies": {
+    "@tailwindcss/typography": "^0.5.13"
   }
 }
