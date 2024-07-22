@@ -8,7 +8,7 @@ VSCode Snippet Wizard는 VSCode에서 직접 코드 스니펫을 쉽게 생성�
 
 ### Snippet 생성
 
-![generate_snippet](https://github.com/user-attachments/assets/7afcbc58-b622-4c61-85b2-d83777a24d9c)
+https://github.com/user-attachments/assets/87948d02-f366-48c4-94df-e4760225d6d6
 
 ### Snippet 사용
 
