@@ -6,7 +6,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "turbo build --filter blog",
+    "build": "turbo build --filter @guesung/ui blog",
     "start": "turbo start --concurrency 15",
     "dev": "turbo dev",
     "dev:blog": "turbo dev --filter @guesung/ui --filter blog",

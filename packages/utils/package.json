@@ -9,8 +9,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@guesung/styles": "workspace:*",
     "clsx": "^2.1.0",
-    "@guesung/styles": "workspace:*"
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@guesung/typescript-config": "workspace:*"
