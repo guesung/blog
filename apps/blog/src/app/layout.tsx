@@ -1,5 +1,6 @@
 import { Footer, Header, HeaderWrapper, ThemeProvider } from '@components';
 import './globals.css';
+import '@guesung/ui/styles.css';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { cn } from '@guesung/utils';
