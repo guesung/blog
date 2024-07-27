@@ -160,6 +160,39 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2(google-auth-library@9.11.0)
 
+  extensions/snippet-wizard:
+    devDependencies:
+      '@guesung/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/configs/typescript
+      '@types/mocha':
+        specifier: ^10.0.7
+        version: 10.0.7
+      '@types/node':
+        specifier: 20.x
+        version: 20.14.11
+      '@types/vscode':
+        specifier: ^1.91.0
+        version: 1.91.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^7.14.1
+        version: 7.17.0(@typescript-eslint/parser@7.17.0)(eslint@8.57.0)(typescript@5.5.4)
+      '@typescript-eslint/parser':
+        specifier: ^7.11.0
+        version: 7.17.0(eslint@8.57.0)(typescript@5.5.4)
+      '@vscode/test-cli':
+        specifier: ^0.0.9
+        version: 0.0.9
+      '@vscode/test-electron':
+        specifier: ^2.4.0
+        version: 2.4.1
+      esbuild:
+        specifier: ^0.21.5
+        version: 0.21.5
+      npm-run-all:
+        specifier: ^4.1.5
+        version: 4.1.5
+
   packages/configs/eslint:
     dependencies:
       eslint:
@@ -299,39 +332,6 @@ importers:
         specifier: ^5.1.2
         version: 5.2.1(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.3.3)
 
-  packages/snippet-wizard:
-    devDependencies:
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../configs/typescript
-      '@types/mocha':
-        specifier: ^10.0.7
-        version: 10.0.7
-      '@types/node':
-        specifier: 20.x
-        version: 20.14.11
-      '@types/vscode':
-        specifier: ^1.91.0
-        version: 1.91.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^7.14.1
-        version: 7.17.0(@typescript-eslint/parser@7.17.0)(eslint@8.57.0)(typescript@5.5.4)
-      '@typescript-eslint/parser':
-        specifier: ^7.11.0
-        version: 7.17.0(eslint@8.57.0)(typescript@5.5.4)
-      '@vscode/test-cli':
-        specifier: ^0.0.9
-        version: 0.0.9
-      '@vscode/test-electron':
-        specifier: ^2.4.0
-        version: 2.4.1
-      esbuild:
-        specifier: ^0.21.5
-        version: 0.21.5
-      npm-run-all:
-        specifier: ^4.1.5
-        version: 4.1.5
-
   packages/ui:
     dependencies:
       '@guesung/utils':
@@ -394,6 +394,8 @@ importers:
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../../packages/configs/typescript
+
+  support/scripts: {}
 
 packages:
 
