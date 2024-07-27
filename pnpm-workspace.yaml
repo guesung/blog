@@ -1,7 +1,7 @@
 packages:
   - 'apps/*'
-  - 'packages/configs/*'
-  - 'packages/playground'
+  - 'extensions/*'
   - 'packages/*'
+  - 'packages/configs/*'
   - 'support/package-generator'
   - 'support/scripts'
