@@ -18,7 +18,7 @@ export default function NavLink({
     <Link
       {...props}
       className={cn(
-        'hover:bg-gray rounded-16 flex items-center gap-4 p-16 dark:hover:bg-slate-600',
+        'hover:bg-gray-1 rounded-16 bg-white-1 flex items-center gap-4 p-16 dark:hover:bg-slate-600',
         className
       )}
     >

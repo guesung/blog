@@ -1,6 +1,6 @@
 import { Footer, Header, HeaderWrapper, ThemeProvider } from '@components';
-import './globals.css';
 import '@guesung/ui/styles.css';
+import './globals.css';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { cn } from '@guesung/utils';
@@ -39,7 +39,7 @@ export default function RootLayout({
     <html className={cn(pretendard.variable)}>
       <body className={pretendard.className}>
         <ThemeProvider
-          className="text-body3 dark:bg-black dark:text-white"
+          className="text-body3 bg-white-1 text-black-1"
           initialTheme={theme}
         >
           <HeaderWrapper>

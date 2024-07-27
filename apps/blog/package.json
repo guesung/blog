@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
-    "@guesung/styles": "workspace:*",
     "@guesung/tailwind-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
     "@types/node": "^20.10.6",

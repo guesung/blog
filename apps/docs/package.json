@@ -19,7 +19,6 @@
   "devDependencies": {
     "@guesung/eslint-config": "workspace:*",
     "@guesung/prettier-config": "workspace:*",
-    "@guesung/styles": "workspace:*",
     "@guesung/tailwind-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
     "@tailwindcss/typography": "^0.5.13",

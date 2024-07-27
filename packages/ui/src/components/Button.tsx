@@ -24,8 +24,8 @@ export default function Button({
       className={cn(
         'rounded-8 w-fit',
         {
-          'bg-black text-white': selected,
-          'border border-black bg-white text-black': !selected,
+          'bg-black-1 text-white': selected,
+          'bg-white-1 border border-black text-black': !selected,
         },
         sizeClassName[size]
       )}

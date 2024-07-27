@@ -1,12 +1,12 @@
-import { colors, fontSize, pxToRemTailwind, theme } from '@guesung/styles';
+import { colors, fontSize, pxToRemTailwind, theme } from './styles';
 
 const config = {
   theme: {
     extend: {
       ...pxToRemTailwind,
-      colors,
       theme,
       fontSize,
+      colors,
     },
   },
 };

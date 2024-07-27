@@ -4,10 +4,10 @@
   "private": true,
   "exports": {
     "./tailwind.config": "./tailwind.config.ts",
-    "./postcss.config": "./postcss.config.js"
+    "./postcss.config": "./postcss.config.js",
+    "./styles": "./styles"
   },
   "devDependencies": {
-    "@guesung/styles": "workspace:*",
     "@guesung/typescript-config": "workspace:*"
   },
   "peerDependencies": {

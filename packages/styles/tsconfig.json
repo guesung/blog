@@ -1,9 +1,0 @@
-{
-  "extends": "@guesung/typescript-config/base.json",
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "composite": true
-  }
-}

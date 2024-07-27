@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { extendTailwindMerge } from 'tailwind-merge';
-import { fontSize } from '@guesung/styles';
+import { fontSize } from '@guesung/tailwind-config/styles';
 
 import type { ClassValue } from 'clsx';
 

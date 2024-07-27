@@ -1,14 +1,12 @@
 'use client';
 
 import { getCookie, setCookie } from '@guesung/utils';
-import { PropsWithChildren } from 'react';
 import { useTheme } from './provider/ThemeProvider';
+import MoonIcon from '@svgs/moon.svg';
+import SunIcon from '@svgs/sun.svg';
 
-interface ToggleThemeProps {}
-export default function ToggleTheme({
-  children,
-}: PropsWithChildren<ToggleThemeProps>) {
-  const { setTheme } = useTheme();
+export default function ToggleTheme() {
+  const { theme, setTheme } = useTheme();
   const handleTheme = () => {
     const theme = getCookie('theme');
     if (theme === 'dark') {
@@ -19,9 +17,14 @@ export default function ToggleTheme({
       setTheme('dark');
     }
   };
+
   return (
     <div className="dark cursor-pointer" onClick={handleTheme}>
-      {children}
+      {theme === 'dark' ? (
+        <MoonIcon fill="white" width={30} height={30} />
+      ) : (
+        <SunIcon width={30} height={30} />
+      )}
     </div>
   );
 }

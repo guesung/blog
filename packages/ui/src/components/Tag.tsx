@@ -9,7 +9,7 @@ interface TagProps extends ClassNameType, LinkProps {
 
 const tagVariantClassname: Record<VariantEnum, string> = {
   [VariantEnum.outline]: 'border-black rounded-20',
-  [VariantEnum.filled]: 'bg-black text-white border-white',
+  [VariantEnum.filled]: 'bg-black-1 text-white border-white',
 };
 
 export default function Tag({
@@ -21,7 +21,7 @@ export default function Tag({
   return (
     <Link
       className={cn(
-        'text-caption border-1 w-fit border-solid px-8 py-4 hover:bg-slate-600 hover:text-white',
+        'text-caption border-1 bg-gray-1 w-fit border-solid px-8 py-4 hover:bg-slate-600 hover:text-white',
         tagVariantClassname[variant],
         className
       )}

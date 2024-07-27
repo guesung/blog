@@ -1,9 +1,0 @@
-{
-  "name": "@guesung/styles",
-  "version": "0.0.0",
-  "private": true,
-  "exports": "./src/index.ts",
-  "devDependencies": {
-    "@guesung/typescript-config": "workspace:*"
-  }
-}

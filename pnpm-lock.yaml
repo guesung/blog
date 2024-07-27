@@ -87,9 +87,6 @@ importers:
       '@guesung/eslint-config':
         specifier: workspace:*
         version: link:../../packages/configs/eslint
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../../packages/styles
       '@guesung/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/configs/tailwind
@@ -133,9 +130,6 @@ importers:
       '@guesung/prettier-config':
         specifier: workspace:*
         version: link:../../packages/configs/prettier
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../../packages/styles
       '@guesung/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/configs/tailwind
@@ -218,9 +212,6 @@ importers:
         specifier: ^3.4.6
         version: 3.4.6
     devDependencies:
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../../styles
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../typescript
@@ -255,6 +246,9 @@ importers:
       '@guesung/ui':
         specifier: workspace:*
         version: link:../ui
+      '@guesung/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@tanstack/react-query':
         specifier: ^5.51.11
         version: 5.51.11(react@18.3.1)
@@ -338,12 +332,6 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5
 
-  packages/styles:
-    devDependencies:
-      '@guesung/typescript-config':
-        specifier: workspace:*
-        version: link:../configs/typescript
-
   packages/ui:
     dependencies:
       '@guesung/utils':
@@ -362,9 +350,6 @@ importers:
       '@guesung/constants':
         specifier: workspace:*
         version: link:../constants
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../styles
       '@guesung/tailwind-config':
         specifier: workspace:*
         version: link:../configs/tailwind
@@ -383,9 +368,6 @@ importers:
 
   packages/utils:
     dependencies:
-      '@guesung/styles':
-        specifier: workspace:*
-        version: link:../styles
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
@@ -393,6 +375,9 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0
     devDependencies:
+      '@guesung/tailwind-config':
+        specifier: workspace:*
+        version: link:../configs/tailwind
       '@guesung/typescript-config':
         specifier: workspace:*
         version: link:../configs/typescript
