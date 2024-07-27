@@ -14,18 +14,18 @@ const NAV_LINK_PROPS_LIST = [
     href: '/library',
     children: '서재',
   },
-  {
-    href: '/playground',
-    children: '놀이터',
-  },
+  // {
+  //   href: '/playground',
+  //   children: '놀이터',
+  // },
   {
     href: '/about',
     children: '소개',
   },
-  {
-    href: '/plan',
-    children: '계획',
-  },
+  // {
+  //   href: '/plan',
+  //   children: '계획',
+  // },
 ];
 
 export default function Header() {
