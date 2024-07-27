@@ -24,7 +24,6 @@ export default function Page() {
         items={postsContents.filter(it => !notIncluded.includes(it.series))}
         render={content => <ContentCard content={content} />}
       />
-      <Button>ddddd</Button>
     </ContentLayout>
   );
 }
