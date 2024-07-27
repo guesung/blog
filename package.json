@@ -12,7 +12,8 @@
     "dev:blog": "turbo dev --filter @guesung/ui --filter blog",
     "lint": "turbo lint",
     "format": "prettier --write **",
-    "make-graph": "turbo run build lint --graph"
+    "make-graph": "turbo run build lint --graph",
+    "storybook": "turbo run storybook"
   },
   "devDependencies": {
     "turbo": "^2.0.7",

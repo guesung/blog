@@ -5,7 +5,7 @@
   "exports": {
     "./tailwind.config": "./tailwind.config.ts",
     "./postcss.config": "./postcss.config.js",
-    "./styles": "./styles"
+    "./styles": "./styles/index.ts"
   },
   "devDependencies": {
     "@guesung/typescript-config": "workspace:*"
