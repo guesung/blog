@@ -1,8 +1,9 @@
 import Button from './Button';
 
 export default {
-  title: 'Button1',
+  title: 'Button',
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     size: {
       control: {
@@ -11,13 +12,31 @@ export default {
       },
     },
     selected: {
-      control: 'boolean',
+      control: {
+        type: 'boolean',
+        options: [true, false],
+      },
     },
   },
 };
 
-export const Default = {
+export const Small = {
   args: {
-    children: 'Button',
+    children: 'Small',
+    size: 'small',
+  },
+};
+
+export const Medium = {
+  args: {
+    children: 'Medium',
+    size: 'medium',
+  },
+};
+
+export const Large = {
+  args: {
+    children: 'Large',
+    size: 'large',
   },
 };
