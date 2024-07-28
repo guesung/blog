@@ -8,23 +8,23 @@ import {
 } from './components';
 import dynamic from 'next/dynamic';
 
-const SuspenseWithoutQueryComponent = dynamic(
-  () => import('./components/SuspenseWithoutQueryComponent.tsx'),
-  {
-    loading: () => <Loading />,
-  }
-);
+// const SuspenseWithoutQueryComponent = dynamic(
+//   () => import('./components'),
+//   {
+//     loading: () => <Loading />,
+//   }
+// );
 
 export default function Page() {
   return (
     <QueryProvider>
-      <IsLoadingComponent />
-      <IsErrorComponent />
+      {/* <IsLoadingComponent /> */}
+      {/* <IsErrorComponent /> */}
+      Outer Suspense
       <Suspense fallback={<Loading />}>
         <SuspenseWithQueryComponent />
       </Suspense>
-      Not Suspense
-      <SuspenseWithoutQueryComponent />
+      {/* <SuspenseWithoutQueryComponent /> */}
     </QueryProvider>
   );
 }
