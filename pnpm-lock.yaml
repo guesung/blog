@@ -271,17 +271,17 @@ importers:
         specifier: workspace:*
         version: link:../configs/typescript
 
-  packages/playground:
+  packages/playground/suspense:
     dependencies:
       '@guesung/constants':
         specifier: workspace:*
-        version: link:../constants
+        version: link:../../constants
       '@guesung/ui':
         specifier: workspace:*
-        version: link:../ui
+        version: link:../../ui
       '@guesung/utils':
         specifier: workspace:*
-        version: link:../utils
+        version: link:../../utils
       '@tanstack/react-query':
         specifier: ^5.51.11
         version: 5.51.15(react@18.3.1)
@@ -297,13 +297,13 @@ importers:
     devDependencies:
       '@guesung/eslint-config':
         specifier: workspace:*
-        version: link:../configs/eslint
+        version: link:../../configs/eslint
       '@guesung/tailwind-config':
         specifier: workspace:*
-        version: link:../configs/tailwind
+        version: link:../../configs/tailwind
       '@guesung/typescript-config':
         specifier: workspace:*
-        version: link:../configs/typescript
+        version: link:../../configs/typescript
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.6)
@@ -331,6 +331,14 @@ importers:
       eslint-plugin-prettier:
         specifier: ^5.1.2
         version: 5.2.1(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.3.3)
+
+  packages/playground/tailwindcss:
+    dependencies:
+      tailwindcss:
+        specifier: ^3.4.6
+        version: 3.4.6
+
+  packages/playground/this: {}
 
   packages/ui:
     dependencies:
