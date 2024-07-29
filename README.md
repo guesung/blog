@@ -16,7 +16,7 @@
      - ui : 공통 UI 컴포넌트
      - utils : 공통 유틸리티 함수
 - extension : VSC / Chrome 확장 프로그램
-    - snippet-wizard
+    - [snippet-wizard](./extensions/snippet-wizard/README-ko.md)
 - support : 프로젝트 지원
    - package-generator
    - project-templates

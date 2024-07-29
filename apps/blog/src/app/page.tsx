@@ -1,5 +1,5 @@
 import { ContentCard, ContentLayout } from '@components';
-import { Button, CardList, Tag } from '@guesung/ui';
+import { CardList, Tag } from '@guesung/ui';
 import { getAllTag, getContents } from '@utils';
 
 const notIncluded = ['etc'];

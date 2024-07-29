@@ -130,9 +130,9 @@ svg{
 .dark {
   /* 다크 모드 기본 색상 */
   --white-1: #212121;
-  --white-2: #424242;
+  --white-2: #2D2D2D;  
   --black-1: #F5F5F5;
-  --black-2: #FFFFFF;
+  --black-2: #FFFFFF; 
   --gray-1: #333333;
   --gray-2: #424242;
   --gray-3: #616161;
@@ -147,7 +147,5 @@ svg{
   --warning: #F39C12;
   --error: #E74C3C;
   
-  /* 텍스트 색상 */
-  --text-primary: #FFFFFF;
-  --text-secondary: #BDBDBD;
+
 }
