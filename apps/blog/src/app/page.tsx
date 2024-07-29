@@ -1,14 +1,12 @@
 import { ContentCard, ContentLayout } from '@components';
+import { Content } from '@contents';
 import { CardList, Tag } from '@guesung/ui';
-import { getAllTag, getContents } from '@utils';
+import { getAllTag, getAllContents } from '@utils';
 
-const notIncluded = ['etc'];
+const notShowSeries: Partial<Content['series']>[] = ['translations', 'etc'];
 
 export default function Page() {
   const allTags = getAllTag();
-  const postsContents = getContents({
-    series: ['posts', 'deep-dive', 'trouble-shooting', 'worried'],
-  });
 
   return (
     <ContentLayout className="flex flex-col gap-20">
@@ -21,7 +19,9 @@ export default function Page() {
       </div>
       <ContentLayout.Title>ALL POSTS.</ContentLayout.Title>
       <CardList
-        items={postsContents.filter(it => !notIncluded.includes(it.series))}
+        items={getAllContents().filter(
+          content => !notShowSeries.includes(content.series)
+        )}
         render={content => <ContentCard content={content} />}
       />
     </ContentLayout>

@@ -10,16 +10,10 @@ export const sortContentByDate = (contents: DocumentTypes[]) =>
 
 const allContentsPublished = allContents.filter(content => content.isPublished);
 
-interface GetContentProps {
-  series?: Content['series'][];
-}
 
-export const getContents = ({ series }: GetContentProps = {}): Content[] =>
-  series
-    ? sortContentByDate(
-        allContentsPublished.filter(content => series.includes(content.series))
-      )
-    : sortContentByDate(allContentsPublished);
+
+export const getAllContents = (): Content[] =>
+  sortContentByDate(allContentsPublished);
 
 export const getSeries = () =>
   Array.from(
@@ -28,36 +22,37 @@ export const getSeries = () =>
 
 //
 
-interface GetContentBySlugProps extends GetContentProps {
+interface GetContentBySlugProps {
   slug?: string;
 }
 
-export const getContent = ({
-  series,
-  slug,
-}: GetContentBySlugProps): Content => {
-  const content = getContents({ series }).find(
-    content => content.slug === slug
-  );
+export const getContent = ({ slug }: GetContentBySlugProps): Content => {
+  const content = getAllContents().find(content => content.slug === slug);
   if (!content) throw new Error(`Content not found for slug: ${slug}`);
   return content;
 };
 
 //
 
-interface GetSeriesCountProps extends GetContentProps {}
+interface GetSeriesCountProps {
+  series: string;
+}
 
 export const getSeriesCount = ({ series }: GetSeriesCountProps) =>
-  getContents({ series }).length;
+  getAllContents().filter(content => content.series === series).length;
 
 //
 
-interface GetSeriesLastModifiedProps extends GetContentProps {}
+interface GetSeriesLastModifiedProps {
+  series: string;
+}
 
 export const getSeriesLastModified = ({
   series,
 }: GetSeriesLastModifiedProps) => {
-  const contents = getContents({ series });
+  const contents = getAllContents().filter(
+    content => content.series === series
+  );
   return contents[contents.length - 1]?.lastModified ?? '';
 };
 
@@ -69,4 +64,4 @@ export const getAllTag = () =>
 //
 
 export const getContentsByTag = (tag: string) =>
-  getContents().filter(content => content.tags?.includes(tag));
+  getAllContents().filter(content => content.tags?.includes(tag));
