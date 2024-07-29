@@ -15,8 +15,6 @@ export default function SuspenseWithQueryComponent() {
     queryKey: ['data'],
   });
 
-  console.log(data.products);
-
   return (
     <div>
       {data.products.map(product => (

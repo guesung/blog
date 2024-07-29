@@ -3,6 +3,6 @@ packages:
   - 'extensions/*'
   - 'packages/*'
   - 'packages/configs/*'
-  - 'packages/playground'
+  - 'packages/playground/*'
   - 'support/package-generator'
   - 'support/scripts'
