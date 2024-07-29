@@ -22,7 +22,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: 'bb',
+    title: content.title,
     openGraph: {
       images: [content.coverSrc, ...previousImages],
     },

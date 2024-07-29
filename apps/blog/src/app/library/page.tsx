@@ -1,9 +1,16 @@
 import { ContentLayout, ListItem } from '@components';
+import { Metadata } from 'next';
 import { ComponentProps } from 'react';
 
 interface Library extends ComponentProps<typeof ListItem> {
   date: string;
 }
+
+export const metadata: Metadata = {
+  title: 'Library.',
+  description: '나만의 작은 서재',
+};
+ 
 
 const libraryList: Library[] = [
   {

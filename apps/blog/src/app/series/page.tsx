@@ -3,6 +3,13 @@ import { matchingKorean } from '@constants';
 import { CardList } from '@guesung/ui';
 import { getSeries, getSeriesCount, getSeriesLastModified } from '@utils';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Series.',
+  description: '시리즈로 작성된 포스트들을 모았습니다.',
+};
+ 
 export default function page() {
   const allSeries = getSeries();
   const allSeriesExceptEtc = allSeries.filter(series => series !== 'etc');
