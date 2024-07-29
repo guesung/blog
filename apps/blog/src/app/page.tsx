@@ -12,13 +12,13 @@ export default function Page() {
 
   return (
     <ContentLayout className="flex flex-col gap-20">
-      {/* <div className="max-w-640 mx-auto flex flex-wrap justify-center gap-10">
+      <div className="max-w-640 mx-auto flex flex-wrap justify-center gap-10">
         {allTags.map(tag => (
           <Tag href={`/tags/${tag}`} key={tag}>
             {tag}
           </Tag>
         ))}
-      </div> */}
+      </div>
       <ContentLayout.Title>ALL POSTS.</ContentLayout.Title>
       <CardList
         items={postsContents.filter(it => !notIncluded.includes(it.series))}

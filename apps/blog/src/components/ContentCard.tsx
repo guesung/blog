@@ -15,7 +15,7 @@ export default function ContentCard({ content }: ContentCardProps) {
         coverSrc={content.coverSrc}
       >
         {content.description && (
-          <p className="text-slate-500">{content.description}</p>
+          <p className="text-white-2">{content.description}</p>
         )}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
