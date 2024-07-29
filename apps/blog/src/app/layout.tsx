@@ -38,8 +38,8 @@ export default function RootLayout({
   return (
     <html
       className={cn(pretendard.variable, {
-        'bg-black': theme === 'dark',
-        'bg-white': theme !== 'dark',
+        'bg-black-1': theme === 'dark',
+        'bg-white-1': theme !== 'dark',
       })}
     >
       <body className={pretendard.className}>

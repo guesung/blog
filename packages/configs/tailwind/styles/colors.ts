@@ -1,9 +1,7 @@
 export const colors = {
   // 기본 색상
-  white: 'var(--white-1)',
   'white-1': 'var(--white-1)',
   'white-2': 'var(--white-2)',
-  black: 'var(--black-1)',
   'black-1': 'var(--black-1)',
   'black-2': 'var(--black-2)',
   'gray-1': 'var(--gray-1)',
