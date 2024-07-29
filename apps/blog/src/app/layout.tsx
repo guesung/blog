@@ -36,7 +36,12 @@ export default function RootLayout({
   const theme = cookieStore.get('theme')?.value as Theme;
 
   return (
-    <html className={cn(pretendard.variable)}>
+    <html
+      className={cn(pretendard.variable, {
+        'bg-black': theme === 'dark',
+        'bg-white': theme !== 'dark',
+      })}
+    >
       <body className={pretendard.className}>
         <ThemeProvider
           className="text-body3 bg-white-1 text-black-1"
@@ -46,7 +51,9 @@ export default function RootLayout({
             <Header />
           </HeaderWrapper>
           <Header.Margin />
+
           {children}
+
           <Footer />
         </ThemeProvider>
       </body>
