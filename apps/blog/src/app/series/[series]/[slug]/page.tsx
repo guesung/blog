@@ -6,7 +6,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 interface PageProps {
   params: {
     series: Content['series'][];
-    slug: string | string[];
+    slug: string;
   };
 }
 
@@ -17,7 +17,7 @@ export async function generateMetadata(
   const slug = params.slug;
 
   const content = getContent({
-    slug: typeof slug === 'string' ? slug : slug.join('/'),
+    slug,
   });
 
   const previousImages = (await parent).openGraph?.images || [];
@@ -27,12 +27,13 @@ export async function generateMetadata(
     openGraph: {
       images: [content.coverSrc, ...previousImages],
     },
+    description: content.description ?? '',
   };
 }
 
 export default function page({ params: { slug } }: PageProps) {
   const content = getContent({
-    slug: typeof slug === 'string' ? slug : slug.join('/'),
+    slug,
   });
 
   return <ContentPost {...content} className="max-w-1000" />;
