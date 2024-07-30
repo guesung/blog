@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Sitemap: https://blog.guesung.site/sitemap.xml
+Sitemap: https://blog.guesung.site/sitemap-0.xml
