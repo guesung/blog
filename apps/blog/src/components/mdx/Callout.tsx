@@ -2,11 +2,11 @@
 
 import { cn } from '@guesung/utils';
 import { PropsWithChildren, useRef, useState } from 'react';
-import PlusIcon from '@svgs/plus.svg';
-import MinusIcon from '@svgs/minus.svg';
-import BulbIcon from '@svgs/bulb.svg';
-import PointerDownIcon from '@svgs/pointer_down.svg';
-import PointerUpIcon from '@svgs/pointer_up.svg';
+import PlusIcon from '@images/icons/plus.svg';
+import MinusIcon from '@images/icons/minus.svg';
+import BulbIcon from '@images/icons/bulb.svg';
+import PointerDownIcon from '@images/icons/pointer_down.svg';
+import PointerUpIcon from '@images/icons/pointer_up.svg';
 
 interface CalloutProps {
   type: 'info' | 'plus' | 'minus';

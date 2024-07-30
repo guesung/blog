@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { NavLink, ToggleTheme } from '.';
+// import Logo from '@image/logo.jpeg';
 
 const NAV_LINK_PROPS_LIST = [
   {
@@ -31,6 +33,7 @@ const NAV_LINK_PROPS_LIST = [
 export default function Header() {
   return (
     <>
+      {/* <Image src={Logo} width="100" height="50" alt="logo" /> */}
       <NavLink href="/" className="font-bold text-body2">
         Guesung.
       </NavLink>

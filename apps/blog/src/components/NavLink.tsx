@@ -2,7 +2,7 @@ import { ClassNameType } from '@guesung/constants';
 import { cn } from '@guesung/utils';
 import Link, { LinkProps } from 'next/link';
 import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
-import ArrowOuterIcon from '@svgs/arrow_outer.svg';
+import ArrowOuterIcon from '@images/icons/arrow_outer.svg';
 
 interface NavLinkProps
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'as'>,

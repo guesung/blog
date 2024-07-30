@@ -1,7 +1,7 @@
 import { EMAIL_URL, GITHUB_URL, LINKEDIN_URL } from '@guesung/constants';
-import EmailIcon from '@svgs/email.svg';
-import GithubIcon from '@svgs/github.svg';
-import LinkedInIcon from '@svgs/linkedIn.svg';
+import EmailIcon from '@images/icons/email.svg';
+import GithubIcon from '@images/icons/github.svg';
+import LinkedInIcon from '@images/icons/linkedIn.svg';
 import Link from 'next/link';
 
 export default function Footer() {
