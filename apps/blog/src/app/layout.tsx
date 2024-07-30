@@ -17,7 +17,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: '박규성 블로그',
+  title: 'Guesung Blog',
   description: '안녕하세요, 프론트엔드 개발자 박규성입니다.',
   verification: {
     google: 'ydZVzq0xbjyB0kO5I4Rmi1U-fB60L0eThb2a4K62KCo',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const jsonLdData = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: '박규성 블로그',
+  name: 'Guesung Blog',
   description: '안녕하세요, 프론트엔드 개발자 박규성입니다.',
   keywords: 'blog, frontend, javascript, react',
   url: 'https://blog.guesung.site',
@@ -50,7 +50,7 @@ const jsonLdData = {
       url: 'https://github.com/user-attachments/assets/5c8b9ef8-1a2b-4ecc-b191-4ae95d4c5a00',
     },
   },
-  headline: '박규성 블로그',
+  headline: 'Guesung Blog',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://blog.guesung.site/series/posts/system',
