@@ -5,16 +5,16 @@ import Logo from '@images/logos/me.jpeg';
 const NAV_LINK_PROPS_LIST = [
   {
     href: 'https://guesung.notion.site',
-    children: '노트',
+    children: 'Note',
     target: '_blank',
   },
   {
     href: '/series',
-    children: '시리즈',
+    children: 'Series',
   },
   {
     href: '/library',
-    children: '서재',
+    children: 'Library',
   },
   // {
   //   href: '/playground',
@@ -22,7 +22,11 @@ const NAV_LINK_PROPS_LIST = [
   // },
   {
     href: '/about',
-    children: '소개',
+    children: 'About',
+  },
+  {
+    href: '/guestbook',
+    children: 'Guestbook',
   },
   // {
   //   href: '/plan',

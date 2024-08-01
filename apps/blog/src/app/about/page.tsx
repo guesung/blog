@@ -6,12 +6,10 @@ export const metadata: Metadata = {
   title: 'About.',
   description: 'About me',
 };
- 
 
 
 export default function page() {
   const content = getContent({
-    series: ['etc'],
     slug: 'about',
   });
 
