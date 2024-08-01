@@ -1,4 +1,10 @@
-import { Footer, Header, HeaderWrapper, ThemeProvider } from '@components';
+import {
+  ClientSessionProvider,
+  Footer,
+  Header,
+  HeaderWrapper,
+  ThemeProvider,
+} from '@components';
 import '@guesung/ui/styles.css';
 import './globals.css';
 import type { Metadata } from 'next';
@@ -83,20 +89,21 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLdData, null, 2),
           }}
         />
+        <ClientSessionProvider>
+          <ThemeProvider
+            className="text-body3 bg-white-1 text-black-1"
+            initialTheme={theme}
+          >
+            <HeaderWrapper>
+              <Header />
+            </HeaderWrapper>
+            <Header.Margin />
 
-        <ThemeProvider
-          className="text-body3 bg-white-1 text-black-1"
-          initialTheme={theme}
-        >
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
-          <Header.Margin />
+            {children}
 
-          {children}
-
-          <Footer />
-        </ThemeProvider>
+            <Footer />
+          </ThemeProvider>
+        </ClientSessionProvider>
       </body>
       <GoogleAnalytics gaId="G-JB6N95P3H1" />
     </html>

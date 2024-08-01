@@ -24,10 +24,10 @@ const NAV_LINK_PROPS_LIST = [
     href: '/about',
     children: 'About',
   },
-  {
-    href: '/guestbook',
-    children: 'Guestbook',
-  },
+  // {
+  //   href: '/guestbook',
+  //   children: 'Guestbook',
+  // },
   // {
   //   href: '/plan',
   //   children: '계획',
