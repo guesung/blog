@@ -7,3 +7,4 @@ export { default as Calendar } from './Calendar';
 export { default as CardList } from './CardList';
 export { default as Circle } from './Circle';
 export { default as ButtonBroup } from './ButtonBroup';
+export { default as Input } from './Input';

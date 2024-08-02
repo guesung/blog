@@ -17,3 +17,4 @@ export { default as Description } from './mdx/Description';
 export { default as Toggle } from './mdx/Toggle';
 export { default as CodeBlock } from './CodeBlock';
 export { default as ClientSessionProvider } from './ClientSessionProvider';
+export { default as LoginButton, type LoginButtonProps } from './LoginButton';

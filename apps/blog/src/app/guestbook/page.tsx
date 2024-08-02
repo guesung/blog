@@ -1,9 +1,10 @@
 import { ContentLayout } from '@components';
 import { Metadata } from 'next';
-import { GuestbookLogin } from './components';
+import { GuestbookList, GuestbookLogin, GuestbookMessage } from './components';
 import { Spacing } from '@guesung/ui';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@utils';
+import { nextAuth } from '@utils';
+import { Session } from './components/GuestbookMessage';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
@@ -11,8 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function page() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
+  const session = (await getServerSession(nextAuth)) as Session;
 
   return (
     <ContentLayout className="flex flex-col gap-20">
@@ -25,7 +25,8 @@ export default async function page() {
         이메일은 노출되지 않습니다! 닉네임과 프로필 사진만 노출됩니다 😀
       </div>
       <Spacing size={20} />
-      <GuestbookLogin />
+      {session ? <GuestbookMessage session={session} /> : <GuestbookLogin />}
+      <GuestbookList />
       <Spacing size={20} />
     </ContentLayout>
   );

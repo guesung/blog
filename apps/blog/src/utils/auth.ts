@@ -1,16 +1,17 @@
 import { AuthOptions } from 'next-auth';
 import NaverProvider from 'next-auth/providers/naver';
 import KakaoProvider from 'next-auth/providers/kakao';
+import NextAuth from 'next-auth/next';
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     NaverProvider({
-      clientId: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID || '',
-      clientSecret: process.env.NAVER_CLIENT_SECRET || '',
+      clientId: process.env.NEXTAUTH_NAVER_CLIENT_ID || '',
+      clientSecret: process.env.NEXTAUTH_NAVER_CLIENT_SECRET || '',
     }),
     KakaoProvider({
-      clientId: process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID || '',
-      clientSecret: process.env.NEXT_PUBLIC_KAKAO_CLIENT_SECRET || '',
+      clientId: process.env.NEXTAUTH_KAKAO_CLIENT_ID || '',
+      clientSecret: process.env.NEXTAUTH_KAKAO_CLIENT_SECRET || '',
     }),
   ],
   callbacks: {
@@ -19,4 +20,7 @@ export const authOptions: AuthOptions = {
       return true;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };
+
+export const nextAuth = NextAuth(authOptions);
