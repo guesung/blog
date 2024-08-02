@@ -19,6 +19,7 @@
     "clsx": "^2.1.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^3.6.0",
+    "file-loader": "^6.2.0",
     "framer-motion": "^11.2.12",
     "next": "^14.0.3",
     "next-auth": "^4.24.7",
