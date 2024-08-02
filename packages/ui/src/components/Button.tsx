@@ -2,7 +2,7 @@ import { cn } from '@guesung/utils';
 import { PropsWithChildren } from 'react';
 
 export interface ButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     PropsWithChildren {
   size?: 'small' | 'medium' | 'large';
   selected?: boolean;

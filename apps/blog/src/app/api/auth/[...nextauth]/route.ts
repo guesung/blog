@@ -1,3 +1,3 @@
-import { nextAuth } from '@/utils';
+import { handlers } from '@utils';
 
-export { nextAuth as GET, nextAuth as POST };
+export const { GET, POST } = handlers;

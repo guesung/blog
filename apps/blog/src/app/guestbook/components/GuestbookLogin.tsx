@@ -1,5 +1,3 @@
-'use client';
-
 import { LoginButton, LoginButtonProps } from '@components';
 import KakaoIcon from '@images/icons/kakao.svg';
 import NaverIcon from '@images/icons/naver.svg';
