@@ -25,7 +25,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guesung/guesung-library",
-    "directory": "packages/snippet-wizard"
+    "directory": "packages/extensions/snippet-wizard"
   },
   "icon": "logo.png",
   "scripts": {
