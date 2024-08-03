@@ -1,10 +1,10 @@
 import { ContentLayout } from '@components';
-import { Metadata } from 'next';
-import { GuestbookList, GuestbookLogin, GuestbookMessage } from './components';
 import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
-import GuestbookUserInfo from './components/GuestbookUserInfo';
+import { Metadata } from 'next';
 import { Session } from 'next-auth';
+import { GuestbookList, GuestbookLogin } from './components';
+import GuestbookUserInfo from './components/GuestbookUserInfo';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
