@@ -31,7 +31,13 @@ export default function ThemeProvider({
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={cn({ dark: theme === 'dark' }, className)}>
+      <div
+        className={cn(
+          { dark: theme === 'dark' },
+          'text-body3 bg-white-1 text-black-1',
+          className
+        )}
+      >
         {children}
       </div>
     </ThemeContext.Provider>

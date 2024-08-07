@@ -83,10 +83,7 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLdData, null, 2),
           }}
         />
-        <ThemeProvider
-          className="text-body3 bg-white-1 text-black-1"
-          initialTheme={theme}
-        >
+        <ThemeProvider initialTheme={theme}>
           <HeaderWrapper>
             <Header />
           </HeaderWrapper>
