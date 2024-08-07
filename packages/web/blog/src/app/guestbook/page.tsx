@@ -15,7 +15,7 @@ export default async function page() {
   const session = (await auth()) as Session;
 
   return (
-    <ContentLayout className="flex flex-col gap-20">
+    <ContentLayout>
       <ContentLayout.Title>Guestbook</ContentLayout.Title>
       <ContentLayout.Description>
         아무 이야기나 써주세요! 블로그 피드백이나 잡담도 상관없습니다

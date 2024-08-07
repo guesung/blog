@@ -10,9 +10,7 @@ export default function ContentLayout({
   className,
 }: PropsWithChildren<ContentLayoutProps>) {
   return (
-    <div
-      className={cn('max-w-800 mx-auto flex flex-col gap-10 px-16', className)}
-    >
+    <div className={cn('max-w-800 mx-auto flex flex-col px-16', className)}>
       {children}
     </div>
   );
@@ -21,7 +19,7 @@ export default function ContentLayout({
 interface TitleProps {}
 
 function Title({ children }: PropsWithChildren<TitleProps>) {
-  return <div className="my-20 text-center text-subtitle1">{children}</div>;
+  return <div className="my-20 text-center text-subtitle2">{children}</div>;
 }
 
 interface DescriptionProps {}
