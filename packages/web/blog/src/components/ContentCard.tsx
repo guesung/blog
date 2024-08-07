@@ -1,6 +1,6 @@
 import { Content } from '@contents';
 import { Card, Move, Tag } from '@guesung/ui';
-import { formatDate } from '@guesung/utils';
+import { formatShowDate } from '@guesung/utils';
 
 interface ContentCardProps {
   content: Content;
@@ -25,7 +25,7 @@ export default function ContentCard({ content }: ContentCardProps) {
               </Tag>
             ))}
           </div>
-          <p>{formatDate(content.date)}</p>
+          <p>{formatShowDate(content.date)}</p>
         </div>
       </Card>
     </Move>

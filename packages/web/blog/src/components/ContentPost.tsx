@@ -10,7 +10,7 @@ import {
 } from '@components';
 import Image, { ImageProps } from 'next/image';
 import { notFound } from 'next/navigation';
-import { cn, formatDate } from '@guesung/utils';
+import { cn, formatShowDate } from '@guesung/utils';
 import { ClassNameType } from '@guesung/constants';
 
 interface PostProps extends Content, ClassNameType {}
@@ -33,7 +33,7 @@ export default function ContentPost({
   return (
     <div className={cn('mx-auto flex flex-col gap-20 px-20', className)}>
       <PostStatusBar />
-      <div className="text-center">{formatDate(date)}</div>
+      <div className="text-center">{formatShowDate(date)}</div>
       <div className="text-title3 text-center">{title}</div>
       <div className="prose max-w-full">
         <MDXContent
