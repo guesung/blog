@@ -38,8 +38,8 @@ export default function MDXContent({
       )}
     >
       <PostStatusBar />
-      <div className="text-center">{formatShowDate(date)}</div>
-      <div className="text-center text-title3">{title}</div>
+      {date && <div className="text-center">{formatShowDate(date)}</div>}
+      {title && <div className="text-center text-title3">{title}</div>}
       <div className="max-w-full prose">
         <MDXContent
           components={{

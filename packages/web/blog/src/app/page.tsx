@@ -6,5 +6,5 @@ export default function Page() {
     slug: 'about',
   });
 
-  return <MDXContent {...content} title="" />;
+  return <MDXContent {...content} title="" date="" />;
 }
