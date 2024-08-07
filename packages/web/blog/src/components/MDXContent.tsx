@@ -39,8 +39,8 @@ export default function MDXContent({
     >
       <PostStatusBar />
       <div className="text-center">{formatShowDate(date)}</div>
-      <div className="text-title3 text-center">{title}</div>
-      <div className="prose max-w-full">
+      <div className="text-center text-title3">{title}</div>
+      <div className="max-w-full prose">
         <MDXContent
           components={{
             Callout,

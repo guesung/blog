@@ -4,7 +4,7 @@ import { ClassNameType } from '@guesung/constants';
 
 interface ContentLayoutProps extends ClassNameType {}
 
-export default function ContentLayout({
+export default function Layout({
   children,
   className,
 }: PropsWithChildren<ContentLayoutProps>) {
@@ -38,5 +38,5 @@ function Description({
   );
 }
 
-ContentLayout.Title = Title;
-ContentLayout.Description = Description;
+Layout.Title = Title;
+Layout.Description = Description;

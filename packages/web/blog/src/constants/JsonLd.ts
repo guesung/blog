@@ -1,8 +1,10 @@
+import { DATA } from './Data';
+
 export const JSON_LD_DATA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Guesung Blog',
-  description: '안녕하세요, 프론트엔드 개발자 박규성입니다.',
+  name: DATA.blog.name,
+  description: DATA.blog.description,
   keywords: 'blog, frontend, javascript, react',
   url: 'https://blog.guesung.site',
   image:
@@ -21,7 +23,7 @@ export const JSON_LD_DATA = {
       url: 'https://github.com/user-attachments/assets/5c8b9ef8-1a2b-4ecc-b191-4ae95d4c5a00',
     },
   },
-  headline: 'Guesung Blog',
+  headline: DATA.blog.name,
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://blog.guesung.site/series/posts/system',
