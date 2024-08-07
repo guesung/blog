@@ -15,13 +15,13 @@ const yearList = LIBRARY_LIST.reduce((acc: number[], cur: Library) => {
 
 export default function page() {
   return (
-    <ContentLayout className="max-w-1000">
+    <ContentLayout>
       <ContentLayout.Title>Library.</ContentLayout.Title>
       <ContentLayout.Description>나만의 작은 서재</ContentLayout.Description>
       {yearList.map(year => (
         <div className="flex" key={year}>
-          <div className="w-100 flex items-center justify-center">{year}</div>
-          <div className="flex flex-1 flex-col">
+          <div className="flex items-center justify-center w-100">{year}</div>
+          <div className="flex flex-col flex-1">
             {LIBRARY_LIST.filter(
               library => new Date(library.date).getFullYear() === year
             ).map(library => (

@@ -21,13 +21,13 @@ export default function ContentLayout({
 interface TitleProps {}
 
 function Title({ children }: PropsWithChildren<TitleProps>) {
-  return <div className="text-subtitle1 my-20 text-center">{children}</div>;
+  return <div className="my-20 text-center text-subtitle1">{children}</div>;
 }
 
 interface DescriptionProps {}
 
 function Description({ children }: PropsWithChildren<DescriptionProps>) {
-  return <div className="text-body2 my-20 text-center">{children}</div>;
+  return <div className="my-20 text-center text-body2">{children}</div>;
 }
 
 ContentLayout.Title = Title;
