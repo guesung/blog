@@ -13,5 +13,5 @@ export default function page() {
     slug: 'about',
   });
 
-  return <ContentPost {...content} className="max-w-780" />;
+  return <ContentPost {...content} />;
 }

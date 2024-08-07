@@ -9,7 +9,7 @@ export default function ContentLayout({
   className,
 }: PropsWithChildren<ContentLayoutProps>) {
   return (
-    <div className={cn('max-w-800 mx-auto flex flex-col px-16', className)}>
+    <div className={cn('max-w-layout mx-auto flex flex-col px-16', className)}>
       {children}
     </div>
   );

@@ -15,7 +15,6 @@ export async function generateMetadata(
   const slug = params.slug;
 
   const content = getContent({
-    series: ['posts'],
     slug,
   });
 
@@ -31,9 +30,8 @@ export async function generateMetadata(
 
 export default function page({ params: { slug } }: PageProps) {
   const content = getContent({
-    series: ['posts'],
     slug,
   });
 
-  return <ContentPost {...content} className="max-w-1000" />;
+  return <ContentPost {...content} />;
 }

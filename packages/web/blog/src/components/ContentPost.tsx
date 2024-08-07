@@ -31,7 +31,12 @@ export default function ContentPost({
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <div className={cn('mx-auto flex flex-col gap-20 px-20', className)}>
+    <div
+      className={cn(
+        'max-w-layout mx-auto flex flex-col gap-20 px-20',
+        className
+      )}
+    >
       <PostStatusBar />
       <div className="text-center">{formatShowDate(date)}</div>
       <div className="text-title3 text-center">{title}</div>

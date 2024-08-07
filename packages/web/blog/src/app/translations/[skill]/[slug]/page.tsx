@@ -10,7 +10,6 @@ interface pageProps {
 
 export default function page({ params: { skill, slug } }: pageProps) {
   const translation = getContent({
-    series: ['translations'],
     slug: `${skill}/${slug}`,
   });
 

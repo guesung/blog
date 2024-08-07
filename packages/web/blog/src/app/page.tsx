@@ -1,15 +1,10 @@
-import { Layout } from '@components';
+import { ContentPost, Layout } from '@components';
+import { getContent } from '@utils';
 
 export default function Page() {
-  return (
-    <Layout>
-      {/* <div className="flex flex-wrap justify-center gap-10 mx-auto max-w-640">
-        {allTags.map(tag => (
-          <Tag href={`/tags/${tag}`} key={tag}>
-            {tag}
-          </Tag>
-        ))}
-      </div> */}
-    </Layout>
-  );
+  const content = getContent({
+    slug: 'about',
+  });
+
+  return <ContentPost {...content} />;
 }

@@ -36,5 +36,5 @@ export default function page({ params: { slug } }: PageProps) {
     slug,
   });
 
-  return <ContentPost {...content} className="max-w-1000" />;
+  return <ContentPost {...content} />;
 }

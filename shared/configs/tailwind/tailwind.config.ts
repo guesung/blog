@@ -7,6 +7,10 @@ const config = {
       theme,
       fontSize,
       colors,
+      spacing: {
+        ...pxToRemTailwind.spacing,
+        layout: '50rem',
+      },
     },
   },
 };
