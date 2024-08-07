@@ -1,4 +1,4 @@
-import { NavLink, ToggleTheme } from '.';
+import { HeaderWrapper, NavLink, ToggleTheme } from '.';
 
 const NAV_LINK_PROPS_LIST = [
   {
@@ -34,16 +34,18 @@ const NAV_LINK_PROPS_LIST = [
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between w-full text-body3">
-      <NavLink href="/">Guesung.</NavLink>
+    <HeaderWrapper>
+      <header className="flex items-center justify-between w-full text-body3">
+        <NavLink href="/">Guesung.</NavLink>
 
-      <div className="flex items-center">
-        {NAV_LINK_PROPS_LIST.map(props => (
-          <NavLink {...props} />
-        ))}
-        <ToggleTheme />
-      </div>
-    </header>
+        <div className="flex items-center">
+          {NAV_LINK_PROPS_LIST.map(props => (
+            <NavLink {...props} />
+          ))}
+          <ToggleTheme />
+        </div>
+      </header>
+    </HeaderWrapper>
   );
 }
 

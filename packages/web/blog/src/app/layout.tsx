@@ -84,9 +84,7 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider initialTheme={theme}>
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
+          <Header />
           <Header.Margin />
 
           {children}
