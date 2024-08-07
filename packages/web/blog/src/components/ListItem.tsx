@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ComponentProps, PropsWithChildren } from 'react';
 import NavLink from './NavLink';
+import { ClassNameType } from '@guesung/constants';
 
-interface ListItemProps extends ComponentProps<typeof Link> {
+interface ListItemProps extends ComponentProps<typeof Link>, ClassNameType {
   coverSrc?: string;
   title: string;
-  className?: string;
 }
 
 export default function ListItem({

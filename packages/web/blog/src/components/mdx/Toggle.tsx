@@ -1,11 +1,11 @@
 'use client';
 
+import { ClassNameType } from '@guesung/constants';
 import { cn } from '@guesung/utils';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 
-interface ToggleProps {
+interface ToggleProps extends ClassNameType {
   text?: string;
-  className?: string;
   title?: ReactNode;
 }
 

@@ -1,9 +1,8 @@
 import { PropsWithChildren } from 'react';
 import { cn } from '@guesung/utils';
+import { ClassNameType } from '@guesung/constants';
 
-interface ContentLayoutProps {
-  className?: string;
-}
+interface ContentLayoutProps extends ClassNameType {}
 
 export default function ContentLayout({
   children,
@@ -16,16 +15,27 @@ export default function ContentLayout({
   );
 }
 
-interface TitleProps {}
+interface TitleProps extends ClassNameType {}
 
-function Title({ children }: PropsWithChildren<TitleProps>) {
-  return <div className="my-20 text-center text-subtitle2">{children}</div>;
+function Title({ children, className }: PropsWithChildren<TitleProps>) {
+  return (
+    <div className={cn('text-subtitle2 my-20 text-center', className)}>
+      {children}
+    </div>
+  );
 }
 
-interface DescriptionProps {}
+interface DescriptionProps extends ClassNameType {}
 
-function Description({ children }: PropsWithChildren<DescriptionProps>) {
-  return <div className="my-20 text-center text-body2">{children}</div>;
+function Description({
+  children,
+  className,
+}: PropsWithChildren<DescriptionProps>) {
+  return (
+    <div className={cn('text-body2 my-20 text-center', className)}>
+      {children}
+    </div>
+  );
 }
 
 ContentLayout.Title = Title;
