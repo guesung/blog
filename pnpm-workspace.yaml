@@ -2,7 +2,7 @@ packages:
   - 'apps/*'
   - 'shared/*'
   - 'shared/configs/*'
-  - 'packages/desktop/*'
+  # - 'packages/desktop/*'
   - 'packages/extension/*'
   - 'packages/playground/*'
   - 'packages/support/*'
