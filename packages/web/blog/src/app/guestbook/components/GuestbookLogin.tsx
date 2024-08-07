@@ -1,6 +1,6 @@
 import { LoginButton, LoginButtonProps } from '@components';
-import KakaoIcon from '@images/icons/kakao.svg';
-import NaverIcon from '@images/icons/naver.svg';
+import KakaoIcon from '#images/icons/kakao.svg';
+import NaverIcon from '#images/icons/naver.svg';
 
 const loginButtonList: LoginButtonProps[] = [
   {

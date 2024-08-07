@@ -1,6 +1,6 @@
 'use client';
 import { PropsWithChildren, useRef } from 'react';
-import CopyIcon from '@images/icons/copy.svg';
+import CopyIcon from '#images/icons/copy.svg';
 import { copyToClipboard } from '@guesung/utils';
 
 export default function CodeBlock({ children }: PropsWithChildren) {

@@ -2,8 +2,8 @@
 
 import { getCookie, setCookie } from '@guesung/utils';
 import { useTheme } from './provider/ThemeProvider';
-import MoonIcon from '@images/icons/moon.svg';
-import SunIcon from '@images/icons/sun.svg';
+import MoonIcon from '#images/icons/moon.svg';
+import SunIcon from '#images/icons/sun.svg';
 
 export default function ToggleTheme() {
   const { theme, setTheme } = useTheme();

@@ -1,14 +1,17 @@
-import { Footer, Header, HeaderWrapper, ThemeProvider } from '@components';
+import { Footer, Header, ThemeProvider } from '@components';
 import '@guesung/ui/styles.css';
-import './globals.css';
-import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import { cn } from '@guesung/utils';
+import { cookies } from 'next/headers';
+import './globals.css';
 
-import localFont from 'next/font/local';
 import { Theme } from '@components/provider/ThemeProvider';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { metadata } from '@constants';
 import { JSON_LD_DATA } from '@constants/JsonLd';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import localFont from 'next/font/local';
+import { StrictPropsWithChildren } from '@guesung/constants';
+
+export { metadata };
 
 const pretendard = localFont({
   src: '../../public/font/PretendardVariable.woff2',
@@ -17,22 +20,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export const metadata: Metadata = {
-  title: 'Guesung Blog',
-  description: '안녕하세요, 프론트엔드 개발자 박규성입니다.',
-  verification: {
-    google: 'ydZVzq0xbjyB0kO5I4Rmi1U-fB60L0eThb2a4K62KCo',
-    other: {
-      'naver-site-verification': '030114aa4592fdf3cee71d19dae3c4a36aa1bbe5',
-    },
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+export default function RootLayout({ children }: StrictPropsWithChildren) {
   const cookieStore = cookies();
   const theme = cookieStore.get('theme')?.value as Theme;
 
@@ -51,15 +39,15 @@ export default function RootLayout({
             __html: JSON.stringify(JSON_LD_DATA, null, 2),
           }}
         />
+        {/* Theme */}
         <ThemeProvider initialTheme={theme}>
           <Header />
           <Header.Margin />
-
           {children}
-
           <Footer />
         </ThemeProvider>
       </body>
+      {/* GA */}
       <GoogleAnalytics gaId="G-JB6N95P3H1" />
     </html>
   );

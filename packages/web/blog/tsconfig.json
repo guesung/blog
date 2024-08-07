@@ -12,7 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "@*": ["src/*"],
-      "@images/*": ["public/images/*"],
+      "#*": ["public/*"],
       "@contents": ["./.contentlayer/generated"]
     }
   }
