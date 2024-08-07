@@ -1,11 +1,11 @@
 import { ListItem } from '@components';
 import { ComponentProps } from 'react';
 
-export interface Library extends ComponentProps<typeof ListItem> {
+export interface Article extends ComponentProps<typeof ListItem> {
   date: string;
 }
 
-export const LIBRARY_LIST: Library[] = [
+export const OUTER_ARTICLES_LIST: Article[] = [
   {
     title: '2023년을 돌아보며',
     href: 'https://guesung.notion.site/2023-7e44ffe7fe99443dbcff3c461e4106e7?pvs=4',

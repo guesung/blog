@@ -1,5 +1,5 @@
 export * from './MatchingKorean';
-export * from './Library';
+export * from './OuterArticles';
 export * from './JsonLd';
 export * from './MetaData';
 export * from './Data';

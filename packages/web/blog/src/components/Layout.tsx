@@ -18,11 +18,7 @@ export default function Layout({
 interface TitleProps extends ClassNameType {}
 
 function Title({ children, className }: PropsWithChildren<TitleProps>) {
-  return (
-    <div className={cn('text-subtitle2 my-20 text-center', className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn('text-subtitle2', className)}>{children}</div>;
 }
 
 interface DescriptionProps extends ClassNameType {}
@@ -32,7 +28,7 @@ function Description({
   className,
 }: PropsWithChildren<DescriptionProps>) {
   return (
-    <div className={cn('text-body2 my-20 text-center', className)}>
+    <div className={cn('text-body2 text-gray-3 my-20', className)}>
       {children}
     </div>
   );

@@ -1,5 +1,5 @@
 import { Layout, ListItem } from '@components';
-import { Library, LIBRARY_LIST } from '@constants';
+import { Article, OUTER_ARTICLES_LIST } from '@constants';
 import { Content } from '@contents';
 import { formatDate } from '@guesung/utils';
 import { getAllContents } from '@utils';
@@ -7,8 +7,8 @@ import { compareDesc } from 'date-fns';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Library.',
-  description: '나만의 작은 서재',
+  title: 'Blog',
+  description: '학습한 내용과 지식들을 공유 및 정리합니다.',
 };
 
 const notShowSeries: Partial<Content['series']>[] = ['translations', 'etc'];
@@ -24,32 +24,36 @@ export default function page() {
       };
     });
 
-  const allLibraryList = [...LIBRARY_LIST, ...allShowContents];
+  const allContentList = [...OUTER_ARTICLES_LIST, ...allShowContents];
 
-  allLibraryList.sort((a, b) =>
+  allContentList.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
   const yearList = Array.from(
-    allLibraryList.reduce((yearSet: Set<number>, cur: Library) => {
+    allContentList.reduce((yearSet: Set<number>, cur: Article) => {
       const year = new Date(cur.date).getFullYear();
       return yearSet.add(year);
     }, new Set())
   );
 
+  const contentCount = allContentList.length;
+
   return (
     <Layout>
-      <Layout.Title>Library.</Layout.Title>
-      <Layout.Description>나만의 작은 서재</Layout.Description>
+      <Layout.Title>
+        {metadata.title as ''} ({contentCount})
+      </Layout.Title>
+      <Layout.Description>{metadata.description}</Layout.Description>
       {yearList.map(year => (
         <div className="flex" key={year}>
-          <div className="w-100 flex items-center justify-center">{year}</div>
-          <div className="flex flex-1 flex-col">
-            {allLibraryList
-              .filter(library => new Date(library.date).getFullYear() === year)
-              .map(library => (
-                <ListItem {...library} className="flex-1" key={library.title}>
-                  {library.date}
+          <div className="flex items-center justify-center w-100">{year}</div>
+          <div className="flex flex-col flex-1">
+            {allContentList
+              .filter(content => new Date(content.date).getFullYear() === year)
+              .map(content => (
+                <ListItem {...content} className="flex-1" key={content.title}>
+                  {content.date}
                 </ListItem>
               ))}
           </div>

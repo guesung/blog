@@ -2,8 +2,8 @@ import { HeaderWrapper, NavLink, ToggleTheme } from '.';
 
 const NAV_LINK_PROPS_LIST = [
   {
-    href: '/library',
-    children: 'Library',
+    href: '/blog',
+    children: 'Blog',
   },
   {
     href: 'https://guesung.notion.site',
