@@ -1,4 +1,4 @@
-import { ContentLayout, ListItem } from '@components';
+import { Layout, ListItem } from '@components';
 import { Library, LIBRARY_LIST } from '@constants';
 import { Content } from '@contents';
 import { formatDate } from '@guesung/utils';
@@ -38,13 +38,13 @@ export default function page() {
   );
 
   return (
-    <ContentLayout>
-      <ContentLayout.Title>Library.</ContentLayout.Title>
-      <ContentLayout.Description>나만의 작은 서재</ContentLayout.Description>
+    <Layout>
+      <Layout.Title>Library.</Layout.Title>
+      <Layout.Description>나만의 작은 서재</Layout.Description>
       {yearList.map(year => (
         <div className="flex" key={year}>
-          <div className="flex items-center justify-center w-100">{year}</div>
-          <div className="flex flex-col flex-1">
+          <div className="w-100 flex items-center justify-center">{year}</div>
+          <div className="flex flex-1 flex-col">
             {allLibraryList
               .filter(library => new Date(library.date).getFullYear() === year)
               .map(library => (
@@ -55,6 +55,6 @@ export default function page() {
           </div>
         </div>
       ))}
-    </ContentLayout>
+    </Layout>
   );
 }

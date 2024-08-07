@@ -1,4 +1,4 @@
-import { ContentLayout } from '@components';
+import { Layout } from '@components';
 import { Button, ButtonBroup, Circle, Move } from '@guesung/ui';
 import Link from 'next/link';
 import { DragAndDrop, Visibility } from './components';
@@ -13,11 +13,11 @@ export default function page({ searchParams }: PagemProps) {
   const mode = searchParams?.mode;
 
   return (
-    <ContentLayout>
-      <ContentLayout.Title>Playground</ContentLayout.Title>
-      <ContentLayout.Description>
+    <Layout>
+      <Layout.Title>Playground</Layout.Title>
+      <Layout.Description>
         This page is for testing new features.
-      </ContentLayout.Description>
+      </Layout.Description>
       <ButtonBroup>
         <Link href="?mode=dnd">
           <Button>Drag And Drop</Button>
@@ -35,6 +35,6 @@ export default function page({ searchParams }: PagemProps) {
           </Move>
         </>
       )}
-    </ContentLayout>
+    </Layout>
   );
 }

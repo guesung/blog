@@ -1,4 +1,4 @@
-import { SeriesCard, ContentLayout } from '@components';
+import { SeriesCard, Layout } from '@components';
 import { matchingKorean } from '@constants';
 import { CardList } from '@guesung/ui';
 import { getSeries, getSeriesCount, getSeriesLastModified } from '@utils';
@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   title: 'Series.',
   description: '시리즈로 작성된 포스트들을 모았습니다.',
 };
- 
+
 export default function page() {
   const allSeries = getSeries();
   const allSeriesExceptEtc = allSeries.filter(series => series !== 'etc');
 
   return (
-    <ContentLayout>
-      <ContentLayout.Title>Series.</ContentLayout.Title>
-      <ContentLayout.Description>
+    <Layout>
+      <Layout.Title>Series.</Layout.Title>
+      <Layout.Description>
         시리즈로 작성된 포스트들을 모았습니다.
-      </ContentLayout.Description>
+      </Layout.Description>
       <CardList
         items={allSeriesExceptEtc}
         render={series => (
@@ -32,6 +32,6 @@ export default function page() {
           />
         )}
       />
-    </ContentLayout>
+    </Layout>
   );
 }
