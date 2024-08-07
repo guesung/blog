@@ -1,5 +1,7 @@
 import { ContentLayout, ListItem } from '@components';
 import { Library, LIBRARY_LIST } from '@constants';
+import { Content } from '@contents';
+import { getAllContents } from '@utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,13 +9,21 @@ export const metadata: Metadata = {
   description: '나만의 작은 서재',
 };
 
-const yearList = LIBRARY_LIST.reduce((acc: number[], cur: Library) => {
-  const year = new Date(cur.date).getFullYear();
-  if (!acc.includes(year)) acc.push(year);
-  return acc;
-}, []);
+const yearList = Array.from(
+  LIBRARY_LIST.reduce((yearSet: Set<number>, cur: Library) => {
+    const year = new Date(cur.date).getFullYear();
+    yearSet.add(year);
+    return yearSet;
+  }, new Set())
+);
+
+const notShowSeries: Partial<Content['series']>[] = ['translations', 'etc'];
 
 export default function page() {
+  const allShowContents = getAllContents().filter(
+    content => !notShowSeries.includes(content.series)
+  );
+
   return (
     <ContentLayout>
       <ContentLayout.Title>Library.</ContentLayout.Title>
