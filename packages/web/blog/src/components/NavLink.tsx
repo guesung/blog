@@ -3,22 +3,33 @@ import { cn } from '@guesung/utils';
 import Link, { LinkProps } from 'next/link';
 import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import ArrowOuterIcon from '#images/icons/arrow_outer.svg';
+import { SizeClassNameMapType, SizeType } from '@types';
 
 interface NavLinkProps
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'as'>,
     LinkProps,
-    ClassNameType {}
+    ClassNameType {
+  size?: SizeType;
+}
+
+const sizeClassNameMap: SizeClassNameMapType = {
+  small: 'px-4 py-2',
+  medium: 'px-8 py-4',
+  large: 'px-16 py-8',
+};
 
 export default function NavLink({
   children,
   className,
+  size = 'medium',
   ...props
 }: PropsWithChildren<NavLinkProps>) {
   return (
     <Link
       {...props}
       className={cn(
-        'hover:bg-gray-1 rounded-16 bg-white-1 flex items-center gap-4 p-16 dark:hover:bg-slate-600',
+        'hover:bg-gray-1 rounded-4 bg-white-1 hover:bg-gray-2 flex items-center gap-2',
+        sizeClassNameMap[size],
         className
       )}
     >

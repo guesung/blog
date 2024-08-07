@@ -35,10 +35,9 @@ const NAV_LINK_PROPS_LIST = [
 export default function Header() {
   return (
     <HeaderWrapper>
-      <header className="inset-x-0 flex items-center justify-between w-full text-body3">
+      <header className="inset-x-0 flex items-center justify-between w-full py-2 text-body3">
         <NavLink href="/">Guesung.</NavLink>
-
-        <div className="flex items-center">
+        <div className="flex items-center gap-8">
           {NAV_LINK_PROPS_LIST.map(props => (
             <NavLink {...props} />
           ))}
