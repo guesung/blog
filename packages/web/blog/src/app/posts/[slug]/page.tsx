@@ -1,4 +1,4 @@
-import { ContentPost } from '@components';
+import { MDXContent } from '@components';
 import { getContent } from '@utils';
 import type { Metadata, ResolvingMetadata } from 'next';
 
@@ -33,5 +33,5 @@ export default function page({ params: { slug } }: PageProps) {
     slug,
   });
 
-  return <ContentPost {...content} />;
+  return <MDXContent {...content} />;
 }

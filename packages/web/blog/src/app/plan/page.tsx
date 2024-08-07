@@ -1,4 +1,4 @@
-import { ContentPost } from '@components';
+import { MDXContent } from '@components';
 import { getContent } from '@utils';
 
 export default function page() {
@@ -6,5 +6,5 @@ export default function page() {
     slug: 'plan',
   });
 
-  return <ContentPost {...content} />;
+  return <MDXContent {...content} />;
 }

@@ -3,7 +3,7 @@ export { default as Footer } from './Footer';
 export { default as Callout } from './mdx/Callout';
 export { default as ToggleTheme } from './ToggleTheme';
 export { default as Translation } from './mdx/Translation';
-export { default as ContentPost } from './ContentPost';
+export { default as MDXContent } from './MDXContent';
 export { default as NavLink } from './NavLink';
 export { default as Layout } from './Layout';
 export { default as ListItem } from './ListItem';

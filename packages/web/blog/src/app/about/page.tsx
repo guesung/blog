@@ -1,4 +1,4 @@
-import { ContentPost } from '@components';
+import { MDXContent } from '@components';
 import { getContent } from '@utils';
 import { Metadata } from 'next';
 
@@ -7,11 +7,10 @@ export const metadata: Metadata = {
   description: 'About me',
 };
 
-
 export default function page() {
   const content = getContent({
     slug: 'about',
   });
 
-  return <ContentPost {...content} />;
+  return <MDXContent {...content} />;
 }

@@ -1,4 +1,4 @@
-import { ContentPost, Layout } from '@components';
+import { MDXContent, Layout } from '@components';
 import { getContent } from '@utils';
 
 export default function Page() {
@@ -6,5 +6,5 @@ export default function Page() {
     slug: 'about',
   });
 
-  return <ContentPost {...content} />;
+  return <MDXContent {...content} />;
 }

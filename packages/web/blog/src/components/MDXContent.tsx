@@ -19,7 +19,7 @@ interface CustomImageProps extends ImageProps {
   extension?: string;
 }
 
-export default function ContentPost({
+export default function MDXContent({
   title,
   body,
   date,

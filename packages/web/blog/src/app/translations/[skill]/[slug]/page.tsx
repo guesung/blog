@@ -1,5 +1,5 @@
 import { getContent } from '@utils';
-import { ContentPost } from '@components';
+import { MDXContent } from '@components';
 
 interface pageProps {
   params: {
@@ -13,5 +13,5 @@ export default function page({ params: { skill, slug } }: pageProps) {
     slug: `${skill}/${slug}`,
   });
 
-  return <ContentPost {...translation} className="max-w-1200" />;
+  return <MDXContent {...translation} className="max-w-1200" />;
 }
