@@ -35,7 +35,7 @@ const NAV_LINK_PROPS_LIST = [
 export default function Header() {
   return (
     <HeaderWrapper>
-      <header className="flex items-center justify-between w-full text-body3">
+      <header className="inset-x-0 flex items-center justify-between w-full text-body3">
         <NavLink href="/">Guesung.</NavLink>
 
         <div className="flex items-center">

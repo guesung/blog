@@ -19,11 +19,11 @@ export default function ToggleTheme() {
   };
 
   return (
-    <div className="dark cursor-pointer" onClick={handleTheme}>
+    <div className="cursor-pointer dark" onClick={handleTheme}>
       {theme === 'dark' ? (
-        <MoonIcon fill="white" width={30} height={30} />
+        <SunIcon fill="white" width={30} height={30} />
       ) : (
-        <SunIcon width={30} height={30} />
+        <MoonIcon width={30} height={30} />
       )}
     </div>
   );
