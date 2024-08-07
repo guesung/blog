@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import { NavLink, ToggleTheme } from '.';
-import Logo from '@images/logos/me.jpeg';
 
 const NAV_LINK_PROPS_LIST = [
   {
@@ -20,10 +18,10 @@ const NAV_LINK_PROPS_LIST = [
   //   href: '/playground',
   //   children: '놀이터',
   // },
-  {
-    href: '/about',
-    children: 'About',
-  },
+  // {
+  //   href: '/about',
+  //   children: 'About',
+  // },
   // {
   //   href: '/guestbook',
   //   children: 'Guestbook',
@@ -36,19 +34,16 @@ const NAV_LINK_PROPS_LIST = [
 
 export default function Header() {
   return (
-    <>
-      <div className="flex">
-        <NavLink href="/" className="font-bold text-body2">
-          Guesung.
-        </NavLink>
-      </div>
+    <header className="flex items-center justify-between w-full text-body3">
+      <NavLink href="/">Guesung.</NavLink>
+
       <div className="flex items-center">
         {NAV_LINK_PROPS_LIST.map(props => (
           <NavLink {...props} />
         ))}
         <ToggleTheme />
       </div>
-    </>
+    </header>
   );
 }
 

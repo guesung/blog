@@ -18,13 +18,13 @@ export default function HeaderWrapper({
   });
 
   return (
-    <header
+    <div
       className={cn(
-        'text-body2 bg-white-1 fixed top-0 z-10 mx-auto flex w-screen transform items-center justify-between px-20 py-4 shadow-sm transition-transform duration-300 ease-in-out',
+        'text-body2 bg-white-1 fixed top-0 z-10 mx-auto w-screen transform px-20 py-4 shadow-sm transition-transform duration-300 ease-in-out',
         { '-translate-y-full': !isChildrenShow }
       )}
     >
       {children}
-    </header>
+    </div>
   );
 }
