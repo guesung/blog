@@ -34,7 +34,7 @@ export default function ThemeProvider({
       <div
         className={cn(
           { dark: theme === 'dark' },
-          'text-body3 bg-white-1 text-black-1 min-h-screen',
+          'text-body3 bg-white-1 text-black-1 min-h-screen transition-colors',
           className
         )}
       >
