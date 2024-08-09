@@ -1,7 +1,6 @@
 {
   "name": "@guesung/eslint-config",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.3",
   "files": [
     "library.js",
     "next.js",
@@ -18,5 +17,8 @@
   },
   "peerDependencies": {
     "eslint": "^8.53.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
