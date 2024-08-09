@@ -12,8 +12,10 @@ export default function ToggleTheme() {
     if (theme === 'dark') {
       setCookie('theme', 'light');
       setTheme('light');
+      document.documentElement.classList.remove('dark');
     } else {
       setCookie('theme', 'dark');
+      document.documentElement.classList.add('dark');
       setTheme('dark');
     }
   };
