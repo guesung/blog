@@ -1,15 +1,14 @@
-import { Footer, Header, ThemeProvider } from '@components';
+import { Footer, Header } from '@components';
 import '@guesung/ui/styles.css';
 import { cn } from '@guesung/utils';
 import { cookies } from 'next/headers';
 import './globals.css';
 
-import { Theme } from '@components/provider/ThemeProvider';
 import { metadata } from '@constants';
 import { JSON_LD_DATA } from '@constants/JsonLd';
+import { StrictPropsWithChildren } from '@guesung/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
-import { StrictPropsWithChildren } from '@guesung/constants';
 
 export { metadata };
 
@@ -22,16 +21,21 @@ const pretendard = localFont({
 
 export default function RootLayout({ children }: StrictPropsWithChildren) {
   const cookieStore = cookies();
-  const theme = cookieStore.get('theme')?.value as Theme;
+  const theme = cookieStore.get('theme')?.value;
 
   return (
     <html
       className={cn(pretendard.variable, {
-        'bg-black-1': theme === 'dark',
+        'bg-black-1 dark': theme === 'dark',
         'bg-white-1': theme === 'light',
       })}
     >
-      <body className={pretendard.className}>
+      <body
+        className={cn(
+          pretendard.className,
+          'text-body3 bg-white-1 text-black-1 min-h-screen transition-colors'
+        )}
+      >
         {/* JSON LD */}
         <script
           type="application/ld+json"
@@ -40,12 +44,12 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
           }}
         />
         {/* Theme */}
-        <ThemeProvider initialTheme={theme}>
-          <Header />
-          <Header.Margin />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        {/* <ThemeProvider initialTheme={theme}> */}
+        <Header />
+        <Header.Margin />
+        {children}
+        <Footer />
+        {/* </ThemeProvider> */}
       </body>
       {/* GA */}
       <GoogleAnalytics gaId="G-JB6N95P3H1" />
