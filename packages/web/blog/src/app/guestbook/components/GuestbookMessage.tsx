@@ -4,11 +4,16 @@ import { createClient } from '@supabase/supabase-js';
 
 import { Button, Input, Spacing } from '@guesung/ui';
 import { FormEventHandler } from 'react';
+import { ANON_KEY, SUPABASE_URL } from '@constants';
 
 export default function GuestbookMessage() {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
-    const supabase = createClient();
+    const supabase = createClient(
+      SUPABASE_URL,
+      ANON_KEY
+    );
+    console.log(supabase);
   };
   return (
     <form onSubmit={handleSubmit}>

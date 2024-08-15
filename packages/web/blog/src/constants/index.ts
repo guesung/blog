@@ -4,3 +4,4 @@ export * from './JsonLd';
 export * from './MetaData';
 export * from './Data';
 export * from './Theme';
+export * from './Config';
