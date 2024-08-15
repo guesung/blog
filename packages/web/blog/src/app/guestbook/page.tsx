@@ -3,7 +3,7 @@ import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
-import { GuestbookList, GuestbookLogin } from './components';
+import { GuestbookList, GuestbookLogin, GuestbookMessage } from './components';
 import GuestbookUserInfo from './components/GuestbookUserInfo';
 
 export const metadata: Metadata = {
@@ -26,6 +26,7 @@ export default async function page() {
       </div>
       <Spacing size={20} />
       {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
+      {session ? <GuestbookMessage /> : null}
       <GuestbookList />
       <Spacing size={20} />
     </Layout>
