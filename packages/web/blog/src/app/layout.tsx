@@ -4,7 +4,7 @@ import { cn } from '@guesung/utils';
 import { cookies } from 'next/headers';
 import './globals.css';
 
-import { metadata } from '@constants';
+import { CLASS_NAME_DARK, COOKIE_KEY_THEME, metadata } from '@constants';
 import { JSON_LD_DATA } from '@constants/JsonLd';
 import { StrictPropsWithChildren } from '@guesung/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -21,13 +21,12 @@ const pretendard = localFont({
 
 export default function RootLayout({ children }: StrictPropsWithChildren) {
   const cookieStore = cookies();
-  const theme = cookieStore.get('theme')?.value;
+  const theme = cookieStore.get(COOKIE_KEY_THEME)?.value;
 
   return (
     <html
-      className={cn(pretendard.variable, {
-        'bg-black-1 dark': theme === 'dark',
-        'bg-white-1': theme === 'light',
+      className={cn(pretendard.variable, 'bg-white-1', {
+        dark: theme === CLASS_NAME_DARK,
       })}
     >
       <body

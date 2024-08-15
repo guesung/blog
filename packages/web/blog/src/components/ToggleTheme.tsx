@@ -20,7 +20,7 @@ export default function ToggleTheme({ initialTheme }: ToggleThemeProps) {
       document.documentElement.classList.remove(CLASS_NAME_DARK); // html에 적용
     } else {
       setCookie(COOKIE_KEY_THEME, Theme.DARK);
-      setTheme(Theme.DARK); // 상태값 변경
+      setTheme(Theme.DARK);
       document.documentElement.classList.add(CLASS_NAME_DARK);
     }
   };
