@@ -9,11 +9,11 @@ import { ANON_KEY, SUPABASE_URL } from '@constants';
 export default function GuestbookMessage() {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
-    const supabase = createClient(
-      SUPABASE_URL,
-      ANON_KEY
-    );
-    console.log(supabase);
+    const supabase = createClient(SUPABASE_URL, ANON_KEY, {
+      db: { schema: 'next_auth' },
+    });
+    const { data, error } = await supabase.from('next_auth.users').select();
+    console.log(data, error);
   };
   return (
     <form onSubmit={handleSubmit}>
