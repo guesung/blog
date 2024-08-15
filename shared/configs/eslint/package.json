@@ -1,12 +1,13 @@
 {
   "name": "@guesung/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "files": [
     "library.js",
     "next.js",
     "react-internal.js"
   ],
-  "devDependencies": {
+  "peerDependencies": {
+    "eslint": "^8.53.0",
     "eslint-config-turbo": "^1.10.12",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-only-warn": "^1.1.0",
@@ -15,10 +16,19 @@
     "@next/eslint-plugin-next": "^14.0.2",
     "@types/eslint": "^8.44.7"
   },
-  "peerDependencies": {
-    "eslint": "^8.53.0"
-  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guesung/guesung-library",
+    "directory": "shared/configs/eslint"
+  },
+  "homepage": "https://github.com/guesung/guesung-library",
+  "keywords": [
+    "guesung",
+    "eslint",
+    "eslintconfig"
+  ],
+  "license": "MIT"
 }
