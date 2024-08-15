@@ -25,7 +25,12 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
   const theme = cookieStore.get('theme')?.value as Theme;
 
   return (
-    <html className={cn(pretendard.variable, 'bg-white-1')}>
+    <html
+      className={cn(pretendard.variable, {
+        'bg-black-1': theme === 'dark',
+        'bg-white-1': theme === 'light',
+      })}
+    >
       <body className={pretendard.className}>
         {/* JSON LD */}
         <script
