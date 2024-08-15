@@ -6,7 +6,7 @@ export const DATA = {
     blog: 'https://blog.guesung.site/',
   },
   blog: {
-    name: 'Guesung Blog',
+    name: 'Guesung World',
     description: '안녕하세요, 프론트엔드 개발자 박규성입니다.',
   },
 };

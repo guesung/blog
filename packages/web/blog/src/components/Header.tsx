@@ -1,7 +1,7 @@
 import { getCookie } from '@guesung/utils';
 import { HeaderWrapper, NavLink, ToggleTheme } from '.';
 import { cookies } from 'next/headers';
-import { COOKIE_KEY_THEME, Theme } from '@constants';
+import { COOKIE_KEY_THEME, DATA, Theme } from '@constants';
 
 const NAV_LINK_PROPS_LIST = [
   {
@@ -40,8 +40,8 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <header className="text-body3 inset-x-0 flex w-full items-center justify-between py-2">
-        <NavLink href="/">Guesung.</NavLink>
+      <header className="inset-x-0 flex items-center justify-between w-full py-2 text-body3">
+        <NavLink href="/">{DATA.blog.name}</NavLink>
         <div className="flex items-center gap-8">
           {NAV_LINK_PROPS_LIST.map(props => (
             <NavLink {...props} />
