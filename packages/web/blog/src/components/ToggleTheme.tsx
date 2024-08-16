@@ -41,7 +41,7 @@ export default function ToggleTheme({ initialTheme }: ToggleThemeProps) {
   };
 
   return (
-    <button onClick={handleTheme}>
+    <button onClick={handleTheme} aria-label="dark mode toggle">
       {theme === Theme.DARK && <SunIcon fill="white" width={16} height={16} />}
       {theme === Theme.LIGHT && <MoonIcon width={16} height={16} />}
     </button>
