@@ -27,7 +27,7 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
     <html
       className={cn(
         pretendard.variable,
-        'bg-white-1 text-black-1 text-body3 min-h-screen',
+        'bg-white-1 text-black-1 text-body3 min-h-screen transition-colors duration-200',
         {
           dark: theme === CLASS_NAME_DARK,
         }
