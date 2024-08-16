@@ -2,21 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.prose{
+.prose {
   pre {
-    @apply py-10 px-0
+    @apply px-0 py-10;
   }
   pre code > span {
-    @apply px-10
+    @apply px-10;
   }
   pre code > span.data-highlighted-line {
-    @apply bg-slate-200
+    @apply bg-slate-200;
   }
   img {
-    @apply rounded-16 my-0
+    @apply rounded-16 my-0;
   }
   .data-highlighted-line {
-    @apply bg-slate-200
+    @apply bg-slate-200;
   }
 
   code[data-line-numbers-max-digits='2'] > span[data-line]::before {
@@ -32,62 +32,63 @@
   }
 
   a {
-    @apply no-underline !text-blue-500 hover:underline
+    @apply !text-blue-500 no-underline hover:underline;
   }
 
-  :not(pre) > code::before,::after {
-    @apply hidden
+  :not(pre) > code::before,
+  ::after {
+    @apply hidden;
   }
 
-  :not(pre) > code{
-    @apply bg-slate-200 rounded-16 px-8 py-4 break-words
+  :not(pre) > code {
+    @apply rounded-16 break-words bg-slate-200 px-8 py-4;
   }
   h1 {
-    @apply border-b-1 border-slate-200 border-solid pb-8
+    @apply border-b-1 border-solid border-slate-200 pb-8;
   }
-  
+
   code > [data-line]::before {
     counter-increment: line;
     content: counter(line);
-    
+
     display: inline-block;
     width: 1rem;
     margin-right: 2rem;
     text-align: right;
     color: gray;
   }
-  
+
   [data-rehype-pretty-code-figure] {
     & {
-      @apply border-1 border-slate-200 rounded-16
+      @apply border-1 rounded-16 border-slate-200;
     }
     code {
       counter-reset: line;
     }
     [data-rehype-pretty-code-title] {
-      @apply text-body3 indent-8 py-8
+      @apply text-body3 py-8 indent-8;
     }
     pre {
-      &{
-        @apply border-b-1 border-slate-200 rounded-16
+      & {
+        @apply border-b-1 rounded-16 border-slate-200;
       }
-      [data-highlighted-line]{
-        @apply bg-slate-900
+      [data-highlighted-line] {
+        @apply bg-slate-900;
       }
     }
   }
 }
-  
-.dark .prose{
+
+.dark .prose {
   * {
-    @apply text-white
+    @apply text-white;
   }
 
   :not(pre) > code {
-    @apply bg-slate-800
+    @apply bg-slate-800;
   }
-  strong{
-    @apply text-teal-400
+  strong {
+    @apply text-teal-400;
   }
 }
 
@@ -96,32 +97,32 @@
   border-width: 0;
   border-style: solid;
   border-color: theme('borderColor.DEFAULT', currentColor);
-} 
+}
 
-svg{
-  fill:'white'
+svg {
+  fill: 'white';
 }
 
 :root {
   /* 라이트 모드 기본 색상 */
-  --white-1: #F5F5F5;
-  --white-2: #FFFFFF;
+  --white-1: #f5f5f5;
+  --white-2: #ffffff;
   --black-1: #212121;
   --black-2: #000000;
-  --gray-1: #F5F5F9;
-  --gray-2: #E0E0E0;
-  --gray-3: #BDBDBD;
-  
+  --gray-1: #f5f5f9;
+  --gray-2: #e0e0e0;
+  --gray-3: #bdbdbd;
+
   /* 강조 색상 */
   --primary: #3498db;
   --secondary: #2ecc71;
   --accent: #e74c3c;
-  
+
   /* 기능적 색상 */
   --success: #27ae60;
   --warning: #f39c12;
   --error: #c0392b;
-  
+
   /* 텍스트 색상 */
   --text-primary: #333333;
   --text-secondary: #757575;
@@ -130,26 +131,26 @@ svg{
 .dark {
   /* 다크 모드 기본 색상 */
   --white-1: #212121;
-  --white-2: #2D2D2D;  
-  --black-1: #F5F5F5;
-  --black-2: #FFFFFF; 
+  --white-2: #2d2d2d;
+  --black-1: #f5f5f5;
+  --black-2: #ffffff;
   --gray-1: #333333;
   --gray-2: #424242;
   --gray-3: #616161;
-  
+
   /* 강조 색상 (다크 모드용으로 조정) */
-  --primary: #4FA3D1;
-  --secondary: #2ECC71;
-  --accent: #E74C3C;
-  
+  --primary: #4fa3d1;
+  --secondary: #2ecc71;
+  --accent: #e74c3c;
+
   /* 기능적 색상 (다크 모드용으로 조정) */
-  --success: #2ECC71;
-  --warning: #F39C12;
-  --error: #E74C3C;
+  --success: #2ecc71;
+  --warning: #f39c12;
+  --error: #e74c3c;
 }
 
-@layer base{
+@layer base {
   .bg-transition {
-    @apply transition-colors duration-200 bg-white-1
+    @apply bg-white-1 transition-colors duration-200;
   }
 }

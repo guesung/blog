@@ -2,27 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   /* 라이트 모드 기본 색상 */
-  --white-1: #F5F5F5;
-  --white-2: #FFFFFF;
+  --white-1: #f5f5f5;
+  --white-2: #ffffff;
   --black-1: #212121;
   --black-2: #000000;
-  --gray-1: #F5F5F9;
-  --gray-2: #E0E0E0;
-  --gray-3: #BDBDBD;
-  
+  --gray-1: #f5f5f9;
+  --gray-2: #e0e0e0;
+  --gray-3: #bdbdbd;
+
   /* 강조 색상 */
   --primary: #3498db;
   --secondary: #2ecc71;
   --accent: #e74c3c;
-  
+
   /* 기능적 색상 */
   --success: #27ae60;
   --warning: #f39c12;
   --error: #c0392b;
-  
+
   /* 텍스트 색상 */
   --text-primary: #333333;
   --text-secondary: #757575;
@@ -32,23 +31,23 @@
   /* 다크 모드 기본 색상 */
   --white-1: #212121;
   --white-2: #424242;
-  --black-1: #F5F5F5;
-  --black-2: #FFFFFF;
+  --black-1: #f5f5f5;
+  --black-2: #ffffff;
   --gray-1: #333333;
   --gray-2: #424242;
   --gray-3: #616161;
-  
+
   /* 강조 색상 (다크 모드용으로 조정) */
-  --primary: #4FA3D1;
-  --secondary: #2ECC71;
-  --accent: #E74C3C;
-  
+  --primary: #4fa3d1;
+  --secondary: #2ecc71;
+  --accent: #e74c3c;
+
   /* 기능적 색상 (다크 모드용으로 조정) */
-  --success: #2ECC71;
-  --warning: #F39C12;
-  --error: #E74C3C;
-  
+  --success: #2ecc71;
+  --warning: #f39c12;
+  --error: #e74c3c;
+
   /* 텍스트 색상 */
-  --text-primary: #FFFFFF;
-  --text-secondary: #BDBDBD;
+  --text-primary: #ffffff;
+  --text-secondary: #bdbdbd;
 }

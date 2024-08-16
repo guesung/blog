@@ -47,8 +47,8 @@ export default function page() {
       <Layout.Description>{metadata.description}</Layout.Description>
       {yearList.map(year => (
         <div className="flex" key={year}>
-          <div className="flex items-center justify-center w-100">{year}</div>
-          <div className="flex flex-col flex-1">
+          <div className="w-100 flex items-center justify-center">{year}</div>
+          <div className="flex flex-1 flex-col">
             {allContentList
               .filter(content => new Date(content.date).getFullYear() === year)
               .map(content => (

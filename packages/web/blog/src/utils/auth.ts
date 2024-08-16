@@ -7,6 +7,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Kakao],
   adapter: SupabaseAdapter({
     url: SUPABASE_URL,
-    secret:SUPABASE_SERVICE_ROLE_KEY,
+    secret: SUPABASE_SERVICE_ROLE_KEY,
   }),
 });

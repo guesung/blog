@@ -20,7 +20,7 @@ export default function ListItem({
   return (
     <NavLink className={cn('gap-16 p-16 md:flex-row', className)} {...props}>
       {coverSrc && (
-        <div className="relative w-full h-240 md:w-320">
+        <div className="h-240 md:w-320 relative w-full">
           <Image
             src={coverSrc}
             fill
@@ -30,8 +30,8 @@ export default function ListItem({
           />
         </div>
       )}
-      <div className="flex flex-col flex-1 gap-8">
-        <div className="font-bold text-body1">{title}</div>
+      <div className="flex flex-1 flex-col gap-8">
+        <div className="text-body1 font-bold">{title}</div>
         <div className="flex flex-col gap-6">{children}</div>
       </div>
     </NavLink>

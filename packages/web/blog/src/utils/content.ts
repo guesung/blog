@@ -10,8 +10,6 @@ export const sortContentByDate = (contents: DocumentTypes[]) =>
 
 const allContentsPublished = allContents.filter(content => content.isPublished);
 
-
-
 export const getAllContents = (): Content[] =>
   sortContentByDate(allContentsPublished);
 

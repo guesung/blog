@@ -1,11 +1,9 @@
 'use client';
 
-import { createClient } from '@supabase/supabase-js';
-
+import { postGuestbook } from '@apis';
 import { Button, Input, Spacing } from '@guesung/ui';
-import { FormEventHandler } from 'react';
-import { ANON_KEY, SUPABASE_URL } from '@constants';
 import { Session } from 'next-auth';
+import { FormEventHandler } from 'react';
 
 interface GuestbookMessageProps {
   session: Session;
@@ -14,10 +12,11 @@ interface GuestbookMessageProps {
 export default function GuestbookMessage({ session }: GuestbookMessageProps) {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
-    const supabase = createClient(SUPABASE_URL, ANON_KEY, {
-      db: { schema: 'next_auth' },
+    await postGuestbook({
+      message: '안녕하십니까',
     });
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <p>메시지</p>

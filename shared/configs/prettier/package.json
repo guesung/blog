@@ -1,7 +1,7 @@
 {
   "name": "@guesung/prettier-config",
   "version": "1.0.0",
-  "main": "prettier.json",
+  "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <header className="inset-x-0 flex items-center justify-between w-full py-2 bg-transition">
+      <header className="bg-transition inset-x-0 flex w-full items-center justify-between py-2">
         <NavLink href="/">{DATA.blog.name}</NavLink>
         <div className="flex items-center gap-8">
           {NAV_LINK_PROPS_LIST.map(props => (

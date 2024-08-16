@@ -1,9 +1,18 @@
 export type GuestbookType = {
-  id:string;
-  created_at:string;
-  name:string;
-  message:string;
-}
+  id: string;
+  created_at: string;
+  name: string;
+  message: string;
+};
+
 export interface GuestbookResponse {
-  guestbookList : GuestbookType[];
+  error?: Error;
+  data: GuestbookType[];
+  count?: number;
+  status: number;
+  statusText: string;
+}
+
+export interface GuesbookRequest {
+  message: string;
 }

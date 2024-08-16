@@ -1,15 +1,27 @@
-import { ANON_KEY, SUPABASE_URL } from "@constants";
-import { createClient } from "@supabase/supabase-js";
+import { auth, getSupabaseClient } from '@utils';
 
 export async function GET() {
-  const supabase = createClient(SUPABASE_URL, ANON_KEY, {
-    db: { schema: 'guestbook' },
-  });
+  const supabase = getSupabaseClient('guestbook');
   const response = await supabase.from('guestbook').select();
-  return Response.json( response );
+  return Response.json(response);
 }
 
-// export async function POST(request: Request) {
-//   const res = await request.json()
-//   return Response.json({ res })
-// }
+export async function POST(request: Request) {
+  const supabase = getSupabaseClient('guestbook');
+  const body = await request.json();
+  const session = await auth();
+  if (!session || !session.user) return Response.redirect('/guestbook');
+
+  const {
+    user: { email, image, name },
+  } = session;
+
+  const response = await supabase.from('guestbook').insert({
+    email,
+    image,
+    name,
+    message: body.message,
+  });
+  console.log(response);
+  return Response.json({ response });
+}

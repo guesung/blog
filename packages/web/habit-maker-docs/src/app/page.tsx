@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex justify-center flex-col text-center ">
+    <main className="flex flex-col justify-center text-center">
       <h1 className="text-[20px]">Habit Maker</h1>
       <h2 className="text-20">당신의 습관을 책임져드립니다.</h2>
       <a

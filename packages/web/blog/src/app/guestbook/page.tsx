@@ -14,8 +14,7 @@ export const metadata: Metadata = {
 
 export default async function page() {
   const session = (await auth()) as Session;
-  const guestbookList = await getGuestbook();
-  console.log(guestbookList);
+  const { data: guestbookList } = await getGuestbook();
 
   return (
     <Layout>
@@ -30,7 +29,7 @@ export default async function page() {
       <Spacing size={20} />
       {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
       {session ? <GuestbookMessage session={session} /> : null}
-      <GuestbookList />
+      <GuestbookList guestbookList={guestbookList} />
       <Spacing size={20} />
     </Layout>
   );
