@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { Session } from 'next-auth';
 import { GuestbookList, GuestbookLogin, GuestbookMessage } from './components';
 import GuestbookUserInfo from './components/GuestbookUserInfo';
+import { getGuestbook } from '@apis';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 
 export default async function page() {
   const session = (await auth()) as Session;
+  const guestbookList = await getGuestbook();
+  console.log(guestbookList);
 
   return (
     <Layout>
@@ -26,7 +29,7 @@ export default async function page() {
       </div>
       <Spacing size={20} />
       {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
-      {session ? <GuestbookMessage /> : null}
+      {session ? <GuestbookMessage session={session} /> : null}
       <GuestbookList />
       <Spacing size={20} />
     </Layout>

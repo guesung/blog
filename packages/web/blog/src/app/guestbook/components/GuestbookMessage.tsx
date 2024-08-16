@@ -5,15 +5,18 @@ import { createClient } from '@supabase/supabase-js';
 import { Button, Input, Spacing } from '@guesung/ui';
 import { FormEventHandler } from 'react';
 import { ANON_KEY, SUPABASE_URL } from '@constants';
+import { Session } from 'next-auth';
 
-export default function GuestbookMessage() {
+interface GuestbookMessageProps {
+  session: Session;
+}
+
+export default function GuestbookMessage({ session }: GuestbookMessageProps) {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
     const supabase = createClient(SUPABASE_URL, ANON_KEY, {
       db: { schema: 'next_auth' },
     });
-    const { data, error } = await supabase.from('next_auth.users').select();
-    console.log(data, error);
   };
   return (
     <form onSubmit={handleSubmit}>
