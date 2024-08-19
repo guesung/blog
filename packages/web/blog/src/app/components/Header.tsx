@@ -9,6 +9,10 @@ const NAV_LINK_PROPS_LIST = [
     children: 'Blog',
   },
   {
+    href: '/guestbook',
+    children: 'Guestbook',
+  },
+  {
     href: 'https://guesung.notion.site',
     children: 'Note',
     target: '_blank',
@@ -24,10 +28,6 @@ const NAV_LINK_PROPS_LIST = [
   // {
   //   href: '/about',
   //   children: 'About',
-  // },
-  // {
-  //   href: '/guestbook',
-  //   children: 'Guestbook',
   // },
   // {
   //   href: '/plan',
