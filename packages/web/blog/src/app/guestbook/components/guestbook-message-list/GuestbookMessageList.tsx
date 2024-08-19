@@ -1,13 +1,11 @@
-import { GuestbookType } from '@apis';
+import { getGuestbook } from '@apis';
 import { SquareBox } from '@components';
 import { formatShowDate } from '@guesung/utils';
 import Image from 'next/image';
 
-interface GuestbookListProps {
-  guestbookList: GuestbookType[];
-}
+export default async function GuestbookList() {
+  const { data: guestbookList } = await getGuestbook();
 
-export default function GuestbookList({ guestbookList }: GuestbookListProps) {
   return (
     <div className="flex flex-col gap-8">
       {guestbookList.map(({ image, name, message, created_at }) => (

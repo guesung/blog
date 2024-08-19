@@ -1,4 +1,3 @@
-import { ClassNameType } from '@guesung/constants';
 import { cn } from '@guesung/utils';
 import { signIn } from '@utils';
 
@@ -6,8 +5,8 @@ export interface LoginButtonProps {
   text: string;
   provider: 'kakao' | 'naver';
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  buttonClassName: Pick<ClassNameType, 'className'>;
-  iconClassName: Pick<ClassNameType, 'className'>;
+  buttonClassName: string;
+  iconClassName: string;
 }
 
 export default function LoginButton({

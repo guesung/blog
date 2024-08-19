@@ -3,9 +3,7 @@ import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
-import { GuestbookList, GuestbookLogin, GuestbookMessage } from './components';
-import GuestbookUserInfo from './components/GuestbookUserInfo';
-import { getGuestbook } from '@apis';
+import { GuestbookMessageList, GuestbookUser } from './components';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
@@ -14,7 +12,6 @@ export const metadata: Metadata = {
 
 export default async function page() {
   const session = (await auth()) as Session;
-  const { data: guestbookList } = await getGuestbook();
 
   return (
     <Layout>
@@ -22,16 +19,14 @@ export default async function page() {
       <Layout.Description>
         아무 이야기나 써주세요! 블로그 피드백이나 잡담도 상관없습니다
       </Layout.Description>
-      <div className="text-subtitle2">Guestbook 로그인</div>
+      <Layout.Title className="text-body1">Guestbook 로그인</Layout.Title>
       <div>
         이메일은 노출되지 않습니다! 닉네임과 프로필 사진만 노출됩니다 😀
       </div>
       <Spacing size={20} />
-      {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
+      <GuestbookUser session={session} />
       <Spacing size={8} />
-      {session ? <GuestbookMessage /> : null}
-      <Spacing size={8} />
-      <GuestbookList guestbookList={guestbookList} />
+      <GuestbookMessageList />
       <Spacing size={20} />
     </Layout>
   );
