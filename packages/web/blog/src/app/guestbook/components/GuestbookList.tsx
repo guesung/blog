@@ -1,5 +1,6 @@
 import { GuestbookType } from '@apis';
 import { SquareBox } from '@components';
+import { formatShowDate } from '@guesung/utils';
 import Image from 'next/image';
 
 interface GuestbookListProps {
@@ -22,7 +23,9 @@ export default function GuestbookList({ guestbookList }: GuestbookListProps) {
           </div>
           <div className="flex flex-col gap-4">
             <div>{name}</div>
-            <div className="text-caption text-gray-3">{created_at}</div>
+            <div className="text-caption text-gray-3">
+              {formatShowDate(created_at)}
+            </div>
             <div>{message}</div>
           </div>
         </SquareBox>
