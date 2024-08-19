@@ -28,7 +28,9 @@ export default async function page() {
       </div>
       <Spacing size={20} />
       {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
+      <Spacing size={8} />
       {session ? <GuestbookMessage /> : null}
+      <Spacing size={8} />
       <GuestbookList guestbookList={guestbookList} />
       <Spacing size={20} />
     </Layout>

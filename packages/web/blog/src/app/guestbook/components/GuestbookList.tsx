@@ -7,7 +7,6 @@ interface GuestbookListProps {
 }
 
 export default function GuestbookList({ guestbookList }: GuestbookListProps) {
-  console.log(guestbookList);
   return (
     <div className="flex flex-col gap-8">
       {guestbookList.map(({ image, name, message, created_at }) => (
