@@ -3,7 +3,12 @@ import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
-import { GuestbookMessageList, GuestbookUser } from './components';
+import {
+  GuestbookForm,
+  GuestbookLogin,
+  GuestbookMessageList,
+  GuestbookUserInfo,
+} from './components';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
@@ -23,11 +28,11 @@ export default async function page() {
       <div>
         이메일은 노출되지 않습니다! 닉네임과 프로필 사진만 노출됩니다 😀
       </div>
-      <Spacing size={20} />
-      <GuestbookUser session={session} />
-      <Spacing size={8} />
-      <GuestbookMessageList />
-      <Spacing size={20} />
+      <div className="flex flex-col gap-20">
+        {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
+        {session ? <GuestbookForm /> : null}
+        <GuestbookMessageList />
+      </div>
     </Layout>
   );
 }
