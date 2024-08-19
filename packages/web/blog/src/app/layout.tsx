@@ -1,4 +1,3 @@
-import { Footer, Header } from '@components';
 import '@guesung/ui/styles.css';
 import { cn } from '@guesung/utils';
 import { cookies } from 'next/headers';
@@ -9,6 +8,7 @@ import { JSON_LD_DATA } from '@constants/JsonLd';
 import { StrictPropsWithChildren } from '@guesung/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
+import { Footer, Header } from './components';
 
 export { metadata };
 

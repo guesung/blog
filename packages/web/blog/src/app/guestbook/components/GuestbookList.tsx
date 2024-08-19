@@ -1,4 +1,5 @@
 import { GuestbookType } from '@apis';
+import { SquareBox } from '@components';
 import Image from 'next/image';
 
 interface GuestbookListProps {
@@ -10,7 +11,7 @@ export default function GuestbookList({ guestbookList }: GuestbookListProps) {
   return (
     <div className="flex flex-col gap-8">
       {guestbookList.map(({ image, name, message, created_at }) => (
-        <div className="border-1 rounded-8 flex items-center gap-24 px-24 py-12">
+        <SquareBox className="flex items-center gap-24">
           <div>
             <Image
               src={image}
@@ -25,7 +26,7 @@ export default function GuestbookList({ guestbookList }: GuestbookListProps) {
             <div className="text-caption text-gray-3">{created_at}</div>
             <div>{message}</div>
           </div>
-        </div>
+        </SquareBox>
       ))}
     </div>
   );

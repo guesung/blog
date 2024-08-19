@@ -1,6 +1,7 @@
 import { COOKIE_KEY_THEME, DATA, Theme } from '@constants';
 import { cookies } from 'next/headers';
-import { HeaderWrapper, NavLink, ToggleTheme } from '.';
+import HeaderWrapper from './HeaderWrapper';
+import { NavLink, ToggleTheme } from '@components';
 
 const NAV_LINK_PROPS_LIST = [
   {
