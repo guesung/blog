@@ -3,8 +3,12 @@ import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
-import { GuestbookList, GuestbookLogin } from './components';
-import GuestbookUserInfo from './components/GuestbookUserInfo';
+import {
+  GuestbookForm,
+  GuestbookLogin,
+  GuestbookMessageList,
+  GuestbookUserInfo,
+} from './components';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',
@@ -20,14 +24,15 @@ export default async function page() {
       <Layout.Description>
         아무 이야기나 써주세요! 블로그 피드백이나 잡담도 상관없습니다
       </Layout.Description>
-      <div className="text-subtitle2">Guestbook 로그인</div>
-      <div>
-        이메일은 노출되지 않습니다! 닉네임과 프로필 사진만 노출됩니다 😀
+      <Layout.Title className="text-body1">Guestbook 로그인</Layout.Title>
+      <div className="flex flex-col gap-20">
+        <div>
+          이메일은 노출되지 않습니다! 닉네임과 프로필 사진만 노출됩니다 😀
+        </div>
+        {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
+        {session ? <GuestbookForm /> : null}
+        <GuestbookMessageList />
       </div>
-      <Spacing size={20} />
-      {session ? <GuestbookUserInfo session={session} /> : <GuestbookLogin />}
-      <GuestbookList />
-      <Spacing size={20} />
     </Layout>
   );
 }

@@ -1,4 +1,7 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['@guesung/eslint-config/library.js', 'plugin:storybook/recommended'],
+  extends: [
+    '@guesung/eslint-config/library.js',
+    'plugin:storybook/recommended',
+  ],
 };

@@ -1,4 +1,3 @@
-import { Footer, Header } from '@components';
 import '@guesung/ui/styles.css';
 import { cn } from '@guesung/utils';
 import { cookies } from 'next/headers';
@@ -9,6 +8,7 @@ import { JSON_LD_DATA } from '@constants/JsonLd';
 import { StrictPropsWithChildren } from '@guesung/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
+import { Footer, Header } from './components';
 
 export { metadata };
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
     <html
       className={cn(
         pretendard.variable,
-        'bg-white-1 text-black-1 text-body3 min-h-screen',
+        'text-black-1 text-body3 bg-transition min-h-screen',
         {
           dark: theme === CLASS_NAME_DARK,
         }

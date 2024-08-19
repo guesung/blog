@@ -1,5 +1,3 @@
-export { default as Header } from './Header';
-export { default as Footer } from './Footer';
 export { default as Callout } from './mdx/Callout';
 export { default as ToggleTheme } from './ToggleTheme';
 export { default as Translation } from './mdx/Translation';
@@ -10,9 +8,8 @@ export { default as ListItem } from './ListItem';
 export { default as ContentListItem } from './ContentListItem';
 export { default as SeriesCard } from './SeriesCard';
 export { default as ContentCard } from './ContentCard';
-export { default as HeaderWrapper } from './HeaderWrapper';
 export { default as PostStatusBar } from './PostStatusBar';
 export { default as Description } from './mdx/Description';
 export { default as Toggle } from './mdx/Toggle';
 export { default as CodeBlock } from './CodeBlock';
-export { default as LoginButton, type LoginButtonProps } from './LoginButton';
+export { default as SquareBox } from './SquareBox';

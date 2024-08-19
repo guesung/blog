@@ -1,12 +1,16 @@
-import { getCookie } from '@guesung/utils';
-import { HeaderWrapper, NavLink, ToggleTheme } from '.';
+import { COOKIE_KEY_THEME, DATA, Theme } from '@constants';
 import { cookies } from 'next/headers';
-import { COOKIE_KEY_THEME, Theme } from '@constants';
+import HeaderWrapper from './HeaderWrapper';
+import { NavLink, ToggleTheme } from '@components';
 
 const NAV_LINK_PROPS_LIST = [
   {
     href: '/blog',
     children: 'Blog',
+  },
+  {
+    href: '/guestbook',
+    children: 'Guestbook',
   },
   {
     href: 'https://guesung.notion.site',
@@ -26,10 +30,6 @@ const NAV_LINK_PROPS_LIST = [
   //   children: 'About',
   // },
   // {
-  //   href: '/guestbook',
-  //   children: 'Guestbook',
-  // },
-  // {
   //   href: '/plan',
   //   children: '계획',
   // },
@@ -40,8 +40,8 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <header className="text-body3 inset-x-0 flex w-full items-center justify-between py-2">
-        <NavLink href="/">Guesung.</NavLink>
+      <header className="bg-transition inset-x-0 flex w-full items-center justify-between py-2">
+        <NavLink href="/">{DATA.blog.name}</NavLink>
         <div className="flex items-center gap-8">
           {NAV_LINK_PROPS_LIST.map(props => (
             <NavLink {...props} />

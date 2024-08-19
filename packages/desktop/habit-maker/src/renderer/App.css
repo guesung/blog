@@ -12,9 +12,9 @@ body {
   height: 100vh;
   background: linear-gradient(
     200.96deg,
-    #5CB8B2 -29.09%,
-    #22505C 51.77%,
-    #5CB8B2 129.35%
+    #5cb8b2 -29.09%,
+    #22505c 51.77%,
+    #5cb8b2 129.35%
   );
   font-family: sans-serif;
   overflow-y: hidden;
@@ -30,7 +30,8 @@ button {
   border: none;
   appearance: none;
   font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+  box-shadow:
+    0px 8px 28px -6px rgba(24, 39, 75, 0.12),
     0px 18px 88px -4px rgba(24, 39, 75, 0.14);
   transition: all ease-in 0.1s;
   cursor: pointer;

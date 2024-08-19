@@ -61,10 +61,10 @@ export default function Callout({
       ref={ref}
     >
       <div
-        className="flex items-center justify-between gap-8 cursor-pointer"
+        className="flex cursor-pointer items-center justify-between gap-8"
         onClick={handleCalloutClick}
       >
-        <div className="flex items-center" >
+        <div className="flex items-center">
           {icons[type]}
           <span className="text-body2 font-bold">{title}</span>
         </div>
