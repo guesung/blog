@@ -2,18 +2,17 @@
 
 import { postGuestbook } from '@apis';
 import { Button, Input, Spacing } from '@guesung/ui';
-import { Session } from 'next-auth';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, useRef } from 'react';
 
-interface GuestbookMessageProps {
-  session: Session;
-}
+export default function GuestbookMessage() {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-export default function GuestbookMessage({ session }: GuestbookMessageProps) {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
+    if (!inputRef.current) return;
+
     await postGuestbook({
-      message: '안녕하십니까',
+      message: inputRef.current.value,
     });
   };
 
@@ -22,7 +21,11 @@ export default function GuestbookMessage({ session }: GuestbookMessageProps) {
       <p>메시지</p>
       <Spacing size={8} />
       <div className="flex justify-between gap-4">
-        <Input placeholder="여기에 메시지를 입력해주세요" className="flex-1" />
+        <Input
+          placeholder="여기에 메시지를 입력해주세요"
+          className="flex-1"
+          ref={inputRef}
+        />
         <Button>메시지 등록</Button>
       </div>
       <Spacing size={24} />

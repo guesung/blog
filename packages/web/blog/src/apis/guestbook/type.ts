@@ -3,6 +3,7 @@ export type GuestbookType = {
   created_at: string;
   name: string;
   message: string;
+  image:string;
 };
 
 export interface GuestbookResponse {
