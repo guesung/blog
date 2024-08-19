@@ -3,12 +3,12 @@ import { colors, fontSize, pxToRemTailwind, theme } from './styles';
 const config = {
   theme: {
     extend: {
-      ...pxToRemTailwind,
+      // ...pxToRemTailwind,
       theme,
       fontSize,
       colors,
       spacing: {
-        ...pxToRemTailwind.spacing,
+        // ...pxToRemTailwind.spacing,
         layout: '50rem',
       },
     },
