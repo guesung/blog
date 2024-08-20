@@ -1,4 +1,4 @@
-import { Avatar, Button } from '@nextui-org/react';
+import { Button, Card, CardBody, User } from '@nextui-org/react';
 import { signOut } from '@utils';
 import { Session } from 'next-auth';
 
@@ -9,25 +9,31 @@ export default function GuestbookUserInfo({
   session: { user },
 }: GuestbookUserInfoProps) {
   return (
-    <div className="flex justify-between">
-      <div className="flex items-center gap-8pxr">
+    <Card>
+      <CardBody className="flex-row justify-between">
         {user?.image && (
-          <Avatar
-            src={user?.image}
-            alt="프로필 이미지"
-            className="rounded-full"
+          <User
+            name={user?.name}
+            avatarProps={{
+              src: user?.image,
+            }}
           />
         )}
-        {<p>{user?.name}</p>}
-      </div>
-      <form
-        action={async () => {
-          'use server';
-          await signOut();
-        }}
-      >
-        <Button type="submit">로그아웃</Button>
-      </form>
-    </div>
+
+        <div>
+          <p>{user?.name}</p>
+          <p>{user?.email}</p>
+        </div>
+
+        <form
+          action={async () => {
+            'use server';
+            await signOut();
+          }}
+        >
+          <Button type="submit">로그아웃</Button>
+        </form>
+      </CardBody>
+    </Card>
   );
 }
