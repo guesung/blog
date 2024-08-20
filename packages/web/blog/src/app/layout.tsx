@@ -26,13 +26,9 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
 
   return (
     <html
-      className={cn(
-        pretendard.variable,
-        'text-black-1 text-body3 bg-transition min-h-screen',
-        {
-          dark: theme === CLASS_NAME_DARK,
-        }
-      )}
+      className={cn(pretendard.variable, 'bg-transition min-h-screen', {
+        dark: theme === CLASS_NAME_DARK,
+      })}
     >
       <body className={cn(pretendard.className)}>
         {/* JSON LD */}

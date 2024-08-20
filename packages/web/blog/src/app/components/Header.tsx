@@ -15,8 +15,8 @@ const NAV_LINK_PROPS_LIST = [
   {
     href: 'https://guesung.notion.site',
     children: 'Note',
-    isExternal:true,
-    showAnchorIcon:true,
+    isExternal: true,
+    showAnchorIcon: true,
   },
   // {
   //   href: '/series',
@@ -41,14 +41,16 @@ export default function Header() {
 
   return (
     <Navbar shouldHideOnScroll>
-        <Link href="/" color="foreground">{DATA.blog.name}</Link>
-        <div className="flex items-center gap-8pxr">
-          {NAV_LINK_PROPS_LIST.map(props => (
-            <Link {...props} color="foreground" />
-          ))}
-          <ToggleTheme initialTheme={theme} />
-        </div>
-      </Navbar>
+      <Link href="/" color="foreground">
+        {DATA.blog.name}
+      </Link>
+      <div className="flex items-center gap-8pxr">
+        {NAV_LINK_PROPS_LIST.map(props => (
+          <Link {...props} color="foreground" />
+        ))}
+        <ToggleTheme initialTheme={theme} />
+      </div>
+    </Navbar>
   );
 }
 
