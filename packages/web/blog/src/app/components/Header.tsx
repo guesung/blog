@@ -4,10 +4,10 @@ import { Link, Navbar } from '@nextui-org/react';
 import { cookies } from 'next/headers';
 
 const NAV_LINK_PROPS_LIST = [
-  {
-    href: '/blog',
-    children: 'Blog',
-  },
+  // {
+  //   href: '/blog',
+  //   children: 'Blog',
+  // },
   {
     href: '/guestbook',
     children: 'Guestbook',
