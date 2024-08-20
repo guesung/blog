@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col gap-10pxr py-40pxr">
-      <div className="flex justify-center gap-10">
+    <footer className="flex flex-col gap-12pxr py-40pxr">
+      <div className="flex justify-center gap-12pxr">
         <Link href={GITHUB_URL} target="_blank">
           <GithubIcon width={25} height={25} />
         </Link>

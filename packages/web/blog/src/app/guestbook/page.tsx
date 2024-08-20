@@ -1,5 +1,4 @@
 import { Layout } from '@components';
-import { Spacing } from '@guesung/ui';
 import { auth } from '@utils';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
@@ -9,16 +8,6 @@ import {
   GuestbookMessageList,
   GuestbookUserInfo,
 } from './components';
-import { Button } from '@nextui-org/button';
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-} from '@nextui-org/react';
 
 export const metadata: Metadata = {
   title: 'Guestbook.',

@@ -1,17 +1,19 @@
-import { Content } from '@contents';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+'use client'
 import {
   Callout,
-  PostStatusBar,
-  Translation,
-  Description,
   CodeBlock,
+  Description,
   Toggle,
+  Translation
 } from '@components';
+import { Content } from '@contents';
+import { ClassNameType } from '@guesung/constants';
+import { cn, formatShowDate } from '@guesung/utils';
+import { useScroll } from '@hooks';
+import { Link, Progress } from '@nextui-org/react';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image, { ImageProps } from 'next/image';
 import { notFound } from 'next/navigation';
-import { cn, formatShowDate } from '@guesung/utils';
-import { ClassNameType } from '@guesung/constants';
 
 interface PostProps extends Content, ClassNameType {}
 
@@ -29,6 +31,7 @@ export default function MDXContent({
   if (!body) return notFound();
 
   const MDXContent = useMDXComponent(body.code);
+  const {scrollYPercentage} = useScroll();
 
   return (
     <div
@@ -37,7 +40,7 @@ export default function MDXContent({
         className
       )}
     >
-      <PostStatusBar />
+      <Progress value={scrollYPercentage} className='fixed inset-x-0 top-0 z-50' size='sm'  />
       {date && <div className="text-center">{formatShowDate(date)}</div>}
       {title && <div className="text-center text-title3">{title}</div>}
       <div className="max-w-full prose">
@@ -63,11 +66,9 @@ export default function MDXContent({
                 className={cn('mx-auto', className)}
               />
             ),
-            pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
-            a: ({ children, ...props }) => (
-              <a {...props} target="_blank" rel="noopener noreferrer">
-                {children}
-              </a>
+            pre: (props) => <CodeBlock {...props} />,
+            a: (props) => (
+              <Link {...props} isExternal />
             ),
           }}
         />

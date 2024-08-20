@@ -28,11 +28,11 @@ export default function NavLink({
     <Link
       {...props}
       className={cn(
-        'hover:bg-gray-3 rounded-4pxr flex items-center gap-2pxr hover:transition',
         sizeClassNameMap[size],
         className
       )}
     >
+      
       {children}
       {props.target === '_blank' && <ArrowOuterIcon />}
     </Link>

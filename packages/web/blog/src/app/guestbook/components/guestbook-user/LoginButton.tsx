@@ -29,7 +29,7 @@ export default function LoginButton({
           buttonClassName
         )}
       >
-        <Icon className={cn('h-20 w-28', iconClassName)} />
+        <Icon className={cn('h-20pxr w-28pxr', iconClassName)} />
         <span className="flex-1 text-center">{text}</span>
       </button>
     </form>

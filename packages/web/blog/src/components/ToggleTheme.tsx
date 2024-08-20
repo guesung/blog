@@ -4,6 +4,7 @@ import MoonIcon from '#images/icons/moon.svg';
 import SunIcon from '#images/icons/sun.svg';
 import { CLASS_NAME_DARK, COOKIE_KEY_THEME, Theme } from '@constants';
 import { setCookie } from '@guesung/utils';
+import { Button } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 
 interface ToggleThemeProps {
@@ -41,9 +42,9 @@ export default function ToggleTheme({ initialTheme }: ToggleThemeProps) {
   };
 
   return (
-    <button onClick={handleTheme} aria-label="dark mode toggle">
+    <Button onClick={handleTheme} aria-label="dark mode toggle">
       {theme === Theme.DARK && <SunIcon fill="white" width={16} height={16} />}
       {theme === Theme.LIGHT && <MoonIcon width={16} height={16} />}
-    </button>
+    </Button>
   );
 }

@@ -1,8 +1,8 @@
 'use client';
 
 import { postGuestbook } from '@apis';
-import { SquareBox } from '@components';
-import { Button, Input, Spacing } from '@guesung/ui';
+import { Spacing } from '@guesung/ui';
+import { Button, Card, CardBody, Input } from '@nextui-org/react';
 import { FormEventHandler, useRef } from 'react';
 
 export default function GuestbookMessage() {
@@ -18,7 +18,8 @@ export default function GuestbookMessage() {
   };
 
   return (
-    <SquareBox>
+    <Card>
+      <CardBody>
       <form onSubmit={handleSubmit}>
         <p>메시지</p>
         <Spacing size={8} />
@@ -31,6 +32,7 @@ export default function GuestbookMessage() {
           <Button>메시지 등록</Button>
         </div>
       </form>
-    </SquareBox>
+      </CardBody>
+    </Card>
   );
 }

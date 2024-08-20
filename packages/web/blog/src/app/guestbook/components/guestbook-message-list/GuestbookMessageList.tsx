@@ -1,6 +1,6 @@
 import { getGuestbook } from '@apis';
-import { SquareBox } from '@components';
 import { formatShowDate } from '@guesung/utils';
+import { Card, CardBody } from '@nextui-org/react';
 import Image from 'next/image';
 
 export default async function GuestbookList() {
@@ -9,7 +9,8 @@ export default async function GuestbookList() {
   return (
     <div className="flex flex-col gap-8pxr">
       {guestbookList.map(({ image, name, message, created_at }) => (
-        <SquareBox className="flex items-center gap-24pxr">
+        <Card >
+          <CardBody className="flex-row items-center px-24pxr gap-24pxr">
           <div>
             <Image
               src={image}
@@ -26,7 +27,8 @@ export default async function GuestbookList() {
             </div>
             <div>{message}</div>
           </div>
-        </SquareBox>
+          </CardBody>
+        </Card>
       ))}
     </div>
   );
