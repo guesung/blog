@@ -7,7 +7,6 @@ export { default as Layout } from './Layout';
 export { default as ListItem } from './ListItem';
 export { default as ContentListItem } from './ContentListItem';
 export { default as SeriesCard } from './SeriesCard';
-export { default as ContentCard } from './ContentCard';
 export { default as Description } from './mdx/Description';
 export { default as Toggle } from './mdx/Toggle';
 export { default as CodeBlock } from './CodeBlock';
