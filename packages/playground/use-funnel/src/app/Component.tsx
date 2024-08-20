@@ -6,9 +6,6 @@ import type {
   PasswordInputType,
 } from '@/context';
 import { useFunnel } from '@use-funnel/next';
-import EmailInput from './components/EmailInput';
-import PasswordInput from './components/PasswordInput';
-import OtherInfoInput from './components/OtherInfoInput';
 
 export default function Component() {
   const funnel = useFunnel<{
@@ -22,35 +19,6 @@ export default function Component() {
       context: {},
     },
   });
-
-  // switch (funnel.step) {
-  //   case 'EmailInput':
-  //     return (
-  //       <EmailInput
-  //         onNext={email => funnel.history.push('PasswordInput', { email })}
-  //       />
-  //     );
-  //   case 'PasswordInput':
-  //     return (
-  //       <PasswordInput
-  //         email={funnel.context.email}
-  //         onNext={password =>
-  //           funnel.history.push('OtherInfoInput', {
-  //             ...funnel.context,
-  //             password,
-  //           })
-  //         }
-  //       />
-  //     );
-  //   case 'OtherInfoInput':
-  //     return (
-  //       <OtherInfoInput
-  //         onNext={other =>
-  //           funnel.history.push('Finish', { ...funnel.context, other })
-  //         }
-  //       />
-  //     );
-  // }
 
   return <div></div>;
 }
