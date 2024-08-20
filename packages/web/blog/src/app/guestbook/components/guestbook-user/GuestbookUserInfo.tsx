@@ -11,7 +11,7 @@ export default function GuestbookUserInfo({
 }: GuestbookUserInfoProps) {
   return (
     <div className="flex justify-between">
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-8pxr">
         {user?.image && (
           <Image
             src={user?.image}

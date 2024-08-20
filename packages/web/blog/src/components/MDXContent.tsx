@@ -33,14 +33,14 @@ export default function MDXContent({
   return (
     <div
       className={cn(
-        'max-w-layout mx-auto flex flex-col gap-20 px-20',
+        'max-w-layout mx-auto flex flex-col gap-20pxr px-20pxr',
         className
       )}
     >
       <PostStatusBar />
       {date && <div className="text-center">{formatShowDate(date)}</div>}
-      {title && <div className="text-title3 text-center">{title}</div>}
-      <div className="prose max-w-full">
+      {title && <div className="text-center text-title3">{title}</div>}
+      <div className="max-w-full prose">
         <MDXContent
           components={{
             Callout,

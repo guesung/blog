@@ -12,7 +12,7 @@ export default forwardRef(function Input(
   return (
     <input
       ref={ref}
-      className={cn('bg-white-1 px-4 py-8', className)}
+      className={cn('bg-white-1 px-4pxr py-8pxr', className)}
       {...props}
     />
   );

@@ -30,7 +30,6 @@ export default function GuestbookMessage() {
           />
           <Button>메시지 등록</Button>
         </div>
-        <Spacing size={24} />
       </form>
     </SquareBox>
   );

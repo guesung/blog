@@ -9,7 +9,7 @@ export default function SquareBox({
   className,
 }: PropsWithChildren<SquareBoxProps>) {
   return (
-    <div className={cn('border-1 rounded-8 px-24 py-12', className)}>
+    <div className={cn('border-1 rounded-8pxr px-24pxr py-12pxr', className)}>
       {children}
     </div>
   );

@@ -36,7 +36,7 @@ export default function Card({
           />
         </div>
       )}
-      <div className="flex flex-1 flex-col gap-8 px-8 py-16 text-start">
+      <div className="flex flex-1 flex-col gap-8pxr px-8 py-16 text-start">
         <div className="text-body2 text-white-1 flex-1">{title}</div>
         {children}
       </div>

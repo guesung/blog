@@ -40,9 +40,9 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <header className="bg-transition inset-x-0 flex w-full items-center justify-between py-2">
+      <header className="inset-x-0 flex items-center justify-between w-full bg-transition py-2pxr">
         <NavLink href="/">{DATA.blog.name}</NavLink>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8pxr">
           {NAV_LINK_PROPS_LIST.map(props => (
             <NavLink {...props} />
           ))}
@@ -54,7 +54,7 @@ export default function Header() {
 }
 
 function HeaderMargin() {
-  return <div className="h-80" />;
+  return <div className="h-80pxr" />;
 }
 
 Header.Margin = HeaderMargin;

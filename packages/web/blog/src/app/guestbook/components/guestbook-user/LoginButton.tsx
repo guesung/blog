@@ -25,7 +25,7 @@ export default function LoginButton({
     >
       <button
         className={cn(
-          'flex h-48 items-center justify-between rounded-xl px-20 py-8 text-xl',
+          'flex h-48pxr items-center justify-between rounded-xl px-20pxr py-8pxr text-xl',
           buttonClassName
         )}
       >

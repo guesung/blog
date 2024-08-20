@@ -13,9 +13,9 @@ interface NavLinkProps
 }
 
 const sizeClassNameMap: SizeClassNameMapType = {
-  small: 'px-4 py-2',
-  medium: 'px-8 py-4',
-  large: 'px-16 py-8',
+  small: 'px-4pxr py-2pxr',
+  medium: 'px-8pxr py-4pxr',
+  large: 'px-1pxr6 py-8pxr',
 };
 
 export default function NavLink({
@@ -28,7 +28,7 @@ export default function NavLink({
     <Link
       {...props}
       className={cn(
-        'hover:bg-gray-3 rounded-4 flex items-center gap-2 hover:transition',
+        'hover:bg-gray-3 rounded-4pxr flex items-center gap-2pxr hover:transition',
         sizeClassNameMap[size],
         className
       )}

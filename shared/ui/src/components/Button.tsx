@@ -22,7 +22,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'rounded-8 w-fit',
+        'rounded-8pxr w-fit',
         {
           'bg-black-1 text-white-1': selected,
           'bg-white-1 text-black-1 border-black-1 border': !selected,

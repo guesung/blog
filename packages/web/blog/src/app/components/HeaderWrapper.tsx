@@ -20,7 +20,7 @@ export default function HeaderWrapper({
   return (
     <div
       className={cn(
-        'max-w-layout border-b-1 fixed inset-x-0 top-0 z-10 mx-auto transform px-20 py-4 shadow-sm transition-transform duration-300 ease-in-out',
+        'max-w-layout border-b-1 fixed inset-x-0 top-0 z-10 mx-auto transform px-20pxr py-4pxr shadow-sm transition-transform duration-300 ease-in-out',
         { '-translate-y-full': !isChildrenShow }
       )}
     >

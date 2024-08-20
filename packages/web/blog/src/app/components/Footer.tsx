@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col gap-10 py-40">
+    <footer className="flex flex-col gap-10pxr py-40pxr">
       <div className="flex justify-center gap-10">
         <Link href={GITHUB_URL} target="_blank">
           <GithubIcon width={25} height={25} />
@@ -18,7 +18,7 @@ export default function Footer() {
           <EmailIcon width={25} height={25} />
         </Link>
       </div>
-      <p className="text-caption text-center">
+      <p className="text-center text-caption">
         © 2024. guesung all rights reserved.
       </p>
     </footer>

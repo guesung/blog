@@ -20,7 +20,7 @@ export default function SeriesCard({
   return (
     <Move>
       <Card {...props}>
-        <div className="flex gap-8">
+        <div className="flex gap-8pxr">
           <span className="white-1 text-white-1">{postCount}개의 포스트</span>
           <span>·</span>
           <span className="shite-2 text-white-2">
