@@ -18,22 +18,6 @@ const NAV_LINK_PROPS_LIST = [
     isExternal: true,
     showAnchorIcon: true,
   },
-  // {
-  //   href: '/series',
-  //   children: 'Series',
-  // },
-  // {
-  //   href: '/playground',
-  //   children: '놀이터',
-  // },
-  // {
-  //   href: '/about',
-  //   children: 'About',
-  // },
-  // {
-  //   href: '/plan',
-  //   children: '계획',
-  // },
 ];
 
 export default function Header() {

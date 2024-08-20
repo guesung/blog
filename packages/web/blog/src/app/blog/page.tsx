@@ -1,7 +1,8 @@
-import { Layout, ListItem } from '@components';
-import { Article, OUTER_ARTICLES_LIST } from '@constants';
+import { Layout } from '@components';
+import { OUTER_ARTICLES_LIST } from '@constants';
 import { Content } from '@contents';
-import { formatDate } from '@guesung/utils';
+import { formatDate, formatShowDate } from '@guesung/utils';
+import { Card, CardBody, Link } from '@nextui-org/react';
 import { getAllContents } from '@utils';
 import { compareDesc } from 'date-fns';
 import { Metadata } from 'next';
@@ -11,54 +12,58 @@ export const metadata: Metadata = {
   description: '학습한 내용과 지식들을 공유 및 정리합니다.',
 };
 
-const notShowSeries: Partial<Content['series']>[] = ['translations', 'etc'];
-
 export default function page() {
-  const allShowContents = getAllContents()
-    .filter(content => !notShowSeries.includes(content.series))
-    .map(({ slug, title, date, series }) => {
-      return {
-        href: `series/${series}/${slug}`,
-        title,
-        date: formatDate(date),
-      };
-    });
+  const mdxContentList = getAllContents().map(({ slug, series, ...rest }) => ({
+    href: `series/${series}/${slug}`,
+    ...rest,
+  }));
+  const allContentList = [...OUTER_ARTICLES_LIST, ...mdxContentList];
 
-  const allContentList = [...OUTER_ARTICLES_LIST, ...allShowContents];
-
+  // 날짜 순 정렬
   allContentList.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
-  const yearList = Array.from(
-    allContentList.reduce((yearSet: Set<number>, cur: Article) => {
-      const year = new Date(cur.date).getFullYear();
-      return yearSet.add(year);
-    }, new Set())
-  );
+  // 연도 추출
+  const yearList = [
+    ...new Set(
+      allContentList.map(content => new Date(content.date).getFullYear())
+    ),
+  ];
+  yearList.sort((a, b) => b - a);
 
+  // 전체 글 수
   const contentCount = allContentList.length;
 
   return (
     <Layout>
       <Layout.Title>
-        {metadata.title as ''} ({contentCount})
+        {metadata.title as string} ({contentCount})
       </Layout.Title>
       <Layout.Description>{metadata.description}</Layout.Description>
-      {yearList.map(year => (
-        <div className="flex" key={year}>
-          <div className="w-100 flex items-center justify-center">{year}</div>
-          <div className="flex flex-1 flex-col">
-            {allContentList
-              .filter(content => new Date(content.date).getFullYear() === year)
-              .map(content => (
-                <ListItem {...content} className="flex-1" key={content.title}>
-                  {content.date}
-                </ListItem>
-              ))}
+      <div className="flex flex-col gap-4">
+        {yearList.map(year => (
+          <div className="flex gap-12pxr" key={year}>
+            <span className="flex items-center justify-center">{year}</span>
+            <div className="flex flex-col flex-1 gap-4">
+              {allContentList
+                .filter(
+                  content => new Date(content.date).getFullYear() === year
+                )
+                .map(({ date, href, title }) => (
+                  <Card isHoverable isPressable as={Link} href={href}>
+                    <CardBody className="flex-row justify-between">
+                      <span>{title}</span>
+                      <span className="gap-8pxr text-small text-default-400">
+                        {formatShowDate(date)}
+                      </span>
+                    </CardBody>
+                  </Card>
+                ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Layout>
   );
 }

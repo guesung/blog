@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm';
 
 const commonFields: FieldDefs = {
   title: { type: 'string', required: true },
-  date: { type: 'date', required: true },
+  date: { type: 'string', required: true },
   isPublished: { type: 'boolean', required: true },
   series: {
     type: 'enum',
