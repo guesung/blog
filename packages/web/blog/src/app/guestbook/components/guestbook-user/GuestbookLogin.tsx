@@ -1,15 +1,14 @@
 import KakaoIcon from '#images/icons/kakao.svg';
-import NaverIcon from '#images/icons/naver.svg';
 import LoginButton, { LoginButtonProps } from './LoginButton';
 
 const loginButtonList: LoginButtonProps[] = [
-  {
-    text: '네이버 로그인',
-    provider: 'naver',
-    icon: NaverIcon,
-    buttonClassName: 'bg-[#2db400] text-white',
-    iconClassName: 'fill-current text-white',
-  },
+  // {
+  //   text: '네이버 로그인',
+  //   provider: 'naver',
+  //   icon: NaverIcon,
+  //   buttonClassName: 'bg-[#2db400] text-white',
+  //   iconClassName: 'fill-current text-white',
+  // },
   {
     text: '카카오 로그인',
     provider: 'kakao',
