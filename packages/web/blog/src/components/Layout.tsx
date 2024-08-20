@@ -32,7 +32,7 @@ function Description({
   className,
 }: PropsWithChildren<DescriptionProps>) {
   return (
-    <div className={cn('text-body2 text-gray-3 my-20', className)}>
+    <div className={cn('text-body2 text-gray-3 my-20pxr', className)}>
       {children}
     </div>
   );

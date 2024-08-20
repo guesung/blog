@@ -61,7 +61,7 @@ export default function Callout({
       ref={ref}
     >
       <div
-        className="flex cursor-pointer items-center justify-between gap-8"
+        className="flex cursor-pointer items-center justify-between gap-8pxr"
         onClick={handleCalloutClick}
       >
         <div className="flex items-center">

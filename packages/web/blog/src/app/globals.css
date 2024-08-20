@@ -13,7 +13,7 @@
     @apply bg-slate-200;
   }
   img {
-    @apply rounded-16 my-0;
+    @apply my-0 rounded-16pxr;
   }
   .data-highlighted-line {
     @apply bg-slate-200;
@@ -41,10 +41,10 @@
   }
 
   :not(pre) > code {
-    @apply rounded-16 break-words bg-slate-200 px-8 py-4;
+    @apply break-words rounded-16pxr bg-slate-200 px-8pxr py-4pxr;
   }
   h1 {
-    @apply border-b-1 border-solid border-slate-200 pb-8;
+    @apply border-b-1 border-solid border-slate-200 pb-8pxr;
   }
 
   code > [data-line]::before {
@@ -60,17 +60,17 @@
 
   [data-rehype-pretty-code-figure] {
     & {
-      @apply border-1 rounded-16 border-slate-200;
+      @apply border-1 rounded-16pxr border-slate-200;
     }
     code {
       counter-reset: line;
     }
     [data-rehype-pretty-code-title] {
-      @apply text-body3 py-8 indent-8;
+      @apply text-body3 py-8pxr indent-8pxr;
     }
     pre {
       & {
-        @apply border-b-1 rounded-16 border-slate-200;
+        @apply border-b-1 rounded-16pxr border-slate-200;
       }
       [data-highlighted-line] {
         @apply bg-slate-900;

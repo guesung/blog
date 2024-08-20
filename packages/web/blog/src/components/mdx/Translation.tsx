@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 
 export default function Translation({ children }: PropsWithChildren) {
-  return <div className="flex w-full gap-10">{children}</div>;
+  return <div className="flex w-full gap-12pxr">{children}</div>;
 }
 
 function English({ children }: PropsWithChildren) {

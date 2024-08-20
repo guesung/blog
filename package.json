@@ -18,8 +18,8 @@
     "storybook": "turbo run storybook"
   },
   "devDependencies": {
-    "@guesung/prettier-config": "workspace:*",
     "@guesung/typescript-config": "workspace:*",
+    "@guesung/prettier-config": "workspace:*",
     "turbo": "^2.0.11"
   },
   "dependencies": {

@@ -3,6 +3,7 @@ import { cn } from '@guesung/utils';
 import { cookies } from 'next/headers';
 import './globals.css';
 
+import { NextUIProvider } from '@nextui-org/react';
 import { CLASS_NAME_DARK, COOKIE_KEY_THEME, metadata, Theme } from '@constants';
 import { JSON_LD_DATA } from '@constants/JsonLd';
 import { StrictPropsWithChildren } from '@guesung/constants';
@@ -25,13 +26,9 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
 
   return (
     <html
-      className={cn(
-        pretendard.variable,
-        'text-black-1 text-body3 bg-transition min-h-screen',
-        {
-          dark: theme === CLASS_NAME_DARK,
-        }
-      )}
+      className={cn(pretendard.variable, 'bg-transition min-h-screen', {
+        dark: theme === CLASS_NAME_DARK,
+      })}
     >
       <body className={cn(pretendard.className)}>
         {/* JSON LD */}
@@ -41,10 +38,12 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
             __html: JSON.stringify(JSON_LD_DATA, null, 2),
           }}
         />
-        <Header />
-        <Header.Margin />
-        {children}
-        <Footer />
+        <NextUIProvider>
+          <Header />
+          <Header.Margin />
+          {children}
+          <Footer />
+        </NextUIProvider>
       </body>
       {/* GA */}
       <GoogleAnalytics gaId="G-JB6N95P3H1" />

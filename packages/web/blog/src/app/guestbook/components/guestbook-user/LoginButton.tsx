@@ -25,11 +25,11 @@ export default function LoginButton({
     >
       <button
         className={cn(
-          'flex h-48 items-center justify-between rounded-xl px-20 py-8 text-xl',
+          'flex h-48pxr items-center justify-between rounded-xl px-20pxr py-8pxr text-xl',
           buttonClassName
         )}
       >
-        <Icon className={cn('h-20 w-28', iconClassName)} />
+        <Icon className={cn('h-20pxr w-28pxr', iconClassName)} />
         <span className="flex-1 text-center">{text}</span>
       </button>
     </form>
