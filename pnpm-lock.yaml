@@ -164,6 +164,48 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
+  packages/playground/use-funnel-page-routing:
+    dependencies:
+      '@types/node':
+        specifier: 22.4.1
+        version: 22.4.1
+      '@types/react':
+        specifier: 18.3.3
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      '@use-funnel/next':
+        specifier: ^0.0.3
+        version: 0.0.3(next@14.2.5)(react@18.3.1)
+      autoprefixer:
+        specifier: 10.4.20
+        version: 10.4.20(postcss@8.4.41)
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
+      eslint-config-next:
+        specifier: 14.2.5
+        version: 14.2.5(eslint@9.9.0)(typescript@5.5.4)
+      next:
+        specifier: 14.2.5
+        version: 14.2.5(react-dom@18.3.1)(react@18.3.1)
+      postcss:
+        specifier: 8.4.41
+        version: 8.4.41
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+      tailwindcss:
+        specifier: 3.4.10
+        version: 3.4.10
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+
   packages/support/package-generator:
     dependencies:
       fs-extra:
@@ -12734,7 +12776,7 @@ packages:
       '@opentelemetry/api': 1.9.0
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001643
+      caniuse-lite: 1.0.30001651
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
@@ -12776,7 +12818,7 @@ packages:
       '@next/env': 14.2.5
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001643
+      caniuse-lite: 1.0.30001651
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
@@ -15406,7 +15448,7 @@ packages:
       '@webassemblyjs/wasm-parser': 1.12.1
       acorn: 8.12.1
       acorn-import-attributes: 1.9.5(acorn@8.12.1)
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.0
       es-module-lexer: 1.5.4
