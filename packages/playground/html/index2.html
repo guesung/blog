@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <body>
+    <div id="foo">Hello</div>
+  </body>
+  <script>
+    const $foo = document.getElementById('foo');
+    const $ui = document.createElement('ui');
+    for (const it of [1, 2, 3]) {
+      const $li = document.createElement('li');
+      const textNode = document.createTextNode(it + '번입니다.');
+      $li.appendChild(textNode);
+      $ui.appendChild($li);
+    }
+    $foo.appendChild($ui);
+  </script>
+</html>

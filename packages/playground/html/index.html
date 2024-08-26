@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ui id="fruits">
+      <li class="apple">Apple</li>
+      <li class="banana">Banana</li>
+      <li class="orange">Orange</li>
+    </ui>
+    <ui id="colors">
+      <li class="red"></li>
+      <li class="red"></li>
+      <li class="red"></li>
+    </ui>
+  </body>
+  <script>
+    const $fruits = document.querySelector('#fruits');
+    const $apple = document.querySelector('.apple');
+    const $banana = document.querySelector('.banana');
+    const $orange = document.querySelector('.apple');
+
+    console.log($apple.firstChild); // "    Apple"
+    console.log($apple.lastChild); // "    Apple"
+    console.log($apple.firstChild.nodeName); // #text
+    console.log($apple.firstChild.nodeValue); // Apple
+  </script>
+</html>
