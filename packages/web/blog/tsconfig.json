@@ -7,13 +7,26 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated"
   ],
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"],
-      "#*": ["public/*"],
-      "@contents": ["./.contentlayer/generated"]
-    }
+      "@*": [
+        "src/*"
+      ],
+      "#*": [
+        "public/*"
+      ],
+      "@contents": [
+        "./.contentlayer/generated"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   }
 }

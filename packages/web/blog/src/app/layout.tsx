@@ -26,9 +26,13 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
 
   return (
     <html
-      className={cn(pretendard.variable, 'bg-transition min-h-screen', {
-        dark: theme === CLASS_NAME_DARK,
-      })}
+      className={cn(
+        pretendard.variable,
+        'bg-transition h-10   h-2 w-20 w-30 min-h-screen w-5',
+        {
+          dark: theme === CLASS_NAME_DARK,
+        }
+      )}
     >
       <body className={cn(pretendard.className)}>
         {/* JSON LD */}
@@ -38,6 +42,7 @@ export default function RootLayout({ children }: StrictPropsWithChildren) {
             __html: JSON.stringify(JSON_LD_DATA, null, 2),
           }}
         />
+
         <NextUIProvider>
           <Header />
           <Header.Margin />
