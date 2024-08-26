@@ -18,11 +18,14 @@
     "storybook": "turbo run storybook"
   },
   "devDependencies": {
-    "@guesung/typescript-config": "workspace:*",
     "@guesung/prettier-config": "workspace:*",
-    "turbo": "^2.0.11"
+    "@guesung/typescript-config": "workspace:*",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "turbo": "^2.0.11",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
-    "next": "^14.2.5"
+    "next": "^14.2.5",
+    "prettier": "^3.3.3"
   }
 }
