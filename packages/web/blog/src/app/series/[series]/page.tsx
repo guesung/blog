@@ -1,31 +1,32 @@
 import { Layout } from '@components';
 import { matchingKorean } from '@constants';
-import { Content } from '@contents';
-import { Tag } from '@guesung/ui';
-import { Card } from '@nextui-org/react';
-import { getAllContents } from '@utils';
+import { DocumentTypes } from '@contents';
+import { Card, Link } from '@nextui-org/react';
+import { content } from '@utils';
+import { Chip } from '@nextui-org/react';
 
 interface pageProps {
   params: {
-    series: Content['series'];
+    series: DocumentTypes['series'];
   };
 }
 
 export default function page({ params: { series } }: pageProps) {
+  const contents = content.getAllContents;
   return (
     <Layout>
       <Layout.Title>{matchingKorean[series]}</Layout.Title>
       <Layout.Description>
         {matchingKorean[series]} 시리즈입니다
       </Layout.Description>
-      {getAllContents().map(({ tags, description, date }) => (
+      {contents.map(({ tags, description, date }) => (
         <Card>
-          <div className="flex text-blue-500 text-body2 gap-8pxr">
+          <div className="text-body2 gap-8pxr flex text-blue-500">
             {tags &&
               tags.map(tag => (
-                <Tag href={`/tags/${tag}`} key={tag}>
+                <Chip as={Link} href={`/tags/${tag}`} key={tag}>
                   {tag}
-                </Tag>
+                </Chip>
               ))}
           </div>
           <div className="text-body2">{description}</div>

@@ -2,7 +2,7 @@ import { Layout } from '@components';
 import { OUTER_ARTICLES_LIST } from '@constants';
 import { formatShowDate } from '@guesung/utils';
 import { Card, CardBody, Link } from '@nextui-org/react';
-import { getAllContents } from '@utils';
+import { content } from '@utils';
 import { compareDesc } from 'date-fns';
 import { Metadata } from 'next';
 
@@ -12,10 +12,12 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-  const mdxContentList = getAllContents().map(({ slug, series, ...rest }) => ({
-    href: `series/${series}/${slug}`,
-    ...rest,
-  }));
+  const mdxContentList = content.getAllContents.map(
+    ({ slug, series, ...rest }) => ({
+      href: `series/${series}/${slug}`,
+      ...rest,
+    })
+  );
   const allContentList = [...OUTER_ARTICLES_LIST, ...mdxContentList];
 
   // 날짜 순 정렬

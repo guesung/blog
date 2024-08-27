@@ -6,7 +6,7 @@ import {
   Toggle,
   Translation,
 } from '@components';
-import { Content } from '@contents';
+import { DocumentTypes } from '@contents';
 import { ClassNameType } from '@guesung/constants';
 import { cn, formatShowDate } from '@guesung/utils';
 
@@ -15,7 +15,7 @@ import Image, { ImageProps } from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-interface PostProps extends Content, ClassNameType {}
+interface PostProps extends DocumentTypes, ClassNameType {}
 
 interface CustomImageProps extends ImageProps {
   extension?: string;

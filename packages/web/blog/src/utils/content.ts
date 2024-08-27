@@ -1,65 +1,54 @@
-import { Content, DocumentTypes, allContents } from '@contents';
+import { DocumentTypes, allContents } from '@contents';
 import { compareDesc } from 'date-fns';
 
-//
+class Content {
+  contents: DocumentTypes[];
+  constructor() {
+    this.contents = allContents;
+    this.sortContentByDate();
+  }
+  // 날짜 순 정렬
+  sortContentByDate() {
+    return this.contents.sort((a, b) =>
+      compareDesc(new Date(a.date), new Date(b.date))
+    );
+  }
+  // 발행된 컨텐츠만 필터링
+  filterPublishedContents() {
+    return this.contents.filter(content => content.isPublished);
+  }
 
-export const sortContentByDate = (contents: DocumentTypes[]) =>
-  contents.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
-
-//
-
-const allContentsPublished = allContents.filter(content => content.isPublished);
-
-export const getAllContents = (): Content[] =>
-  sortContentByDate(allContentsPublished);
-
-export const getSeries = () =>
-  Array.from(
-    new Set(allContentsPublished.map(content => content.series))
-  ).filter(series => series);
-
-//
-
-interface GetContentBySlugProps {
-  slug?: string;
+  get getAllContents() {
+    return this.contents;
+  }
+  get getAllSeries(): DocumentTypes['series'][] {
+    return [...new Set(this.contents.map(content => content.series))].filter(
+      series => series
+    );
+  }
+  get getContentBySlug() {
+    return (slug: string) =>
+      this.contents.find(content => content.slug === slug);
+  }
+  get getSeriesCount() {
+    return (series: string) =>
+      this.contents.filter(content => content.series === series).length;
+  }
+  get getSeriesLastModified() {
+    return (series: string) => {
+      const contents = this.contents.filter(
+        content => content.series === series
+      );
+      return contents[contents.length - 1]?.lastModified ?? '';
+    };
+  }
+  get getAllTags() {
+    return [...new Set(this.contents.flatMap(content => content.tags))];
+  }
+  get getContentsByTag() {
+    return (tag: string) =>
+      this.contents.filter(content => content.tags?.includes(tag));
+  }
 }
 
-export const getContent = ({ slug }: GetContentBySlugProps): Content => {
-  const content = getAllContents().find(content => content.slug === slug);
-  if (!content) throw new Error(`Content not found for slug: ${slug}`);
-  return content;
-};
-
-//
-
-interface GetSeriesCountProps {
-  series: string;
-}
-
-export const getSeriesCount = ({ series }: GetSeriesCountProps) =>
-  getAllContents().filter(content => content.series === series).length;
-
-//
-
-interface GetSeriesLastModifiedProps {
-  series: string;
-}
-
-export const getSeriesLastModified = ({
-  series,
-}: GetSeriesLastModifiedProps) => {
-  const contents = getAllContents().filter(
-    content => content.series === series
-  );
-  return contents[contents.length - 1]?.lastModified ?? '';
-};
-
-//
-
-export const getAllTag = () =>
-  Array.from(new Set(allContentsPublished.flatMap(content => content.tags)));
-
-//
-
-export const getContentsByTag = (tag: string) =>
-  getAllContents().filter(content => content.tags?.includes(tag));
+export const content = new Content();

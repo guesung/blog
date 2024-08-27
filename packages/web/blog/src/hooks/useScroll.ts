@@ -10,11 +10,11 @@ export default function useScroll() {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      const totalY =
-        document.documentElement.scrollHeight - window.innerHeight;
-        setTotalY(totalY);
+      const totalY = document.documentElement.scrollHeight - window.innerHeight;
+      setTotalY(totalY);
       setScrollYPercentage((scrollY / totalY) * 100);
     };
+    // 100ms 마다 스크롤 위치 갱신
     const interaval = setInterval(handleScroll, 100);
     return () => {
       clearInterval(interaval);
@@ -24,6 +24,6 @@ export default function useScroll() {
   return {
     scrollY,
     totalY,
-    scrollYPercentage
+    scrollYPercentage,
   };
 }

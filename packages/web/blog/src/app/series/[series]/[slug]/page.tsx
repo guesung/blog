@@ -1,11 +1,11 @@
 import { MDXContent } from '@components';
-import { Content } from '@contents';
-import { getContent } from '@utils';
+import { DocumentTypes } from '@contents';
+import { content } from '@utils';
 import { Metadata, ResolvingMetadata } from 'next';
 
 interface PageProps {
   params: {
-    series: Content['series'][];
+    series: DocumentTypes['series'][];
     slug: string;
   };
 }
@@ -16,25 +16,27 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const slug = params.slug;
 
-  const content = getContent({
-    slug,
-  });
+  const contents = content.getContentBySlug(slug);
+
+  if (!contents) {
+    throw new Error(`Content not found: ${slug}`);
+  }
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: content.title,
+    title: contents.title,
     openGraph: {
-      images: [content.coverSrc, ...previousImages],
+      images: [contents.coverSrc, ...previousImages],
     },
-    description: content.description ?? '',
+    description: contents.description ?? '',
   };
 }
 
 export default function page({ params: { slug } }: PageProps) {
-  const content = getContent({
-    slug,
-  });
+  const contents = content.getContentBySlug(slug);
 
-  return <MDXContent {...content} />;
+  if (!contents) return null;
+
+  return <MDXContent {...contents} />;
 }
