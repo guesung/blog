@@ -1,20 +1,17 @@
-import { DirectionEnum } from '@guesung/constants';
-
 interface SpacingProps extends React.HTMLAttributes<HTMLDivElement> {
   size: number;
-  direction?: DirectionEnum;
+  direction?: 'vertical' | 'horizontal';
 }
 
 export default function Spacing({
   size,
-  direction = DirectionEnum.vertical,
+  direction = 'vertical',
   ...props
 }: SpacingProps) {
   return (
     <div
       style={{
-        [direction === DirectionEnum.vertical ? 'height' : 'width']:
-          size + 'px',
+        [direction === 'vertical' ? 'height' : 'width']: size + 'px',
       }}
       {...props}
     />
