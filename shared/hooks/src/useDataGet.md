@@ -6,7 +6,7 @@
 
 ```js
 const { data, status } = useDataGet({
-  fn: () => customFetchGet(MOCK_SERVER_URL),
+  fn: () => customFetchGet(MOCK_DATA_API_URL),
   initialData: serverData,
   trigger: [switchValue],
   onSuccess: data => {

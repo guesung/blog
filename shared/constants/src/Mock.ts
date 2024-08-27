@@ -1,4 +1,4 @@
-export const MOCK_SERVER_URL = 'https://dummyjson.com/products';
+export const MOCK_DATA_API_URL = 'https://dummyjson.com/products';
 
 export interface MOCK_DATA {
   limit: number;
