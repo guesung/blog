@@ -8,28 +8,36 @@ import BulbIcon from '#images/icons/bulb.svg';
 import PointerDownIcon from '#images/icons/pointer_down.svg';
 import PointerUpIcon from '#images/icons/pointer_up.svg';
 
+type CalloutType = 'info' | 'plus' | 'minus';
+
 interface CalloutProps {
-  type: 'info' | 'plus' | 'minus';
+  type: CalloutType;
   title: string;
   initialOpen?: boolean;
 }
 
-const icons = {
-  info: <BulbIcon className="h-24 w-24" />,
-  plus: <PlusIcon className="h-16 w-16" />,
-  minus: <MinusIcon className="h-16 w-16" />,
+const iconMap = {
+  info: <BulbIcon className="h-24pxr w-24pxr" />,
+  plus: <PlusIcon className="h-16pxr w-16pxr" />,
+  minus: <MinusIcon className="h-16pxr w-16pxr" />,
+};
+
+const styleMap = {
+  info: 'border-yellow-500 bg-yellow-50 text-yellow-900 dark:bg-yellow-800',
+  plus: 'border-blue-500 bg-blue-100 text-blue-900 dark:bg-blue-950',
+  minus: 'border-pink-500 bg-pink-100 text-pink-900 dark:bg-pink-950',
 };
 
 export default function Callout({
   type = 'info',
   title,
   children,
-  initialOpen = false,
+  initialOpen = true,
 }: PropsWithChildren<CalloutProps>) {
-  const [isOpen, setIsOpen] = useState(initialOpen);
+  const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const toggleOpen = () => setIsOpen(!isOpen);
+  const toggleOpen = () => setIsOpen(prev => !prev);
 
   const handleCalloutClick = () => {
     const calloutScroll = ref.current?.getBoundingClientRect().top;
@@ -48,29 +56,22 @@ export default function Callout({
   return (
     <div
       className={cn(
-        {
-          'border-yellow-500 bg-yellow-50 text-yellow-900 dark:bg-yellow-800':
-            type === 'info',
-          'border-blue-500 bg-blue-100 text-blue-900 dark:bg-blue-950':
-            type === 'plus',
-          'border-pink-500 bg-pink-100 text-pink-900 dark:bg-pink-950':
-            type === 'minus',
-        },
-        'rounded-16 my-16 px-16 py-12'
+        'rounded-16 px-16pxr py-12pxr my-16pxr rounded-lg',
+        styleMap[type]
       )}
       ref={ref}
     >
       <div
-        className="flex cursor-pointer items-center justify-between gap-8pxr"
+        className="gap-8pxr flex cursor-pointer items-center justify-between"
         onClick={handleCalloutClick}
       >
         <div className="flex items-center">
-          {icons[type]}
+          {iconMap[type]}
           <span className="text-body2 font-bold">{title}</span>
         </div>
         {isOpen ? <PointerDownIcon width="32" /> : <PointerUpIcon width="32" />}
       </div>
-      {isOpen && <div>{children}</div>}
+      <div className={cn({ hidden: !isOpen })}>{children}</div>
     </div>
   );
 }
