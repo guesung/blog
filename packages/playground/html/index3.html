@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <style>
+    #box {
+      margin-left: 100px;
+    }
+  </style>
+  <body>
+    <div
+      id="box"
+      style="width: 100px; background-color: black; height: 100px"
+    ></div>
+  </body>
+  <script>
+    const box = document.getElementById('box');
+    console.log(window.getComputedStyle(box));
+    console.log(window.getComputedStyle(box)['margin-left']);
+  </script>
+</html>
