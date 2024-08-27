@@ -19,12 +19,6 @@ export default function GuestbookUserInfo({
             }}
           />
         )}
-
-        <div>
-          <p>{user?.name}</p>
-          <p>{user?.email}</p>
-        </div>
-
         <form
           action={async () => {
             'use server';
