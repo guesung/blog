@@ -4,10 +4,10 @@ import { Link, Navbar } from '@nextui-org/react';
 import { cookies } from 'next/headers';
 
 const NAV_LINK_PROPS_LIST = [
-  // {
-  //   href: '/blog',
-  //   children: 'Blog',
-  // },
+  {
+    href: '/blog',
+    children: 'Blog',
+  },
   {
     href: '/guestbook',
     children: 'Guestbook',
@@ -24,11 +24,11 @@ export default function Header() {
   const theme = cookies().get(COOKIE_KEY_THEME)?.value as Theme;
 
   return (
-    <Navbar shouldHideOnScroll>
+    <Navbar shouldHideOnScroll className="base">
       <Link href="/" color="foreground">
         {DATA.blog.name}
       </Link>
-      <div className="flex items-center gap-8pxr">
+      <div className="gap-8pxr flex items-center">
         {NAV_LINK_PROPS_LIST.map(props => (
           <Link {...props} color="foreground" />
         ))}

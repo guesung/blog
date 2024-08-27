@@ -1,7 +1,6 @@
 import { Layout } from '@components';
 import { OUTER_ARTICLES_LIST } from '@constants';
-import { Content } from '@contents';
-import { formatDate, formatShowDate } from '@guesung/utils';
+import { formatShowDate } from '@guesung/utils';
 import { Card, CardBody, Link } from '@nextui-org/react';
 import { getAllContents } from '@utils';
 import { compareDesc } from 'date-fns';
@@ -43,9 +42,9 @@ export default function page() {
       <Layout.Description>{metadata.description}</Layout.Description>
       <div className="flex flex-col gap-4">
         {yearList.map(year => (
-          <div className="flex gap-12pxr" key={year}>
+          <div className="gap-12pxr flex" key={year}>
             <span className="flex items-center justify-center">{year}</span>
-            <div className="flex flex-col flex-1 gap-4">
+            <div className="flex flex-1 flex-col gap-4">
               {allContentList
                 .filter(
                   content => new Date(content.date).getFullYear() === year

@@ -2,29 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* MDXContent */
 .prose {
+  /* code */
   pre {
-    @apply px-0 py-10;
+    @apply py-10pxr rounded-16pxr px-0;
   }
   pre code > span {
-    @apply px-10;
+    @apply px-10pxr;
   }
   pre code > span.data-highlighted-line {
     @apply bg-slate-200;
   }
   img {
-    @apply my-0 rounded-16pxr;
+    @apply rounded-16pxr my-0;
   }
   .data-highlighted-line {
     @apply bg-slate-200;
   }
 
   code[data-line-numbers-max-digits='2'] > span[data-line]::before {
-    width: 1rem;
+    width: 16pxr;
   }
 
   code[data-line-numbers-max-digits='3'] > span[data-line]::before {
-    width: 1.5rem;
+    width: 24pxr;
   }
 
   code > span[data-line]::before {
@@ -41,10 +43,10 @@
   }
 
   :not(pre) > code {
-    @apply break-words rounded-16pxr bg-slate-200 px-8pxr py-4pxr;
+    @apply rounded-16pxr px-8pxr py-4pxr break-words bg-slate-200;
   }
   h1 {
-    @apply border-b-1 border-solid border-slate-200 pb-8pxr;
+    @apply border-b-1pxr pb-8pxr border-solid border-slate-200;
   }
 
   code > [data-line]::before {
@@ -60,7 +62,7 @@
 
   [data-rehype-pretty-code-figure] {
     & {
-      @apply border-1 rounded-16pxr border-slate-200;
+      @apply border-1pxr rounded-16pxr border-slate-200;
     }
     code {
       counter-reset: line;
@@ -69,8 +71,9 @@
       @apply text-body3 py-8pxr indent-8pxr;
     }
     pre {
-      & {
-        @apply border-b-1 rounded-16pxr border-slate-200;
+      :root,
+      [data-theme] & {
+        @apply border-b-1pxr rounded-16pxr border-slate-200;
       }
       [data-highlighted-line] {
         @apply bg-slate-900;
@@ -147,10 +150,11 @@ svg {
   --success: #2ecc71;
   --warning: #f39c12;
   --error: #e74c3c;
+  --yellow: #282828;
 }
 
 @layer base {
-  .bg-transition {
-    @apply bg-white-1 transition-colors duration-200;
+  .base {
+    @apply bg-white-1 text-black-1 transition duration-200;
   }
 }

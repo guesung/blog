@@ -23,9 +23,9 @@ const iconMap = {
 };
 
 const styleMap = {
-  info: 'border-yellow-500 bg-yellow-50 text-yellow-900 dark:bg-yellow-800',
-  plus: 'border-blue-500 bg-blue-100 text-blue-900 dark:bg-blue-950',
-  minus: 'border-pink-500 bg-pink-100 text-pink-900 dark:bg-pink-950',
+  info: 'border-yellow-500 text-yellow-900',
+  plus: 'border-blue-500 text-blue-900',
+  minus: 'border-pink-500 text-pink-900',
 };
 
 export default function Callout({
@@ -34,7 +34,7 @@ export default function Callout({
   children,
   initialOpen = true,
 }: PropsWithChildren<CalloutProps>) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const ref = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => setIsOpen(prev => !prev);
@@ -56,7 +56,7 @@ export default function Callout({
   return (
     <div
       className={cn(
-        'rounded-16 px-16pxr py-12pxr my-16pxr rounded-lg',
+        'rounded-16 px-16pxr py-12pxr my-16pxr bg-gray-2 rounded-lg',
         styleMap[type]
       )}
       ref={ref}
@@ -65,7 +65,7 @@ export default function Callout({
         className="gap-8pxr flex cursor-pointer items-center justify-between"
         onClick={handleCalloutClick}
       >
-        <div className="flex items-center">
+        <div className="gap-12pxr flex items-center">
           {iconMap[type]}
           <span className="text-body2 font-bold">{title}</span>
         </div>

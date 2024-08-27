@@ -14,9 +14,9 @@ export default function CodeBlock({ children }: PropsWithChildren) {
     <div className="relative">
       <pre data-theme="one-dark-pro" className="relative m-0" ref={ref}>
         {children}
-        <div className="absolute bottom-20 right-20">
+        <div className="bottom-16pxr right-16pxr absolute">
           <CopyIcon
-            className="h-20 w-20 cursor-pointer"
+            className="h-20pxr w-20pxr cursor-pointer"
             onClick={handleCopyClick}
           />
         </div>
