@@ -8,10 +8,10 @@ const NAV_LINK_PROPS_LIST = [
     href: '/blog',
     children: 'Blog',
   },
-  {
-    href: '/guestbook',
-    children: 'Guestbook',
-  },
+  // {
+  //   href: '/guestbook',
+  //   children: 'Guestbook',
+  // },
   {
     href: 'https://guesung.notion.site',
     children: 'Note',
