@@ -1,13 +1,13 @@
 import { auth, getSupabaseClient } from '@utils';
 
 export async function GET() {
-  const supabase = getSupabaseClient('guestbook');
+  const supabase = getSupabaseClient({ schema: 'guestbook' });
   const response = await supabase.from('guestbook').select();
   return Response.json(response);
 }
 
 export async function POST(request: Request) {
-  const supabase = getSupabaseClient('guestbook');
+  const supabase = getSupabaseClient({ schema: 'guestbook' });
   const body = await request.json();
 
   const session = await auth();

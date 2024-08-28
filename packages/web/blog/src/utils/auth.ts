@@ -19,30 +19,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async signIn({ user }) {
       const publicSupabase = getSupabaseClient();
-      const nextAuthSupabase = getSupabaseClient('next_auth');
+      const nextAuthSupabase = getSupabaseClient({ schema: 'next_auth' });
 
-      // if (user.imageFile) return true;
+      if (user.imageFile) return true;
 
       // 카카오 이미지 URL 로부터 이미지 파일을 가져온다.
-      const image = await getImageFromImageURL(user.image);
+      const imageFile = await getImageFromImageURL(user.image);
 
       // 이미지 파일을 Supabase Storage에 업로드한다.
-      const { data: storageImageData, error: stoageImageError } =
-        await publicSupabase.storage
-          .from('avatar')
-          .upload(`${user.id}.png`, image);
+      await publicSupabase.storage
+        .from('avatar')
+        .upload(`${user.id}.png`, imageFile);
 
       // Supabase Storage에 업로드한 이미지를 url로 가져온다.
-      const { data: storageImageURL, error: storageImageURLError } =
-        await publicSupabase.storage
-          .from('avatar')
-          .createSignedUrl(`${user.id}.png`, 60 * 60 * 24 * 365);
+      const { data: storageImageURL } = await publicSupabase.storage
+        .from('avatar')
+        .createSignedUrl(`${user.id}.png`, 60 * 60 * 24 * 365);
 
       // 가져온 이미지 URL을 users.imageFile에 업데이트한다.
-
       if (!storageImageURL) return true;
 
-      const { data, error } = await nextAuthSupabase
+      await nextAuthSupabase
         .from('users')
         .update({ imageFile: storageImageURL.signedUrl })
         .eq('id', user.id)
