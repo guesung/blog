@@ -16,9 +16,9 @@ const nextConfig = {
         hostname: 'source.unsplash.com',
       },
       {
-        protocol: 'http',
-        hostname: 't1.kakaocdn.net',
-        pathname: '/account_images/**',
+        protocol: 'https',
+        hostname: 'dkvkuccnkiaigwbvjmks.supabase.co',
+        pathname: '/storage/v1/object/**',
       },
     ],
   },

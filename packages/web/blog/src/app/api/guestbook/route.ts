@@ -13,14 +13,8 @@ export async function POST(request: Request) {
   const session = await auth();
   if (!session || !session.user) return Response.redirect('/guestbook');
 
-  const {
-    user: { email, image, name },
-  } = session;
-
   const response = await supabase.from('guestbook').insert({
-    email,
-    image,
-    name,
+    ...session.user,
     message: body.message,
     id: new Date(),
   });
