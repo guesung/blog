@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script>
+    const $container = document.getElementById('container');
+    const numberArray = new Array(10).fill().map((_, i) => i + 1);
+
+    for (const it of numberArray) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      $container.appendChild(box);
+    }
+  </script>
+</html>
