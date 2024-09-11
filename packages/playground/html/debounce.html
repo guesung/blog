@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: black;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script>
+    const $box = document.getElementById('box');
+
+    let timer;
+    const debounce = func => () => {
+      if (timer) clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        func();
+      }, 1000);
+    };
+
+    const handleClick = () => {
+      console.log('hello');
+    };
+
+    $box.onclick = debounce(handleClick);
+  </script>
+</html>

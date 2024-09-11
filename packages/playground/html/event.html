@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: black;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script>
+    const $box = document.getElementById('box');
+
+    function handleClick(name) {
+      console.log(name);
+    }
+
+    $box.onclick = () => {
+      handleClick('박규성');
+    };
+  </script>
+</html>

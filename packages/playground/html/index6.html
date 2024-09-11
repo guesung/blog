@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <body>
+    <ul id="box">
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ul>
+  </body>
+  <script>
+    function changeChildClass(e) {
+      if (!e.target.matches('#box > li'));
+
+      console.log(e.target, e.currentTarget); // li, ul#box
+
+      for (const $li of [...e.currentTarget.children]) {
+        if ($li === e.target) $li.classList.add('active');
+        else $li.classList.remove('active');
+      }
+    }
+    const $box = document.getElementById('box');
+    $box.onclick = changeChildClass;
+  </script>
+</html>
