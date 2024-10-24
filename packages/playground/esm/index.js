@@ -1,2 +1,1 @@
-// console.log(process.env.A);
-console.log(import.meta);
+console.log(process.env.A);
