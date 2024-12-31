@@ -1,5 +1,4 @@
 import { Layout } from '@components';
-import { OUTER_ARTICLES_LIST } from '@constants';
 import { formatShowDate } from '@guesung/utils';
 import { Card, CardBody, Link } from '@nextui-org/react';
 import { content } from '@utils';
@@ -12,29 +11,28 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-  const mdxContentList = content.getAllContents.map(
-    ({ slug, series, ...rest }) => ({
+  const mdxContentList = content.getAllContents
+    .map(({ slug, series, ...rest }) => ({
       href: `series/${series}/${slug}`,
       ...rest,
-    })
-  );
-  const allContentList = [...OUTER_ARTICLES_LIST, ...mdxContentList];
+    }))
+    .filter(({ isPublished }) => isPublished);
 
   // 날짜 순 정렬
-  allContentList.sort((a, b) =>
+  mdxContentList.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
   // 연도 추출
   const yearList = [
     ...new Set(
-      allContentList.map(content => new Date(content.date).getFullYear())
+      mdxContentList.map(content => new Date(content.date).getFullYear())
     ),
   ];
   yearList.sort((a, b) => b - a);
 
   // 전체 글 수
-  const contentCount = allContentList.length;
+  const contentCount = mdxContentList.length;
 
   return (
     <Layout>
@@ -47,7 +45,7 @@ export default function page() {
           <div className="gap-12pxr flex" key={year}>
             <span className="flex items-center justify-center">{year}</span>
             <div className="flex flex-1 flex-col gap-4">
-              {allContentList
+              {mdxContentList
                 .filter(
                   content => new Date(content.date).getFullYear() === year
                 )
