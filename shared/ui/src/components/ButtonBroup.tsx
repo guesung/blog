@@ -1,7 +1,7 @@
-import { StrictPropsWithChildren } from '@guesung/constants';
+import { PropsWithChildren } from 'react';
 
-interface ButtonBroupProps extends StrictPropsWithChildren {}
+interface ButtonBroupProps extends PropsWithChildren {}
 
 export default function ButtonBroup({ children }: ButtonBroupProps) {
-  return <div className="flex gap-12pxr">{children}</div>;
+  return <div className="gap-12pxr flex">{children}</div>;
 }

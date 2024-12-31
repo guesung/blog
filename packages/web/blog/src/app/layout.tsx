@@ -6,10 +6,10 @@ import './globals.css';
 import { NextUIProvider } from '@nextui-org/react';
 import { CLASS_NAME_DARK, COOKIE_KEY_THEME, metadata, Theme } from '@constants';
 import { JSON_LD_DATA } from '@constants/JsonLd';
-import { StrictPropsWithChildren } from '@guesung/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import { Footer, Header } from './components';
+import { PropsWithChildren } from 'react';
 
 export { metadata };
 
@@ -20,7 +20,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export default function RootLayout({ children }: StrictPropsWithChildren) {
+export default function RootLayout({ children }: PropsWithChildren) {
   const cookieStore = cookies();
   const theme = cookieStore.get(COOKIE_KEY_THEME)?.value as Theme;
 
